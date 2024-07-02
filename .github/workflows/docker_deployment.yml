@@ -6,7 +6,7 @@ on:
       - docker-setup
 
 jobs:
-  Docker-CD:
+  Docker-CD-PROD:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,8 +22,8 @@ jobs:
       - name: Build and push Docker images
         working-directory: ./frontend/ui
         run: |
-          docker compose build --no-cache
-          docker compose push
+          docker compose -f docker-compose.prod.yml build
+          docker compose -f docker-compose.prod.yml push
 
       - name: SSH into production server and deploy
         uses: appleboy/ssh-action@master
@@ -33,6 +33,6 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd /var/www/pawsitivecollar.com/Pawsitive/frontend/ui
-            docker compose down
-            docker compose pull
-            docker compose up -d
+            docker compose -f docker-compose.prod.yml down
+            docker compose -f docker-compose.prod.yml pull
+            docker compose -f docker-compose.prod.yml up -d

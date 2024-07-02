@@ -1,11 +1,4 @@
 services:
-  nextjs_test:
-    container_name: nextjs_test
-    image: dezsoab/nextjs_test
-    build: ./
-    environment:
-      - NODE_ENV=test
-
   nextjs_prod:
     container_name: nextjs_prod
     image: dezsoab/nextjs_prod
@@ -25,7 +18,7 @@ services:
     ports:
       - 80:80
       - 443:443
-
+      
   certbot:
     container_name: certbot
     image: certbot/certbot
