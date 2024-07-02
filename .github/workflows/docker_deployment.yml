@@ -1,9 +1,10 @@
 name: Docker Deployment
 
 on:
-  push:
+  pull_request:
     branches:
-      - docker-setup
+      - prod
+    types: [closed]
 
 jobs:
   Docker-CD-PROD:
