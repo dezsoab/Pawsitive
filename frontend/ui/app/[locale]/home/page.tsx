@@ -11,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <h1>{t("Index.title")}</h1>
       <LanguagePicker />
+      <p>Check to see if changes on UI get deployed correctly</p>
     </main>
   );
 }
