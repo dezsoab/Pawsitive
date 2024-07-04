@@ -1,0 +1,28 @@
+services:
+  nextjs_prod:
+    container_name: nextjs_prod
+    image: dezsoab/nextjs_prod
+    build: ./
+    environment:
+      - NODE_ENV=production
+
+  nginx:
+    container_name: nginx
+    image: dezsoab/nginx
+    build: ./nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    ports:
+      - 80:80
+      - 443:443
+      
+  certbot:
+    container_name: certbot
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email binderdezso97@gmail.com -d pawsitivecollar.com --agree-tos
