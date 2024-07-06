@@ -3,10 +3,21 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 4rem 5rem 0 5rem;
-  position: absolute;
+  padding: 0.7rem 5rem;
+  position: fixed;
   width: 100%;
-  z-index: 3;
+  z-index: 5;
+  transition: 0.2s all ease-in;
+}
+
+.navBar.scrolled {
+  background-color: var(--color-pink-light);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navBar.navBar.scrolled img {
+  width: 50px;
+  height: 50px;
 }
 
 .navBar ul {
@@ -29,13 +40,17 @@
 
 .navBar ul li a::before {
   content: "";
-  height: 2px;
+  height: 3px;
   width: 70%;
   position: absolute;
   bottom: 0;
   left: -100%;
   background-color: pink;
   transition: all 0.4s ease;
+}
+
+.navBar.scrolled ul li a::before {
+  background-color: var(--color-white);
 }
 
 .navBar ul li a:hover::before {
