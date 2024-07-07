@@ -1,0 +1,25 @@
+{
+  "Locale": "en",
+  "Index": {
+    "title": "Hand Crafted Pet Accessories",
+    "title_extension": "with attached NFC technology",
+    "description": "Discover unique pet accessories meticulously crafted with embedded NFC technology, combining style with advanced functionality."
+  },
+  "About": {
+    "title": "About Pawsitive  Collar!"
+  },
+  "Contact": {
+    "title": "Contact page!"
+  },
+  "Shop": {
+    "title": "Web shop page!",
+    "title_secondary": "Explore Shop",
+    "description": "Get your Pawsitive Collar"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "shop": "Shop"
+  }
+}

@@ -1,0 +1,47 @@
+.navBar {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4rem 5rem 0 5rem;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+}
+
+.navBar ul {
+  display: flex;
+  gap: 10rem;
+  font-size: 2.4rem;
+  list-style: none;
+}
+
+.navBar ul li {
+  overflow: hidden;
+  padding: 0.3rem 1rem;
+}
+
+.navBar ul li a {
+  color: var(--color-white);
+  text-decoration: none;
+  position: relative;
+}
+
+.navBar ul li a::before {
+  content: "";
+  height: 2px;
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  background-color: pink;
+  transition: all 0.4s ease;
+}
+
+.navBar ul li a:hover::before {
+  left: -10%;
+}
+
+.navBar img {
+  border-radius: 50%;
+}
