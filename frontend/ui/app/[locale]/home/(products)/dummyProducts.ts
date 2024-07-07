@@ -1,4 +1,4 @@
- // these should be fetched later once defined
+// these should be fetched later once defined
 export const dummyProducts = [
   {
     id: 1,
