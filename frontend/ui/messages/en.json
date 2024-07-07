@@ -9,6 +9,10 @@
     "products": {
       "title": "Explore the most loved Pet Products!",
       "title_secondary": "Take a look at our stunning collection of handcrafted pet products and find the the perfect match for your furry friend."
+    },
+    "testimonial": {
+      "title": "I love the pease of mind that comes with knowing my pet's information is always accessible. The quality and design is also lovely! Pawsitive Collar has truly thought of everything!",
+      "customer_adjective": "Happy Customer"
     }
   },
   "About": {

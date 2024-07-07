@@ -9,6 +9,10 @@
     "products": {
       "title": "Fedezze fel legkedveltebb termékeinket!",
       "title_secondary": "Tekintse meg kézzel készített kollekciónkat, és találja meg a tökéletes ajándékot kedvencének."
+    },
+    "testimonial": {
+      "title": "Szeretem a nyugalmat, amit az ad, hogy tudom, a háziállatom adatai mindig elérhetők. A minőség és a design is csodálatos! A Pawsitive Collar valóban mindenre gondolt!",
+      "customer_adjective": "Elégedett Vásárló"
     }
   },
   "About": {

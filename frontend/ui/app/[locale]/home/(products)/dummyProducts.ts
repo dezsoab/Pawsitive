@@ -45,7 +45,7 @@ export const dummyProducts = [
   {
     id: 8,
     title: "Product 8",
-    image: "/assets/collar1.jpeg",
+    image: "/assets/collar6.jpeg",
     description: "Description for Product 8",
   }
 ];
