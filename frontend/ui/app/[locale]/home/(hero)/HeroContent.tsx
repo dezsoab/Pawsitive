@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./home.module.css";
-import CTAButton from "../../../components/cta/CTAButton";
+import CTAButton from "../../../../components/cta/CTAButton";
 import { useLocale, useTranslations } from "next-intl";
 
 const HeroContent = () => {
