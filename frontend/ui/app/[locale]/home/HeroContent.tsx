@@ -12,11 +12,11 @@ const HeroContent = () => {
     <div className={styles.heroContent}>
       <div>
         <h1>
-          {t("Index.title")} <br />{" "}
+          {t("Index.hero.title")} <br />{" "}
         </h1>
-        <p>{t("Index.title_extension")}</p>
+        <p>{t("Index.hero.title_extension")}</p>
       </div>
-      <p>{t("Index.description")}</p>
+      <p>{t("Index.hero.description")}</p>
       <CTAButton
         toPath="shop"
         title={t("Shop.title_secondary")}

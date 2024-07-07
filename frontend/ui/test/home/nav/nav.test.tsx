@@ -3,13 +3,13 @@ import "@testing-library/jest-dom";
 import renderWithIntl from "../../util/language/render-with-intl";
 import Navigation from "../../../components/navigation/Navbar";
 import locales from "../../util/language/locales";
-import { mockNextNavigation } from "../../util/mocks/next-navigation";
 
 describe("Navigation tests", () => {
   beforeAll(() => {
     // Mock Next.js navigation features
-    jest.mock("next/navigation", () => mockNextNavigation);
+    // jest.mock("next/router", () => require("next-router-mock"));
   });
+  // jest.mock("next/navigation", () => mockNextNavigation());
 
   for (const [locale, { messages }] of Object.entries(locales)) {
     describe(`Locale: ${locale}`, () => {

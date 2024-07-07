@@ -5,7 +5,13 @@ import { useRouter } from "next/navigation";
 import { locales } from "../../i18n";
 import { useState } from "react";
 
-export default function LanguagePicker() {
+import styles from "./LanguagePicker.module.css";
+
+export default function LanguagePicker({
+  isScrolled,
+}: {
+  isScrolled: boolean;
+}) {
   const router = useRouter();
   const locale = useLocale();
   const [loc, setLoc] = useState(locale);
@@ -14,7 +20,7 @@ export default function LanguagePicker() {
     const { pathname, search, hash } = window.location;
     const pathSegments = pathname.split("/");
 
-    // The locale is assumed to be the second segment in the URL
+    // The locale is assumed to be the second segment in the URL (paw.com/en)
     if (pathSegments[1]) {
       pathSegments[1] = newLocale;
     } else {
@@ -26,6 +32,7 @@ export default function LanguagePicker() {
     const newUrl = `${newPathname}${search}${hash}`;
 
     router.push(newUrl);
+    router.refresh();
   };
 
   const handleLocaleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -34,11 +41,20 @@ export default function LanguagePicker() {
     changeLanguage(newLocale);
   };
 
+  if (isScrolled) {
+    return null;
+  }
+
   return (
-    <select name="Choose language" value={loc} onChange={handleLocaleChange}>
+    <select
+      name="Choose language"
+      value={loc}
+      onChange={handleLocaleChange}
+      className={styles.select}
+    >
       {locales.map((lang) => (
         <option key={lang} value={lang}>
-          {lang}
+          {lang.toLocaleUpperCase()}
         </option>
       ))}
     </select>

@@ -1,9 +1,15 @@
 {
   "Locale": "de",
   "Index": {
-    "title": "Handgefertigte Haustierzubehör",
-    "title_extension": "mit integrierter NFC-Technologie",
-    "description": "Entdecken Sie einzigartige Haustierzubehör, die sorgfältig mit eingebetteter NFC-Technologie gefertigt wurden, und Stil mit fortschrittlicher Funktionalität kombinieren."
+    "hero": {
+      "title": "Handgefertigte Haustierzubehör",
+      "title_extension": "mit integrierter NFC-Technologie",
+      "description": "Entdecken Sie einzigartige Haustierzubehör, die sorgfältig mit eingebetteter NFC-Technologie gefertigt wurden, und Stil mit fortschrittlicher Funktionalität kombinieren."
+    },
+    "products": {
+      "title": "Entdecken Sie die beliebtesten Haustierprodukten!",
+      "title_secondary": "Schauen Sie sich unsere atemberaubende Kollektion handgefertigter Haustierprodukten an und finden Sie das perfekte Item für Ihren pelzigen Freund."
+    }
   },
   "About": {
     "title": "Über Pawsitive Collar!"

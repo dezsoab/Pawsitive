@@ -11,6 +11,7 @@
   --color-grey: #f4f4f4;
   --color-pink-light: #f08e80;
   --color-pink-dark: #e27d6e;
+  --rounding: 5px;
 }
 
 /* Convert px to rem => 10px to one rem */

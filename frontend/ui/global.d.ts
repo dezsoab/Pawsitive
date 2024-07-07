@@ -1,5 +1,5 @@
-type Messages = typeof import("./messages/en.json")
+type ENMessages = typeof import("./messages/en.json")
 type DEMessages = typeof import("./messages/de.json")
-type DEMessages = typeof import("./messages/hu.json")
+type HUMessages = typeof import("./messages/hu.json")
 
-declare interface IntlMessages extends Messages,DEMessages{}
+declare interface IntlMessages extends HUMessages,ENMessages,DEMessages{}
