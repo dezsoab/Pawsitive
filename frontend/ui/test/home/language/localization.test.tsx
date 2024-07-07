@@ -1,6 +1,5 @@
 import "@testing-library/jest-dom";
 import locales from "../../util/language/locales";
-import { mockNextNavigation } from "@/test/util/mocks/next-navigation";
 import renderWithIntl from "@/test/util/language/render-with-intl";
 import HeroContent from "@/app/[locale]/home/HeroContent";
 import { screen } from "@testing-library/react";
