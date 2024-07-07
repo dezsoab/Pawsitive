@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 const renderWithIntl = (
   ui: React.ReactElement,
   locale: string,
-  messages: Messages
+  messages: ENMessages
 ) => {
   return render(
     <NextIntlClientProvider locale={locale} messages={messages}>
