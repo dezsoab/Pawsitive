@@ -1,9 +1,15 @@
 {
   "Locale": "hu",
   "Index": {
-    "title": "Kézzel készített kisállat kiegészítők",
-    "title_extension": "beépített NFC technológiával",
-    "description": "Fedezd fel az egyedi kisállat kiegészítőket, amelyeket gondosan beágyazott NFC technológiával készítettek, ötvözve a stílust a fejlett funkcionalitással."
+    "hero": {
+      "title": "Kézzel készített kisállat kiegészítők",
+      "title_extension": "beépített NFC technológiával",
+      "description": "Fedezd fel az egyedi kisállat kiegészítőket, amelyeket gondosan beágyazott NFC technológiával készítettek, ötvözve a stílust a fejlett funkcionalitással."
+    },
+    "products": {
+      "title": "Fedezze fel legkedveltebb termékeinket!",
+      "title_secondary": "Tekintse meg kézzel készített kollekciónkat, és találja meg a tökéletes ajándékot kedvencének."
+    }
   },
   "About": {
     "title": "A Pawsitive Collar-ról!"

@@ -1,0 +1,25 @@
+.products {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.products > h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.products > h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  max-width: 1000px;
+}
+
+.divider {
+  height: 1px;
+  width: 4%;
+  border: 0.5px solid black;
+  margin: 5rem 0;
+}

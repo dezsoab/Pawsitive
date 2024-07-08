@@ -1,7 +1,7 @@
 .ctaBtn {
   font-size: 2rem;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--rounding);
   padding: 1rem 2.3rem;
   transition: all 0.1s linear;
 }
