@@ -17,6 +17,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  transition: all 0.3s ease;
 }
 
 .product_card h3 {
@@ -39,4 +40,8 @@
 
 .product_card:hover h3 {
   opacity: 1;
+}
+
+.product_card:hover img {
+  scale: 1.3;
 }
