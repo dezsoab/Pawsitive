@@ -1,0 +1,19 @@
+.reason {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reason:not(:last-child) {
+  margin-right: 15rem;
+}
+
+.amount {
+  font-size: var(--font-huge);
+  font-weight: 600;
+}
+
+.desc {
+  font-size: var(--font-paragraph);
+}
