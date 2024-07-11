@@ -18,7 +18,7 @@ const CTASection = () => {
           style={{
             backgroundColor: "var(--color-pink-mid)",
             color: "var(--color-white)",
-            "margin-right": "1rem",
+            marginRight: "1rem",
           }}
           title={t("Navigation.shop")}
         />
@@ -38,11 +38,3 @@ const CTASection = () => {
 };
 
 export default CTASection;
-
-// toPath="shop"
-//         title={t("Shop.title_secondary")}
-//         style={{
-//           backgroundColor: "var(--color-pink-light)",
-//           color: "var(--color-white)",
-//         }}
-//         locale={locale}

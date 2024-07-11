@@ -1,15 +1,20 @@
 import "@testing-library/jest-dom";
-import renderWithIntl from "@/test/util/language/render-with-intl";
 import { fireEvent, screen, waitFor } from "@testing-library/react";
 import ProductSection from "@/app/[locale]/home/(products)/ProductSection";
 import locales from "@/test/util/language/locales";
 import { dummyProducts } from "@/app/[locale]/home/(products)/dummyProducts";
 import ProductGrid from "../../../app/[locale]/home/(products)/ProductGrid";
+import { setup } from "@/test/util/mocks/mockRender";
 
 describe("Products section tests", () => {
   it("renders hero content", () => {
     for (const [locale, { messages }] of Object.entries(locales)) {
-      renderWithIntl(<ProductSection />, locale, messages);
+      setup({
+        Component: <ProductSection />,
+        messages: messages,
+        locale: locale,
+      });
+
       const localizedTitle = screen.getByText(messages.Index.products.title);
       expect(localizedTitle).toBeInTheDocument();
     }
@@ -19,11 +24,12 @@ describe("Products section tests", () => {
     // assert that the function throws an error
     // because instead of english title, the german is rendered
     expect(() => {
-      renderWithIntl(
-        <ProductSection />,
-        locales.en.messages.Locale,
-        locales.en.messages
-      );
+      setup({
+        Component: <ProductSection />,
+        messages: locales.en.messages,
+        locale: locales.en.messages.Locale,
+      });
+
       const heroContent = screen.getByRole("heading", { level: 2 });
       expect(heroContent).toHaveTextContent(
         locales.de.messages.Index.products.title
@@ -33,11 +39,12 @@ describe("Products section tests", () => {
 
   it("renders the 8 most loved products", () => {
     expect(() => {
-      renderWithIntl(
-        <ProductSection />,
-        locales.en.messages.Locale,
-        locales.en.messages
-      );
+      setup({
+        Component: <ProductSection />,
+        messages: locales.en.messages,
+        locale: locales.en.messages.Locale,
+      });
+
       const images = screen.getAllByRole("img");
       expect(images).toHaveLength(8);
     });
@@ -46,11 +53,11 @@ describe("Products section tests", () => {
 
 describe("Product grid tests", () => {
   it("should show image titles on hover", () => {
-    renderWithIntl(
-      <ProductGrid />,
-      locales.en.messages.Locale,
-      locales.en.messages
-    );
+    setup({
+      Component: <ProductGrid />,
+      messages: locales.en.messages,
+      locale: locales.en.messages.Locale,
+    });
 
     const productCards = screen.getAllByRole("link");
 
@@ -73,11 +80,11 @@ describe("Product grid tests", () => {
   });
 
   it("redirects to product page based on productId", () => {
-    renderWithIntl(
-      <ProductGrid />,
-      locales.en.messages.Locale,
-      locales.en.messages
-    );
+    setup({
+      Component: <ProductGrid />,
+      messages: locales.en.messages,
+      locale: locales.en.messages.Locale,
+    });
 
     const productCards = screen.getAllByRole("link");
 
