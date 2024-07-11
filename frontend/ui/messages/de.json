@@ -23,6 +23,10 @@
       "reason2_amount": "1000+",
       "reason_3": "Zufriedene Kunden",
       "reason3_amount": "5000+"
+    },
+    "ctasection": {
+      "title": "Bereit, das Zubehör Ihres Haustiers aufzurüsten?",
+      "title_secondary": "Entdecken Sie unsere Kollektion handgefertigter Produkte und schenken Sie Ihrem Haustier Sicherheit und Stil."
     }
   },
   "About": {
