@@ -59,7 +59,7 @@ const Navbar = () => {
         title={t("Navigation.shop")}
         toPath="/shop"
         style={{
-          backgroundColor: "var(--color-pink-light)",
+          backgroundColor: "var(--color-pink-mid)",
           color: "var(--color-white)",
         }}
         locale={locale}

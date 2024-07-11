@@ -18,10 +18,10 @@ const HeroContent = () => {
       </div>
       <p>{t("Index.hero.description")}</p>
       <CTAButton
-        toPath="shop"
+        toPath="/shop"
         title={t("Shop.title_secondary")}
         style={{
-          backgroundColor: "var(--color-pink-light)",
+          backgroundColor: "var(--color-pink-mid)",
           color: "var(--color-white)",
         }}
         locale={locale}

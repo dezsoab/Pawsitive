@@ -23,6 +23,10 @@
       "reason2_amount": "1000+",
       "reason_3": "Satisfied customers",
       "reason3_amount": "5000+"
+    },
+    "ctasection": {
+      "title": "Ready to upgrade your pet's accessories?",
+      "title_secondary": "Explore our collection of handcrafted products and give your pet the gift of safety and style."
     }
   },
   "About": {
