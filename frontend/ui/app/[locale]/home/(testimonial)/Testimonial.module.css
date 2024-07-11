@@ -8,7 +8,7 @@
 }
 
 .testi h3 {
-  font-size: 2.5rem;
+  font-size: var(--font-mid);
   font-weight: 400;
   max-width: 1000px;
   text-align: center;
@@ -22,7 +22,7 @@
 }
 
 .testi h5 {
-  font-size: 1.6rem;
+  font-size: var(--font-small);
   margin-top: 1rem;
 }
 

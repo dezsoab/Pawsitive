@@ -11,8 +11,18 @@
       "title_secondary": "Take a look at our stunning collection of handcrafted pet products and find the the perfect match for your furry friend."
     },
     "testimonial": {
-      "title": "I love the pease of mind that comes with knowing my pet's information is always accessible. The quality and design is also lovely! Pawsitive Collar has truly thought of everything!",
+      "title": "I love the peace of mind that comes with knowing my pet's information is always accessible. The quality and design is also lovely! Pawsitive Collar has truly thought of everything!",
       "customer_adjective": "Happy Customer"
+    },
+    "reasoning": {
+      "title": "Why choose us?",
+      "title_secondary": "The reason why pet owners choose our handcrafted pet accessories with NFC technology for their beloved pets.",
+      "reason_1": "Stylish Design",
+      "reason1_amount": "50+",
+      "reason_2": "Happy pets reunited",
+      "reason2_amount": "1000+",
+      "reason_3": "Satisfied customers",
+      "reason3_amount": "5000+"
     }
   },
   "About": {

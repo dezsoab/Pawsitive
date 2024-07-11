@@ -39,4 +39,15 @@ describe("Testimonial tests", () => {
       );
     }).toThrow();
   });
+
+  it("renders correct amount (5) of star reviews", () => {
+    renderWithIntl(
+      <Testimonial />,
+      locales.en.messages.Locale,
+      locales.en.messages
+    );
+
+    const stars = screen.getAllByTestId("star-icon");
+    expect(stars).toHaveLength(5);
+  });
 });

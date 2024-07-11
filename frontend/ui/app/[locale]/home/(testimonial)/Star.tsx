@@ -4,6 +4,7 @@ import styles from "./Star.module.css";
 const Star = () => {
   return (
     <svg
+      data-testid="star-icon"
       className={styles.star}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
