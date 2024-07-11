@@ -9,6 +9,10 @@
     "products": {
       "title": "Entdecken Sie die beliebtesten Haustierprodukten!",
       "title_secondary": "Schauen Sie sich unsere atemberaubende Kollektion handgefertigter Haustierprodukten an und finden Sie das perfekte Item für Ihren pelzigen Freund."
+    },
+    "testimonial": {
+      "title": "Ich liebe das beruhigende Gefühl zu wissen, dass die Informationen meines Haustiers immer zugänglich sind. Die Qualität und das Design sind auch wunderbar! Pawsitive Collar hat wirklich an alles gedacht!",
+      "customer_adjective": "Zufriedener Kunde"
     }
   },
   "About": {

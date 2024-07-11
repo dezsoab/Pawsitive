@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import locales from "../../util/language/locales";
 import renderWithIntl from "@/test/util/language/render-with-intl";
-import HeroContent from "@/app/[locale]/home/HeroContent";
+import HeroContent from "@/app/[locale]/home/(hero)/HeroContent";
 import { screen } from "@testing-library/react";
 
 describe("Localization tests", () => {

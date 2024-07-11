@@ -5,12 +5,6 @@ import Navigation from "../../../components/navigation/Navbar";
 import locales from "../../util/language/locales";
 
 describe("Navigation tests", () => {
-  beforeAll(() => {
-    // Mock Next.js navigation features
-    // jest.mock("next/router", () => require("next-router-mock"));
-  });
-  // jest.mock("next/navigation", () => mockNextNavigation());
-
   for (const [locale, { messages }] of Object.entries(locales)) {
     describe(`Locale: ${locale}`, () => {
       it("renders the navigation correctly in all languages", () => {
