@@ -3,6 +3,8 @@ import styles from "./CTASection.module.css";
 import { useLocale, useTranslations } from "next-intl";
 import CTAButton from "@/components/cta/CTAButton";
 
+import { navigationRoutes } from "../../../../enums/navigationRoutes";
+
 const CTASection = () => {
   const t = useTranslations();
   const locale = useLocale();
@@ -14,7 +16,7 @@ const CTASection = () => {
       <div>
         <CTAButton
           locale={locale}
-          toPath="/shop"
+          toPath={navigationRoutes.SHOP}
           style={{
             backgroundColor: "var(--color-pink-mid)",
             color: "var(--color-white)",
@@ -25,7 +27,7 @@ const CTASection = () => {
 
         <CTAButton
           locale={locale}
-          toPath="/about"
+          toPath={navigationRoutes.ABOUT}
           style={{
             backgroundColor: "transparent",
             color: "var(--color-pink-mid)",
