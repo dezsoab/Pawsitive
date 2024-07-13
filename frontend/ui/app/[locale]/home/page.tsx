@@ -1,13 +1,11 @@
 import HeroSection from "./(hero)/HeroSection";
-import { useTranslations } from "next-intl";
 import ProductSection from "./(products)/ProductSection";
 import Testimonial from "./(testimonial)/Testimonial";
 import Reasoning from "./(reasoning)/Reasoning";
 import CTASection from "./(CTASection)/CTASection";
+import ContactFormContainer from "./(contact-form)/ContactFormContainer";
 
 export default function Home() {
-  const t = useTranslations();
-
   return (
     <main>
       <HeroSection />
@@ -15,6 +13,7 @@ export default function Home() {
       <Testimonial />
       <Reasoning />
       <CTASection />
+      <ContactFormContainer />
     </main>
   );
 }

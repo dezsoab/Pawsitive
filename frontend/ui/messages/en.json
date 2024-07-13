@@ -27,6 +27,18 @@
     "ctasection": {
       "title": "Ready to upgrade your pet's accessories?",
       "title_secondary": "Explore our collection of handcrafted products and give your pet the gift of safety and style."
+    },
+    "contact": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Message",
+      "name_placeholder": "Enter your name here",
+      "email_placeholder": "Enter your E-Mail here",
+      "message_placeholder": "Enter your message here",
+      "send_text": "Send",
+      "thank_you": "Thank you for your message!",
+      "title": "Get in touch",
+      "paragraph": "Have a question or feedback? Drop a message and we'll get back to you as soon as possible"
     }
   },
   "About": {

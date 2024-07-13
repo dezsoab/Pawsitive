@@ -1,0 +1,13 @@
+.wrapper {
+  background-color: var(--color-pink-light);
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rem 0;
+  margin-top: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 10rem;
+}
