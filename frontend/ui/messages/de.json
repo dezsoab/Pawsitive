@@ -13,6 +13,20 @@
     "testimonial": {
       "title": "Ich liebe das beruhigende Gefühl zu wissen, dass die Informationen meines Haustiers immer zugänglich sind. Die Qualität und das Design sind auch wunderbar! Pawsitive Collar hat wirklich an alles gedacht!",
       "customer_adjective": "Zufriedener Kunde"
+    },
+    "reasoning": {
+      "title": "Warum das Pawsitive Collar wählen?",
+      "title_secondary": "Der Grund, warum Tierhalter sich für unsere handgefertigten Haustierzubehörteile mit NFC-Technologie für ihre geliebten Haustiere entscheiden.",
+      "reason_1": "Stilvolles Design",
+      "reason1_amount": "50+",
+      "reason_2": "Glückliche wiedervereinte Haustiere",
+      "reason2_amount": "1000+",
+      "reason_3": "Zufriedene Kunden",
+      "reason3_amount": "5000+"
+    },
+    "ctasection": {
+      "title": "Bereit, das Zubehör Ihres Haustiers aufzurüsten?",
+      "title_secondary": "Entdecken Sie unsere Kollektion handgefertigter Produkte und schenken Sie Ihrem Haustier Sicherheit und Stil."
     }
   },
   "About": {

@@ -23,7 +23,7 @@
 .product_card h3 {
   transition: 0.3s all ease-in-out;
   opacity: 0;
-  font-size: 1.8rem;
+  font-size: var(--font-small);
   color: var(--color-pink-dark);
   background-color: var(--color-white);
   padding: 0.5rem 3rem;

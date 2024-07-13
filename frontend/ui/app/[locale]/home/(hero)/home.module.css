@@ -1,5 +1,5 @@
 .hero {
-  background-image: url("../../../../public/assets/heroimg.jpeg");
+  background-image: url("../../../../public/assets/heroimg.jpg");
   width: 100vw;
   height: 100vh;
   background-position: center;
@@ -24,7 +24,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--color-white);
-  font-size: 5.5rem;
+  font-size: var(--font-huge);
   z-index: 3;
   width: 70%;
   user-select: none;
@@ -36,11 +36,11 @@
 }
 
 .heroContent h1 + p {
-  font-size: 3rem;
+  font-size: var(--font-mid);
   margin-bottom: 6rem;
 }
 
 .heroContent p {
-  font-size: 2rem;
+  font-size: var(--font-paragraph);
   width: 50%;
 }
