@@ -1,0 +1,43 @@
+.form {
+  background-color: var(--color-white);
+  flex: 1;
+  padding: 3rem;
+}
+
+.form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form div label {
+  font-size: var(--font-small);
+  font-weight: 600;
+}
+
+.form div input,
+.form div textarea {
+  padding: 0.6rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1.2rem;
+  font-size: var(--font-paragraph);
+}
+
+.form div input::placeholder,
+.form div textarea::placeholder {
+  font-size: var(--font-mini);
+}
+
+.form button {
+  font-size: var(--font-paragraph);
+  border: none;
+  border-radius: var(--rounding);
+  padding: 1rem 2.3rem;
+  transition: all 0.1s linear;
+  color: var(--color-white);
+  background-color: var(--color-pink-mid);
+}
+
+.form button:hover {
+  cursor: pointer;
+  background-color: var(--color-pink-dark) !important;
+}
