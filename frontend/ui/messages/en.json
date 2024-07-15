@@ -1,0 +1,61 @@
+{
+  "Locale": "en",
+  "Index": {
+    "hero": {
+      "title": "Hand Crafted Pet Accessories",
+      "title_extension": "with attached NFC technology",
+      "description": "Discover unique pet accessories meticulously crafted with embedded NFC technology, combining style with advanced functionality."
+    },
+    "products": {
+      "title": "Explore the most loved Pet Products!",
+      "title_secondary": "Take a look at our stunning collection of handcrafted pet products and find the the perfect match for your furry friend."
+    },
+    "testimonial": {
+      "title": "I love the peace of mind that comes with knowing my pet's information is always accessible. The quality and design is also lovely! Pawsitive Collar has truly thought of everything!",
+      "customer_adjective": "Happy Customer"
+    },
+    "reasoning": {
+      "title": "Why choose us?",
+      "title_secondary": "The reason why pet owners choose our handcrafted pet accessories with NFC technology for their beloved pets.",
+      "reason_1": "Stylish Design",
+      "reason1_amount": "50+",
+      "reason_2": "Happy pets reunited",
+      "reason2_amount": "1000+",
+      "reason_3": "Satisfied customers",
+      "reason3_amount": "5000+"
+    },
+    "ctasection": {
+      "title": "Ready to upgrade your pet's accessories?",
+      "title_secondary": "Explore our collection of handcrafted products and give your pet the gift of safety and style."
+    },
+    "contact": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Message",
+      "name_placeholder": "Enter your name",
+      "email_placeholder": "Enter your E-Mail",
+      "message_placeholder": "Enter your message",
+      "send_text": "Send",
+      "thank_you": "Thank you for your message!",
+      "title": "Get in touch",
+      "paragraph": "Have a question or feedback? Drop a message and we'll get back to you as soon as possible"
+    }
+  },
+  "About": {
+    "title": "About Pawsitive  Collar!"
+  },
+  "Contact": {
+    "title": "Contact page!"
+  },
+  "Shop": {
+    "title": "Web shop page!",
+    "title_secondary": "Explore Shop",
+    "description": "Get your Pawsitive Collar"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "shop": "Shop"
+  }
+}

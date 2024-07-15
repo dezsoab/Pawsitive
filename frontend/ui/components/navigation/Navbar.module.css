@@ -1,0 +1,62 @@
+.navBar {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.7rem 5rem;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  transition: 0.2s all ease-in;
+}
+
+.navBar.scrolled {
+  background-color: var(--color-pink-mid);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navBar.navBar.scrolled img {
+  width: 50px;
+  height: 50px;
+}
+
+.navBar ul {
+  display: flex;
+  gap: 10rem;
+  font-size: 2.4rem;
+  list-style: none;
+}
+
+.navBar ul li {
+  overflow: hidden;
+  padding: 0.3rem 1rem;
+}
+
+.navBar ul li a {
+  color: var(--color-white);
+  text-decoration: none;
+  position: relative;
+}
+
+.navBar ul li a::before {
+  content: "";
+  height: 3px;
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  background-color: var(--color-pink-mid);
+  transition: all 0.4s ease;
+}
+
+.navBar.scrolled ul li a::before {
+  background-color: var(--color-white);
+}
+
+.navBar ul li a:hover::before {
+  left: -10%;
+}
+
+.navBar img {
+  border-radius: 50%;
+}

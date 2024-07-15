@@ -1,0 +1,37 @@
+.testi {
+  background-color: var(--color-pink-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.testi h3 {
+  font-size: var(--font-mid);
+  font-weight: 400;
+  max-width: 1000px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.testi img {
+  border-radius: 50%;
+  margin-top: 2rem;
+}
+
+.testi h5 {
+  font-size: var(--font-small);
+  margin-top: 1rem;
+}
+
+.testi div {
+  height: fit-content;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.testi div svg:not(:last-child) {
+  margin-right: 0.8rem;
+}

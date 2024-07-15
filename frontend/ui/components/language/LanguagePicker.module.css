@@ -1,0 +1,17 @@
+.select {
+  position: absolute;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: var(--rounding);
+  background-color: transparent;
+  border: 0.1px solid var(--color-white);
+  color: var(--color-white);
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  top: 4rem;
+  right: 3rem;
+}
+
+.select:hover {
+  cursor: pointer;
+}

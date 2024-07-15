@@ -1,0 +1,14 @@
+.ctaBtn {
+  font-size: var(--font-paragraph);
+  border: none;
+  border-radius: var(--rounding);
+  padding: 1rem 2.3rem;
+  transition: all 0.1s linear;
+}
+
+.ctaBtn:hover {
+  cursor: pointer;
+  scale: 1.05;
+  background-color: var(--color-pink-dark) !important;
+  transform: translateY(4px);
+}

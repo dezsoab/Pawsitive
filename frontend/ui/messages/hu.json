@@ -1,0 +1,61 @@
+{
+  "Locale": "hu",
+  "Index": {
+    "hero": {
+      "title": "Kézzel készített kisállat kiegészítők",
+      "title_extension": "beépített NFC technológiával",
+      "description": "Fedezd fel az egyedi kisállat kiegészítőket, amelyeket gondosan beágyazott NFC technológiával készítettek, ötvözve a stílust a fejlett funkcionalitással."
+    },
+    "products": {
+      "title": "Fedezze fel legkedveltebb termékeinket!",
+      "title_secondary": "Tekintse meg kézzel készített kollekciónkat, és találja meg a tökéletes ajándékot kedvencének."
+    },
+    "testimonial": {
+      "title": "Szeretem a nyugalmat, amit az ad, hogy tudom, a háziállatom adatai mindig elérhetők. A minőség és a design is csodálatos! A Pawsitive Collar valóban mindenre gondolt!",
+      "customer_adjective": "Elégedett Vásárló"
+    },
+    "reasoning": {
+      "title": "Miért válassz minket?",
+      "title_secondary": "Az ok, amiért a gazdik az NFC technológiás, kézzel készített kisállat-kiegészítőinket választják kedvenceik számára.",
+      "reason_1": "Stílusos dizájn",
+      "reason1_amount": "50+",
+      "reason_2": "Újra egyesült boldog háziállat",
+      "reason2_amount": "1000+",
+      "reason_3": "Elégedett vásárló",
+      "reason3_amount": "5000+"
+    },
+    "ctasection": {
+      "title": "Készen állsz, hogy felfrissítsd háziállatod kiegészítőit?",
+      "title_secondary": "Fedezd fel kézműves termékeinket, és ajándékozd meg háziállatodat a biztonság és stílus élményével."
+    },
+    "contact": {
+      "name": "Név",
+      "email": "E-Mail",
+      "message": "Üzenet",
+      "name_placeholder": "Add meg a neved",
+      "email_placeholder": "Add meg az e-mail címed",
+      "message_placeholder": "Az üzenet...",
+      "send_text": "Küldés",
+      "thank_you": "Köszönjük az üzenetet!",
+      "title": "Lépj kapcsolatba velünk",
+      "paragraph": "Van kérdésed vagy visszajelzésed? Küldj egy üzenetet, és amint lehet, válaszolunk."
+    }
+  },
+  "About": {
+    "title": "A Pawsitive Collar-ról!"
+  },
+  "Contact": {
+    "title": "Kapcsolat!"
+  },
+  "Shop": {
+    "title": "Webshop!",
+    "title_secondary": "Fedezd fel a boltot",
+    "description": "Szerezd meg a Pawsitive Collart"
+  },
+  "Navigation": {
+    "home": "Kezdőlap",
+    "about": "Rólunk",
+    "contact": "Kapcsolat",
+    "shop": "Webshop"
+  }
+}

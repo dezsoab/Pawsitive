@@ -1,0 +1,34 @@
+name: Cloc Repo Analysation
+
+on:
+  push:
+    branches:
+      - main
+      - test
+      - prod
+  pull_request:
+    branches:
+      - main
+      - test
+      - prod
+
+jobs:
+  analyse_repository:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js 18.18
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.18"
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./frontend/ui
+
+      - name: Run cloc code analysation
+        run: npm run cloc
+        working-directory: ./frontend/ui
