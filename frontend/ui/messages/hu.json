@@ -13,6 +13,16 @@
     "testimonial": {
       "title": "Szeretem a nyugalmat, amit az ad, hogy tudom, a háziállatom adatai mindig elérhetők. A minőség és a design is csodálatos! A Pawsitive Collar valóban mindenre gondolt!",
       "customer_adjective": "Elégedett Vásárló"
+    },
+    "about": {
+      "title": "About our Unique Pet Collars",
+      "about_description": "At Fashionable Pet Collars, we are passionate about creating stylish and safe pet collars.\n Each collar comes with an NFC Tag software solution that displays your pet&apos;s information when scanned.\n Handcrafted with love for your beloved pet.",
+      "first_title": "stylish designs",
+      "second_title": "enhanced safety",
+      "third_title": "Peace of mind",
+      "block_1": "Stand out with our trendy and fashianable pet collars",
+      "block_2":"Keep your pet safe and secure with our advanced NFC Tag software",
+      "block_3": "Never worry about losing your pet again, thanks to our innovative technology"
     }
   },
   "About": {

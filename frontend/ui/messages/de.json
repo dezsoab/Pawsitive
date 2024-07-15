@@ -13,6 +13,16 @@
     "testimonial": {
       "title": "Ich liebe das beruhigende Gefühl zu wissen, dass die Informationen meines Haustiers immer zugänglich sind. Die Qualität und das Design sind auch wunderbar! Pawsitive Collar hat wirklich an alles gedacht!",
       "customer_adjective": "Zufriedener Kunde"
+    },
+    "about": {
+      "title": "Über unsere einzigartigen Haustierhalsbänder",
+      "about_description": "Bei Pawsitive sind wir leidenschaftlich daran interessiert, stilvolle und sichere Haustierhalsbänder zu kreieren.\nJedes Halsband wird mit einer NFC-Tag-Softwarelösung geliefert, die beim Scannen die Informationen Ihres Haustiers anzeigt.\nHandgefertigt mit Liebe für Ihr geliebtes Haustier.",
+      "first_title": "Design",
+      "second_title": "Sicherheit",
+      "third_title": "Sorgenlos",
+      "block_1": "Heben Sie ihr Haustier mit unseren trendigen und \nmodischen Haustierhalsbändern von der Masse ab",
+      "block_2": "Halten Sie Ihr Haustier sicher und geschützt mit unserer fortschrittlichen NFC-Tag-Software",
+      "block_3": "Machen Sie sich nie wieder Sorgen, Ihr Haustier zu verlieren, dank unserer innovativen Technologie"
     }
   },
   "About": {
