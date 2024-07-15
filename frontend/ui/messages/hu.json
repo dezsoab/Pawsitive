@@ -27,6 +27,18 @@
     "ctasection": {
       "title": "Készen állsz, hogy felfrissítsd háziállatod kiegészítőit?",
       "title_secondary": "Fedezd fel kézműves termékeinket, és ajándékozd meg háziállatodat a biztonság és stílus élményével."
+    },
+    "contact": {
+      "name": "Név",
+      "email": "E-Mail",
+      "message": "Üzenet",
+      "name_placeholder": "Add meg a neved",
+      "email_placeholder": "Add meg az e-mail címed",
+      "message_placeholder": "Az üzenet...",
+      "send_text": "Küldés",
+      "thank_you": "Köszönjük az üzenetet!",
+      "title": "Lépj kapcsolatba velünk",
+      "paragraph": "Van kérdésed vagy visszajelzésed? Küldj egy üzenetet, és amint lehet, válaszolunk."
     }
   },
   "About": {
