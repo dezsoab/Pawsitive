@@ -9,9 +9,16 @@
 :root {
   --color-white: #fbfbfb;
   --color-grey: #f4f4f4;
-  --color-pink-light: #f8a295;
+  --color-pink-light: #ffe7e1;
+  --color-pink-mid: #f8a295;
   --color-pink-dark: #e27d6e;
   --rounding: 5px;
+  --font-huge: 5.2rem;
+  --font-big: 4rem;
+  --font-mid: 3rem;
+  --font-paragraph: 2rem;
+  --font-small: 1.8rem;
+  --font-mini: 1.5rem;
 }
 
 /* Convert px to rem => 10px to one rem */

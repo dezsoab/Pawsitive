@@ -1,5 +1,5 @@
 .ctaBtn {
-  font-size: 2rem;
+  font-size: var(--font-paragraph);
   border: none;
   border-radius: var(--rounding);
   padding: 1rem 2.3rem;

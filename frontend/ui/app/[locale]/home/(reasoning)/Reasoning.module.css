@@ -1,0 +1,27 @@
+.reasoning {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 0;
+  text-align: center;
+}
+
+.reasoning h6 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.reasoning_title_secondary {
+  font-size: 2.2rem;
+  margin-bottom: 5rem;
+  max-width: 1000px;
+}
+
+.reasoning div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-self: center;
+  /* width: 100%; */
+}

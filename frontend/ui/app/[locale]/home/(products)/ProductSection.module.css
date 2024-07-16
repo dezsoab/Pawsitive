@@ -7,12 +7,12 @@
 }
 
 .products > h2 {
-  font-size: 4rem;
+  font-size: var(--font-big);
   margin-bottom: 1rem;
 }
 
 .products > h3 {
-  font-size: 2rem;
+  font-size: var(--font-paragraph);
   font-weight: 300;
   max-width: 1000px;
 }
