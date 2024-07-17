@@ -9,6 +9,8 @@ import styles from "./Navbar.module.css";
 import { useLocale, useTranslations } from "next-intl";
 import LanguagePicker from "../language/LanguagePicker";
 
+import { navigationRoutes } from "../../enums/navigationRoutes";
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -30,7 +32,7 @@ const Navbar = () => {
 
   return (
     <nav className={`${styles.navBar} ${scrolled ? styles.scrolled : ""}`}>
-      <Link href="/home" locale={locale}>
+      <Link href={navigationRoutes.HOME} locale={locale}>
         <Image
           src="/assets/logo.png"
           width={100}
@@ -40,26 +42,26 @@ const Navbar = () => {
       </Link>
       <ul>
         <li>
-          <Link href="/home" locale={locale}>
+          <Link href={navigationRoutes.HOME} locale={locale}>
             {t("Navigation.home")}
           </Link>
         </li>
         <li>
-          <Link href="/about" locale={locale}>
+          <Link href={navigationRoutes.ABOUT} locale={locale}>
             {t("Navigation.about")}
           </Link>
         </li>
         <li>
-          <Link href="/contact" locale={locale}>
+          <Link href={navigationRoutes.CONTACT} locale={locale}>
             {t("Navigation.contact")}
           </Link>
         </li>
       </ul>
       <CTAButton
         title={t("Navigation.shop")}
-        toPath="/shop"
+        toPath={navigationRoutes.SHOP}
         style={{
-          backgroundColor: "var(--color-pink-light)",
+          backgroundColor: "var(--color-pink-mid)",
           color: "var(--color-white)",
         }}
         locale={locale}

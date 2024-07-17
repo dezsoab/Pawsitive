@@ -24,6 +24,32 @@
       "block_2": "Halten Sie Ihr Haustier sicher und geschützt mit unserer fortschrittlichen NFC-Tag-Software",
       "block_3": "Machen Sie sich nie wieder Sorgen, Ihr Haustier zu verlieren, dank unserer innovativen Technologie",
       "about_heading": "Über unsere Pet Collars"
+    },
+    "reasoning": {
+      "title": "Warum das Pawsitive Collar wählen?",
+      "title_secondary": "Der Grund, warum Tierhalter sich für unsere handgefertigten Haustierzubehörteile mit NFC-Technologie für ihre geliebten Haustiere entscheiden.",
+      "reason_1": "Stilvolles Design",
+      "reason1_amount": "50+",
+      "reason_2": "Glückliche wiedervereinte Haustiere",
+      "reason2_amount": "1000+",
+      "reason_3": "Zufriedene Kunden",
+      "reason3_amount": "5000+"
+    },
+    "ctasection": {
+      "title": "Bereit, das Zubehör Ihres Haustiers aufzurüsten?",
+      "title_secondary": "Entdecken Sie unsere Kollektion handgefertigter Produkte und schenken Sie Ihrem Haustier Sicherheit und Stil."
+    },
+    "contact": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "name_placeholder": "Geben Sie hier Ihren Namen ein",
+      "email_placeholder": "Geben Sie hier Ihre E-Mail-Adresse ein",
+      "message_placeholder": "Geben Sie hier Ihre Nachricht ein",
+      "send_text": "Senden",
+      "thank_you": "Vielen Dank für Ihre Nachricht!",
+      "title": "Kontaktieren Sie uns",
+      "paragraph": "Haben Sie eine Frage oder ein Feedback? Hinterlassen Sie eine Nachricht und wir melden uns so schnell wie möglich bei Ihnen."
     }
   },
   "About": {
