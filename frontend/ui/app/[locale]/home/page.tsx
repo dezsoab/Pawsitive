@@ -2,7 +2,7 @@ import HeroSection from "./(hero)/HeroSection";
 import { useTranslations } from "next-intl";
 import ProductSection from "./(products)/ProductSection";
 import Testimonial from "./(testimonial)/Testimonial";
-import AboutSection from "@/app/[locale]/home/(about)/AboutSection";
+import AboutSection from "./(about)/AboutSection";
 
 export default function Home() {
   const t = useTranslations();

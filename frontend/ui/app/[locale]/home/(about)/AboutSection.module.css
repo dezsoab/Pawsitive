@@ -1,26 +1,21 @@
 .aboutContainer {
     display: flex;
-    flex-direction: row;
-    margin-top: 5%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 3.5%;
+    margin: 2rem 8rem 4.5rem 20rem;
     align-items: center;
     font-size: medium;
 }
 
 .textFormating {
     white-space: pre-line;
-    font-size: 1.5em;
+    font-size: 1.8rem;
 }
 
 .featureContainer {
     display: flex;
-    flex-direction: row;
     background-color: #fdefe6;
     align-content: center;
     justify-content: space-evenly;
-    padding: 20px 0;
+    padding: 2.8rem;
 }
 
 .container {
@@ -29,5 +24,13 @@
     align-items: center;
     text-align: center;
     margin-top: 5rem;
-    font-size: 1.5em;
+    font-size: 1.5rem;
+}
+
+.pre-line {
+    white-space: pre-line;
+}
+
+.firstIcon{
+    width: 30px;
 }
