@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import Navbar from "../../components/navigation/Navbar";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import logger from "@/logging/logger";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,9 @@ const RootLayout = ({
   params: { locale: string };
 }) => {
   const messages = useMessages();
+
+  logger.info(`Rendering RootLayout with locale: ${locale}`);
+
   return (
     <html lang={locale}>
       <body className={inter.className}>
