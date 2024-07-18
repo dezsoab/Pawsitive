@@ -8,12 +8,12 @@ import ContactFormContainer from "./(contact-form)/ContactFormContainer";
 export default function Home() {
   return (
     <main>
-      <HeroSection />
+      {/* <HeroSection />
       <ProductSection />
       <Testimonial />
       <Reasoning />
       <CTASection />
-      <ContactFormContainer />
+      <ContactFormContainer /> */}
     </main>
   );
 }

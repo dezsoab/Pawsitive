@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+
 import "../styles/globals.css";
 import Navbar from "../../components/navigation/Navbar";
-import { NextIntlClientProvider, useMessages } from "next-intl";
-import logger from "@/logging/logger";
+import NavbarMobile from "../../components/navigation/NavbarMobile";
+import logger from "../../logging/logger";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +30,7 @@ const RootLayout = ({
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
+          <NavbarMobile />
           {children}
         </NextIntlClientProvider>
       </body>
