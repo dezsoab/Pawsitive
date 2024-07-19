@@ -7,14 +7,22 @@ import { useState } from "react";
 
 import styles from "./LanguagePicker.module.css";
 
+interface LanguagePickerProps {
+  isScrolled: boolean;
+  className?: string;
+}
+
 export default function LanguagePicker({
   isScrolled,
-}: {
-  isScrolled: boolean;
-}) {
+  className,
+}: LanguagePickerProps) {
   const router = useRouter();
   const locale = useLocale();
   const [loc, setLoc] = useState(locale);
+
+  const combinedClassName = [styles.select, className]
+    .filter(Boolean)
+    .join(" ");
 
   const changeLanguage = (newLocale: string) => {
     const { pathname, search, hash } = window.location;
@@ -50,7 +58,7 @@ export default function LanguagePicker({
       name="Choose language"
       value={loc}
       onChange={handleLocaleChange}
-      className={styles.select}
+      className={combinedClassName}
     >
       {locales.map((lang) => (
         <option key={lang} value={lang}>

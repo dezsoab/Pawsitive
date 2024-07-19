@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -13,32 +15,42 @@ import Hamburger from "./Hamburger";
 const NavbarMobile = () => {
   const locale = useLocale();
   const t = useTranslations();
+  const ref = useRef<HTMLDivElement>(null);
+
+  const toggleNavigation = () => {
+    ref.current!.classList.toggle(styles.active);
+    document.body.classList.toggle(styles.noscroll); // to disable scroll underneath when menu is active
+  };
 
   return (
-    <>
-      <Hamburger />
+    <header className={styles.navHeader}>
+      <Hamburger ref={ref} onClick={toggleNavigation} />
       <nav className={styles.navBarMobile}>
-        {/* <Link href={navigationRoutes.HOME} locale={locale}>
-          <Image
-            src="/assets/logo.png"
-            width={100}
-            height={100}
-            alt="Pawsitivecollar logo"
-          />
-        </Link> */}
         <ul>
           <li>
-            <Link href={navigationRoutes.HOME} locale={locale}>
+            <Link
+              href={navigationRoutes.HOME}
+              locale={locale}
+              onClick={toggleNavigation}
+            >
               {t("Navigation.home")}
             </Link>
           </li>
           <li>
-            <Link href={navigationRoutes.ABOUT} locale={locale}>
+            <Link
+              href={navigationRoutes.ABOUT}
+              locale={locale}
+              onClick={toggleNavigation}
+            >
               {t("Navigation.about")}
             </Link>
           </li>
           <li>
-            <Link href={navigationRoutes.CONTACT} locale={locale}>
+            <Link
+              href={navigationRoutes.CONTACT}
+              locale={locale}
+              onClick={toggleNavigation}
+            >
               {t("Navigation.contact")}
             </Link>
           </li>
@@ -51,10 +63,11 @@ const NavbarMobile = () => {
             color: "var(--color-white)",
           }}
           locale={locale}
+          onClick={toggleNavigation}
         />
-        <LanguagePicker isScrolled={false} />
+        <LanguagePicker isScrolled={false} className={styles.langPick} />
       </nav>
-    </>
+    </header>
   );
 };
 

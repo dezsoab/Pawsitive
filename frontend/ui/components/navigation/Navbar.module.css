@@ -61,6 +61,10 @@
   border-radius: 50%;
 }
 
+.langPick {
+  background-color: transparent;
+}
+
 @media screen and (max-width: 1200px) {
   .navBar {
     justify-content: space-evenly;

@@ -1,21 +1,23 @@
 "use client";
-import React, { useRef } from "react";
+import React, { forwardRef, ReactEventHandler, useRef } from "react";
 import styles from "./NavbarMobile.module.css";
 
-const Hamburger: React.FC = () => {
-  const navRef = useRef<HTMLDivElement>(null);
+interface HamburgerProps {
+  onClick: React.MouseEventHandler<HTMLDivElement>;
+}
 
-  const onclickHandler = () => {
-    navRef.current?.classList.toggle(styles.active);
-  };
+const Hamburger = forwardRef<HTMLDivElement, HamburgerProps>(
+  ({ onClick }, ref) => {
+    return (
+      <div className={styles.hamburger} onClick={onClick} ref={ref}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
+  }
+);
 
-  return (
-    <div className={styles.hamburger} onClick={onclickHandler} ref={navRef}>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
-};
+Hamburger.displayName = "Hamburger";
 
 export default Hamburger;
