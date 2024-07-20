@@ -13,7 +13,7 @@ export default function Home() {
       <Testimonial />
       <Reasoning />
       <CTASection />
-      {/* <ContactFormContainer /> */}
+      <ContactFormContainer />
     </main>
   );
 }
