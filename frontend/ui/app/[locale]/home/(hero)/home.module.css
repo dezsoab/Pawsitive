@@ -50,6 +50,7 @@
     font-size: var(--font-big);
   }
 }
+
 @media screen and (max-width: 665px) {
   .heroContent {
     font-size: var(--font-mid);

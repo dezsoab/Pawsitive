@@ -45,3 +45,22 @@
 .product_card:hover img {
   scale: 1.3;
 }
+
+@media screen and (max-width: 1200px) {
+  .product_card {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .product_card {
+    width: 50vw;
+  }
+}
