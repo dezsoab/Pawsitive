@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -17,13 +17,42 @@ const NavbarMobile = () => {
   const t = useTranslations();
   const ref = useRef<HTMLDivElement>(null);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const toggleNavigation = () => {
     ref.current!.classList.toggle(styles.active);
     document.body.classList.toggle(styles.noscroll); // to disable scroll underneath when menu is active
   };
 
   return (
-    <header className={styles.navHeader}>
+    <header
+      className={`${styles.navHeader} ${scrolled ? styles.scrolled : ""}`}
+    >
+      <Link
+        href={navigationRoutes.HOME}
+        locale={locale}
+        className={styles.logo}
+      >
+        <Image
+          src="/assets/logo.png"
+          width={100}
+          height={100}
+          alt="Pawsitivecollar logo"
+        />
+      </Link>
       <Hamburger ref={ref} onClick={toggleNavigation} />
       <nav className={styles.navBarMobile}>
         <ul>

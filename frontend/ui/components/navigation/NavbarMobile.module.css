@@ -5,6 +5,26 @@
 .navHeader {
   position: fixed;
   z-index: 5;
+  background-color: transparent;
+  width: 100%;
+  height: 7rem;
+  transition: all 0.3s ease;
+}
+
+.navHeader.scrolled {
+  background-color: var(--color-pink-light);
+}
+
+.navHeader img {
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+}
+
+.logo {
+  position: absolute;
+  right: 2rem;
+  top: 0.3rem;
 }
 
 .navBarMobile {
@@ -39,7 +59,7 @@
 .hamburger {
   position: fixed;
   z-index: 6;
-  top: 3rem;
+  top: 0.6rem;
   left: 1rem;
   padding: 2rem;
 }
@@ -76,6 +96,7 @@
   background-color: transparent;
   border-color: var(--color-pink-dark);
   color: var(--color-pink-dark);
+  top: 1.7rem;
 }
 
 .noscroll {
