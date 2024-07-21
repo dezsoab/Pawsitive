@@ -14,7 +14,7 @@ const AboutSection = () => {
       <div className={styles.aboutContainer}>
         <section>
           <h1>{t("Index.about.about_heading")}</h1>
-          <div style={{ whiteSpace: "pre-line" }} className={styles.textFormating}>{t("Index.about.about_description")}</div>
+          <div className={styles.textFormating}>{t("Index.about.about_description")}</div>
         </section>
         <section>
           <Image src={"/assets/cat_about.png"} alt={"White cat"}
