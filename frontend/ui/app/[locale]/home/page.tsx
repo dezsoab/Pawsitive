@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <AboutSection />
       <ProductSection />
-      <AboutSection/>
       <Testimonial />
       <Reasoning />
       <CTASection />
