@@ -25,21 +25,21 @@ const AboutSection = () => {
           <DesignIcon/>
           <div className={styles.featureText}>
             <h2>{t("Index.about.first_title")}</h2>
-          <div className={styles.preLine}>{t("Index.about.block_1")}</div>
+            <div className={styles.preLine}>{t("Index.about.block_1")}</div>
           </div>
         </section>
         <section className={styles.featureItem}>
           <SafetyIcon/>
           <div className={styles.featureText}>
             <h2>{t("Index.about.second_title")}</h2>
-          <div className={styles.preLine}>{t("Index.about.block_2")}</div>
+            <div className={styles.preLine}>{t("Index.about.block_2")}</div>
           </div>
         </section>
         <section className={styles.featureItem}>
           <CalmIcon/>
           <div className={styles.featureText}>
             <h2>{t("Index.about.third_title")}</h2>
-          <div className={styles.preLine}>{t("Index.about.block_2")}</div>
+            <div className={styles.preLine}>{t("Index.about.block_2")}</div>
           </div>
         </section>
       </div>
