@@ -66,7 +66,7 @@ const Navbar = () => {
         }}
         locale={locale}
       />
-      <LanguagePicker isScrolled={scrolled} />
+      <LanguagePicker isScrolled={scrolled} className={styles.langPick} />
     </nav>
   );
 };

@@ -13,10 +13,25 @@
 .area p:first-of-type {
   font-size: var(--font-big);
   font-weight: 600;
-  margin: 2rem 0;
+  margin-top: 2rem;
   margin-bottom: 6rem;
 }
 
 .area p {
   font-size: var(--font-small);
+}
+
+@media screen and (max-width: 640px) {
+  .area svg {
+    margin-bottom: 0.5rem;
+  }
+
+  .area p:first-of-type {
+    font-size: var(--font-mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .area p {
+    font-size: var(--font-small);
+  }
 }

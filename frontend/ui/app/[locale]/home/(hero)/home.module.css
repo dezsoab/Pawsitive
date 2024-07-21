@@ -44,3 +44,43 @@
   font-size: var(--font-paragraph);
   width: 50%;
 }
+
+@media screen and (max-width: 950px) {
+  .heroContent {
+    font-size: var(--font-big);
+  }
+}
+
+@media screen and (max-width: 665px) {
+  .heroContent {
+    font-size: var(--font-mid);
+    width: 90%;
+  }
+
+  .heroContent h1 {
+    letter-spacing: 1px;
+  }
+
+  .heroContent h1 + p {
+    font-size: var(--font-big);
+    margin-bottom: 6rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .heroContent {
+    font-size: var(--font-mobile-header);
+    width: 90%;
+  }
+
+  .heroContent h1 + p {
+    font-size: var(--font-small);
+    margin-bottom: 6rem;
+  }
+
+  .heroContent p {
+    font-size: var(--font-small);
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+}

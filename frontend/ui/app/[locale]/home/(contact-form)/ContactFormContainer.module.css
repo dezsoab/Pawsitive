@@ -11,3 +11,9 @@
   margin: 0 auto;
   margin-top: 10rem;
 }
+
+@media screen and (max-width: 640px) {
+  .section {
+    flex-direction: column;
+  }
+}

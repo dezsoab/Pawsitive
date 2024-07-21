@@ -39,6 +39,10 @@
       "thank_you": "Köszönjük az üzenetet!",
       "title": "Lépj kapcsolatba velünk",
       "paragraph": "Van kérdésed vagy visszajelzésed? Küldj egy üzenetet, és amint lehet, válaszolunk."
+    },
+    "footer": {
+      "paragraph": "Legyen naprakész a legfrissebb hírekkel és ajánlatokkal a Pawsitive Collar-tól",
+      "rights": "Minden jog fenntartva."
     }
   },
   "About": {
@@ -56,6 +60,9 @@
     "home": "Kezdőlap",
     "about": "Rólunk",
     "contact": "Kapcsolat",
-    "shop": "Webshop"
+    "shop": "Webshop",
+    "privacy": "Adatvédelmi irányelvek",
+    "terms": "Általános Szerződési Feltételek",
+    "faqs": "GYIK"
   }
 }

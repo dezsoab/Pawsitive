@@ -23,7 +23,7 @@
 .navBar ul {
   display: flex;
   gap: 10rem;
-  font-size: 2.4rem;
+  font-size: var(--font-paragraph);
   list-style: none;
 }
 
@@ -59,4 +59,27 @@
 
 .navBar img {
   border-radius: 50%;
+}
+
+.langPick {
+  background-color: transparent;
+  top: 4rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .navBar {
+    justify-content: space-evenly;
+    padding: 0.7rem 2rem;
+    position: fixed;
+  }
+
+  .navBar ul {
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .navBar {
+    display: none;
+  }
 }

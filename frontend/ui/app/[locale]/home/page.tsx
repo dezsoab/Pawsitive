@@ -4,6 +4,7 @@ import Testimonial from "./(testimonial)/Testimonial";
 import Reasoning from "./(reasoning)/Reasoning";
 import CTASection from "./(CTASection)/CTASection";
 import ContactFormContainer from "./(contact-form)/ContactFormContainer";
+import Footer from "./(footer)/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Reasoning />
       <CTASection />
       <ContactFormContainer />
+      <Footer />
     </main>
   );
 }
