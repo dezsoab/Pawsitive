@@ -15,3 +15,8 @@
 .select:hover {
   cursor: pointer;
 }
+
+.select option {
+  background-color: var(--color-pink-dark);
+  font-weight: 400;
+}
