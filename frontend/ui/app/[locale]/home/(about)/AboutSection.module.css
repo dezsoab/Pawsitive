@@ -1,0 +1,158 @@
+.aboutContainer {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1250px;
+  padding: 10rem 0;
+}
+
+.aboutContainer h1 {
+  font-size: var(--font-big);
+  margin-bottom: 2rem;
+}
+
+.aboutContainer h1 + p {
+  font-size: var(--font-paragraph);
+}
+
+.textFormating {
+  white-space: pre-line;
+}
+
+.featureContainer {
+  background-color: #fdefe6;
+  padding: 8rem 0;
+}
+
+.featureContainer div {
+  display: flex;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+}
+
+.featureItem:not(:last-of-type) {
+  margin-right: 3rem;
+}
+
+.featureText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  padding: 0 1rem;
+}
+
+.featureText h2 {
+  font-size: var(--font-paragraph);
+  color: var(--color-pink-dark);
+}
+
+.featureText p {
+  font-size: var(--font-small);
+}
+
+.featureItem svg {
+  scale: 1.8;
+  width: 3rem;
+  height: 3rem;
+  fill: black;
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 1300px) {
+  .aboutContainer {
+    padding: 5rem 2rem;
+  }
+
+  .featureContainer div {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .aboutContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .featureContainer {
+    padding: 5rem 0;
+  }
+
+  .featureText {
+    padding: 0 !important;
+  }
+
+  .featureItem {
+    flex-direction: column;
+  }
+
+  .aboutContainer img {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .featureContainer div {
+    flex-direction: column;
+  }
+
+  .featureItem:not(:last-of-type) {
+    margin-bottom: 2rem;
+  }
+
+  .featureItem:not(:last-of-type) {
+    margin-right: 0;
+  }
+
+  .featureItem svg {
+    scale: 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  .featureText {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .aboutContainer img {
+    width: 500px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .aboutContainer img {
+    width: 350px;
+    height: auto;
+  }
+
+  .aboutContainer h1 {
+    font-size: var(--font-mid);
+  }
+
+  .featureText h2 {
+    font-size: var(--font-paragraph);
+  }
+
+  .aboutContainer p,
+  .featureText p {
+    font-size: var(--font-small);
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .aboutContainer img {
+    width: 290px;
+    height: auto;
+  }
+}

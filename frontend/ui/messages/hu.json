@@ -14,6 +14,17 @@
       "title": "Szeretem a nyugalmat, amit az ad, hogy tudom, a háziállatom adatai mindig elérhetők. A minőség és a design is csodálatos! A Pawsitive Collar valóban mindenre gondolt!",
       "customer_adjective": "Elégedett Vásárló"
     },
+    "about": {
+      "title": "Egyedi Kisállat Nyakörveinkről",
+      "about_description": "A Divatos Kisállat Nyakörveknél szenvedéllyel alkotunk stílusos és biztonságos nyakörveket.\n Minden nyakörv NFC Tag szoftvermegoldással rendelkezik, amely megjeleníti kedvenced adatait, amikor beszkenneled.\n Szeretettel, kézzel készítve a te szeretett kisállatodnak.",
+      "first_title": "stílusos tervezés",
+      "second_title": "fokozott biztonság",
+      "third_title": "Nyugalom",
+      "block_1": "Tűnj ki divatos és trendi kisállat nyakörveinkkel",
+      "block_2": "Tartsd kedvencedet biztonságban és védve az NFC Tag szoftverünkkel",
+      "block_3": "Soha ne aggódj többé kedvenced elvesztése miatt, köszönhetően innovatív technológiánknak",
+      "about_heading": "About our unique pet collars"
+    },
     "reasoning": {
       "title": "Miért válassz minket?",
       "title_secondary": "Az ok, amiért a gazdik az NFC technológiás, kézzel készített kisállat-kiegészítőinket választják kedvenceik számára.",
