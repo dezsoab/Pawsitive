@@ -17,30 +17,33 @@ const AboutSection = () => {
           <div className={styles.textFormating}>{t("Index.about.about_description")}</div>
         </section>
         <section>
-          <Image src={"/assets/cat_about.png"} alt={"White cat"}
-            width={600}
-            height={450}>
-          </Image>
+          <Image src={"/assets/cat_about.png"} alt={"White cat"} width={600} height={450} />
         </section>
       </div>
       <div className={styles.featureContainer}>
-        <section className={styles.container}>
-          <h2>{t("Index.about.first_title")}</h2>
+        <section className={styles.featureItem}>
           <DesignIcon/>
+          <div className={styles.featureText}>
+            <h2>{t("Index.about.first_title")}</h2>
           <div className={styles.preLine}>{t("Index.about.block_1")}</div>
+          </div>
         </section>
-        <section className={styles.container}>
-          <h2>{t("Index.about.second_title")}</h2>
+        <section className={styles.featureItem}>
           <SafetyIcon/>
+          <div className={styles.featureText}>
+            <h2>{t("Index.about.second_title")}</h2>
           <div className={styles.preLine}>{t("Index.about.block_2")}</div>
+          </div>
         </section>
-        <section className={styles.container}>
-          <h2>{t("Index.about.third_title")}</h2>
+        <section className={styles.featureItem}>
           <CalmIcon/>
+          <div className={styles.featureText}>
+            <h2>{t("Index.about.third_title")}</h2>
           <div className={styles.preLine}>{t("Index.about.block_2")}</div>
+          </div>
         </section>
       </div>
     </section>
   );
 };
-export default AboutSection
+export default AboutSection;

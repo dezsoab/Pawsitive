@@ -27,10 +27,23 @@
     font-size: var(--font-mini);
 }
 
-.pre-line {
+.featureItem {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.featureText {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.preLine {
     white-space: pre-line;
 }
 
-.firstIcon{
+.icon {
     width: 30px;
+    height: 30px;
 }

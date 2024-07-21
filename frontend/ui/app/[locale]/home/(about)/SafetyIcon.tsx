@@ -5,7 +5,7 @@ const SafetyIcon = () => {
   return (
     <svg
       data-testid="safety-icon"
-      className={styles.firstIcon}
+      className={styles.icon}
       role="img"
       viewBox="100 50 800 900"
     >

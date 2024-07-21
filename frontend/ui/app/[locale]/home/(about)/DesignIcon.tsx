@@ -5,7 +5,7 @@ const DesignIcon = () => {
   return (
     <svg
       data-testid="style-icon"
-      className={styles.firstIcon}
+      className={styles.icon}
       role="img"
       viewBox="0 0 24 27"
     >
