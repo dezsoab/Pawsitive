@@ -9,9 +9,10 @@
 :root {
   --color-white: #fbfbfb;
   --color-grey: #f4f4f4;
-  --color-pink-light: #ffe7e1;
+  --color-pink-light: #fdefe6;
   --color-pink-mid: #f8a295;
   --color-pink-dark: #e27d6e;
+  --color-green: #0a2b03;
   --rounding: 5px;
   --font-huge: 5.2rem;
   --font-big: 4rem;

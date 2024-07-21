@@ -39,6 +39,10 @@
       "thank_you": "Vielen Dank für Ihre Nachricht!",
       "title": "Kontaktieren Sie uns",
       "paragraph": "Haben Sie eine Frage oder ein Feedback? Hinterlassen Sie eine Nachricht und wir melden uns so schnell wie möglich bei Ihnen."
+    },
+    "footer": {
+      "paragraph": "Bleiben Sie auf dem Laufenden mit den neuesten Nachrichten und Angeboten von Pawsitive Collar",
+      "rights": "Alle Rechte vorbehalten."
     }
   },
   "About": {
@@ -56,6 +60,9 @@
     "home": "Startseite",
     "about": "Über uns",
     "contact": "Kontakt",
-    "shop": "Shop"
+    "shop": "Shop",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Allgemeine Geschäftsbedingungen",
+    "faqs": "Häufig gestellte Fragen"
   }
 }
