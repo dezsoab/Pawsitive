@@ -1,5 +1,4 @@
 .navBar {
-  background-color: transparent;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -11,7 +10,7 @@
 }
 
 .navBar.scrolled {
-  background-color: var(--color-pink-mid);
+  background-color: var(--color-green) !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 

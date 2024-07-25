@@ -94,8 +94,8 @@
 
 .langPick {
   background-color: transparent;
-  border-color: var(--color-pink-dark);
-  color: var(--color-pink-dark);
+  border-color: var(--color-pink-dark) !important;
+  color: var(--color-pink-dark) !important;
   top: 1.7rem;
 }
 

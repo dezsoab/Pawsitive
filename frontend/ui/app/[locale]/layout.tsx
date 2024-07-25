@@ -29,7 +29,6 @@ const RootLayout = ({
     <html lang={locale}>
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
           <NavbarMobile />
           {children}
         </NextIntlClientProvider>

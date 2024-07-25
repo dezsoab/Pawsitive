@@ -57,7 +57,33 @@
     }
   },
   "About": {
-    "title": "A Pawsitive Collar-ról!"
+    "about": {
+      "label": "A Pawsitive-ról",
+      "title": "Kényelmes és otthonos megoldások kedvenc kisállatainak!",
+      "paragraph": "A Pawsitive Collar csapatánál úgy gondoljuk, hogy kisállataink a legjobbat érdemlik. Ezért szenteljük magunkat annak, hogy magas minőségű nyakörveket, pórázokat és kiegészítőket készítsünk, amelyek egyszerre stílusosak és kényelmesek szőrös barátainak."
+    },
+    "history": {
+      "label": "Történetünk",
+      "title": "A kisállatok iránti szenvedélyből fakadóan",
+      "paragraph": "A Pawsitive Collar-t 2024-ben egy kisállatbarátokból álló csapat alapította, akik frusztráltak voltak a piacon található magas minőségű, fenntartható kisállat-kiegészítők hiánya miatt. Célunk egy olyan márka létrehozása volt, amely nemcsak a legjobb termékeket kínálja szőrös barátainknak, hanem a környezetbarát gyakorlatokat is előtérbe helyezi."
+    },
+    "sustainability": {
+      "label": "Fenntartható Gyakorlatok",
+      "title": "Elkötelezve egy Zöldebb Jövőért",
+      "paragraph": "A Pawsitive Collar-nál elkötelezettek vagyunk környezeti hatásunk csökkentése iránt. Minden termékünk fenntartható, természetes anyagokból, például pamutból vagy újrahasznosított műanyagból készül. Etikus beszállítókkal is együtt dolgozunk, hogy biztosítsuk a fair munkagyakorlatokat és a minimális hulladékot."
+    },
+    "team": {
+      "label": "Csapatunk",
+      "title": "Szenvedélyes Kisállatbarátok",
+      "paragraph": "A Pawsitive Collar csapata elkötelezett fiatalokból áll, akik a lehető legjobb termékeket és élményeket kívánják biztosítani szőrös barátaink számára. Ismerje meg az alapítókat és a kulcsfontosságú munkatársakat, akik mindezt lehetővé teszik.",
+      "person": {
+        "founder": "Alapító",
+        "lead_dev": "Vezető fejlesztő",
+        "co-founder": "Társalapító",
+        "product_design": "Terméktervező",
+        "developer": "Fejlesztő"
+      }
+    }
   },
   "Contact": {
     "title": "Kapcsolat!"

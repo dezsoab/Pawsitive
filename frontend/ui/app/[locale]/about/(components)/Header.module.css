@@ -1,0 +1,12 @@
+.header {
+  font-size: var(--font-big);
+  margin-bottom: 2rem;
+  width: 80%;
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    width: 100%;
+    font-size: var(--font-mid);
+  }
+}

@@ -57,7 +57,33 @@
     }
   },
   "About": {
-    "title": "About Pawsitive  Collar!"
+    "about": {
+      "label": "About Pawsitive",
+      "title": "Crafting cozy comfort for your furry friends!",
+      "paragraph": "At Pawsitive Collar we believe that our pets deserve the best. That's why we have dedicated ourselves to creating high-quality collars, leashes, and accessories that are both stylish and comfortable for your furry companions."
+    },
+    "history": {
+      "label": "Our History",
+      "title": "Rooted in a Passion for Pets",
+      "paragraph": "Pawsitive Collar was founded in 2024 by a team of pet lovers who were frustrated by the lack of high-quality, sustainable pet accessories on the market. We set out to create a brand that would not only provide the best products for our furry friends, but also prioritize eco-friendly practices."
+    },
+    "sustainability": {
+      "label": "Sustainable Practices",
+      "title": "Committed to a Greener Future",
+      "paragraph": "At Pawsitive Collar, we're dedicated to reducing our environmental impact. All of our products are made of sustainable, natural materials like cotton or recycled plastics. We also work with ethical suppliers to ensure fair labor practices and minimal waste."
+    },
+    "team": {
+      "label": "Our Team",
+      "title": "Passionate Pet Lovers",
+      "paragraph": "Our team at Pawsitive Collar is made up of dedicated enthusiasts who are committed to providing the best possible products and experiences for our furry friends. Meet the founders and the key staff members who make it all happen.",
+      "person": {
+        "founder": "Founder",
+        "lead_dev": "Lead developer",
+        "co-founder": "Co-Founder",
+        "product_design": "Product designer",
+        "developer": "Developer"
+      }
+    }
   },
   "Contact": {
     "title": "Contact page!"
