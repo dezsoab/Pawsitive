@@ -40,6 +40,12 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  .divider {
+    margin: 2rem 0;
+  }
+}
+
 @media screen and (max-width: 410px) {
   .products > h2 {
     padding: 1rem;
