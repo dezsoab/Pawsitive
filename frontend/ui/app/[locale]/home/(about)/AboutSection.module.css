@@ -99,6 +99,9 @@
 @media screen and (max-width: 900px) {
   .featureContainer div {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .featureItem:not(:last-of-type) {
@@ -110,6 +113,7 @@
   }
 
   .featureItem svg {
+    align-self: center;
     scale: 1;
     margin: 0;
     padding: 0;
