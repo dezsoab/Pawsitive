@@ -1,0 +1,9 @@
+.label {
+  font-size: var(--font-mini);
+  border-radius: var(--rounding);
+  background-color: var(--color-pink-mid);
+  padding: 0.2rem 0.8rem;
+  width: fit-content;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
