@@ -8,7 +8,6 @@ const sectionProps = {
   imageSrc: "/assets/collar1.jpeg",
   imageAlt: "some Alt",
   label: "Test Label",
-  header: "Test Header",
   paragraph: "Test Paragraph",
 };
 
@@ -21,7 +20,6 @@ describe("Section tests", () => {
     });
 
     expect(screen.getByText(sectionProps.label)).toBeInTheDocument();
-    expect(screen.getByText(sectionProps.header)).toBeInTheDocument();
     expect(screen.getByText(sectionProps.paragraph)).toBeInTheDocument();
   });
 });

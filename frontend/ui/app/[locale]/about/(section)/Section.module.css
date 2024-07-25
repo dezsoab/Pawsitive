@@ -24,6 +24,12 @@
   flex-direction: column;
 }
 
+.about_text div {
+  height: 100px;
+  width: 100%;
+  position: relative;
+}
+
 @media screen and (max-width: 800px) {
   .about > div {
     display: flex;

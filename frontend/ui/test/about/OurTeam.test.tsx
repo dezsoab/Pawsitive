@@ -6,7 +6,6 @@ import OurTeam from "../../app/[locale]/about/(ourTeam)/OurTeam";
 
 const ourTeamProps = {
   label: "Test Team Label",
-  header: "Test Team Header",
   paragraph: "Test Team Paragraph",
 };
 
@@ -19,7 +18,6 @@ describe("OurTeam tests", () => {
     });
 
     expect(screen.getByText(ourTeamProps.label)).toBeInTheDocument();
-    expect(screen.getByText(ourTeamProps.header)).toBeInTheDocument();
     expect(screen.getByText(ourTeamProps.paragraph)).toBeInTheDocument();
   });
 });
