@@ -1,5 +1,4 @@
-# /Dockerfile
-FROM node:latest
+FROM node:20-alpine
 
 WORKDIR /app
 
