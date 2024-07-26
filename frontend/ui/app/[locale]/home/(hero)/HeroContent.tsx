@@ -27,6 +27,7 @@ const HeroContent = () => {
           color: "var(--color-white)",
         }}
         locale={locale}
+        classList={styles.jelly}
       />
     </div>
   );
