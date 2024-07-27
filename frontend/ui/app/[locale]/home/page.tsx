@@ -5,8 +5,9 @@ import AboutSection from "./(about)/AboutSection";
 import Reasoning from "./(reasoning)/Reasoning";
 import CTASection from "./(CTASection)/CTASection";
 import ContactFormContainer from "./(contact-form)/ContactFormContainer";
-import Footer from "./(footer)/Footer";
-import Navbar from "@/components/navigation/Navbar";
+
+import Navbar from "../../../components/navigation/Navbar";
+import Footer from "../../../components/footer/Footer";
 
 export default function Home() {
   return (

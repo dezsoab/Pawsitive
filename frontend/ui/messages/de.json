@@ -82,7 +82,19 @@
     }
   },
   "Contact": {
-    "title": "Kontaktseite!"
+    "hero": {
+      "title": "Wir sind für Sie da!",
+      "description": "Zögern Sie nicht, kontaktieren Sie unser freundliches Team, um Antworten zu unseren intelligenten NFC-Halsbändern zu erhalten. Ob Sie Unterstützung benötigen oder einfach nur plaudern möchten, wir sind hier, um zu helfen!",
+      "contact": "Kontaktinformationen",
+      "follow": "Folgen Sie uns in den sozialen Medien, um über die neuesten Trends, Tipps und Leckerbissen für Ihren pelzigen Freund informiert zu bleiben!",
+      "email_btn": "Email senden"
+    },
+    "contact": {
+      "info": "Kontaktinformation",
+      "return": "Rücksendeadresse",
+      "tel": "Telefon",
+      "email": "E-Mail"
+    }
   },
   "Shop": {
     "title": "Webshop-Seite!",
