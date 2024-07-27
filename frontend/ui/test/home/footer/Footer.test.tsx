@@ -1,9 +1,9 @@
-import { fireEvent, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import locales from "../../util/language/locales";
 import { setup } from "../../util/mocks/mockRender";
-import Footer from "@/app/[locale]/home/(footer)/Footer";
 import { navigationRoutes } from "@/enums/navigationRoutes";
+import Footer from "../../../components/footer/Footer";
 
 describe("Footer Section tests", () => {
   for (const [locale, { messages }] of Object.entries(locales)) {

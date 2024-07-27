@@ -82,7 +82,19 @@
     }
   },
   "Contact": {
-    "title": "Kapcsolat!"
+    "hero": {
+      "title": "Kérdezz tőlünk bátran!",
+      "description": "Ne habozz, lépj kapcsolatba barátságos csapatunkkal, hogy választ kapj az intelligens NFC nyakörveinkkel kapcsolatos kérdéseidre. Legyen szó segítségről vagy csak egy jó beszélgetésről, itt vagyunk, hogy segítsünk!",
+      "contact": "Kapcsolatfelvétel",
+      "follow": "Kövess minket a közösségi médiában, hogy mindig naprakész legyél a legújabb trendekkel, tippekkel és jutalmakkal kapcsolatban kedvenced számára!",
+      "email_btn": "Küldj emailt"
+    },
+    "contact": {
+      "info": "Kapcsolattartási információ",
+      "return": "Visszaküldési cím",
+      "tel": "Telefon",
+      "email": "E-mail"
+    }
   },
   "Shop": {
     "title": "Webshop!",

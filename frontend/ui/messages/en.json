@@ -82,7 +82,19 @@
     }
   },
   "Contact": {
-    "title": "Contact page!"
+    "hero": {
+      "title": "Let's 'Collar'-borate!",
+      "description": "Don't paws and ponder alone! Contact our friendly pack to fetch answers about our smart NFC collars that keep tails wagging safely. Whether you need support or just want to chat about our tech, we’re here to help!",
+      "contact": "Contact Information",
+      "follow": "Join our pack on social media to stay updated with the latest trends, tips, and treats for your furry friend!",
+      "email_btn": "Email us"
+    },
+    "contact": {
+      "info": "Contact information",
+      "return": "Return address",
+      "tel": "Telephone",
+      "email": "E-Mail"
+    }
   },
   "Shop": {
     "title": "Web shop page!",

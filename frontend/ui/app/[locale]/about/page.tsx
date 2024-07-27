@@ -2,11 +2,11 @@ import { useTranslations } from "next-intl";
 import React from "react";
 
 import Section from "./(section)/Section";
-import Footer from "../home/(footer)/Footer";
-
-import styles from "./Page.module.css";
-import Navbar from "@/components/navigation/Navbar";
 import OurTeam from "./(ourTeam)/OurTeam";
+import styles from "./Page.module.css";
+
+import Navbar from "../../../components/navigation/Navbar";
+import Footer from "../../../components/footer/Footer";
 
 export default function AboutPage() {
   const t = useTranslations();
