@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 import styles from "./CTAButton.module.css";
+import logger from "@/logging/logger";
 
 type CTAButtonProps = {
   title: string;

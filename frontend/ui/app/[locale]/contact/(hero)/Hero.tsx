@@ -4,9 +4,11 @@ import Link from "next/link";
 import styles from "./Hero.module.css";
 import { useTranslations } from "next-intl";
 import { contacts } from "@/enums/contact";
+import logger from "@/logging/logger";
 
 const Hero = () => {
   const t = useTranslations();
+  logger.info("Using Contact -> hero");
 
   return (
     <section className={styles.hero}>

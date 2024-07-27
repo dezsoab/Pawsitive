@@ -6,9 +6,12 @@ import styles from "./Footer.module.css";
 import { navigationRoutes } from "../../enums/navigationRoutes";
 import InstagramIcon from "./InstagramIcon";
 import FacebookIcon from "./FacebookIcon";
+import logger from "@/logging/logger";
 
 const Footer = () => {
   const t = useTranslations();
+
+  logger.info("Rendering Footer");
 
   return (
     <footer className={styles.footer}>

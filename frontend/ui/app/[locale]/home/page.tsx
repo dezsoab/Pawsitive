@@ -8,8 +8,11 @@ import ContactFormContainer from "./(contact-form)/ContactFormContainer";
 
 import Navbar from "../../../components/navigation/Navbar";
 import Footer from "../../../components/footer/Footer";
+import logger from "@/logging/logger";
 
 export default function Home() {
+  logger.info("Rendering Home");
+
   return (
     <>
       <Navbar />
