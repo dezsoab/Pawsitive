@@ -9,6 +9,7 @@ type CTAButtonProps = {
   style: {};
   locale: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  classList?: string;
 };
 
 const CTAButton = ({
@@ -17,10 +18,11 @@ const CTAButton = ({
   style,
   locale,
   onClick,
+  classList,
 }: CTAButtonProps) => {
   return (
     <Link href={toPath} locale={locale} onClick={onClick}>
-      <button className={styles.ctaBtn} style={style}>
+      <button className={`${styles.ctaBtn} ${classList}`} style={style}>
         {title}
       </button>
     </Link>
