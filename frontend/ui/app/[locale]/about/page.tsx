@@ -16,14 +16,12 @@ export default function AboutPage() {
       <main className={styles.main}>
         <Section
           label={t("About.about.label")}
-          header={t("About.about.title")}
           paragraph={t("About.about.paragraph")}
           imageSrc="/assets/collar1.jpeg"
           imageAlt="some Alt"
         />
         <Section
           label={t("About.history.label")}
-          header={t("About.history.title")}
           paragraph={t("About.history.paragraph")}
           imageSrc="/assets/collar2.jpeg"
           imageAlt="some Alt"
@@ -32,14 +30,12 @@ export default function AboutPage() {
         />
         <Section
           label={t("About.sustainability.label")}
-          header={t("About.sustainability.title")}
           paragraph={t("About.sustainability.paragraph")}
           imageSrc="/assets/collar6.jpeg"
           imageAlt="some Alt"
         />
         <OurTeam
           label={t("About.team.label")}
-          header={t("About.team.title")}
           paragraph={t("About.team.paragraph")}
         />
       </main>

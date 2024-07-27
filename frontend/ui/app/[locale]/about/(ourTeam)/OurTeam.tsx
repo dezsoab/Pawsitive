@@ -1,16 +1,14 @@
 import React from "react";
+import { useTranslations } from "next-intl";
+import styles from "./OurTeam.module.css";
 
 import Label from "../(components)/Label";
-import Header from "../(components)/Header";
 import Paragraph from "../(components)/Paragraph";
-
-import styles from "./OurTeam.module.css";
 import PersonTag from "./PersonTag";
-import { useTranslations } from "next-intl";
+import BrushStroke from "../(components)/BrushStroke";
 
 type OurTeamProps = {
   label: string;
-  header: string;
   paragraph: string;
   contentStyle?: { [key: string]: string };
   containerStyle?: { [key: string]: string };
@@ -18,7 +16,6 @@ type OurTeamProps = {
 
 const OurTeam = ({
   label,
-  header,
   paragraph,
   containerStyle,
   contentStyle,
@@ -29,8 +26,10 @@ const OurTeam = ({
     <section className={styles.our_team} style={containerStyle}>
       <div style={contentStyle}>
         <div className={styles.our_team_text}>
-          <Label title={label} />
-          <Header title={header} />
+          <div>
+            <Label title={label} />
+            <BrushStroke />
+          </div>
           <Paragraph title={paragraph} />
         </div>
         <div className={styles.person_container}>

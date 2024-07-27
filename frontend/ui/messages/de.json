@@ -59,22 +59,18 @@
   "About": {
     "about": {
       "label": "Über Pawsitive",
-      "title": "Gemütlichen Komfort für Ihre pelzigen Freunde schaffen!",
       "paragraph": "Bei Pawsitive Collar glauben wir, dass unsere Haustiere das Beste verdienen. Deshalb haben wir uns der Herstellung hochwertiger Halsbänder, Leinen und Accessoires gewidmet, die sowohl stilvoll als auch bequem für Ihre pelzigen Begleiter sind."
     },
     "history": {
       "label": "Unsere Geschichte",
-      "title": "Verwurzelt in einer Leidenschaft für Haustiere",
       "paragraph": "Pawsitive Collar wurde 2024 von einem Team von Tierliebhabern gegründet, die frustriert über den Mangel an hochwertigen, nachhaltigen Haustierzubehör auf dem Markt waren. Wir haben uns zum Ziel gesetzt, eine Marke zu schaffen, die nicht nur die besten Produkte für unsere pelzigen Freunde bietet, sondern auch umweltfreundliche Praktiken priorisiert."
     },
     "sustainability": {
-      "label": "Nachhaltige Praktiken",
-      "title": "Engagiert für eine grünere Zukunft",
+      "label": "Nachhaltigkeit",
       "paragraph": "Bei Pawsitive Collar sind wir bestrebt, unsere Umweltauswirkungen zu reduzieren. Alle unsere Produkte bestehen aus nachhaltigen, natürlichen Materialien wie Baumwolle oder recyceltem Kunststoff. Wir arbeiten auch mit ethischen Lieferanten zusammen, um faire Arbeitspraktiken und minimalen Abfall zu gewährleisten."
     },
     "team": {
       "label": "Unser Team",
-      "title": "Leidenschaftliche Tierliebhaber",
       "paragraph": "Unser Team bei Pawsitive Collar besteht aus engagierten Enthusiasten, die sich dafür einsetzen, die bestmöglichen Produkte und Erfahrungen für unsere pelzigen Freunde zu bieten. Lernen Sie die Gründer und die wichtigsten Mitarbeiter kennen, die all das möglich machen.",
       "person": {
         "founder": "Gründer",
