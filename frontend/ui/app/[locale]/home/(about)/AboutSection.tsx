@@ -6,9 +6,11 @@ import styles from "./AboutSection.module.css";
 import DesignIcon from "./DesignIcon";
 import SafetyIcon from "./SafetyIcon";
 import CalmIcon from "./CalmIcon";
+import logger from "@/logging/logger";
 
 const AboutSection = () => {
   const t = useTranslations();
+  logger.info("Using Home -> about");
 
   return (
     <section>

@@ -5,6 +5,7 @@ import Paragraph from "../(components)/Paragraph";
 
 import styles from "./Section.module.css";
 import BrushStroke from "../(components)/BrushStroke";
+import logger from "@/logging/logger";
 
 type SectionProps = {
   imageSrc: string;
@@ -23,6 +24,8 @@ const Section = ({
   contentStyle,
   containerStyle,
 }: SectionProps) => {
+  logger.info("Using About -> section");
+
   return (
     <section className={styles.about} style={containerStyle}>
       <div style={contentStyle}>

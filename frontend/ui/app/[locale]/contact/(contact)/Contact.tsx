@@ -5,6 +5,7 @@ import styles from "./Contact.module.css";
 import Listing from "./Listing";
 import { contacts } from "../../../../enums/contact";
 import { Dancing_Script } from "next/font/google";
+import logger from "@/logging/logger";
 
 const dancing = Dancing_Script({
   subsets: ["latin"],
@@ -12,6 +13,7 @@ const dancing = Dancing_Script({
 
 const Contact = () => {
   const t = useTranslations();
+  logger.info("Using Contact -> contact");
 
   return (
     <section>

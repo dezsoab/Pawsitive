@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import styles from "./Listing.module.css";
+import logger from "@/logging/logger";
 
 type ListingProps = {
   href?: string;
@@ -12,6 +13,8 @@ type ListingProps = {
 
 const Listing = ({ href, icon, text, label }: ListingProps) => {
   if (href) {
+    logger.info("Using Contact -> listing with href: " + href);
+
     return (
       <>
         <p className={styles.label}>{`${icon} ${label}`}</p>
@@ -21,6 +24,8 @@ const Listing = ({ href, icon, text, label }: ListingProps) => {
       </>
     );
   } else {
+    logger.info("Using Contact -> listing without href. Text: " + text);
+
     return (
       <>
         <p className={styles.label}>{`${icon} ${label}`}</p>
