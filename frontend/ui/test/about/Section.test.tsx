@@ -5,7 +5,7 @@ import { setup } from "@/test/util/mocks/mockRender";
 import Section from "../../app/[locale]/about/(section)/Section";
 
 const sectionProps = {
-  imageSrc: "/assets/collar1.jpeg",
+  imageSrc: "/assets/collar1.webp",
   imageAlt: "some Alt",
   label: "Test Label",
   paragraph: "Test Paragraph",
