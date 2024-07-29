@@ -34,7 +34,6 @@ const Section = ({
             width={200}
             height={500}
             className={styles.about_img}
-            layout="responsive"
           />
         </div>
         <div className={styles.about_text}>

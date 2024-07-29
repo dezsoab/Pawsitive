@@ -17,9 +17,9 @@
 }
 
 .about_img {
-  width: 100%;
-  max-width: 500px;
+  object-fit: contain;
   border-radius: var(--rounding);
+  width: 100%;
 }
 
 .about_text {
@@ -54,9 +54,5 @@
   .about > div {
     display: flex;
     flex-direction: column !important;
-  }
-
-  .about_img {
-    max-width: 250px;
   }
 }
