@@ -2,9 +2,13 @@ import React from "react";
 import styles from "./Reasoning.module.css";
 import { useTranslations } from "next-intl";
 import Reason from "./Reason";
+import logger from "@/logging/logger";
 
 const Reasoning = () => {
   const t = useTranslations("Index.reasoning");
+
+  logger.info("Using Home -> reasoning");
+
   return (
     <section className={styles.reasoning}>
       <h6>{t("title")}</h6>

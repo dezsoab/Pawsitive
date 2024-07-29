@@ -11,7 +11,11 @@ import LanguagePicker from "../language/LanguagePicker";
 
 import { navigationRoutes } from "../../enums/navigationRoutes";
 
-const Navbar = () => {
+type NabarProps = {
+  style?: { [key: string]: string };
+};
+
+const Navbar = ({ style }: NabarProps) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -31,7 +35,10 @@ const Navbar = () => {
   const t = useTranslations();
 
   return (
-    <nav className={`${styles.navBar} ${scrolled ? styles.scrolled : ""}`}>
+    <nav
+      className={`${styles.navBar} ${scrolled ? styles.scrolled : ""}`}
+      style={style}
+    >
       <Link href={navigationRoutes.HOME} locale={locale}>
         <Image
           src="/assets/logo.png"
@@ -66,7 +73,7 @@ const Navbar = () => {
         }}
         locale={locale}
       />
-      <LanguagePicker isScrolled={scrolled} />
+      <LanguagePicker isScrolled={scrolled} className={styles.langPick} />
     </nav>
   );
 };

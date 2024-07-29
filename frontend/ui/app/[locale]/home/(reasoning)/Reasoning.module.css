@@ -8,20 +8,29 @@
 }
 
 .reasoning h6 {
-  font-size: 3rem;
+  font-size: var(--font-mid);
   margin-bottom: 3rem;
 }
 
 .reasoning_title_secondary {
-  font-size: 2.2rem;
+  font-size: var(--font-paragraph);
   margin-bottom: 5rem;
   max-width: 1000px;
 }
 
 .reasoning div {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-self: center;
-  /* width: 100%; */
+  width: 100%;
+}
+
+@media screen and (max-width: 625px) {
+  .reasoning div {
+    flex-direction: column;
+  }
+
+  .reasoning div:not(:last-of-type) {
+    margin-bottom: 3rem;
+  }
 }

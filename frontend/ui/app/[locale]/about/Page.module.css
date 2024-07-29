@@ -1,0 +1,10 @@
+.main {
+  padding-top: 15vh;
+  background-color: var(--color-pink-light);
+}
+
+@media screen and (max-width: 510px) {
+  .main {
+    padding-top: 5vh;
+  }
+}

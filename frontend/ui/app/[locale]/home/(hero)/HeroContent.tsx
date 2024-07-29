@@ -5,10 +5,13 @@ import CTAButton from "../../../../components/cta/CTAButton";
 import { useLocale, useTranslations } from "next-intl";
 
 import { navigationRoutes } from "../../../../enums/navigationRoutes";
+import logger from "@/logging/logger";
 
 const HeroContent = () => {
   const locale = useLocale();
   const t = useTranslations();
+
+  logger.info("Using Home -> hero");
 
   return (
     <div className={styles.heroContent}>
@@ -27,6 +30,7 @@ const HeroContent = () => {
           color: "var(--color-white)",
         }}
         locale={locale}
+        classList={styles.jelly}
       />
     </div>
   );

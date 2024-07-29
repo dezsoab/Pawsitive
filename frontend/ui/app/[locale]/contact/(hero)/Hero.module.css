@@ -1,0 +1,96 @@
+.hero {
+  background-image: url("../../../../public/assets/duett1-landscape.webp");
+  width: 100%;
+  height: 60vh;
+  background-position: center top;
+  background-size: cover;
+  position: relative;
+  background-position-y: 12%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.432);
+  z-index: 2;
+}
+
+.hero div {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  color: var(--color-white);
+  animation: shiftUp 1s ease 1;
+}
+
+.hero h1 {
+  font-size: var(--font-huge);
+}
+
+.hero p {
+  font-size: var(--font-paragraph);
+  margin: 2rem 0;
+}
+
+.hero button {
+  font-size: var(--font-paragraph);
+  border: none;
+  border-radius: var(--rounding);
+  padding: 1rem 2.3rem;
+  transition: all 0.1s linear;
+  background-color: var(--color-pink-mid);
+  color: var(--color-white);
+}
+
+.hero button:hover {
+  cursor: pointer;
+  scale: 1.05;
+}
+
+@keyframes shiftUp {
+  from {
+    bottom: 110%;
+    opacity: 0;
+  }
+  to {
+    bottom: -10%;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 915px) {
+  .hero div {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .hero h1 {
+    font-size: var(--font-big);
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .hero div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .hero p {
+    font-size: var(--font-small);
+    margin: 1rem;
+  }
+
+  .hero button {
+    font-size: var(--font-small);
+    padding: 0.7rem 2rem;
+  }
+}
