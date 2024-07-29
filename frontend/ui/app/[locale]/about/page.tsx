@@ -34,7 +34,7 @@ export default function AboutPage() {
         <Section
           label={t("About.sustainability.label")}
           paragraph={t("About.sustainability.paragraph")}
-          imageSrc="/assets/duett1-landscape.webp"
+          imageSrc="/assets/cezar2.webp"
           imageAlt="some Alt"
           slideFrom={150}
         />

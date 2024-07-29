@@ -18,8 +18,8 @@
 
 .about_img {
   object-fit: contain;
-  border-radius: var(--rounding);
   width: 100%;
+  clip-path: inset(0 0 0 0 round 0% 20% 0 20%);
 }
 
 .about_text {
