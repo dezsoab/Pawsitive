@@ -18,14 +18,14 @@ export default function AboutPage() {
         <Section
           label={t("About.about.label")}
           paragraph={t("About.about.paragraph")}
-          imageSrc="/assets/collar1.jpeg"
+          imageSrc="/assets/molli1.webp"
           imageAlt="some Alt"
           slideFrom={-150}
         />
         <Section
           label={t("About.history.label")}
           paragraph={t("About.history.paragraph")}
-          imageSrc="/assets/collar2.jpeg"
+          imageSrc="/assets/cezar1.webp"
           imageAlt="some Alt"
           contentStyle={{ flexDirection: "row-reverse" }}
           containerStyle={{ backgroundColor: "var(--color-white)" }}
@@ -34,7 +34,7 @@ export default function AboutPage() {
         <Section
           label={t("About.sustainability.label")}
           paragraph={t("About.sustainability.paragraph")}
-          imageSrc="/assets/collar6.jpeg"
+          imageSrc="/assets/duett1-landscape.webp"
           imageAlt="some Alt"
           slideFrom={150}
         />

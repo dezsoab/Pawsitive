@@ -39,7 +39,7 @@ const OurTeam = ({
               t("About.team.person.founder"),
               t("About.team.person.lead_dev"),
             ]}
-            imgSrc="/assets/dezso.jpeg"
+            imgSrc="/assets/dezso.webp"
             imgAlt="some Alt"
           />
           <PersonTag
@@ -48,13 +48,13 @@ const OurTeam = ({
               t("About.team.person.co-founder"),
               t("About.team.person.product_design"),
             ]}
-            imgSrc="/assets/collar2.jpeg"
+            imgSrc="/assets/collar2.webp"
             imgAlt="some Alt"
           />
           <PersonTag
             name="Dzenis"
             roles={[t("About.team.person.developer")]}
-            imgSrc="/assets/collar3.jpeg"
+            imgSrc="/assets/collar3.webp"
             imgAlt="some Alt"
           />
         </div>

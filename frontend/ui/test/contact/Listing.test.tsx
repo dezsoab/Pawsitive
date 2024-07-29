@@ -3,6 +3,9 @@ import { render, screen } from "@testing-library/react";
 
 import Listing from "../../app/[locale]/contact/(contact)/Listing";
 
+import { setImmediate } from "timers";
+global.setImmediate = setImmediate;
+
 describe("Listing tests", () => {
   const propsWithHref = {
     href: "https://pawsitivecollar.com",
