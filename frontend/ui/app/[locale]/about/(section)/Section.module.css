@@ -12,9 +12,13 @@
   flex-wrap: wrap-reverse;
 }
 
-.about_img {
+.about_img_container {
   flex: 1;
-  max-height: 400px;
+}
+
+.about_img {
+  width: 100%;
+  max-width: 500px;
   border-radius: var(--rounding);
 }
 
@@ -50,5 +54,9 @@
   .about > div {
     display: flex;
     flex-direction: column !important;
+  }
+
+  .about_img {
+    max-width: 250px;
   }
 }

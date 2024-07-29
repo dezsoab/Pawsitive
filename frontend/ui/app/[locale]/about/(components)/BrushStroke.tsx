@@ -1,11 +1,8 @@
 import React from "react";
 
 import styles from "./BrushStroke.module.css";
-import logger from "@/logging/logger";
 
 const BrushStroke = () => {
-  logger.info("Using About -> brush stroke");
-
   return (
     <svg
       id="svg"
