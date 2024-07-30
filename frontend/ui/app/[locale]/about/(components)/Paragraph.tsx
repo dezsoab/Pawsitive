@@ -29,7 +29,7 @@ const Paragraph = ({ title, slideFrom }: ParagraphProps) => {
         },
       }
     );
-  }, []);
+  });
 
   return (
     <p className={styles.text} ref={paragraphRef}>
