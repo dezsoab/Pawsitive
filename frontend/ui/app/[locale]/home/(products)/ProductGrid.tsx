@@ -1,29 +1,65 @@
-import React from "react";
-
+"use client";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import styles from "./ProductGrid.module.css";
 import { dummyProducts } from "./dummyProducts";
 
 import Link from "next/link";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import logger from "@/logging/logger";
 
-const ProductGrid = () => {
+const ProductGrid: React.FC = () => {
   const locale = useLocale();
+  const productRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const gridRef = useRef<HTMLDivElement | null>(null);
 
-  logger.info("Using Home -> product grid");
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gsap.fromTo(
+              productRefs.current,
+              { opacity: 0, scale: 0.8 },
+              {
+                opacity: 1,
+                scale: 1,
+                duration: 0.6,
+                ease: "power4.out",
+                stagger: 0.1,
+              }
+            );
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    if (gridRef.current) {
+      observer.observe(gridRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
-    <div className={styles.grid}>
-      {dummyProducts.map((product) => {
-        logger.info("Rendering product: " + product.title);
+    <div ref={gridRef} className={styles.grid}>
+      {dummyProducts.map((product, index) => {
         return (
           <Link
             key={product.id}
             href={`/product/${product.id}`}
             locale={locale}
           >
-            <div className={styles.product_card}>
+            <div
+              ref={(el) => {
+                productRefs.current[index] = el;
+              }}
+              className={`${styles.product_card} ${styles.hidden}`}
+            >
               <Image
                 src={product.image}
                 alt={product.title}
