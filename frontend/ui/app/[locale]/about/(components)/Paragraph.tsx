@@ -4,6 +4,8 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import styles from "./Paragraph.module.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 type ParagraphProps = {
   title: string;
   slideFrom?: number;
@@ -13,8 +15,6 @@ const Paragraph = ({ title, slideFrom }: ParagraphProps) => {
   const paragraphRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
     gsap.fromTo(
       paragraphRef.current,
       { x: slideFrom, opacity: 0 },
