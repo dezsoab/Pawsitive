@@ -1,13 +1,14 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useLocale } from "next-intl";
+
 import styles from "./ProductGrid.module.css";
 import { dummyProducts } from "./dummyProducts";
-
-import Link from "next/link";
-import Image from "next/image";
-import { useLocale } from "next-intl";
+import ProductCard from "./ProductCard";
+import LoadingProductCard from "./LoadingProduct";
+import { fetchData } from "../../../../util/fetchData";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,19 @@ const ProductGrid: React.FC = () => {
   const locale = useLocale();
   const productRefs = useRef<(HTMLDivElement | null)[]>([]);
   const gridRef = useRef<HTMLDivElement | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const data = await fetchData(
+        "https://jsonplaceholder.typicode.com/photos"
+      );
+      console.log(data);
+      setIsLoaded(true);
+    };
+
+    loadData();
+  }, []);
 
   useEffect(() => {
     if (gridRef.current) {
@@ -36,32 +50,21 @@ const ProductGrid: React.FC = () => {
         }
       );
     }
-  }, []);
+  }, [isLoaded]);
 
-  return (
+  return !isLoaded ? (
+    <LoadingProductCard />
+  ) : (
     <div ref={gridRef} className={styles.grid}>
       {dummyProducts.map((product, index) => {
         return (
-          <Link
-            key={product.id}
-            href={`/product/${product.id}`}
+          <ProductCard
+            index={product.id}
             locale={locale}
-          >
-            <div
-              ref={(el) => {
-                productRefs.current[index] = el;
-              }}
-              className={`${styles.product_card} ${styles.hidden}`}
-            >
-              <Image
-                src={product.image}
-                alt={product.title}
-                width={300}
-                height={300}
-              />
-              <h3>{product.title}</h3>
-            </div>
-          </Link>
+            product={product}
+            productRefs={productRefs}
+            key={index}
+          />
         );
       })}
     </div>
