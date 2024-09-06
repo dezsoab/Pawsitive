@@ -23,7 +23,7 @@ const AboutSection = () => {
         </section>
         <section>
           <Image
-            src={"/assets/cat_about.png"}
+            src={"/assets/cat_about.webp"}
             alt={"White cat"}
             width={600}
             height={450}
