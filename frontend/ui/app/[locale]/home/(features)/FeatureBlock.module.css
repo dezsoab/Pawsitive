@@ -55,3 +55,14 @@
   flex: 1;
   border-radius: var(--rounding);
 }
+
+@media screen and (max-width: 1000px) {
+  .block h1 {
+    font-size: var(--font-mobile-header);
+  }
+
+  .block h1 + p,
+  .block li {
+    font-size: var(--font-small);
+  }
+}
