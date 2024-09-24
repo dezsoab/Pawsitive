@@ -12,7 +12,7 @@ interface FeaturesProps {
 
 const Features = ({ bgc, flexDir, imgPath, isServices }: FeaturesProps) => {
   return (
-    <section style={{ backgroundColor: bgc }}>
+    <section style={{ backgroundColor: bgc }} data-testid="features">
       <FeatureBlock
         flexDir={flexDir}
         imgPath={imgPath}

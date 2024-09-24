@@ -16,7 +16,11 @@ const FeatureBlock = ({ flexDir, imgPath, isServices }: FeatureBlockProps) => {
   const t = useTranslations(messagePath);
 
   return (
-    <div className={styles.block} style={{ flexDirection: flexDir }}>
+    <div
+      className={styles.block}
+      style={{ flexDirection: flexDir }}
+      data-testid="block"
+    >
       <div>
         <h1>{t("title")}</h1>
         <p>{t("title_secondary")}</p>
@@ -45,7 +49,13 @@ const FeatureBlock = ({ flexDir, imgPath, isServices }: FeatureBlockProps) => {
           </li>
         </ul>
       </div>
-      <Image src={imgPath} alt="somemeeeee title" width={300} height={300} />
+      <Image
+        src={imgPath}
+        alt="Pawsitive Collar Model"
+        width={300}
+        height={300}
+        data-testid="block-image"
+      />
     </div>
   );
 };
