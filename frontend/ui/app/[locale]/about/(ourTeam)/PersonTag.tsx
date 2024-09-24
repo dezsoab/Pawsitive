@@ -1,20 +1,52 @@
-import logger from "@/logging/logger";
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import styles from "./PersonTag.module.css";
 
-type PersonTag = {
+type PersonTagProps = {
   imgSrc: string;
   imgAlt: string;
   name: string;
   roles: string[];
 };
 
-const PersonTag = ({ imgSrc, imgAlt, name, roles }: PersonTag) => {
-  logger.info("Rendering About -> person tag with name: " + name);
+const PersonTag: React.FC<PersonTagProps> = ({
+  imgSrc,
+  imgAlt,
+  name,
+  roles,
+}) => {
+  const tagRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      tagRef.current,
+      { x: 200, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: tagRef.current,
+          start: "top 80%",
+          end: "bottom 40%",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
 
   return (
-    <div>
-      <Image src={imgSrc} alt={imgAlt} width={170} height={200} />
+    <div className={styles.personTag} ref={tagRef}>
+      <Image
+        src={imgSrc}
+        alt={imgAlt}
+        width={170}
+        height={200}
+        className={styles.personImage}
+      />
       <h4>{name}</h4>
       {roles.map((role) => (
         <p key={role}>{role}</p>

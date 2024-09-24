@@ -25,6 +25,16 @@
       "block_3": "Machen Sie sich nie wieder Sorgen, Ihr Haustier zu verlieren, dank unserer innovativen Technologie",
       "about_heading": "Über unsere Pet Collars"
     },
+    "features": {
+      "title": "Einzigartige Merkmale unserer Haustierzubehör",
+      "title_secondary": "Entdecken Sie die innovative Technologie und stilvollen Designs, die unsere Produkte von den anderen abheben.",
+      "reason_1": "Handgefertigt mit Liebe",
+      "reason1_text": "Jedes Haustierhalsband wird mit Leidenschaft und Sorgfalt handgefertigt.",
+      "reason_2": "NFC-Tag-Software",
+      "reason2_text": "Die integrierte Softwarelösung zeigt die Informationen Ihres Haustieres sofort nach dem Scannen an.",
+      "reason_3": "Anpassbare Optionen",
+      "reason3_text": "Personalisieren Sie das Halsband Ihres Haustieres mit einzigartigen Designs und Farben."
+    },
     "reasoning": {
       "title": "Warum das Pawsitive Collar wählen?",
       "title_secondary": "Der Grund, warum Tierhalter sich für unsere handgefertigten Haustierzubehörteile mit NFC-Technologie für ihre geliebten Haustiere entscheiden.",
@@ -34,6 +44,16 @@
       "reason2_amount": "1000",
       "reason_3": "Zufriedene Kunden",
       "reason3_amount": "5000"
+    },
+    "services": {
+      "title": "Unsere Dienstleistungen für Haustierliebhaber",
+      "title_secondary": "Entdecken Sie unser Angebot an Dienstleistungen, die darauf abzielen, Ihre Haustiere sicher, stilvoll und geschützt zu halten.",
+      "reason_1": "Individuelle Produktgestaltung",
+      "reason1_text": "Erstellen Sie ein einzigartiges Produkt für Ihr geliebtes Haustier.",
+      "reason_2": "Hilfe bei verloren gegangenen Haustieren",
+      "reason2_text": "Unsere NFC-Software hilft dabei, verlorene Haustiere mit ihren Besitzern wieder zu vereinen.",
+      "reason_3": "Hochwertige Handwerkskunst",
+      "reason3_text": "Erleben Sie die feinsten handgefertigten Haustierhalsbänder auf dem Markt."
     },
     "ctasection": {
       "title": "Bereit, das Zubehör Ihres Haustiers aufzurüsten?",

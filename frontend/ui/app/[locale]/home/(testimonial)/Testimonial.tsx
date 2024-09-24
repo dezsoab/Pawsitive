@@ -14,7 +14,7 @@ const Testimonial = () => {
     <section className={styles.testi}>
       <h3>{t("title")}</h3>
       <Image
-        src="/assets/customer.png"
+        src="/assets/customer.webp"
         width={70}
         height={70}
         alt="Dobrean Alexander"

@@ -11,6 +11,7 @@
     "cloc": "cloc --exclude-dir=.next,node_modules,coverage,bin,lib,target,.idea --not-match-f=\"package-lock.json\" ../../ | grep -A100 '^-*$'"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "next": "14.2.4",
     "next-intl": "^3.15.3",
     "react": "^18",
@@ -20,6 +21,7 @@
     "winston": "^3.13.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.25.0",
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
     "@testing-library/jest-dom": "^6.4.6",

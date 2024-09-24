@@ -25,6 +25,26 @@
       "block_3": "Never worry about losing your pet again, thanks to our innovative technology",
       "about_heading": "About our unique pet collars"
     },
+    "features": {
+      "title": "Unique Features of Our Pet Accessories",
+      "title_secondary": "Discover the innovative technology and stylish designs that set our products apart from the rest.",
+      "reason_1": "Handcrafted with Love",
+      "reason1_text": "Each pet collar is meticulously handmade with passion and care",
+      "reason_2": "NFC Tag Software",
+      "reason2_text": "The integrated software solution displays your pet's information instantly upon scanning",
+      "reason_3": "Customizable Options",
+      "reason3_text": "Personalize your pet's collar with unique designs and colors"
+    },
+    "services": {
+      "title": "Our Services for Pet Lovers",
+      "title_secondary": "Explore our range of services dedicated to keeping your pets safe, stylish and protected.",
+      "reason_1": "Custom Product Design",
+      "reason1_text": "Create a one-of-a-kind product for your beloved pet",
+      "reason_2": "Lost Pet Assistance",
+      "reason2_text": "Our NFC software helps reunite lost pets with their owners",
+      "reason_3": "Quality Craftsmanship",
+      "reason3_text": "Experience the finest handcrafted pet collars on the market"
+    },
     "reasoning": {
       "title": "Why choose us?",
       "title_secondary": "The reason why pet owners choose our handcrafted pet accessories with NFC technology for their beloved pets.",

@@ -6,7 +6,6 @@ import Label from "../(components)/Label";
 import Paragraph from "../(components)/Paragraph";
 import PersonTag from "./PersonTag";
 import BrushStroke from "../(components)/BrushStroke";
-import logger from "@/logging/logger";
 
 type OurTeamProps = {
   label: string;
@@ -22,7 +21,6 @@ const OurTeam = ({
   contentStyle,
 }: OurTeamProps) => {
   const t = useTranslations();
-  logger.info("Rendering About -> our-team");
 
   return (
     <section className={styles.our_team} style={containerStyle}>
@@ -32,7 +30,7 @@ const OurTeam = ({
             <Label title={label} />
             <BrushStroke />
           </div>
-          <Paragraph title={paragraph} />
+          <Paragraph title={paragraph} slideFrom={-150} />
         </div>
         <div className={styles.person_container}>
           <PersonTag
