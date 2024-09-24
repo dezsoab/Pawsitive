@@ -7,6 +7,10 @@ import { dummyProducts } from "@/app/[locale]/home/(products)/dummyProducts";
 import { IntlProvider } from "next-intl";
 
 describe("Products section tests", () => {
+  beforeEach(() => {
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
+  });
+
   jest.mock("../../../util/fetchData", () => ({
     fetchData: jest.fn().mockResolvedValue(dummyProducts),
   }));

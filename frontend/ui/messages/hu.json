@@ -25,6 +25,26 @@
       "block_3": "Soha többé ne aggódjon kisállata elvesztése miatt, köszönhetően innovatív technológiánknak",
       "about_heading": "Egyedi kisállat nyakörveinkről"
     },
+    "features": {
+      "title": "Kiegészítőink egyedi jellemzői",
+      "title_secondary": "Fedezze fel az innovatív technológiát és stílusos formatervezést, amely termékeinket megkülönbözteti a többiektől.",
+      "reason_1": "Kézzel készült, szeretettel",
+      "reason1_text": "Minden háziállat nyakörvét szenvedéllyel és gondossággal készítjük el.",
+      "reason_2": "NFC szoftver",
+      "reason2_text": "A beépített szoftveres megoldás azonnal megjeleníti háziállata adatait a beolvasás után.",
+      "reason_3": "Személyre szabható lehetőségek",
+      "reason3_text": "Személyre szabhatja kedvence nyakörvét egyedi dizájnnal és színekkel."
+    },
+    "services": {
+      "title": "Szolgáltatásaink kisállat-tulajdonosoknak",
+      "title_secondary": "Fedezze fel szolgáltatásaink széles választékát, melyek célja, hogy kisállatait biztonságban, stílusosan és védetten tartsák.",
+      "reason_1": "Egyedi terméktervezés",
+      "reason1_text": "Hozzon létre egy egyedi terméket kedvenc háziállatának.",
+      "reason_2": "Eltűnt kisállat segítség",
+      "reason2_text": "Az NFC szoftverünk segít újra egyesíteni az elveszett háziállatokat gazdáikkal.",
+      "reason_3": "Minőségi kézműves munka",
+      "reason3_text": "Tapasztalja meg a legfinomabb kézzel készített háziállat nyakörveket a piacon."
+    },
     "reasoning": {
       "title": "Miért válassz minket?",
       "title_secondary": "Az ok, amiért a gazdik az NFC technológiás, kézzel készített kisállat-kiegészítőinket választják kedvenceik számára.",
