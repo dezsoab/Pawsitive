@@ -50,8 +50,8 @@
 }
 
 .block img {
-  max-width: 400px !important;
-  height: auto !important;
+  max-width: 400px;
+  height: auto;
   flex: 1;
   border-radius: var(--rounding);
 }
