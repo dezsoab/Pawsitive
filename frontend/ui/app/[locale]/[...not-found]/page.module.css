@@ -1,0 +1,47 @@
+.main {
+  min-height: 100vh;
+  max-width: 1250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.main div {
+  flex: 1;
+  padding: 0 2rem;
+  margin-top: 7rem;
+}
+
+.main image {
+  flex: 2;
+}
+
+.main h1,
+.main h2 {
+  font-size: var(--font-huge);
+}
+
+.main h1 {
+  font-weight: 300;
+}
+
+.main h1 {
+  margin-bottom: 3rem;
+}
+
+.main p {
+  font-size: var(--font-mid);
+  margin-bottom: 3rem;
+}
+
+.main button {
+  margin-bottom: 3rem;
+}
+
+.main small {
+  font-size: var(--font-mini);
+}

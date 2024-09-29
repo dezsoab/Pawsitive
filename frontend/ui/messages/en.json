@@ -129,5 +129,12 @@
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
     "faqs": "FAQs"
+  },
+  "NotFound": {
+    "title": "Looks like you've lost your way",
+    "title_secondary": "No fear, our friend Molli can sniff out a better path.",
+    "molli_message_part1": "PS: If you've also got a pet called Molli, we would love to hear from you. Send us a pic or tag us on ",
+    "molli_message_part2": " and we'll send Molli a shout!",
+    "molli_image_alt": "Our friend, Molli"
   }
 }
