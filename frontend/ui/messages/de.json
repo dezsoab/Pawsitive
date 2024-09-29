@@ -129,5 +129,12 @@
     "privacy": "Datenschutzrichtlinie",
     "terms": "Allgemeine Geschäftsbedingungen",
     "faqs": "Häufig gestellte Fragen"
+  },
+  "NotFound": {
+    "title": "Es scheint, als hättest du dich verlaufen",
+    "title_secondary": "Keine Sorge, unser Freund Molli kann einen besseren Weg erschnüffeln.",
+    "molli_message_part1": "PS: Falls du auch ein Haustier namens Molli hast, würden wir uns freuen, von dir zu hören. Schicke uns ein Bild oder markiere uns auf ",
+    "molli_message_part2": " und wir schicken Molli einen Gruß!",
+    "molli_image_alt": "Unser Freund, Molli"
   }
 }

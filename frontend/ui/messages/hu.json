@@ -129,5 +129,12 @@
     "privacy": "Adatvédelmi irányelvek",
     "terms": "Általános Szerződési Feltételek",
     "faqs": "GYIK"
+  },
+  "NotFound": {
+    "title": "Úgy tűnik, eltévedtél",
+    "title_secondary": "Ne aggódj, Molli barátunk egy jobb utat is kiszimatolhat.",
+    "molli_message_part1": "UI: Ha neked is van egy Mollinak hívott háziállatod, örömmel hallanánk felőled. Küldj nekünk egy képet, vagy jelölj meg minket az ",
+    "molli_message_part2": "-on, és küldünk egy üzenetet Mollinak!",
+    "molli_image_alt": "A barátunk, Molli"
   }
 }
