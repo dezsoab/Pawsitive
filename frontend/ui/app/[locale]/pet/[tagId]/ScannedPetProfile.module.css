@@ -1,6 +1,10 @@
+.background {
+  background-color: var(--color-pink-light);
+}
+
 .main {
   max-width: 700px;
-  background-color: var(--color-pink-light);
+  background-color: var(--color-pink-mid);
   margin: 0 auto;
   min-height: 100vh;
   max-height: 100vh;
@@ -33,7 +37,7 @@
   z-index: 0;
   background-color: #fff;
   width: 80%;
-  height: 90%;
+  height: 100%;
   margin: 0 auto;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
 }
