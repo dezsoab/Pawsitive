@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: capitalize;
   background: var(--color-green);
 
   -webkit-animation: main 500ms;

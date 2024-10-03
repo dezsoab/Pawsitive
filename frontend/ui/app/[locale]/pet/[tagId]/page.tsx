@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 import styles from "./ScannedPetProfile.module.css";
-import molli from "../../../../public/assets/molli2.webp";
+import molli from "../../../../public/assets/cezar1.webp";
 import Ribbon from "@/components/ribbon/Ribbon";
 import ScannedPetDetails from "./ScannedPetDetails";
 

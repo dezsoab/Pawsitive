@@ -136,5 +136,15 @@
     "molli_message_part1": "PS: If you've also got a pet called Molli, we would love to hear from you. Send us a pic or tag us on ",
     "molli_message_part2": " and we'll send Molli a shout!",
     "molli_image_alt": "Our friend, Molli"
+  },
+  "ScannedPet": {
+    "breed": "Breed",
+    "age": "Age",
+    "sex": "Sex",
+    "size": "Size",
+    "address": "Address",
+    "tel": "Telephone",
+    "email": "Email",
+    "lost": "Lost"
   }
 }

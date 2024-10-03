@@ -136,5 +136,15 @@
     "molli_message_part1": "PS: Falls du auch ein Haustier namens Molli hast, würden wir uns freuen, von dir zu hören. Schicke uns ein Bild oder markiere uns auf ",
     "molli_message_part2": " und wir schicken Molli einen Gruß!",
     "molli_image_alt": "Unser Freund, Molli"
+  },
+  "ScannedPet": {
+    "breed": "Rasse",
+    "age": "Alter",
+    "sex": "Geschlecht",
+    "size": "Größe",
+    "address": "Adresse",
+    "tel": "Telefon",
+    "email": "E-Mail",
+    "lost": "Verloren"
   }
 }

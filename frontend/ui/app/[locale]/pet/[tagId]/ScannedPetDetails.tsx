@@ -1,21 +1,25 @@
 import React from "react";
 
 import styles from "./ScannedPetDetails.module.css";
+import { useTranslations } from "next-intl";
 
 const ScannedPetDetails = () => {
+  const t = useTranslations("ScannedPet");
   return (
     <div className={styles.details}>
-      <p>Fajta: Border Collie</p>
-      <p>Eletkora: 3 ev</p>
-      <p>Neme: szuka</p>
-      <p>Merete: kozepes</p>
+      <p>{t("breed")}: Border Collie</p>
+      <p>{t("age")}: 3 ev</p>
+      <p>{t("sex")}: szuka</p>
+      <p>{t("size")}: kozepes</p>
       <hr />
-      <p>Lakhely: Kiss Sandor Andras utca 15, Budapest 1188, Magyarorszag</p>
-      <p>Tel:+1234364564</p>
-      <p>E-Mail cim: test@test.com</p>
+      <p>
+        {t("address")}: Kiss Sandor Andras utca 15, Budapest 1188, Magyarorszag
+      </p>
+      <p>{t("tel")}:+1234364564</p>
+      <p>{t("email")}: test@test.com</p>
       <hr />
       <div>
-        <h1>Elveszett</h1>
+        <h1>{t("lost")}</h1>
       </div>
     </div>
   );

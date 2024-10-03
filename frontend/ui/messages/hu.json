@@ -136,5 +136,15 @@
     "molli_message_part1": "UI: Ha neked is van egy Mollinak hívott háziállatod, örömmel hallanánk felőled. Küldj nekünk egy képet, vagy jelölj meg minket az ",
     "molli_message_part2": "-on, és küldünk egy üzenetet Mollinak!",
     "molli_image_alt": "A barátunk, Molli"
+  },
+  "ScannedPet": {
+    "breed": "Fajta",
+    "age": "Életkor",
+    "sex": "Neme",
+    "size": "Mérete",
+    "address": "Lakhely",
+    "tel": "Telefon",
+    "email": "E-Mail",
+    "lost": "Elveszett"
   }
 }
