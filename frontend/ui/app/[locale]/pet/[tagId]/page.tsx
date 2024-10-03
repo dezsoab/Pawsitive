@@ -5,6 +5,7 @@ import React from "react";
 import styles from "./ScannedPetProfile.module.css";
 import molli from "../../../../public/assets/molli2.webp";
 import Ribbon from "@/components/ribbon/Ribbon";
+import ScannedPetDetails from "./ScannedPetDetails";
 
 const ScannedPetProfile = () => {
   return (
@@ -18,13 +19,14 @@ const ScannedPetProfile = () => {
                 src={molli}
                 alt="NotFound.molli_image_alt"
                 fill
-                //   objectFit="contain"
+                // objectFit="contain"
                 objectFit="cover"
               />
             </div>
             <div className={styles.petDetails}>
               <div className={styles.petContent}>
                 <Ribbon name="Molli" />
+                <ScannedPetDetails />
               </div>
             </div>
           </div>
