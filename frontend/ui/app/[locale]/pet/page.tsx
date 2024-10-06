@@ -37,8 +37,6 @@ const ScannedPetProfile = () => {
     return <Cat />;
   }
 
-  console.log(pet);
-
   return (
     <>
       <Navbar style={{ backgroundColor: "var(--color-green)" }} />
@@ -48,7 +46,7 @@ const ScannedPetProfile = () => {
             <div className={styles.imgContainer}>
               <Image
                 src={pet.photoUrl || molli}
-                alt="NotFound.molli_image_alt"
+                alt={pet.name}
                 fill
                 // objectFit="contain"
                 objectFit="cover"

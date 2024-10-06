@@ -10,7 +10,7 @@ const Cat = () => {
   return (
     <>
       <Navbar style={{ backgroundColor: "var(--color-green)" }} />
-      <div className={styles.cat}>
+      <div className={styles.cat} data-testid="cat-spinner">
         {segmentsArray.map((_, index) => (
           <div key={index} className={`${styles.cat__segment}`}></div>
         ))}
