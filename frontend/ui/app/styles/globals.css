@@ -13,6 +13,8 @@
   --color-pink-mid: #f8a295;
   --color-pink-dark: #e27d6e;
   --color-green: #446a46;
+  --color-green-light: #5f9462;
+  --color-green-dark: #2b4a2c;
   --rounding: 5px;
   --font-huge: 5.2rem;
   --font-big: 4rem;
@@ -21,6 +23,23 @@
   --font-paragraph: 2rem;
   --font-small: 1.8rem;
   --font-mini: 1.5rem;
+
+  /* Cat Variables */
+  --angleSpan: 40deg;
+  --dur: 2s;
+  --segments: 30;
+  --timing: cubic-bezier(0.6, 0, 0.4, 1);
+  /* Cat Colors */
+  --w1: hsl(0, 0%, 100%);
+  --w1T: hsla(0, 0%, 100%, 0);
+  --w2: hsl(0, 0%, 90%);
+  --w2T: hsla(0, 0%, 90%, 0);
+  --w3: hsl(0, 0%, 80%);
+  --w3T: hsla(0, 0%, 80%, 0);
+  --bk: hsl(0, 0%, 10%);
+  --bkT: hsla(0, 0%, 10%, 0);
+  --pk: hsl(0, 60%, 75%);
+  --pkT: hsla(0, 60%, 75%, 0);
 }
 
 /* Convert px to rem => 10px to one rem */
