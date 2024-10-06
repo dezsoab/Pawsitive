@@ -12,6 +12,7 @@ import Ribbon from "@/components/ribbon/Ribbon";
 import ScannedPetDetails from "./ScannedPetDetails";
 import { fetchPet } from "@/api/fetchPet";
 import { Pet } from "@/types/Pet";
+import Cat from "@/components/loader/Cat";
 
 const ScannedPetProfile = () => {
   const searchParams = useSearchParams();
@@ -33,7 +34,7 @@ const ScannedPetProfile = () => {
   }, []);
 
   if (!pet) {
-    return <div>Loading...</div>;
+    return <Cat />;
   }
 
   console.log(pet);
