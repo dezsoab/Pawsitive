@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +23,12 @@ public class PetController {
     public PetController(PetService petService, OwnerService ownerService) {
         this.petService = petService;
         this.ownerService = ownerService;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Pet> getPetById(@PathVariable Long id) {
+        Optional<Pet> pet = petService.getPetById(id);
+        return pet.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
 
     @GetMapping("/all")
