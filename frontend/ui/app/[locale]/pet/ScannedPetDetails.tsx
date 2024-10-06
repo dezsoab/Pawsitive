@@ -35,10 +35,6 @@ const ScannedPetDetails = ({ pet }: ScannedPetDetailsProps) => {
       <p>
         {t("email")}: {pet.owner.email}
       </p>
-      <hr />
-      <div>
-        <h1>{t("lost")}</h1>
-      </div>
     </div>
   );
 };
