@@ -140,7 +140,11 @@
   "ScannedPet": {
     "breed": "Fajta",
     "age": "Életkor",
-    "sex": "Neme",
+    "sex": {
+      "name": "Nem",
+      "male": "Kan",
+      "female": "Szuka"
+    },
     "size": "Mérete",
     "address": "Lakhely",
     "tel": "Telefon",

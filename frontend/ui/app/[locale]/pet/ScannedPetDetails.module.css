@@ -10,12 +10,3 @@
 .details hr {
   margin-bottom: 2rem;
 }
-
-.details div {
-  background-color: red;
-  width: 150px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}

@@ -140,7 +140,11 @@
   "ScannedPet": {
     "breed": "Breed",
     "age": "Age",
-    "sex": "Sex",
+    "sex": {
+      "name": "Sex",
+      "male": "Male",
+      "female": "Female"
+    },
     "size": "Size",
     "address": "Address",
     "tel": "Telephone",
