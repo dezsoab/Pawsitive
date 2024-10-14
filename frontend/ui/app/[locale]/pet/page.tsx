@@ -10,9 +10,10 @@ import Navbar from "@/components/navigation/Navbar";
 import molli from "../../../public/assets/molli2.webp";
 import Ribbon from "@/components/ribbon/Ribbon";
 import ScannedPetDetails from "./ScannedPetDetails";
-import { fetchPet } from "@/api/fetchPet";
+
 import { Pet } from "@/types/Pet";
 import Cat from "@/components/loader/Cat";
+import { fetchPet } from "@/api/fetchPet";
 
 const ScannedPetProfile = () => {
   const searchParams = useSearchParams();

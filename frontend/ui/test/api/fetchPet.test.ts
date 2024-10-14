@@ -60,6 +60,6 @@ describe("fetchPet", () => {
 
     const id = 1;
 
-    await expect(fetchPet(id)).rejects.toThrow("Failed to fetch pet");
+    await expect(fetchPet(id)).rejects.toThrow("Failed to fetch from pet/1");
   });
 });
