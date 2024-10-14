@@ -1,7 +1,9 @@
 package com.pawsitive.pawsitive.nfcTag.controller;
 
+import com.pawsitive.pawsitive.dto.NfcTagDTO;
 import com.pawsitive.pawsitive.nfcTag.model.NfcTag;
 import com.pawsitive.pawsitive.nfcTag.service.NfcTagService;
+import com.pawsitive.pawsitive.nfcTag.service.mapper.NfcTagMapper;
 import com.pawsitive.pawsitive.owner.controller.OwnerController;
 import com.pawsitive.pawsitive.pet.model.Pet;
 import org.slf4j.Logger;
@@ -20,19 +22,24 @@ public class NfcTagController {
     private static final Logger logger = LoggerFactory.getLogger(OwnerController.class);
 
     private final NfcTagService nfcTagService;
+    private final NfcTagMapper nfcTagMapper;
 
     @Autowired
-    public NfcTagController(NfcTagService nfcTagService) {
+    public NfcTagController(NfcTagService nfcTagService, NfcTagMapper nfcTagMapper) {
         this.nfcTagService = nfcTagService;
+        this.nfcTagMapper = nfcTagMapper;
     }
 
     @GetMapping("/{tagId}")
-    public ResponseEntity<NfcTag> getNfcTagById(@PathVariable String tagId) {
+    public ResponseEntity<NfcTagDTO> getNfcTagById(@PathVariable String tagId) {
         logger.info("Received request to get nfc tag with TagID: {}", tagId);
         Optional<NfcTag> nfcTag = nfcTagService.getNfcTagByTagId(tagId);
+
         if (nfcTag.isPresent()) {
-            logger.info("Nfc Tag found: {}", nfcTag.get());
-            return ResponseEntity.ok(nfcTag.get());
+            logger.info("Found NfcTag with TagID: {}", nfcTag.get().getTagId());
+            NfcTagDTO nfcTagDto = nfcTagMapper.toDto(nfcTag.get());
+            logger.info("Response NfcTagDTO created: {}", nfcTagDto);
+            return ResponseEntity.ok(nfcTagDto);
         } else {
             logger.warn("Nfc Tag not found with TagID: {}", tagId);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);

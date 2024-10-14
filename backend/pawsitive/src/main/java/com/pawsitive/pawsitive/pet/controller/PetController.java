@@ -1,8 +1,10 @@
 package com.pawsitive.pawsitive.pet.controller;
 
+import com.pawsitive.pawsitive.dto.PetDTO;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
 import com.pawsitive.pawsitive.pet.model.Pet;
+import com.pawsitive.pawsitive.pet.repository.mapper.PetMapper;
 import com.pawsitive.pawsitive.pet.service.PetService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,33 +22,29 @@ public class PetController {
     private static final Logger logger = LoggerFactory.getLogger(PetController.class);
 
     private final PetService petService;
+    private final PetMapper petMapper;
     private final OwnerService ownerService;
 
     @Autowired
-    public PetController(PetService petService, OwnerService ownerService) {
+    public PetController(PetService petService, PetMapper petMapper, OwnerService ownerService) {
         this.petService = petService;
+        this.petMapper = petMapper;
         this.ownerService = ownerService;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pet> getPetById(@PathVariable Long id) {
+    public ResponseEntity<PetDTO> getPetById(@PathVariable Long id) {
         logger.info("Received request to get pet with ID: {}", id);
         Optional<Pet> pet = petService.getPetById(id);
         if (pet.isPresent()) {
-            logger.info("Pet found: {}", pet.get());
-            return ResponseEntity.ok(pet.get());
+            logger.info("Pet found with ID: {}", pet.get().getId());
+            PetDTO petDto = petMapper.toDto(pet.get());
+            logger.info("Created Pet DTO as response:{}", petDto);
+            return ResponseEntity.ok(petDto);
         } else {
             logger.warn("Pet not found with ID: {}", id);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-    }
-
-    @GetMapping("/all")
-    public ResponseEntity<List<Pet>> getAllPets() {
-        logger.info("Received request to get all pets");
-        List<Pet> pets = petService.getAllPets();
-        logger.info("Returning {} pets.", pets.size());
-        return ResponseEntity.ok(pets);
     }
 
     @PostMapping()
