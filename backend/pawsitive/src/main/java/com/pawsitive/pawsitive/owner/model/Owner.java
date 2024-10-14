@@ -16,15 +16,20 @@ public class Owner {
 
     @Column(nullable = false)
     private String firstName;
+
     @Column(nullable = false)
     private String lastName;
+
     @Column(nullable = false)
     private String email;
+
     @Column(nullable = false)
     private String phone;
+
     @OneToOne
     @JoinColumn(name = "addressId")
     private Address address;
+
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 

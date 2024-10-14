@@ -1,5 +1,6 @@
 package com.pawsitive.pawsitive.pet.model;
 
+import com.pawsitive.pawsitive.nfcTag.model.NfcTag;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,14 +19,22 @@ public class Pet {
     @Column(nullable = false)
     private String name;
     private String breed;
+
     @Column(nullable = false)
     private int age;
+
     @Column(nullable = false)
     private String sex;
+
     private String photoUrl;
+
     @ManyToOne
     @JoinColumn(name = "ownerId", nullable = false)
     private Owner owner;
+
+    @OneToOne(mappedBy = "pet", cascade = CascadeType.ALL)
+    private NfcTag nfcTag;
+
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
