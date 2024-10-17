@@ -1,16 +1,14 @@
 package com.pawsitive.pawsitive.nfcTag.service;
 
+import com.pawsitive.pawsitive.dto.TagResponseDTO;
+import com.pawsitive.pawsitive.nfcTag.exception.TagNotFoundException;
 import com.pawsitive.pawsitive.nfcTag.model.NfcTag;
-import com.pawsitive.pawsitive.pet.model.Pet;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 public interface NfcTagService {
-    public List<NfcTag> getAllNfcTags();
 
-    Optional<NfcTag> getNfcTagByTagId(String tagId);
+    NfcTag getNfcTagByTagId(String tagId) throws TagNotFoundException;
 
     NfcTag createNfcTag(NfcTag nfcTag);
+
+    TagResponseDTO processScannedTag(String tagId);
 }
