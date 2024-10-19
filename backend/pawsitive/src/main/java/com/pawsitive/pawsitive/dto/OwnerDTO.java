@@ -1,17 +1,10 @@
 package com.pawsitive.pawsitive.dto;
 
-import lombok.Data;
-
 import java.time.LocalDateTime;
 
-@Data
-public class OwnerDTO {
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phone;
-    private AddressDTO address;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
+public record OwnerDTO(Long id, String firstName, String lastName, String email, String phone, AddressDTO address,
+                       LocalDateTime createdAt, LocalDateTime modifiedAt) {
+    public OwnerDTO(String firstName, String lastName, String email, String phone, AddressDTO address) {
+        this(null, firstName, lastName, email, phone, address, null, null);
+    }
 }

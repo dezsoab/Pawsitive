@@ -1,14 +1,11 @@
 package com.pawsitive.pawsitive.dto;
 
-import lombok.Data;
-
 import java.time.LocalDateTime;
 
-@Data
-public class NfcTagDTO {
-    private String tagId;
-    private PetDTO pet;
-    private String status;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
+public record NfcTagDTO(String tagId, PetDTO pet, String status, LocalDateTime createdAt, LocalDateTime modifiedAt) {
+
+    public NfcTagDTO(String tagId, PetDTO pet, String status) {
+        this(tagId, pet, status, null, null);
+    }
 }
+

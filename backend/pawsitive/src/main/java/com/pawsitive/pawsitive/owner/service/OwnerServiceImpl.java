@@ -2,9 +2,7 @@ package com.pawsitive.pawsitive.owner.service;
 
 import com.pawsitive.pawsitive.address.model.Address;
 import com.pawsitive.pawsitive.address.service.AddressService;
-import com.pawsitive.pawsitive.dto.AddressDTO;
 import com.pawsitive.pawsitive.dto.OwnerDTO;
-import com.pawsitive.pawsitive.owner.controller.OwnerController;
 import com.pawsitive.pawsitive.owner.exception.AddressNotFoundException;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.repository.OwnerRepository;
@@ -19,7 +17,7 @@ import java.util.Optional;
 
 @Service
 public class OwnerServiceImpl implements OwnerService {
-    private static final Logger logger = LoggerFactory.getLogger(OwnerController.class);
+    private static final Logger logger = LoggerFactory.getLogger(OwnerServiceImpl.class);
 
     private final OwnerRepository ownerRepository;
     private final AddressService addressService;
@@ -52,11 +50,10 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     private Address getAddress(OwnerDTO ownerDto) {
-        return addressService.getAddressById(ownerDto.getAddress().getId())
-                .orElseThrow(() -> {
-                    logger.warn("Address not found for ID: {}", ownerDto.getAddress().getId());
-                    return new AddressNotFoundException("Address not found with ID: " + ownerDto.getAddress().getId());
-                });
+        return addressService.getAddressById(ownerDto.address().id()).orElseThrow(() -> {
+            logger.warn("Address not found for ID: {}", ownerDto.address().id());
+            return new AddressNotFoundException("Address not found with ID: " + ownerDto.address().id());
+        });
     }
 
     @Override

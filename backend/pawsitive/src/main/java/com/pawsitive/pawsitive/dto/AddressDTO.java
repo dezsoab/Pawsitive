@@ -1,16 +1,10 @@
 package com.pawsitive.pawsitive.dto;
 
-import lombok.Data;
-
 import java.time.LocalDateTime;
 
-@Data
-public class AddressDTO {
-    private Long id;
-    private String country;
-    private String city;
-    private String zipCode;
-    private String street;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
+public record AddressDTO(Long id, String country, String city, String zipCode, String street, LocalDateTime createdAt,
+                         LocalDateTime modifiedAt) {
+    public AddressDTO(String country, String city, String zipCode, String street) {
+        this(null, country, city, zipCode, street, null, null);
+    }
 }

@@ -1,20 +1,13 @@
 package com.pawsitive.pawsitive.owner.controller;
 
-import com.pawsitive.pawsitive.address.model.Address;
-import com.pawsitive.pawsitive.address.service.AddressService;
 import com.pawsitive.pawsitive.dto.OwnerDTO;
-import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
-import com.pawsitive.pawsitive.owner.service.mapper.OwnerMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/v1/owner")
@@ -32,7 +25,7 @@ public class OwnerController {
     public ResponseEntity<OwnerDTO> createOwner(@RequestBody OwnerDTO ownerDto) {
         logger.info("Received request to create owner: {}", ownerDto);
         OwnerDTO createdOwner = ownerService.createOwner(ownerDto);
-        logger.info("Owner created with ID: {}", createdOwner.getId());
+        logger.info("Owner created with ID: {}", createdOwner.id());
         return ResponseEntity.status(HttpStatus.CREATED).body(createdOwner);
     }
 }

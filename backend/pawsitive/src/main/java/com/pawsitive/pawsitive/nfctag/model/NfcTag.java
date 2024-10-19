@@ -1,4 +1,4 @@
-package com.pawsitive.pawsitive.nfcTag.model;
+package com.pawsitive.pawsitive.nfctag.model;
 
 import com.pawsitive.pawsitive.pet.model.Pet;
 import jakarta.persistence.*;

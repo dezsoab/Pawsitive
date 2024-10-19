@@ -1,18 +1,12 @@
 package com.pawsitive.pawsitive.dto;
 
-import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Data
-public class PetDTO {
-    private long id;
-    private String name;
-    private String breed;
-    private int age;
-    private String sex;
-    private OwnerDTO owner;
-    private String nfcTagId;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
+public record PetDTO(Long id, String name, String breed, int age, String sex, OwnerDTO owner, String nfcTagId,
+                     LocalDateTime createdAt, LocalDateTime modifiedAt) {
+
+    public PetDTO(String name, String breed, int age, String sex, OwnerDTO owner, String nfcTagId) {
+        this(null, name, breed, age, sex, owner, nfcTagId, null, null);
+    }
 }

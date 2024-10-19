@@ -1,6 +1,5 @@
 package com.pawsitive.pawsitive.owner.service.mapper;
 
-import com.pawsitive.pawsitive.address.model.Address;
 import com.pawsitive.pawsitive.address.service.mapper.AddressMapper;
 import com.pawsitive.pawsitive.dto.OwnerDTO;
 import com.pawsitive.pawsitive.owner.model.Owner;
@@ -19,33 +18,20 @@ public class OwnerMapper {
 
     public OwnerDTO toDto(Owner owner) {
         if (owner == null) return null;
-
-        OwnerDTO ownerDto = new OwnerDTO();
-        ownerDto.setId(owner.getId());
-        ownerDto.setFirstName(owner.getFirstName());
-        ownerDto.setLastName(owner.getLastName());
-        ownerDto.setEmail(owner.getEmail());
-        ownerDto.setPhone(owner.getPhone());
-        ownerDto.setCreatedAt(owner.getCreatedAt());
-        ownerDto.setModifiedAt(owner.getModifiedAt());
-
-        Address address = owner.getAddress();
-        ownerDto.setAddress(address == null ? null : addressMapper.toDto(address));
-
-        return ownerDto;
+        return new OwnerDTO(owner.getId(), owner.getFirstName(), owner.getLastName(), owner.getEmail(), owner.getPhone(), addressMapper.toDto(owner.getAddress()), owner.getCreatedAt(), owner.getModifiedAt());
     }
 
     public Owner toEntity(OwnerDTO ownerDto) {
         if (ownerDto == null) return null;
 
         Owner owner = new Owner();
-        owner.setFirstName(ownerDto.getFirstName());
-        owner.setLastName(ownerDto.getLastName());
-        owner.setEmail(ownerDto.getEmail());
-        owner.setPhone(ownerDto.getPhone());
+        owner.setFirstName(ownerDto.firstName());
+        owner.setLastName(ownerDto.lastName());
+        owner.setEmail(ownerDto.email());
+        owner.setPhone(ownerDto.phone());
 
-        if (ownerDto.getAddress() != null) {
-            owner.setAddress(addressMapper.toEntity(ownerDto.getAddress()));
+        if (ownerDto.address() != null) {
+            owner.setAddress(addressMapper.toEntity(ownerDto.address()));
         }
 
         return owner;
