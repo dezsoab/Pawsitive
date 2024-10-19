@@ -1,6 +1,6 @@
 package com.pawsitive.pawsitive.pet.model;
 
-import com.pawsitive.pawsitive.nfcTag.model.NfcTag;
+import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import jakarta.persistence.*;
 import lombok.*;

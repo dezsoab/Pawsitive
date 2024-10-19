@@ -2,7 +2,6 @@ package com.pawsitive.pawsitive.owner.service;
 
 import com.pawsitive.pawsitive.address.model.Address;
 import com.pawsitive.pawsitive.address.service.AddressService;
-import com.pawsitive.pawsitive.dto.AddressDTO;
 import com.pawsitive.pawsitive.dto.OwnerDTO;
 import com.pawsitive.pawsitive.owner.controller.OwnerController;
 import com.pawsitive.pawsitive.owner.exception.AddressNotFoundException;
@@ -19,7 +18,7 @@ import java.util.Optional;
 
 @Service
 public class OwnerServiceImpl implements OwnerService {
-    private static final Logger logger = LoggerFactory.getLogger(OwnerController.class);
+    private static final Logger logger = LoggerFactory.getLogger(OwnerServiceImpl.class);
 
     private final OwnerRepository ownerRepository;
     private final AddressService addressService;

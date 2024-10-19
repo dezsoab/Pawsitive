@@ -2,7 +2,7 @@ package com.pawsitive.pawsitive.pet.repository.mapper;
 
 import com.pawsitive.pawsitive.dto.OwnerDTO;
 import com.pawsitive.pawsitive.dto.PetDTO;
-import com.pawsitive.pawsitive.nfcTag.model.NfcTag;
+import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.mapper.OwnerMapper;
 import com.pawsitive.pawsitive.pet.model.Pet;

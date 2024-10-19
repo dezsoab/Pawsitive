@@ -1,10 +1,8 @@
-package com.pawsitive.pawsitive.nfcTag.controller;
+package com.pawsitive.pawsitive.nfctag.controller;
 
 import com.pawsitive.pawsitive.dto.TagResponseDTO;
-import com.pawsitive.pawsitive.nfcTag.exception.TagNotFoundException;
-import com.pawsitive.pawsitive.nfcTag.service.NfcTagService;
-import com.pawsitive.pawsitive.nfcTag.service.mapper.NfcTagMapper;
-import com.pawsitive.pawsitive.owner.controller.OwnerController;
+import com.pawsitive.pawsitive.nfctag.exception.TagNotFoundException;
+import com.pawsitive.pawsitive.nfctag.service.NfcTagService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "/api/v1/nfcTag")
 public class NfcTagController {
-    private static final Logger logger = LoggerFactory.getLogger(OwnerController.class);
+    private static final Logger logger = LoggerFactory.getLogger(NfcTagController.class);
 
     private final NfcTagService nfcTagService;
 

@@ -1,7 +1,7 @@
-package com.pawsitive.pawsitive.nfcTag.service.mapper;
+package com.pawsitive.pawsitive.nfctag.service.mapper;
 
 import com.pawsitive.pawsitive.dto.TagResponseDTO;
-import com.pawsitive.pawsitive.nfcTag.model.NfcTag;
+import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import org.springframework.stereotype.Component;
 
 @Component

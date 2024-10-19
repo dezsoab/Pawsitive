@@ -2,8 +2,6 @@ package com.pawsitive.pawsitive.address.service.mapper;
 
 import com.pawsitive.pawsitive.address.model.Address;
 import com.pawsitive.pawsitive.dto.AddressDTO;
-import com.pawsitive.pawsitive.dto.OwnerDTO;
-import com.pawsitive.pawsitive.owner.model.Owner;
 import org.springframework.stereotype.Component;
 
 @Component
