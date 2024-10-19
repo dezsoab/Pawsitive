@@ -4,7 +4,7 @@ import com.pawsitive.pawsitive.dto.PetDTO;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
 import com.pawsitive.pawsitive.pet.model.Pet;
-import com.pawsitive.pawsitive.pet.repository.mapper.PetMapper;
+import com.pawsitive.pawsitive.mapper.PetMapper;
 import com.pawsitive.pawsitive.pet.service.PetService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

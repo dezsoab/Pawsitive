@@ -1,4 +1,4 @@
-package com.pawsitive.pawsitive.owner.exception;
+package com.pawsitive.pawsitive.exception;
 
 public class AddressNotFoundException extends RuntimeException {
     public AddressNotFoundException(String message) {

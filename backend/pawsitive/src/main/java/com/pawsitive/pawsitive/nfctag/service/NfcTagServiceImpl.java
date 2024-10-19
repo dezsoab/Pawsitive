@@ -1,10 +1,10 @@
 package com.pawsitive.pawsitive.nfctag.service;
 
 import com.pawsitive.pawsitive.dto.TagResponseDTO;
-import com.pawsitive.pawsitive.nfctag.exception.TagNotFoundException;
+import com.pawsitive.pawsitive.exception.TagNotFoundException;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.nfctag.repository.NfcTagRepository;
-import com.pawsitive.pawsitive.nfctag.service.mapper.TagResponseMapper;
+import com.pawsitive.pawsitive.mapper.TagResponseMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,13 +2,19 @@ package com.pawsitive.pawsitive.nfctag.model;
 
 import com.pawsitive.pawsitive.pet.model.Pet;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Data
 @Table(name = "nfc_tag")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class NfcTag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

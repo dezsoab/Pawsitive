@@ -1,7 +1,7 @@
 package com.pawsitive.pawsitive.nfctag.service;
 
 import com.pawsitive.pawsitive.dto.TagResponseDTO;
-import com.pawsitive.pawsitive.nfctag.exception.TagNotFoundException;
+import com.pawsitive.pawsitive.exception.TagNotFoundException;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 
 public interface NfcTagService {
