@@ -1,0 +1,13 @@
+.btn {
+  font-size: var(--font-paragraph);
+  border: none;
+  border-radius: var(--rounding);
+  transition: all 0.1s linear;
+}
+
+.btn:hover {
+  cursor: pointer;
+  scale: 1.03;
+  transform: translateY(3px);
+  background-color: var(--color-pink-mid) !important;
+}
