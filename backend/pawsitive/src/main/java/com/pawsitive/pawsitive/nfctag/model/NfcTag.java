@@ -1,5 +1,6 @@
-package com.pawsitive.pawsitive.address.model;
+package com.pawsitive.pawsitive.nfctag.model;
 
+import com.pawsitive.pawsitive.pet.model.Pet;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,33 +10,36 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "address")
 @Data
+@Table(name = "nfc_tag")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Address {
-    @Id
+public class NfcTag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Long id;
+
+    @Column(unique = true, nullable = false)
+    private String tagId;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "petId")
+    private Pet pet;
+
     @Column(nullable = false)
-    private String country;
-    @Column(nullable = false)
-    private String city;
-    @Column(nullable = false)
-    private String zipCode;
-    @Column(nullable = false)
-    private String street;
+    private String status;
+
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
-
-    @PreUpdate
-    protected void onUpdate() {
-        this.modifiedAt = LocalDateTime.now();
-    }
 
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.modifiedAt = LocalDateTime.now();
     }
 }

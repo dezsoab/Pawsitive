@@ -2,13 +2,19 @@ package com.pawsitive.pawsitive.owner.model;
 
 import com.pawsitive.pawsitive.address.model.Address;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "owner")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,15 +22,20 @@ public class Owner {
 
     @Column(nullable = false)
     private String firstName;
+
     @Column(nullable = false)
     private String lastName;
+
     @Column(nullable = false)
     private String email;
+
     @Column(nullable = false)
     private String phone;
+
     @OneToOne
     @JoinColumn(name = "addressId")
     private Address address;
+
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 

@@ -16,6 +16,12 @@
   animation: main 500ms;
 }
 
+.ribbon::before {
+  content: attr(data-name);
+  font-family: "Dancing Script", cursive;
+  color: var(--color-white);
+}
+
 .ribbon i {
   position: absolute;
 }
