@@ -27,8 +27,9 @@ const ScannedNfcTag = () => {
   }, []);
 
   useEffect(() => {
-    if (tagResponse?.status == "assigned")
-      router.push(`/pet?id=${tagResponse.petId}`);
+    tagResponse?.status == "assigned"
+      ? router.push(`/pet?id=${tagResponse.petId}`)
+      : router.push(`/authenticate?tagId=${id}`);
   }, [tagResponse]);
 
   if (tagResponse == null) {
