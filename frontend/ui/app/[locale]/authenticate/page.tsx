@@ -13,6 +13,7 @@ import pic6 from "../../../public/assets/test6product.png";
 import ContactForm from "../home/(contact-form)/ContactForm";
 import ProductsRender from "./ProductsRender";
 import Choice from "./Choice";
+import ScrollUpBtn from "@/components/scrollUp/ScrollUpBtn";
 
 const images = [pic1, pic2, pic4, pic5, pic6];
 
@@ -23,16 +24,9 @@ const Authenticate = () => {
   const btnRefs = useRef<HTMLDivElement>(null);
 
   const animateOnChoice = () => {
-    imageRefs.current.forEach((img) => img.classList.add(styles.animate));
-
-    setTimeout(() => {
-      btnRefs.current!.classList.add(styles.animate);
-      contentRef.current!.classList.add(styles.animate);
-    }, 500);
-
-    setTimeout(() => {
-      imageContainerRef.current!.classList.add(styles.remove);
-    }, 1400);
+    imageRefs.current.forEach((img) => img.classList.toggle(styles.animate));
+    btnRefs.current!.classList.toggle(styles.animate);
+    contentRef.current!.classList.toggle(styles.animate);
   };
 
   return (
@@ -47,6 +41,7 @@ const Authenticate = () => {
         <Choice btnRefs={btnRefs} onClick={animateOnChoice} />
         <div className={styles.content} ref={contentRef}>
           <ContactForm />
+          <ScrollUpBtn onClick={animateOnChoice} />
         </div>
       </main>
     </>

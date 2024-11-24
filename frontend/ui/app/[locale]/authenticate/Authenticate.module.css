@@ -10,6 +10,8 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  transition: transform 0.8s ease-out;
+  transition-delay: 0.2s;
 }
 
 .pics {
@@ -24,6 +26,7 @@
   position: absolute;
   width: 25rem;
   height: auto;
+  transition: transform 0.8s ease-out;
 }
 
 .pics img:first-child {
@@ -55,37 +58,19 @@
 
 .pics img:nth-child(1),
 .pics img:nth-child(2) {
-  animation-delay: 0.2s;
+  transition-delay: 0.4s;
 }
 
 .pics img:nth-child(3) {
-  animation-delay: 0.15s;
+  transition-delay: 0.25s;
 }
 
 .pics img:nth-child(4) {
-  animation-delay: 0.35s;
+  transition-delay: 0.5s;
 }
 
 .pics img:nth-child(5) {
-  animation-delay: 0.4s;
-}
-
-.animate {
-  animation: moveUp 1s ease-out forwards;
-  animation-fill-mode: forwards;
-}
-
-.remove {
-  display: none;
-}
-
-@keyframes moveUp {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-100vh);
-  }
+  transition-delay: 0.15s;
 }
 
 .content {
@@ -97,5 +82,10 @@
   align-items: center;
   justify-content: center;
   top: 100vh;
-  background-color: var(--color-pink-light);
+  background-color: transparent;
+  transition: transform 1.2s ease-in-out;
+}
+
+.animate {
+  transform: translateY(-100vh);
 }
