@@ -14,6 +14,8 @@ import ContactForm from "../home/(contact-form)/ContactForm";
 import ProductsRender from "./ProductsRender";
 import Choice from "./Choice";
 import ScrollUpBtn from "@/components/scrollUp/ScrollUpBtn";
+import LoginForm from "./(login)/LoginForm";
+import RegisterForm from "./(register)/RegisterForm";
 
 const images = [pic1, pic2, pic4, pic5, pic6];
 
@@ -45,8 +47,8 @@ const Authenticate = () => {
           setChoiceIsLogin={setChoiceIsLogin}
         />
         <div className={styles.content} ref={contentRef}>
-          {choiceIsLogin && <ContactForm />}
-          {!choiceIsLogin && <h1>register</h1>}
+          {choiceIsLogin && <LoginForm />}
+          {!choiceIsLogin && <RegisterForm />}
           <ScrollUpBtn onClick={animateOnChoice} />
         </div>
       </main>
