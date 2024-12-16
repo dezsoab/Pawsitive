@@ -1,6 +1,6 @@
 "use client";
 import Navbar from "@/components/navigation/Navbar";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import styles from "./Authenticate.module.css";
 
@@ -22,6 +22,7 @@ const Authenticate = () => {
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const btnRefs = useRef<HTMLDivElement>(null);
+  const [choiceIsLogin, setChoiceIsLogin] = useState<boolean>(false);
 
   const animateOnChoice = () => {
     imageRefs.current.forEach((img) => img.classList.toggle(styles.animate));
@@ -38,9 +39,14 @@ const Authenticate = () => {
           imageContainerRef={imageContainerRef}
           imageRefs={imageRefs}
         />
-        <Choice btnRefs={btnRefs} onClick={animateOnChoice} />
+        <Choice
+          btnRefs={btnRefs}
+          onClick={animateOnChoice}
+          setChoiceIsLogin={setChoiceIsLogin}
+        />
         <div className={styles.content} ref={contentRef}>
-          <ContactForm />
+          {choiceIsLogin && <ContactForm />}
+          {!choiceIsLogin && <h1>register</h1>}
           <ScrollUpBtn onClick={animateOnChoice} />
         </div>
       </main>
