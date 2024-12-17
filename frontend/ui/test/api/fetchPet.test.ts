@@ -1,4 +1,4 @@
-import { fetchPet } from "@/api/fetchPet";
+import { fetchPet } from "@/api/get/fetchPet";
 import { Pet } from "@/types/Pet";
 
 global.fetch = jest.fn();
