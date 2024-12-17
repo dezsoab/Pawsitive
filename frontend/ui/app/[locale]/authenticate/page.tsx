@@ -10,12 +10,11 @@ import pic4 from "../../../public/assets/test4product.png";
 import pic5 from "../../../public/assets/test5product.png";
 import pic6 from "../../../public/assets/test6product.png";
 
-import ContactForm from "../home/(contact-form)/ContactForm";
 import ProductsRender from "./ProductsRender";
 import Choice from "./Choice";
 import ScrollUpBtn from "@/components/scrollUp/ScrollUpBtn";
 import LoginForm from "./(login)/LoginForm";
-import RegisterForm from "./(register)/RegisterForm";
+import RegisterUI from "./(register)/RegisterUI";
 
 const images = [pic1, pic2, pic4, pic5, pic6];
 
@@ -48,7 +47,7 @@ const Authenticate = () => {
         />
         <div className={styles.content} ref={contentRef}>
           {choiceIsLogin && <LoginForm />}
-          {!choiceIsLogin && <RegisterForm />}
+          {!choiceIsLogin && <RegisterUI />}
           <ScrollUpBtn onClick={animateOnChoice} />
         </div>
       </main>

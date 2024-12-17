@@ -7,6 +7,14 @@ import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import styles from "./RegisterForm.module.css";
+import Button from "@/components/button/Button";
+
+const btnStyle = {
+  padding: "1rem 1.5rem",
+  backgroundColor: "var(--color-pink-light)",
+};
+
 const RegisterForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const firstNameRef = useRef<HTMLInputElement>(null);
@@ -63,62 +71,132 @@ const RegisterForm = () => {
   };
 
   return (
-    <>
+    <div className={styles.formContainer}>
       <ToastContainer />
       <form onSubmit={handleSubmit} ref={formRef}>
-        <div>
-          <label htmlFor="firstName">First name:</label>
-          <input type="text" id="firstName" ref={firstNameRef} required />
-        </div>
-        <div>
-          <label htmlFor="lastName">Last name:</label>
-          <input type="text" id="lastName" ref={lastNameRef} required />
-        </div>
-
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" ref={emailRef} required />
-          {emailHasError && "email is already in use"}
-        </div>
-
-        <div>
-          <label htmlFor="tel">Tel:</label>
-          <input type="tel" id="tel" ref={telRef} required />
+        <div className={styles.form}>
+          <input
+            type="text"
+            id="firstName"
+            className={styles.form__input}
+            autoComplete="off"
+            placeholder=" "
+            ref={firstNameRef}
+            required
+          />
+          <label htmlFor="firstName" className={styles.form__label}>
+            First name:
+          </label>
         </div>
 
-        <div>
-          <label htmlFor="country">Country:</label>
-          <input type="text" id="country" ref={countryRef} required />
-        </div>
-        <div>
-          <label htmlFor="city">City:</label>
-          <input type="text" id="city" ref={cityRef} required />
-        </div>
-        <div>
-          <label htmlFor="zip">ZIP:</label>
-          <input type="text" id="zip" ref={zipRef} required />
-        </div>
-        <div>
-          <label htmlFor="street">Street:</label>
-          <input type="text" id="street" ref={streetRef} required />
+        <div className={styles.form}>
+          <input
+            type="text"
+            id="lastName"
+            className={styles.form__input}
+            autoComplete="off"
+            placeholder=" "
+            ref={lastNameRef}
+            required
+          />
+          <label htmlFor="lastName" className={styles.form__label}>
+            Last name:
+          </label>
         </div>
 
-        {/* <div>
-        <label htmlFor="password">Password:</label>
-        <input
-        type="password"
-        id="password"
-        ref={passwordRef}
-        minLength={11}
-        required
-        />
-        </div> */}
-
-        <div>
-          <button type="submit">Register</button>
+        <div className={styles.form}>
+          <input
+            type="email"
+            id="email"
+            className={styles.form__input}
+            autoComplete="off"
+            placeholder=" "
+            ref={emailRef}
+            required
+          />
+          <label htmlFor="email" className={styles.form__label}>
+            Email:
+          </label>
         </div>
+        {emailHasError && "email is already in use"}
+
+        <div className={styles.form}>
+          <input
+            type="tel"
+            id="tel"
+            className={styles.form__input}
+            autoComplete="off"
+            placeholder=" "
+            ref={telRef}
+            required
+          />
+          <label htmlFor="tel" className={styles.form__label}>
+            Phone:
+          </label>
+        </div>
+
+        <div className={styles.form}>
+          <input
+            type="text"
+            id="country"
+            className={styles.form__input}
+            autoComplete="off"
+            placeholder=" "
+            ref={countryRef}
+            required
+          />
+          <label htmlFor="country" className={styles.form__label}>
+            Country:
+          </label>
+        </div>
+
+        <div className={styles.form}>
+          <input
+            type="text"
+            id="city"
+            className={styles.form__input}
+            autoComplete="off"
+            placeholder=" "
+            ref={cityRef}
+            required
+          />
+          <label htmlFor="city" className={styles.form__label}>
+            City:
+          </label>
+        </div>
+
+        <div className={styles.form}>
+          <input
+            type="text"
+            id="zip"
+            className={styles.form__input}
+            autoComplete="off"
+            placeholder=" "
+            ref={zipRef}
+            required
+          />
+          <label htmlFor="zip" className={styles.form__label}>
+            Zip:
+          </label>
+        </div>
+
+        <div className={styles.form}>
+          <input
+            type="text"
+            id="street"
+            className={styles.form__input}
+            autoComplete="off"
+            placeholder=" "
+            ref={streetRef}
+            required
+          />
+          <label htmlFor="street" className={styles.form__label}>
+            Street:
+          </label>
+        </div>
+        <Button text="Register" onClick={() => handleSubmit} style={btnStyle} />
       </form>
-    </>
+    </div>
   );
 };
 
