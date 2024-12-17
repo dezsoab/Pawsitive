@@ -29,7 +29,7 @@ public class NfcTag {
 
     @Column(nullable = false)
     private String status;
-
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 

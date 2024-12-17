@@ -37,6 +37,7 @@ public class Pet {
     @OneToOne(mappedBy = "pet", cascade = CascadeType.ALL)
     private NfcTag nfcTag;
 
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 

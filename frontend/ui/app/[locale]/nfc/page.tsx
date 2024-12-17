@@ -1,5 +1,5 @@
 "use client";
-import { fetchTagResponseDTO } from "@/api/fetchTagResponseDTO";
+import { fetchTagResponseDTO } from "@/api/get/fetchTagResponseDTO";
 import Cat from "@/components/loader/Cat";
 import { tagState } from "@/enums/tagState";
 import { TagResponseDTO } from "@/types/TagResponseDTO";
