@@ -4,6 +4,9 @@ import { Address } from "@/types/Address";
 import { CreatedOwnerResponse } from "@/types/CreatedOwnerResponse";
 import React, { useRef, useState } from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const RegisterForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const firstNameRef = useRef<HTMLInputElement>(null);
@@ -35,72 +38,87 @@ const RegisterForm = () => {
       address: address,
     };
 
-    try {
-      await createOwner(owner);
-      setEmailHasError(false);
-      formRef.current?.reset();
-    } catch (e: any) {
-      const message: string = e.message;
-      if (message.includes("email")) {
-        setEmailHasError(true);
-      }
-    }
+    toast
+      .promise(
+        createOwner(owner),
+        {
+          pending: "Creating user account",
+          success: "Successful registration!",
+          error: "Something went wrong...",
+        },
+        {
+          position: "bottom-right",
+        }
+      )
+      .then(() => {
+        setEmailHasError(false);
+        formRef.current?.reset();
+      })
+      .catch((e) => {
+        const message: string = e.message;
+        if (message.includes("email")) {
+          setEmailHasError(true);
+        }
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit} ref={formRef}>
-      <div>
-        <label htmlFor="firstName">First name:</label>
-        <input type="text" id="firstName" ref={firstNameRef} required />
-      </div>
-      <div>
-        <label htmlFor="lastName">Last name:</label>
-        <input type="text" id="lastName" ref={lastNameRef} required />
-      </div>
+    <>
+      <ToastContainer />
+      <form onSubmit={handleSubmit} ref={formRef}>
+        <div>
+          <label htmlFor="firstName">First name:</label>
+          <input type="text" id="firstName" ref={firstNameRef} required />
+        </div>
+        <div>
+          <label htmlFor="lastName">Last name:</label>
+          <input type="text" id="lastName" ref={lastNameRef} required />
+        </div>
 
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" ref={emailRef} required />
-        {emailHasError && "email is already in use"}
-      </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" ref={emailRef} required />
+          {emailHasError && "email is already in use"}
+        </div>
 
-      <div>
-        <label htmlFor="tel">Tel:</label>
-        <input type="tel" id="tel" ref={telRef} required />
-      </div>
+        <div>
+          <label htmlFor="tel">Tel:</label>
+          <input type="tel" id="tel" ref={telRef} required />
+        </div>
 
-      <div>
-        <label htmlFor="country">Country:</label>
-        <input type="text" id="country" ref={countryRef} required />
-      </div>
-      <div>
-        <label htmlFor="city">City:</label>
-        <input type="text" id="city" ref={cityRef} required />
-      </div>
-      <div>
-        <label htmlFor="zip">ZIP:</label>
-        <input type="text" id="zip" ref={zipRef} required />
-      </div>
-      <div>
-        <label htmlFor="street">Street:</label>
-        <input type="text" id="street" ref={streetRef} required />
-      </div>
+        <div>
+          <label htmlFor="country">Country:</label>
+          <input type="text" id="country" ref={countryRef} required />
+        </div>
+        <div>
+          <label htmlFor="city">City:</label>
+          <input type="text" id="city" ref={cityRef} required />
+        </div>
+        <div>
+          <label htmlFor="zip">ZIP:</label>
+          <input type="text" id="zip" ref={zipRef} required />
+        </div>
+        <div>
+          <label htmlFor="street">Street:</label>
+          <input type="text" id="street" ref={streetRef} required />
+        </div>
 
-      {/* <div>
+        {/* <div>
         <label htmlFor="password">Password:</label>
         <input
-          type="password"
-          id="password"
-          ref={passwordRef}
-          minLength={11}
-          required
+        type="password"
+        id="password"
+        ref={passwordRef}
+        minLength={11}
+        required
         />
-      </div> */}
+        </div> */}
 
-      <div>
-        <button type="submit">Register</button>
-      </div>
-    </form>
+        <div>
+          <button type="submit">Register</button>
+        </div>
+      </form>
+    </>
   );
 };
 
