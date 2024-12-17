@@ -1,9 +1,9 @@
 export interface Address {
-  id: number;
+  id?: number;
   country: string;
   city: string;
   zipCode: string;
   street: string;
-  createdAt: string;
-  modifiedAt: string | null;
+  createdAt?: string;
+  modifiedAt?: string | null;
 }

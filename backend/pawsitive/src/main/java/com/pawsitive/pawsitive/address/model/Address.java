@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 
@@ -26,6 +27,7 @@ public class Address {
     private String zipCode;
     @Column(nullable = false)
     private String street;
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 

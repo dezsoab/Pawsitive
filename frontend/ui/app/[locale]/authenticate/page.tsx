@@ -1,6 +1,6 @@
 "use client";
 import Navbar from "@/components/navigation/Navbar";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import styles from "./Authenticate.module.css";
 
@@ -10,10 +10,11 @@ import pic4 from "../../../public/assets/test4product.png";
 import pic5 from "../../../public/assets/test5product.png";
 import pic6 from "../../../public/assets/test6product.png";
 
-import ContactForm from "../home/(contact-form)/ContactForm";
 import ProductsRender from "./ProductsRender";
 import Choice from "./Choice";
 import ScrollUpBtn from "@/components/scrollUp/ScrollUpBtn";
+import LoginForm from "./(login)/LoginForm";
+import RegisterUI from "./(register)/RegisterUI";
 
 const images = [pic1, pic2, pic4, pic5, pic6];
 
@@ -22,6 +23,7 @@ const Authenticate = () => {
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const btnRefs = useRef<HTMLDivElement>(null);
+  const [choiceIsLogin, setChoiceIsLogin] = useState<boolean>(false);
 
   const animateOnChoice = () => {
     imageRefs.current.forEach((img) => img.classList.toggle(styles.animate));
@@ -38,9 +40,14 @@ const Authenticate = () => {
           imageContainerRef={imageContainerRef}
           imageRefs={imageRefs}
         />
-        <Choice btnRefs={btnRefs} onClick={animateOnChoice} />
+        <Choice
+          btnRefs={btnRefs}
+          onClick={animateOnChoice}
+          setChoiceIsLogin={setChoiceIsLogin}
+        />
         <div className={styles.content} ref={contentRef}>
-          <ContactForm />
+          {choiceIsLogin && <LoginForm />}
+          {!choiceIsLogin && <RegisterUI />}
           <ScrollUpBtn onClick={animateOnChoice} />
         </div>
       </main>

@@ -1,5 +1,5 @@
 import Button from "@/components/button/Button";
-import React from "react";
+import React, { Dispatch } from "react";
 
 import styles from "./Authenticate.module.css";
 
@@ -13,13 +13,24 @@ const btnStyle = {
 type ChoiceProps = {
   btnRefs: React.RefObject<HTMLDivElement>;
   onClick: () => void;
+  setChoiceIsLogin: Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Choice = ({ btnRefs, onClick }: ChoiceProps) => {
+const Choice = ({ btnRefs, onClick, setChoiceIsLogin }: ChoiceProps) => {
+  const handleLoginChoice = () => {
+    setChoiceIsLogin(true);
+    onClick();
+  };
+
+  const handleRegisterChoice = () => {
+    setChoiceIsLogin(false);
+    onClick();
+  };
+
   return (
     <div className={styles.auth} ref={btnRefs}>
-      <Button text="Sign Up" onClick={onClick} style={btnStyle} />
-      <Button text="Login" onClick={onClick} style={btnStyle} />
+      <Button text="Sign Up" onClick={handleRegisterChoice} style={btnStyle} />
+      <Button text="Login" onClick={handleLoginChoice} style={btnStyle} />
     </div>
   );
 };

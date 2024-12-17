@@ -13,7 +13,7 @@ import ScannedPetDetails from "./ScannedPetDetails";
 
 import { Pet } from "@/types/Pet";
 import Cat from "@/components/loader/Cat";
-import { fetchPet } from "@/api/fetchPet";
+import { fetchPet } from "@/api/get/fetchPet";
 
 const ScannedPetProfile = () => {
   const searchParams = useSearchParams();

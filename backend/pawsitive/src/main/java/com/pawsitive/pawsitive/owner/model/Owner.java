@@ -26,7 +26,7 @@ public class Owner {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
@@ -35,7 +35,7 @@ public class Owner {
     @OneToOne
     @JoinColumn(name = "addressId")
     private Address address;
-
+    @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 

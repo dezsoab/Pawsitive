@@ -25,7 +25,6 @@ public class OwnerController {
     public ResponseEntity<OwnerDTO> createOwner(@RequestBody OwnerDTO ownerDto) {
         logger.info("Received request to create owner: {}", ownerDto);
         OwnerDTO createdOwner = ownerService.createOwner(ownerDto);
-        logger.info("Owner created with ID: {}", createdOwner.id());
         return ResponseEntity.status(HttpStatus.CREATED).body(createdOwner);
     }
 }
