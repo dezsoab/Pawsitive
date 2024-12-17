@@ -1,6 +1,7 @@
 "use client";
 import { fetchTagResponseDTO } from "@/api/fetchTagResponseDTO";
 import Cat from "@/components/loader/Cat";
+import { tagState } from "@/enums/tagState";
 import { TagResponseDTO } from "@/types/TagResponseDTO";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -27,8 +28,10 @@ const ScannedNfcTag = () => {
   }, []);
 
   useEffect(() => {
-    if (tagResponse?.status == "assigned")
-      router.push(`/pet?id=${tagResponse.petId}`);
+    console.log(tagResponse);
+    tagResponse?.status == tagState.ASSIGNED
+      ? router.push(`/pet?id=${tagResponse.petId}`)
+      : router.push(`/authenticate?tagId=${id}`);
   }, [tagResponse]);
 
   if (tagResponse == null) {

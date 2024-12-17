@@ -121,6 +121,16 @@ public class DataLoader implements CommandLineRunner {
         );
         logger.info("Second NFC Tag created: {} and assigned to pet: {}", tag2, savedPet2);
 
+        NfcTag tag3 = nfcTagService.createNfcTag(
+                NfcTag.builder()
+                        .tagId("123")
+                        .pet(null)
+                        .status("inactive")
+                        .build()
+        );
+
+        logger.info("Unassigned NFC Tag created: {}", tag3);
+
         logger.info("Data loading completed successfully.");
     }
 }
