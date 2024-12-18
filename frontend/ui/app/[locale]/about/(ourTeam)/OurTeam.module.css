@@ -10,7 +10,7 @@
   display: flex;
   gap: 4rem;
   padding: 10rem 0;
-  max-width: 1300px;
+  max-width: var(--max-width);
 }
 
 .our_team_text {

@@ -1,0 +1,54 @@
+/* Define the animations for all waves */
+@keyframes animateWave {
+  0% {
+    transform: translateY(-100px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+.svg {
+  height: 120%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.svg path {
+  transform: translateY(-100px);
+}
+
+.svg path:nth-of-type(1) {
+  animation: animateWave 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.svg path:nth-of-type(2) {
+  animation: animateWave 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.svg path:nth-of-type(3) {
+  animation: animateWave 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.svg path:nth-of-type(4) {
+  animation: animateWave 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.svg path:nth-of-type(5) {
+  animation: animateWave 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.svg path:nth-of-type(6) {
+  animation: animateWave 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.svg path:nth-of-type(7) {
+  animation: animateWave 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.svg path:nth-of-type(8) {
+  animation: animateWave 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}

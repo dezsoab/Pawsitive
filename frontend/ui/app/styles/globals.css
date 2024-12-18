@@ -7,6 +7,7 @@
 }
 
 :root {
+  /* Colors */
   --color-white: #fbfbfb;
   --color-grey: #f4f4f4;
   --color-pink-light: #fdefe6;
@@ -15,7 +16,11 @@
   --color-green: #446a46;
   --color-green-light: #5f9462;
   --color-green-dark: #2b4a2c;
+
+  /* Rounding amounts */
   --rounding: 5px;
+
+  /* Font sizes */
   --font-huge: 5.2rem;
   --font-big: 4rem;
   --font-mid: 3rem;
@@ -23,6 +28,9 @@
   --font-paragraph: 2rem;
   --font-small: 1.8rem;
   --font-mini: 1.5rem;
+
+  /* Container max-width */
+  --max-width: 1250px;
 
   /* Cat Variables */
   --angleSpan: 40deg;
