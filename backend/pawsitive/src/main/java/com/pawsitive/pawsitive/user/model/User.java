@@ -1,43 +1,38 @@
-package com.pawsitive.pawsitive.owner.model;
+package com.pawsitive.pawsitive.user.model;
 
-import com.pawsitive.pawsitive.address.model.Address;
-import com.pawsitive.pawsitive.user.model.User;
+import com.pawsitive.pawsitive.owner.model.Owner;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "owner")
+@Table(name = "user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Owner {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String firstName;
+    @Column(nullable = false, unique = true)
+    private String email;
 
     @Column(nullable = false)
-    private String lastName;
+    private String password;
 
     @Column(nullable = false)
-    private String phone;
+    private boolean active;
 
-    @OneToOne
-    @JoinColumn(name = "userId", nullable = false)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @ToString.Exclude
-    private User user;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "addressId")
-    private Address address;
+    private Owner owner;
 
     @Column(updatable = false)
     private LocalDateTime createdAt;
+
     private LocalDateTime modifiedAt;
 
     @PreUpdate

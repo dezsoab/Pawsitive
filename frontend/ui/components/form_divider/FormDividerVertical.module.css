@@ -1,4 +1,3 @@
-/* Define the animations for all waves */
 @keyframes animateWave {
   0% {
     transform: translateY(-100px);
@@ -10,45 +9,51 @@
     transform: translateY(-100px);
   }
 }
-.svg {
+.svg_vertical {
   height: 120%;
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.svg path {
+.svg_vertical path {
   transform: translateY(-100px);
 }
 
-.svg path:nth-of-type(1) {
+.svg_vertical path:nth-of-type(1) {
   animation: animateWave 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.svg path:nth-of-type(2) {
+.svg_vertical path:nth-of-type(2) {
   animation: animateWave 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.svg path:nth-of-type(3) {
+.svg_vertical path:nth-of-type(3) {
   animation: animateWave 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.svg path:nth-of-type(4) {
+.svg_vertical path:nth-of-type(4) {
   animation: animateWave 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.svg path:nth-of-type(5) {
+.svg_vertical path:nth-of-type(5) {
   animation: animateWave 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.svg path:nth-of-type(6) {
+.svg_vertical path:nth-of-type(6) {
   animation: animateWave 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.svg path:nth-of-type(7) {
+.svg_vertical path:nth-of-type(7) {
   animation: animateWave 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.svg path:nth-of-type(8) {
-  animation: animateWave 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.svg_vertical path:nth-of-type(8) {
+  animation: animateWave 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@media screen and (max-width: 700px) {
+  .svg_vertical {
+    display: none;
+  }
 }

@@ -1,136 +1,115 @@
 package com.pawsitive.pawsitive.loader;
 
 import com.pawsitive.pawsitive.address.model.Address;
-import com.pawsitive.pawsitive.address.service.AddressService;
-import com.pawsitive.pawsitive.mapper.AddressMapper;
-import com.pawsitive.pawsitive.dto.AddressDTO;
-import com.pawsitive.pawsitive.dto.OwnerDTO;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.nfctag.service.NfcTagService;
 import com.pawsitive.pawsitive.owner.model.Owner;
-import com.pawsitive.pawsitive.owner.service.OwnerService;
 import com.pawsitive.pawsitive.pet.model.Pet;
 import com.pawsitive.pawsitive.pet.service.PetService;
+import com.pawsitive.pawsitive.user.model.User;
+import com.pawsitive.pawsitive.user.service.UserService;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
+@AllArgsConstructor
 public class DataLoader implements CommandLineRunner {
-    private static final Logger logger = LoggerFactory.getLogger(DataLoader.class);
 
-    private final AddressService addressService;
-    private final OwnerService ownerService;
-    private final PetService petService;
-    private final NfcTagService nfcTagService;
-    private final AddressMapper addressMapper;
+        private static final Logger logger = LoggerFactory.getLogger(DataLoader.class);
 
-    @Autowired
-    public DataLoader(AddressService addressService, OwnerService ownerService, PetService petService,
-                      NfcTagService nfcTagService, AddressMapper addressMapper) {
-        this.addressService = addressService;
-        this.ownerService = ownerService;
-        this.petService = petService;
-        this.nfcTagService = nfcTagService;
-        this.addressMapper = addressMapper;
-    }
+        private final PetService petService;
+        private final UserService userService;
+        private final NfcTagService nfcTagService;
 
-    @Override
-    public void run(String... args) {
-        logger.info("Starting data loading...");
+        @Override
+        public void run(String... args) {
+                logger.info("Starting data loading...");
 
-        Address savedAddress1 = addressService.createAddress(
-                Address.builder()
-                        .country("Austria")
-                        .city("Graz")
-                        .zipCode("1111")
-                        .street("Test str")
-                        .build()
-        );
-        logger.info("Address created for first owner: {}", savedAddress1);
+                User user1 = User.builder()
+                                .email("binderdezso97@gmail.com")
+                                .password("password123")
+                                .active(true)
+                                .build();
 
-        AddressDTO addressDTO1 = addressMapper.toDto(savedAddress1);
+                Address address1 = Address.builder()
+                                .country("Austria")
+                                .city("Graz")
+                                .zipCode("1111")
+                                .street("Test str")
+                                .build();
 
-        OwnerDTO savedOwner1 = ownerService.createOwner(
-                new OwnerDTO("Dezso", "Binder", "binderdezso97@gmail.com", "+123456789", addressDTO1)
-        );
-        logger.info("First owner created: {}", savedOwner1);
+                Owner owner1 = Owner.builder()
+                                .firstName("Dezso")
+                                .lastName("Binder")
+                                .phone("+123456789")
+                                .user(user1)
+                                .address(address1)
+                                .build();
 
-        Optional<Owner> savedOwnerEntity1 = ownerService.getOwnerById(savedOwner1.id());
+                user1.setOwner(owner1);
 
-        Pet savedPet1 = petService.createPet(
-                Pet.builder()
-                        .name("Molli")
-                        .breed("Border Collie")
-                        .age(3)
-                        .sex("Female")
-                        .owner(savedOwnerEntity1.orElseThrow())
-                        .build()
-        );
-        logger.info("First pet created: {}", savedPet1);
+                userService.registerUser(user1);
+                logger.info("First user and owner created: User={}, Owner={}", user1, owner1);
 
-        NfcTag tag1 = nfcTagService.createNfcTag(
-                NfcTag.builder()
-                        .tagId("ABC123")
-                        .pet(savedPet1)
-                        .status("active")
-                        .build()
-        );
-        logger.info("First NFC Tag created: {} and assigned to pet: {}", tag1, savedPet1);
+                Pet pet1 = Pet.builder()
+                                .name("Molli")
+                                .breed("Border Collie")
+                                .age(4)
+                                .sex("Female")
+                                .owner(owner1)
+                                .build();
 
-        Address savedAddress2 = addressService.createAddress(
-                Address.builder()
-                        .country("Hungary")
-                        .city("Budapest")
-                        .zipCode("1051")
-                        .street("Example Street")
-                        .build()
-        );
-        logger.info("Address created for second owner: {}", savedAddress2);
+                petService.createPet(pet1);
+                logger.info("First pet created: {}", pet1);
 
-        AddressDTO addressDTO2 = addressMapper.toDto(savedAddress2);
+                User user2 = User.builder()
+                                .email("cinti.katona@example.com")
+                                .password("password123")
+                                .active(true)
+                                .build();
 
-        OwnerDTO savedOwner2 = ownerService.createOwner(
-                new OwnerDTO("Cinti", "Katona", "cinti.katona@example.com", "+36123456789", addressDTO2)
-        );
-        logger.info("Second owner created: {}", savedOwner2);
+                Address address2 = Address.builder()
+                                .country("Hungary")
+                                .city("Budapest")
+                                .zipCode("1051")
+                                .street("Example Street")
+                                .build();
 
-        Optional<Owner> savedOwnerEntity2 = ownerService.getOwnerById(savedOwner2.id());
+                Owner owner2 = Owner.builder()
+                                .firstName("Cinti")
+                                .lastName("Katona")
+                                .phone("+36123456789")
+                                .user(user2)
+                                .address(address2)
+                                .build();
 
-        Pet savedPet2 = petService.createPet(
-                Pet.builder()
-                        .name("Pille")
-                        .breed("Unknown")
-                        .age(6)
-                        .sex("Female")
-                        .owner(savedOwnerEntity2.orElseThrow())
-                        .build()
-        );
-        logger.info("Second pet created: {}", savedPet2);
+                user2.setOwner(owner2);
 
-        NfcTag tag2 = nfcTagService.createNfcTag(
-                NfcTag.builder()
-                        .tagId("XYZ456")
-                        .pet(savedPet2)
-                        .status("active")
-                        .build()
-        );
-        logger.info("Second NFC Tag created: {} and assigned to pet: {}", tag2, savedPet2);
+                userService.registerUser(user2);
+                logger.info("Second user and owner created: User={}, Owner={}", user2, owner2);
 
-        NfcTag tag3 = nfcTagService.createNfcTag(
-                NfcTag.builder()
-                        .tagId("123")
-                        .pet(null)
-                        .status("inactive")
-                        .build()
-        );
+                Pet pet2 = Pet.builder()
+                                .name("Pille")
+                                .breed("Unknown")
+                                .age(6)
+                                .sex("Female")
+                                .owner(owner2)
+                                .build();
 
-        logger.info("Unassigned NFC Tag created: {}", tag3);
+                petService.createPet(pet2);
+                logger.info("Second pet created: {}", pet2);
 
-        logger.info("Data loading completed successfully.");
-    }
+                NfcTag nfcTag1 = NfcTag.builder()
+                                .status("active")
+                                .pet(pet1)
+                                .tagId("ABC123")
+                                .build();
+                nfcTagService.createNfcTag(nfcTag1);
+                logger.info("First nfc tag created: {}", nfcTag1);
+
+                logger.info("Data loading completed successfully.");
+        }
 }

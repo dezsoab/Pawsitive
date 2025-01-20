@@ -11,5 +11,7 @@ public interface OwnerService {
 
     OwnerDTO createOwner(OwnerDTO owner);
 
+    Owner createOwner(Owner owner);
+
     Optional<Owner> getOwnerById(Long id);
 }

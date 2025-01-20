@@ -1,7 +1,6 @@
 "use client";
 import { createOwner } from "@/api/post/createOwner";
-import { Address } from "@/types/Address";
-import { CreatedOwnerResponse } from "@/types/CreatedOwnerResponse";
+import { RegisterOwnerDTO } from "@/types/RegisterOwnerDTO";
 import React, { useRef, useState } from "react";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -31,19 +30,16 @@ const RegisterForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const address: Address = {
-      country: countryRef.current!.value,
-      zipCode: zipRef.current!.value,
-      city: cityRef.current!.value,
-      street: streetRef.current!.value,
-    };
-
-    const owner: CreatedOwnerResponse = {
+    const owner: RegisterOwnerDTO = {
       firstName: firstNameRef.current!.value,
       lastName: lastNameRef.current!.value,
       email: emailRef.current!.value,
+      password: passwordRef.current!.value,
       phone: telRef.current!.value,
-      address: address,
+      country: countryRef.current!.value,
+      city: cityRef.current!.value,
+      zipCode: zipRef.current!.value,
+      street: streetRef.current!.value,
     };
 
     toast
@@ -194,6 +190,22 @@ const RegisterForm = () => {
             Street:
           </label>
         </div>
+
+        <div className={styles.form}>
+          <input
+            type="password"
+            id="password"
+            className={styles.form__input}
+            autoComplete="off"
+            placeholder=" "
+            ref={passwordRef}
+            required
+          />
+          <label htmlFor="password" className={styles.form__label}>
+            Password:
+          </label>
+        </div>
+
         <Button text="Register" onClick={() => handleSubmit} style={btnStyle} />
       </form>
     </div>
