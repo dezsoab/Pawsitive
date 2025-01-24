@@ -53,6 +53,7 @@ public class AuthServiceImpl implements AuthService {
         );
 
         if (authentication.isAuthenticated()) {
+            logger.info("User is authenticated, generating JWT token");
             return jwtService.generateToken(user.getEmail());
         }
 

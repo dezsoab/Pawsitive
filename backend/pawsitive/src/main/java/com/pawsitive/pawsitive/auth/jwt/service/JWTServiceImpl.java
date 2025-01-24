@@ -1,8 +1,11 @@
 package com.pawsitive.pawsitive.auth.jwt.service;
 
+import com.pawsitive.pawsitive.util.date.TimeConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,8 @@ import java.util.function.Function;
 
 @Service
 public class JWTServiceImpl implements JWTService {
+    private static final Logger logger = LoggerFactory.getLogger(JWTServiceImpl.class);
+
     private final byte[] secretKey;
 
     public JWTServiceImpl() {
@@ -37,7 +42,7 @@ public class JWTServiceImpl implements JWTService {
                 .add(claims)
                 .subject(username)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000)) // 1 hour example
+                .expiration(new Date(TimeConstants.getOneYearInMillis()))
                 .and()
                 .signWith(getKey())
                 .compact();
@@ -50,6 +55,7 @@ public class JWTServiceImpl implements JWTService {
 
     @Override
     public String extractUsername(String token) {
+        logger.info("Extracting username from JWT token");
         return extractClaim(token, Claims::getSubject);
     }
 
