@@ -4,8 +4,7 @@ import styles from "./LoginForm.module.css";
 import Button from "@/components/button/Button";
 import { LoginOwnerDTO } from "@/types/LoginOwnerDTO";
 import { loginOwner } from "@/api/post/loginOwner";
-import { toast } from "react-toastify";
-import { apiFetch } from "@/api/get/apiFetch";
+import { toast, ToastContainer } from "react-toastify";
 
 const btnStyle = {
   padding: "1rem 1.5rem",
@@ -13,6 +12,7 @@ const btnStyle = {
 };
 
 const LoginForm = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -28,8 +28,8 @@ const LoginForm = () => {
       .promise(
         loginOwner(loginOwnerObject),
         {
-          pending: "Creating user account",
-          success: "Successful registration!",
+          pending: "Logging in...",
+          success: "Successful login!",
           error: "Something went wrong...",
         },
         {
@@ -37,23 +37,17 @@ const LoginForm = () => {
         }
       )
       .then(() => {
-        // setEmailHasError(false);
-        // formRef.current?.reset();
-
-        // test to fetch protected route after auth
-        apiFetch("auth/test");
+        formRef.current?.reset();
       })
       .catch((e) => {
-        const message: string = e.message;
-        if (message.includes("email")) {
-          // setEmailHasError(true);
-        }
+        console.error(e.message);
       });
   };
 
   return (
     <div className={styles.formContainer}>
-      <form onSubmit={handleLogin}>
+      <ToastContainer />
+      <form onSubmit={handleLogin} ref={formRef}>
         <div className={styles.form}>
           <input
             type="email"
@@ -81,7 +75,7 @@ const LoginForm = () => {
             Password:
           </label>
         </div>
-        <Button text="Register" style={btnStyle} />
+        <Button text="Login" style={btnStyle} />
       </form>
     </div>
   );

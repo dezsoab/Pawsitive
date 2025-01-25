@@ -7,6 +7,10 @@ export const apiFetch = async <T>(endpoint: string): Promise<T> => {
     throw new Error(`Failed to fetch from ${endpoint}`);
   }
 
-  const data: T = await res.json();
-  return data;
+  try {
+    return (await res.json()) as T;
+  } catch {
+    console.info(`Response from ${endpoint} is not JSON. Returning as text.`);
+    return (await res.text()) as T;
+  }
 };

@@ -38,7 +38,7 @@ public class AuthController {
 
         ResponseCookie cookie = ResponseCookie.from("pawsitive-jwt", token)
                 .httpOnly(true)
-//                .secure(true) // should disable it for now, as local environment is not https
+                .secure(false) // TODO: switch back to true once on PROD (https)
                 .path("/")
                 .maxAge(TimeConstants.ONE_YEAR)
                 .build();

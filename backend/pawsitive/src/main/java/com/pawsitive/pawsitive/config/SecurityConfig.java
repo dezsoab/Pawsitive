@@ -26,7 +26,6 @@ public class SecurityConfig {
     private final UserDetailsService userDetailsService;
     private final JWTFilter jwtFilter;
 
-
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(11);
@@ -42,7 +41,6 @@ public class SecurityConfig {
                         .anyRequest()
                         .authenticated()
                 )
-                .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
