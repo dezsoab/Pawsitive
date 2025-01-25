@@ -32,20 +32,20 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody User user, HttpServletResponse response) {
+    public ResponseEntity<Map<String, String>> login(@RequestBody User user, HttpServletResponse response) {
         logger.info("Received user login request");
         String token = authService.verify(user);
 
         ResponseCookie cookie = ResponseCookie.from("pawsitive-jwt", token)
                 .httpOnly(true)
-                .secure(true)
+//                .secure(true) // should disable it for now, as local environment is not https
                 .path("/")
                 .maxAge(TimeConstants.ONE_YEAR)
                 .build();
 
         response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
 
-        return ResponseEntity.status(HttpStatus.OK).body(token);
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of("message", "Successful login"));
     }
 
     @PostMapping("/register")

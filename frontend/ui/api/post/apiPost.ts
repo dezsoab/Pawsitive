@@ -5,6 +5,7 @@ export const apiPost = async <T, U>(endpoint: string, body: U): Promise<T> => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
+    credentials: "include",
   });
 
   if (!res.ok) {

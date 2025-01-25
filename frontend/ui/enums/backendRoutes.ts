@@ -1,6 +1,6 @@
-const prePath = "auth";
+const AUTH = "auth";
 
 export enum backendRoutes {
-  REGISTER = prePath + "/register",
-  LOGIN = prePath + "/login",
+  REGISTER = AUTH + "/register",
+  LOGIN = AUTH + "/login",
 }
