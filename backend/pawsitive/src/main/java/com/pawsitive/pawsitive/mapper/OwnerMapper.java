@@ -3,7 +3,6 @@ package com.pawsitive.pawsitive.mapper;
 import com.pawsitive.pawsitive.dto.OwnerDTO;
 import com.pawsitive.pawsitive.exception.MapperException;
 import com.pawsitive.pawsitive.owner.model.Owner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,7 +10,6 @@ public class OwnerMapper {
 
     private final AddressMapper addressMapper;
 
-    @Autowired
     public OwnerMapper(AddressMapper addressMapper) {
         this.addressMapper = addressMapper;
     }

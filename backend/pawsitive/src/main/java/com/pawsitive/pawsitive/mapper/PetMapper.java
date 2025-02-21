@@ -4,7 +4,6 @@ import com.pawsitive.pawsitive.dto.PetDTO;
 
 import com.pawsitive.pawsitive.exception.MapperException;
 import com.pawsitive.pawsitive.pet.model.Pet;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,7 +11,6 @@ public class PetMapper implements Mapper<Pet, PetDTO> {
 
     private final OwnerMapper ownerMapper;
 
-    @Autowired
     public PetMapper(OwnerMapper ownerMapper) {
         this.ownerMapper = ownerMapper;
     }

@@ -1,6 +1,5 @@
 package com.pawsitive.pawsitive.user.service;
 
-import com.pawsitive.pawsitive.owner.service.OwnerServiceImpl;
 import com.pawsitive.pawsitive.user.model.User;
 import com.pawsitive.pawsitive.user.repository.UserRepository;
 import lombok.AllArgsConstructor;

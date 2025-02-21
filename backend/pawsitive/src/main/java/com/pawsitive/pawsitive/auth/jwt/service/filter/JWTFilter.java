@@ -1,6 +1,5 @@
 package com.pawsitive.pawsitive.auth.jwt.service.filter;
 
-import com.pawsitive.pawsitive.auth.controller.AuthController;
 import com.pawsitive.pawsitive.auth.jwt.service.JWTServiceImpl;
 import com.pawsitive.pawsitive.constants.PublicEndpoints;
 import com.pawsitive.pawsitive.user.service.MyUserDetailService;

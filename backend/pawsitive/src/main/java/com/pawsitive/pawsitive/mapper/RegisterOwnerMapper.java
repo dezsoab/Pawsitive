@@ -2,7 +2,6 @@ package com.pawsitive.pawsitive.mapper;
 
 import com.pawsitive.pawsitive.address.model.Address;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
-import com.pawsitive.pawsitive.exception.MapperException;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.user.model.User;
 import org.springframework.stereotype.Component;
