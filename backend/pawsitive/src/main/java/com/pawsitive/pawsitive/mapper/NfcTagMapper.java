@@ -3,7 +3,6 @@ package com.pawsitive.pawsitive.mapper;
 import com.pawsitive.pawsitive.dto.NfcTagDTO;
 import com.pawsitive.pawsitive.exception.MapperException;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,11 +10,9 @@ public class NfcTagMapper implements Mapper<NfcTag, NfcTagDTO> {
 
     private final PetMapper petMapper;
 
-    @Autowired
     public NfcTagMapper(PetMapper petMapper) {
         this.petMapper = petMapper;
     }
-
 
     @Override
     public NfcTagDTO toDto(NfcTag nfcTag) {
