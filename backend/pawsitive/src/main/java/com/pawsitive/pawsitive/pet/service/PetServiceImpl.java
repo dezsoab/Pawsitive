@@ -3,8 +3,6 @@ package com.pawsitive.pawsitive.pet.service;
 import com.pawsitive.pawsitive.exception.PetNotFoundException;
 import com.pawsitive.pawsitive.pet.model.Pet;
 import com.pawsitive.pawsitive.pet.repository.PetRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
