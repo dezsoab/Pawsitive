@@ -1,6 +1,7 @@
 package com.pawsitive.pawsitive.config;
 
 import com.pawsitive.pawsitive.auth.jwt.service.filter.JWTFilter;
+import com.pawsitive.pawsitive.constants.PublicEndpoints;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +37,8 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/api/v1/auth/login", "/api/v1/auth/register")
+                        .requestMatchers(PublicEndpoints.LOGIN,
+                                PublicEndpoints.REGISTER)
                         .permitAll()
                         .anyRequest()
                         .authenticated()

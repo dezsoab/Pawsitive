@@ -2,6 +2,7 @@ package com.pawsitive.pawsitive.auth.controller;
 
 import com.pawsitive.pawsitive.auth.jwt.service.JWTService;
 import com.pawsitive.pawsitive.auth.service.AuthService;
+import com.pawsitive.pawsitive.constants.PublicEndpoints;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
 import com.pawsitive.pawsitive.user.model.User;
 import com.pawsitive.pawsitive.util.date.TimeConstants;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping
 @AllArgsConstructor
 public class AuthController {
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
@@ -31,7 +32,7 @@ public class AuthController {
         return "fetch only possible if authenticated";
     }
 
-    @PostMapping("/login")
+    @PostMapping(PublicEndpoints.LOGIN)
     public ResponseEntity<Map<String, String>> login(@RequestBody User user, HttpServletResponse response) {
         logger.info("Received user login request");
         String token = authService.verify(user);
@@ -48,7 +49,7 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.OK).body(Map.of("message", "Successful login"));
     }
 
-    @PostMapping("/register")
+    @PostMapping(PublicEndpoints.REGISTER)
     public ResponseEntity<Map<String, String>> registerOwner(@RequestBody RegisterOwnerDTO registerOwnerDTO) {
         logger.info("Received user registration request");
         authService.registerOwner(registerOwnerDTO);

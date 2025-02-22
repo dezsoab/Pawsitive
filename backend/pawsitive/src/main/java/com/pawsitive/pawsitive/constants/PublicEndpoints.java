@@ -1,27 +1,23 @@
 package com.pawsitive.pawsitive.constants;
 
-public enum PublicEndpoints {
-    LOGIN("/api/v1/auth/login"),
-    REGISTER("/api/v1/auth/register");
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
-    private final String path;
+public final class PublicEndpoints {
+    private static final Set<String> ENDPOINTS = new HashSet<>();
 
-    PublicEndpoints(String path) {
-        this.path = path;
+    public static final String LOGIN = "/api/v1/auth/login";
+    public static final String REGISTER = "/api/v1/auth/register";
+
+    private PublicEndpoints() {
     }
 
-    public String getPath() {
-        return path;
+    static {
+        Collections.addAll(ENDPOINTS, LOGIN, REGISTER);
     }
 
     public static boolean isPublicPath(String requestURI) {
-
-        for (PublicEndpoints endpoint : PublicEndpoints.values()) {
-            if (requestURI.equals(endpoint.getPath())) {
-                return true;
-            }
-        }
-
-        return false;
+        return ENDPOINTS.contains(requestURI);
     }
 }
