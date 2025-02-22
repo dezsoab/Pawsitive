@@ -1,11 +1,9 @@
 package com.pawsitive.pawsitive.owner.model;
 
 import com.pawsitive.pawsitive.address.model.Address;
+import com.pawsitive.pawsitive.user.model.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -26,15 +24,18 @@ public class Owner {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-
     @Column(nullable = false)
     private String phone;
 
     @OneToOne
+    @JoinColumn(name = "userId", nullable = false)
+    @ToString.Exclude
+    private User user;
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressId")
     private Address address;
+
     @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;

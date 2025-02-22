@@ -7,7 +7,6 @@ import com.pawsitive.pawsitive.nfctag.repository.NfcTagRepository;
 import com.pawsitive.pawsitive.mapper.TagResponseMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,6 @@ public class NfcTagServiceImpl implements NfcTagService {
     private final NfcTagRepository nfcTagRepository;
     private final TagResponseMapper tagResponseMapper;
 
-    @Autowired
     public NfcTagServiceImpl(NfcTagRepository nfcTagRepository, TagResponseMapper tagResponseMapper) {
         this.nfcTagRepository = nfcTagRepository;
         this.tagResponseMapper = tagResponseMapper;

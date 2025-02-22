@@ -5,15 +5,19 @@ export const apiPost = async <T, U>(endpoint: string, body: U): Promise<T> => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(body),
+    credentials: "include",
   });
 
   if (!res.ok) {
-    const errorData = await res.json();
     throw new Error(
-      errorData.message || "An error occurred during post request"
+      `Failed POST request to ${endpoint}: ${res.status} ${res.statusText}`
     );
   }
 
-  const data: T = await res.json();
-  return data;
+  try {
+    return (await res.json()) as T;
+  } catch {
+    console.info(`Response from ${endpoint} is not JSON. Returning as text.`);
+    return (await res.text()) as T;
+  }
 };

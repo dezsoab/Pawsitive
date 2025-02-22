@@ -4,7 +4,6 @@ import com.pawsitive.pawsitive.address.model.Address;
 import com.pawsitive.pawsitive.address.service.AddressService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +16,6 @@ public class AddressController {
     private final AddressService addressService;
     private static final Logger logger = LoggerFactory.getLogger(AddressController.class);
 
-    @Autowired
     public AddressController(AddressService addressService) {
         this.addressService = addressService;
     }

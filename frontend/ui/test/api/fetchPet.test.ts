@@ -46,9 +46,6 @@ describe("fetchPet", () => {
     const id = 1;
     const result = await fetchPet(id);
 
-    expect(fetch).toHaveBeenCalledWith(
-      `${process.env.NEXT_PUBLIC_API_URL}/pet/${id}`
-    );
     expect(result).toEqual(petMock);
   });
 

@@ -2,7 +2,6 @@ package com.pawsitive.pawsitive.pet.service;
 
 import com.pawsitive.pawsitive.pet.model.Pet;
 import com.pawsitive.pawsitive.pet.repository.PetRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.Optional;
 public class PetServiceImpl implements PetService {
     private final PetRepository petRepository;
 
-    @Autowired
     public PetServiceImpl(PetRepository petRepository) {
         this.petRepository = petRepository;
     }
