@@ -50,7 +50,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<Map<String, String>> registerOwner(@RequestBody RegisterOwnerDTO registerOwnerDTO) {
-        logger.info("Received user registration request. Register object: {}", registerOwnerDTO);
+        logger.info("Received user registration request");
         authService.registerOwner(registerOwnerDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Successful creation"));
     }

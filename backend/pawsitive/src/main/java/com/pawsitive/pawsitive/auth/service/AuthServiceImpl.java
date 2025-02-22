@@ -3,6 +3,7 @@ package com.pawsitive.pawsitive.auth.service;
 import com.pawsitive.pawsitive.auth.jwt.service.JWTService;
 import com.pawsitive.pawsitive.dto.OwnerDTO;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
+import com.pawsitive.pawsitive.exception.RegistrationFailedException;
 import com.pawsitive.pawsitive.mapper.RegisterOwnerMapper;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
@@ -33,12 +34,18 @@ public class AuthServiceImpl implements AuthService {
     public void registerOwner(RegisterOwnerDTO dto) {
         logger.info("Starting owner registration");
 
+        if (userService.existsByEmail(dto.email())) {
+            logger.warn("Registration failed: Email {} is already registered", dto.email());
+            throw new RegistrationFailedException("Email is already registered");
+        }
+
         User user = registerOwnerMapper.toUser(dto);
         userService.registerUser(user);
 
         Owner owner = registerOwnerMapper.toOwner(dto);
         owner.setUser(user);
         ownerService.createOwner(owner);
+        logger.info("Owner registration successful for email: {}", dto.email());
     }
 
     @Override

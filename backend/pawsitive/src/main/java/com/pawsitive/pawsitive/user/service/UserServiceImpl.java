@@ -16,6 +16,10 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
     @Override
     public User registerUser(User user) {
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {

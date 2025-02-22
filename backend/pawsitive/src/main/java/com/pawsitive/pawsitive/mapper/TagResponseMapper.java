@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class TagResponseMapper implements Mapper<NfcTag, TagResponseDTO> {
     @Override
     public TagResponseDTO toDto(NfcTag nfcTag) {
-        if (nfcTag == null) throw new MapperException("NfcTag cannot be null");
+        if (nfcTag == null) throw new MapperException("NfcTag entity cannot be null");
 
         if (isUnassignedTag(nfcTag)) return new TagResponseDTO("unassigned", null);
 
@@ -18,7 +18,7 @@ public class TagResponseMapper implements Mapper<NfcTag, TagResponseDTO> {
 
     @Override
     public NfcTag toEntity(TagResponseDTO dto) {
-        if (dto == null) throw new MapperException("TagResponseDTO can not be null");
+        if (dto == null) throw new MapperException("TagResponseDTO cannot be null");
         return NfcTag.builder().status(dto.status()).build();
     }
 

@@ -35,6 +35,11 @@ public class NfcTagServiceImpl implements NfcTagService {
     @Override
     @Cacheable("nfcTags")
     public NfcTag getNfcTagByTagId(String tagId) throws TagNotFoundException {
+        if (tagId == null || tagId.isEmpty()) {
+            logger.error("Tag ID cannot be null or empty");
+            throw new IllegalArgumentException("Tag ID cannot be null or empty");
+        }
+
         logger.debug("Fetching NFC tag with ID: {} from database or cache", tagId);
         NfcTag nfcTag = nfcTagRepository.findByTagId(tagId).orElseThrow(() -> {
             logger.warn("NFC tag not found with ID: {}", tagId);
@@ -46,6 +51,15 @@ public class NfcTagServiceImpl implements NfcTagService {
 
     @Override
     public NfcTag createNfcTag(NfcTag nfcTag) {
+        if (nfcTag == null) {
+            logger.error("NFC tag cannot be null");
+            throw new IllegalArgumentException("NFC tag cannot be null");
+        }
+        if (nfcTag.getTagId() == null || nfcTag.getTagId().isEmpty()) {
+            logger.error("Tag ID cannot be null or empty");
+            throw new IllegalArgumentException("Tag ID cannot be null or empty");
+        }
+
         logger.info("Creating new NFC tag with ID: {}", nfcTag.getTagId());
         return nfcTagRepository.save(nfcTag);
     }

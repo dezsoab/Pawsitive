@@ -10,7 +10,7 @@ public class AddressMapper implements Mapper<Address, AddressDTO> {
 
     @Override
     public AddressDTO toDto(Address address) {
-        if (address == null) throw new MapperException("Address can not be null");
+        if (address == null) throw new MapperException("Address entity cannot be null");
 
         return new AddressDTO(address.getId(),
                 address.getCountry(),
@@ -23,7 +23,7 @@ public class AddressMapper implements Mapper<Address, AddressDTO> {
 
     @Override
     public Address toEntity(AddressDTO dto) {
-        if (dto == null) throw new MapperException("AddressDTO can not be null");
+        if (dto == null) throw new MapperException("AddressDTO cannot be null");
 
         return Address.builder()
                 .id(dto.id())

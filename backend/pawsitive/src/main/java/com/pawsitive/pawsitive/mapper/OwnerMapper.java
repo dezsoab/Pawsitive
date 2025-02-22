@@ -15,7 +15,7 @@ public class OwnerMapper {
     }
 
     public OwnerDTO toDto(Owner owner) {
-        if (owner == null) throw new MapperException("Owner can not be null");
+        if (owner == null) throw new MapperException("Owner entity cannot be null");
 
         return new OwnerDTO(owner.getId(), owner.getFirstName(),
                 owner.getLastName(),
@@ -24,7 +24,7 @@ public class OwnerMapper {
     }
 
     public Owner toEntity(OwnerDTO dto) {
-        if (dto == null) throw new MapperException("OwnerDTO can not be null");
+        if (dto == null) throw new MapperException("OwnerDTO cannot be null");
 
         return Owner.builder()
                 .id(dto.id())

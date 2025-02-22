@@ -32,16 +32,11 @@ public class PetController {
     @GetMapping("/{id}")
     public ResponseEntity<PetDTO> getPetById(@PathVariable Long id) {
         logger.info("Received request to get pet with ID: {}", id);
-        Optional<Pet> pet = petService.getPetById(id);
-        if (pet.isPresent()) {
-            logger.info("Pet found with ID: {}", pet.get().getId());
-            PetDTO petDto = petMapper.toDto(pet.get());
-            logger.info("Created Pet DTO as response:{}", petDto);
-            return ResponseEntity.ok(petDto);
-        } else {
-            logger.warn("Pet not found with ID: {}", id);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
+        Pet pet = petService.getPetById(id);
+        logger.info("Pet found with ID: {}", pet.getId());
+        PetDTO petDto = petMapper.toDto(pet);
+        logger.info("Created Pet DTO as response:{}", petDto);
+        return ResponseEntity.ok(petDto);
     }
 
     @PostMapping()

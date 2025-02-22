@@ -1,5 +1,6 @@
 package com.pawsitive.pawsitive.auth.jwt.service;
 
+import com.pawsitive.pawsitive.exception.JWTKeyGenerationException;
 import com.pawsitive.pawsitive.util.date.TimeConstants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -28,13 +29,13 @@ public class JWTServiceImpl implements JWTService {
             SecretKey secKey = keyGen.generateKey();
             secretKey = secKey.getEncoded();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            logger.error("Failed to generate secret key for JWT", e);
+            throw new JWTKeyGenerationException("Failed to generate secret key for JWT");
         }
     }
 
     @Override
     public String generateToken(String username) {
-
         Map<String, Object> claims = new HashMap<>();
 
         return Jwts.builder()

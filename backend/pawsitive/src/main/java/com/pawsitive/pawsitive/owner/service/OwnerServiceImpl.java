@@ -39,6 +39,17 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     @Transactional
     public OwnerDTO createOwner(OwnerDTO ownerDto) {
+        if (ownerDto == null) {
+            logger.error("OwnerDTO cannot be null");
+            throw new IllegalArgumentException("OwnerDTO cannot be null");
+        }
+
+        if (ownerDto.address() == null) {
+            logger.error("Address cannot be null");
+            throw new IllegalArgumentException("Address cannot be null");
+        }
+
+
         logger.info("Creating owner: {}", ownerDto);
         Address address = addressService.createAddress(addressMapper.toEntity(ownerDto.address()));
 

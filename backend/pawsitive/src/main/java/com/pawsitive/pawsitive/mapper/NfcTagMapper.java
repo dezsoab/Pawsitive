@@ -16,7 +16,7 @@ public class NfcTagMapper implements Mapper<NfcTag, NfcTagDTO> {
 
     @Override
     public NfcTagDTO toDto(NfcTag nfcTag) {
-        if (nfcTag == null) throw new MapperException("NfcTag can not be null");
+        if (nfcTag == null) throw new MapperException("NfcTag entity cannot be null");
 
         return new NfcTagDTO(nfcTag.getTagId(), petMapper.toDto(nfcTag.getPet()),
                 nfcTag.getStatus(), nfcTag.getCreatedAt(), nfcTag.getModifiedAt());
@@ -24,7 +24,7 @@ public class NfcTagMapper implements Mapper<NfcTag, NfcTagDTO> {
 
     @Override
     public NfcTag toEntity(NfcTagDTO dto) {
-        if (dto == null) throw new MapperException("NfcTagDTO can not be null");
+        if (dto == null) throw new MapperException("NfcTagDTO cannot be null");
 
         return NfcTag.builder()
                 .tagId(dto.tagId())

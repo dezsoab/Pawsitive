@@ -17,7 +17,7 @@ public class PetMapper implements Mapper<Pet, PetDTO> {
 
     @Override
     public PetDTO toDto(Pet pet) {
-        if (pet == null) throw new MapperException("Pet can not be null");
+        if (pet == null) throw new MapperException("Pet entity cannot be null");
         return new PetDTO(pet.getId(), pet.getName(),
                 pet.getBreed(), pet.getAge(), pet.getSex(),
                 ownerMapper.toDto(pet.getOwner()),
@@ -27,7 +27,7 @@ public class PetMapper implements Mapper<Pet, PetDTO> {
 
     @Override
     public Pet toEntity(PetDTO dto) {
-        if (dto == null) throw new MapperException("PetDTO can not be null");
+        if (dto == null) throw new MapperException("PetDTO cannot be null");
         return Pet.builder()
                 .id(dto.id())
                 .age(dto.age())

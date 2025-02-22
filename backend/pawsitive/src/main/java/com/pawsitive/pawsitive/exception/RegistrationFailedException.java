@@ -3,9 +3,9 @@ package com.pawsitive.pawsitive.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(HttpStatus.NOT_FOUND)
-public class AddressNotFoundException extends RuntimeException {
-    public AddressNotFoundException(String message) {
+@ResponseStatus(HttpStatus.BAD_REQUEST)
+public class RegistrationFailedException extends RuntimeException {
+    public RegistrationFailedException(String message) {
         super(message);
     }
 }

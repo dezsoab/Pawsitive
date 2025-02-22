@@ -2,12 +2,12 @@ package com.pawsitive.pawsitive.address.service;
 
 import com.pawsitive.pawsitive.address.model.Address;
 import com.pawsitive.pawsitive.address.repository.AddressRepository;
+import com.pawsitive.pawsitive.exception.AddressNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AddressServiceImpl implements AddressService {
@@ -33,7 +33,8 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public Optional<Address> getAddressById(Long id) {
-        return addressRepository.findById(id);
+    public Address getAddressById(Long id) {
+        return addressRepository.findById(id)
+                .orElseThrow(() -> new AddressNotFoundException("Address not found with ID: " + id));
     }
 }
