@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler({TagNotFoundException.class, MapperException.class, AddressNotFoundException.class, IllegalArgumentException.class
-            , RegistrationFailedException.class, JWTKeyGenerationException.class,PetNotFoundException.class})
+            , RegistrationFailedException.class, JWTKeyGenerationException.class, PetNotFoundException.class})
     public ResponseEntity<String> handleException(RuntimeException e) {
         printFormattedStackTrace(e);
         HttpStatus status = e.getClass().getAnnotation(ResponseStatus.class).value();

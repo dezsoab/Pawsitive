@@ -5,22 +5,19 @@ import com.pawsitive.pawsitive.exception.TagNotFoundException;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.nfctag.repository.NfcTagRepository;
 import com.pawsitive.pawsitive.mapper.TagResponseMapper;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class NfcTagServiceImpl implements NfcTagService {
     private static final Logger logger = LoggerFactory.getLogger(NfcTagServiceImpl.class);
 
     private final NfcTagRepository nfcTagRepository;
     private final TagResponseMapper tagResponseMapper;
-
-    public NfcTagServiceImpl(NfcTagRepository nfcTagRepository, TagResponseMapper tagResponseMapper) {
-        this.nfcTagRepository = nfcTagRepository;
-        this.tagResponseMapper = tagResponseMapper;
-    }
 
     @Override
     public TagResponseDTO processScannedTag(String tagId) {
@@ -42,7 +39,7 @@ public class NfcTagServiceImpl implements NfcTagService {
 
         logger.debug("Fetching NFC tag with ID: {} from database or cache", tagId);
         NfcTag nfcTag = nfcTagRepository.findByTagId(tagId).orElseThrow(() -> {
-            logger.warn("NFC tag not found with ID: {}", tagId);
+            logger.error("NFC tag not found with ID: {}", tagId);
             return new TagNotFoundException("Tag not found with ID: " + tagId);
         });
         logger.debug("Found NFC tag with ID: {}", tagId);

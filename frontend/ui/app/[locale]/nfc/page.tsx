@@ -21,6 +21,7 @@ const ScannedNfcTag = () => {
         setTagResponse(tagResponse);
       } catch (error) {
         console.error("Error fetching tagResponseDTO:", error);
+        router.push("/nfc/help");
       }
     };
 
