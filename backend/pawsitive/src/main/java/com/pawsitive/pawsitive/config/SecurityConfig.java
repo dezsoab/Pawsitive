@@ -38,7 +38,9 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(PublicEndpoints.LOGIN,
-                                PublicEndpoints.REGISTER)
+                                PublicEndpoints.REGISTER,
+                                PublicEndpoints.NFCTAGID,
+                                PublicEndpoints.PETID)
                         .permitAll()
                         .anyRequest()
                         .authenticated()

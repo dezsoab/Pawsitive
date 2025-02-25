@@ -9,6 +9,8 @@ public final class PublicEndpoints {
 
     public static final String LOGIN = "/api/v1/auth/login";
     public static final String REGISTER = "/api/v1/auth/register";
+    public static final String NFCTAGID = "/api/v1/nfcTag/{tagId}";
+    public static final String PETID = "/api/v1/pet/{id}";
 
     private PublicEndpoints() {
     }
@@ -18,6 +20,10 @@ public final class PublicEndpoints {
     }
 
     public static boolean isPublicPath(String requestURI) {
-        return ENDPOINTS.contains(requestURI);
+        return ENDPOINTS.contains(requestURI) || matchesNfcTag(requestURI);
+    }
+
+    private static boolean matchesNfcTag(String requestURI) {
+        return requestURI.matches("^/api/v1/nfcTag/[a-zA-Z0-9]+$") || requestURI.matches("^/api/v1/pet/[a-zA-Z0-9]+$");
     }
 }
