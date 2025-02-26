@@ -40,7 +40,8 @@ public class SecurityConfig {
                         .requestMatchers(PublicEndpoints.LOGIN,
                                 PublicEndpoints.REGISTER,
                                 PublicEndpoints.NFCTAGID,
-                                PublicEndpoints.PETID)
+                                PublicEndpoints.PETID,
+                                PublicEndpoints.ISAUTHENTICATED)
                         .permitAll()
                         .anyRequest()
                         .authenticated()

@@ -6,6 +6,7 @@ import com.pawsitive.pawsitive.constants.PublicEndpoints;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
 import com.pawsitive.pawsitive.user.model.User;
 import com.pawsitive.pawsitive.util.date.TimeConstants;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -54,5 +55,12 @@ public class AuthController {
         logger.info("Received user registration request");
         authService.registerOwner(registerOwnerDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Successful creation"));
+    }
+
+    @GetMapping(PublicEndpoints.ISAUTHENTICATED)
+    public ResponseEntity<Boolean> userIsAuthenticated(HttpServletRequest request) {
+        boolean isAuthenticated = authService.checkUserAuthentication(request);
+        logger.info("Answering to isAuthenticated request with: {}", isAuthenticated);
+        return ResponseEntity.ok(isAuthenticated);
     }
 }

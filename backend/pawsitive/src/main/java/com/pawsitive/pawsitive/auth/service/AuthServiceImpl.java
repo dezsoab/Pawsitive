@@ -8,15 +8,23 @@ import com.pawsitive.pawsitive.mapper.RegisterOwnerMapper;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
 import com.pawsitive.pawsitive.user.model.User;
+import com.pawsitive.pawsitive.user.service.MyUserDetailService;
 import com.pawsitive.pawsitive.user.service.UserService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.Optional;
 
 
 @Service
@@ -29,6 +37,7 @@ public class AuthServiceImpl implements AuthService {
     private final OwnerService ownerService;
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
+    private ApplicationContext context;
 
     @Override
     public void registerOwner(RegisterOwnerDTO dto) {
@@ -65,5 +74,34 @@ public class AuthServiceImpl implements AuthService {
         }
 
         return "Fail";
+    }
+
+    @Override
+    public boolean checkUserAuthentication(HttpServletRequest request) {
+        logger.info("Received request to authenticate user request");
+        Cookie[] cookies = request.getCookies();
+        if (cookies == null) {
+            return false;
+        }
+
+        logger.info("Looking for JWT token in cookies");
+        Optional<Cookie> jwtCookie = Arrays.stream(cookies)
+                .filter(cookie -> "pawsitive-jwt".equals(cookie.getName()))
+                .findFirst();
+
+        if (jwtCookie.isEmpty()) {
+            return false;
+        }
+
+        String token = jwtCookie.get().getValue();
+        try {
+            logger.info("Getting UserDetails from Application Context");
+            UserDetails userDetails = context.getBean(MyUserDetailService.class).loadUserByUsername(jwtService.extractUsername(token));
+            logger.info("Validating JWT Token");
+            return jwtService.validateToken(token, userDetails);
+        } catch (Exception e) {
+            logger.error("Error validating JWT token: {}", e.getMessage());
+            return false;
+        }
     }
 }
