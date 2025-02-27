@@ -17,15 +17,13 @@ public final class PublicEndpoints {
     }
 
     static {
-        Collections.addAll(ENDPOINTS, LOGIN, REGISTER);
+        Collections.addAll(ENDPOINTS, LOGIN, REGISTER, ISAUTHENTICATED);
     }
 
     public static boolean isPublicPath(String requestURI) {
         return matchesPublicUrl(requestURI, "^/api/v1/nfcTag/[a-zA-Z0-9]+$") ||
                 matchesPublicUrl(requestURI, "^/api/v1/pet/[a-zA-Z0-9]+$") ||
-                matchesPublicUrl(requestURI, ISAUTHENTICATED) ||
-                matchesPublicUrl(requestURI, LOGIN) ||
-                matchesPublicUrl(requestURI, REGISTER);
+                ENDPOINTS.contains(requestURI);
     }
 
     private static boolean matchesPublicUrl(String requestURI, String pattern) {
