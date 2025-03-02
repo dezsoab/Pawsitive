@@ -28,7 +28,7 @@ const ScannedNfcTag = () => {
     };
 
     fetchNFCTag();
-  }, []);
+  });
 
   useEffect(() => {
     const handleRedirect = async () => {

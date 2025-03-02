@@ -125,7 +125,7 @@ const RegisterForm = () => {
                   flexDirection: "column",
                   gap: 2,
                 },
-                [`& .MuiFormLabel-asterisk`]: {
+                ["& .MuiFormLabel-asterisk"]: {
                   visibility: "hidden",
                 },
               }}
@@ -358,7 +358,7 @@ const RegisterForm = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundImage: `url(/assets/loginWhite.jpeg)`,
+            backgroundImage: "url(/assets/loginWhite.jpeg)",
             [theme.getColorSchemeSelector("dark")]: {
               backgroundImage: "url(/assets/loginBlack.jpg)",
             },

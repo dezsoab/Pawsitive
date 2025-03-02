@@ -117,7 +117,7 @@ const LoginForm = () => {
                   flexDirection: "column",
                   gap: 2,
                 },
-                [`& .MuiFormLabel-asterisk`]: {
+                ["& .MuiFormLabel-asterisk"]: {
                   visibility: "hidden",
                 },
               }}
@@ -258,7 +258,7 @@ const LoginForm = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundImage: `url(/assets/loginWhite.jpeg)`,
+            backgroundImage: "url(/assets/loginWhite.jpeg)",
             [theme.getColorSchemeSelector("dark")]: {
               backgroundImage: "url(/assets/loginBlack.jpg)",
             },
