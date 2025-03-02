@@ -155,8 +155,14 @@ const LoginForm = () => {
                         loginOwner(loginOwnerObject),
                         {
                           pending: "Logging in...",
-                          success: "Successful login!",
-                          error: "Wrong E-Mail or password...",
+                          success: {
+                            render: ({ data }: { data: { message: string } }) =>
+                              data.message,
+                          },
+                          error: {
+                            render: ({ data }: { data: { message: string } }) =>
+                              data.message,
+                          },
                         },
                         {
                           position: "bottom-right",

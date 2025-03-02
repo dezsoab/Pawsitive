@@ -6,6 +6,7 @@ public enum TimeConstants {
     TimeConstants() {
     }
 
+    public static final long ONE_MINUTE = 60L;
     public static final long ONE_HOUR = 60 * 60L;
     public static final long ONE_DAY = 24 * ONE_HOUR;
     public static final long ONE_WEEK = 7 * ONE_DAY;

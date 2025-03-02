@@ -16,5 +16,5 @@ public interface AuthService {
 
     boolean checkUserAuthentication(HttpServletRequest request);
 
-    ResponseCookie createCookie(String token);
+    ResponseCookie createCookie(String token, boolean persistLogin);
 }

@@ -17,6 +17,7 @@ public class RegisterOwnerMapper {
                 .email(dto.email())
                 .password(dto.password())
                 .active(true)
+                .persistLogin(dto.persistLogin())
                 .build();
     }
 

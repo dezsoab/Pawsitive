@@ -9,6 +9,7 @@ public record RegisterOwnerDTO(
         String country,
         String city,
         String zipCode,
-        String street
+        String street,
+        boolean persistLogin
 ) {
 }

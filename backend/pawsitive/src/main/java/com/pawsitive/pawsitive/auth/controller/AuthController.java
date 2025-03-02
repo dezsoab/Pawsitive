@@ -5,6 +5,7 @@ import com.pawsitive.pawsitive.auth.service.AuthService;
 import com.pawsitive.pawsitive.auth.service.AuthServiceImpl;
 import com.pawsitive.pawsitive.constants.PublicEndpoints;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
+import com.pawsitive.pawsitive.mapper.RegisterOwnerMapper;
 import com.pawsitive.pawsitive.user.model.User;
 import com.pawsitive.pawsitive.util.date.TimeConstants;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,6 +29,7 @@ public class AuthController {
 
     private final AuthService authService;
     private final JWTService jwtService;
+    private final RegisterOwnerMapper registerOwnerMapper;
 
     @GetMapping("/test")
     public String test() {
@@ -37,21 +39,21 @@ public class AuthController {
     @PostMapping(PublicEndpoints.LOGIN)
     public ResponseEntity<Map<String, String>> login(@RequestBody User user, HttpServletResponse response) {
         logger.info("Received user login request");
-
         String token = authService.verify(user);
-        ResponseCookie cookie = authService.createCookie(token);
-
-        if (user.isPersistLogin()) {
-            response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
-        }
+        ResponseCookie cookie = authService.createCookie(token, user.isPersistLogin());
+        response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
 
         return ResponseEntity.status(HttpStatus.OK).body(Map.of("message", "Successful login"));
     }
 
     @PostMapping(PublicEndpoints.REGISTER)
-    public ResponseEntity<Map<String, String>> registerOwner(@RequestBody RegisterOwnerDTO registerOwnerDTO) {
+    public ResponseEntity<Map<String, String>> registerOwner(@RequestBody RegisterOwnerDTO registerOwnerDTO, HttpServletResponse response) {
         logger.info("Received user registration request");
         authService.registerOwner(registerOwnerDTO);
+        String token = authService.verify(registerOwnerMapper.toUser(registerOwnerDTO));
+        ResponseCookie cookie = authService.createCookie(token, registerOwnerDTO.persistLogin());
+        response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Successful creation"));
     }
 

@@ -25,6 +25,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -42,12 +43,21 @@ public class AuthServiceImpl implements AuthService {
     private ApplicationContext context;
 
     @Override
-    public ResponseCookie createCookie(String token) {
-        return ResponseCookie.from("pawsitive-jwt", token)
+    public ResponseCookie createCookie(String token, boolean persistLogin) {
+        if (!persistLogin) {
+            return createCookieWithJWT(token, TimeConstants.ONE_HOUR);
+        }
+
+        return createCookieWithJWT(token, TimeConstants.ONE_YEAR);
+    }
+
+    private ResponseCookie createCookieWithJWT(String token, long expiresInSec) {
+        logger.info("Creating Cookie for JWT Token. Expires in {} seconds", expiresInSec);
+        return ResponseCookie.from(com.pawsitive.pawsitive.constants.Cookie.JWT.getCookieName(), token)
                 .httpOnly(true)
                 .secure(false) // TODO: switch back to true once on PROD (https)
                 .path("/")
-                .maxAge(TimeConstants.ONE_YEAR)
+                .maxAge(expiresInSec)
                 .build();
     }
 

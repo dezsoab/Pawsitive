@@ -1,96 +1,13 @@
 "use client";
-import React, { useRef } from "react";
-
-import styles from "./LoginForm.module.css";
 import Button from "@/components/button/Button";
-import { LoginOwnerDTO } from "@/types/LoginOwnerDTO";
-import { loginOwner } from "@/api/post/loginOwner";
 import { toast, ToastContainer } from "react-toastify";
-
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-
-const btnStyle = {
-  padding: "1rem 1.5rem",
-  backgroundColor: "var(--color-pink-light)",
-};
-
-// const LoginForm = () => {
-//   const formRef = useRef<HTMLFormElement>(null);
-//   const emailRef = useRef<HTMLInputElement>(null);
-//   const passwordRef = useRef<HTMLInputElement>(null);
-
-//   const handleLogin = (e: React.FormEvent) => {
-//     e.preventDefault();
-
-//     const loginOwnerObject: LoginOwnerDTO = {
-//       email: emailRef.current!.value,
-//       password: passwordRef.current!.value,
-//     };
-
-//     toast
-//       .promise(
-//         loginOwner(loginOwnerObject),
-//         {
-//           pending: "Logging in...",
-//           success: "Successful login!",
-//           error: "Something went wrong...",
-//         },
-//         {
-//           position: "bottom-right",
-//         }
-//       )
-//       .then(() => {
-//         formRef.current?.reset();
-//       })
-//       .catch((e) => {
-//         console.error(e.message);
-//       });
-//   };
-
-//   return (
-//     <div className={styles.formContainer}>
-//       <ToastContainer />
-//       <form onSubmit={handleLogin} ref={formRef}>
-//         <div className={styles.form}>
-//           <input
-//             type="email"
-//             id="email"
-//             className={styles.form__input}
-//             placeholder=" "
-//             ref={emailRef}
-//             required
-//           />
-//           <label htmlFor="email" className={styles.form__label}>
-//             Email:
-//           </label>
-//         </div>
-
-//         <div className={styles.form}>
-//           <input
-//             type="password"
-//             id="password"
-//             className={styles.form__input}
-//             placeholder=" "
-//             ref={passwordRef}
-//             required
-//           />
-//           <label htmlFor="password" className={styles.form__label}>
-//             Password:
-//           </label>
-//         </div>
-//         <Button text="Login" style={btnStyle} />
-//       </form>
-//     </div>
-//   );
-// };
-
-import { CssVarsProvider, extendTheme, useColorScheme } from "@mui/joy/styles";
+import { CssVarsProvider, useColorScheme } from "@mui/joy/styles";
 import GlobalStyles from "@mui/joy/GlobalStyles";
 import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
 import Checkbox from "@mui/joy/Checkbox";
-import Divider from "@mui/joy/Divider";
 import FormControl from "@mui/joy/FormControl";
 import FormLabel from "@mui/joy/FormLabel";
 import IconButton, { IconButtonProps } from "@mui/joy/IconButton";
@@ -98,12 +15,22 @@ import Link from "@mui/joy/Link";
 import Input from "@mui/joy/Input";
 import Typography from "@mui/joy/Typography";
 import Stack from "@mui/joy/Stack";
-import { colors } from "@mui/material";
 import Navbar from "@/components/navigation/Navbar";
+import { RegisterOwnerDTO } from "@/types/RegisterOwnerDTO";
+import { createOwner } from "@/api/post/createOwner";
+import { useRouter, useSearchParams } from "next/navigation";
+import React from "react";
 
 interface FormElements extends HTMLFormControlsCollection {
+  firstName: HTMLInputElement;
+  lastName: HTMLInputElement;
   email: HTMLInputElement;
   password: HTMLInputElement;
+  phone: HTMLInputElement;
+  country: HTMLInputElement;
+  city: HTMLInputElement;
+  zip: HTMLInputElement;
+  street: HTMLInputElement;
   persistent: HTMLInputElement;
 }
 interface SignInFormElement extends HTMLFormElement {
@@ -135,10 +62,15 @@ function ColorSchemeToggle(props: IconButtonProps) {
   );
 }
 
-const LoginForm = () => {
+const RegisterForm = () => {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("tagId");
+  const router = useRouter();
+
   return (
     <>
       <Navbar style={{ backgroundColor: "var(--color-green)" }} />
+      <ToastContainer style={{ fontSize: "var(--font-small)" }} />
       <CssVarsProvider disableTransitionOnChange>
         <CssBaseline />
         <GlobalStyles
@@ -172,6 +104,7 @@ const LoginForm = () => {
               minHeight: "100dvh",
               width: "100%",
               px: 2,
+              paddingTop: "12rem",
             }}
           >
             <Box
@@ -215,14 +148,79 @@ const LoginForm = () => {
                   onSubmit={(event: React.FormEvent<SignInFormElement>) => {
                     event.preventDefault();
                     const formElements = event.currentTarget.elements;
-                    const data = {
+
+                    const owner: RegisterOwnerDTO = {
+                      firstName: formElements.firstName.value,
+                      lastName: formElements.lastName.value,
                       email: formElements.email.value,
                       password: formElements.password.value,
-                      persistent: formElements.persistent.checked,
+                      country: formElements.country.value,
+                      city: formElements.city.value,
+                      zipCode: formElements.zip.value,
+                      street: formElements.street.value,
+                      phone: formElements.phone.value,
+                      persistLogin: formElements.persistent.checked,
                     };
-                    alert(JSON.stringify(data, null, 2));
+
+                    toast
+                      .promise(
+                        createOwner(owner),
+                        {
+                          pending: "Creating user account",
+                          success: {
+                            render: ({ data }: { data: { message: string } }) =>
+                              data.message,
+                          },
+                          error: {
+                            render: ({ data }: { data: { message: string } }) =>
+                              data.message,
+                          },
+                        },
+                        {
+                          position: "bottom-right",
+                        }
+                      )
+                      .then(() => {
+                        formElements.firstName.value = "";
+                        formElements.lastName.value = "";
+                        formElements.email.value = "";
+                        formElements.password.value = "";
+                        formElements.country.value = "";
+                        formElements.city.value = "";
+                        formElements.zip.value = "";
+                        formElements.street.value = "";
+                        formElements.phone.value = "";
+                        formElements.persistent.checked = true;
+                      })
+                      .then(() => {
+                        router.push(`/profile/edit?tagId=${id}`);
+                      })
+                      .catch((e) => {
+                        console.log(e.message);
+                      });
                   }}
                 >
+                  <FormControl required>
+                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
+                      First Name
+                    </FormLabel>
+                    <Input
+                      type="text"
+                      name="firstName"
+                      sx={{ fontSize: "var(--font-small)" }}
+                    />
+                  </FormControl>
+                  <FormControl required>
+                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
+                      Last Name
+                    </FormLabel>
+                    <Input
+                      type="text"
+                      name="lastName"
+                      sx={{ fontSize: "var(--font-small)" }}
+                    />
+                  </FormControl>
+
                   <FormControl required>
                     <FormLabel sx={{ fontSize: "var(--font-small)" }}>
                       Email
@@ -233,6 +231,62 @@ const LoginForm = () => {
                       sx={{ fontSize: "var(--font-small)" }}
                     />
                   </FormControl>
+
+                  <FormControl required>
+                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
+                      Telephone
+                    </FormLabel>
+                    <Input
+                      type="tel"
+                      name="phone"
+                      sx={{ fontSize: "var(--font-small)" }}
+                    />
+                  </FormControl>
+
+                  <FormControl required>
+                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
+                      Country
+                    </FormLabel>
+                    <Input
+                      type="text"
+                      name="country"
+                      sx={{ fontSize: "var(--font-small)" }}
+                    />
+                  </FormControl>
+
+                  <FormControl required>
+                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
+                      City
+                    </FormLabel>
+                    <Input
+                      type="text"
+                      name="city"
+                      sx={{ fontSize: "var(--font-small)" }}
+                    />
+                  </FormControl>
+
+                  <FormControl required>
+                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
+                      Zip
+                    </FormLabel>
+                    <Input
+                      type="text"
+                      name="zip"
+                      sx={{ fontSize: "var(--font-small)" }}
+                    />
+                  </FormControl>
+
+                  <FormControl required>
+                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
+                      Street
+                    </FormLabel>
+                    <Input
+                      type="text"
+                      name="street"
+                      sx={{ fontSize: "var(--font-small)" }}
+                    />
+                  </FormControl>
+
                   <FormControl required>
                     <FormLabel sx={{ fontSize: "var(--font-small)" }}>
                       Password
@@ -258,13 +312,14 @@ const LoginForm = () => {
                         size="lg"
                         label="Remember me"
                         name="persistent"
+                        defaultChecked
                       />
                       <Link sx={{ fontSize: "var(--font-mini)" }}>
                         Forgot your password?
                       </Link>
                     </Box>
                     <Button
-                      text="Login"
+                      text="Register"
                       style={{
                         padding: "1rem 1.5rem",
                         backgroundColor: "var(--color-pink-mid)",
@@ -314,4 +369,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

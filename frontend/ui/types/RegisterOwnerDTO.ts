@@ -8,4 +8,5 @@ export interface RegisterOwnerDTO {
   city: string;
   zipCode: string;
   street: string;
+  persistLogin: boolean;
 }

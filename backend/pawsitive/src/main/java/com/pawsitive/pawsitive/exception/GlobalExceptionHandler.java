@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -15,16 +18,22 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler({TagNotFoundException.class, MapperException.class, AddressNotFoundException.class, IllegalArgumentException.class
             , RegistrationFailedException.class, JWTKeyGenerationException.class, PetNotFoundException.class})
-    public ResponseEntity<String> handleException(RuntimeException e) {
+    public ResponseEntity<Map<String, Object>> handleException(RuntimeException e) {
         printFormattedStackTrace(e);
         HttpStatus status = e.getClass().getAnnotation(ResponseStatus.class).value();
-        return ResponseEntity.status(status.value()).body(e.getMessage());
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", e.getMessage());
+        response.put("status", status.value());
+        return ResponseEntity.status(status).body(response);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGenericExpression(Exception e) {
+    public ResponseEntity<Map<String, Object>> handleGenericExpression(Exception e) {
         printFormattedStackTrace(e);
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", e.getMessage());
+        response.put("status", HttpStatus.INTERNAL_SERVER_ERROR);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 
     private static void printFormattedStackTrace(Exception e) {
