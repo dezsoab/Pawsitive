@@ -10,12 +10,14 @@ import com.pawsitive.pawsitive.owner.service.OwnerService;
 import com.pawsitive.pawsitive.user.model.User;
 import com.pawsitive.pawsitive.user.service.MyUserDetailService;
 import com.pawsitive.pawsitive.user.service.UserService;
+import com.pawsitive.pawsitive.util.date.TimeConstants;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -38,6 +40,16 @@ public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
     private ApplicationContext context;
+
+    @Override
+    public ResponseCookie createCookie(String token) {
+        return ResponseCookie.from("pawsitive-jwt", token)
+                .httpOnly(true)
+                .secure(false) // TODO: switch back to true once on PROD (https)
+                .path("/")
+                .maxAge(TimeConstants.ONE_YEAR)
+                .build();
+    }
 
     @Override
     public void registerOwner(RegisterOwnerDTO dto) {

@@ -4,8 +4,7 @@ import { fetchTagResponseDTO } from "@/api/get/fetchTagResponseDTO";
 import Cat from "@/components/loader/Cat";
 import { tagState } from "@/enums/tagState";
 import { TagResponseDTO } from "@/types/TagResponseDTO";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const ScannedNfcTag = () => {
@@ -51,12 +50,12 @@ const ScannedNfcTag = () => {
           router.push(`/profile/edit?tagId=${id}`);
         } else {
           setIsRedirecting(true);
-          router.push(`/authenticate?tagId=${id}`);
+          router.push(`/authenticate/login?tagId=${id}`);
         }
       } catch (error) {
         console.error("Error checking user authentication:", error);
         setIsRedirecting(true);
-        router.push(`/authenticate?tagId=${id}`);
+        router.push(`/authenticate/login?tagId=${id}`);
       }
     };
 

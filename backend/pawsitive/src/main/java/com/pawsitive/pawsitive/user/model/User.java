@@ -25,6 +25,7 @@ public class User {
 
     @Column(nullable = false)
     private boolean active;
+    private boolean persistLogin;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @ToString.Exclude

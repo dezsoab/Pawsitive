@@ -30,7 +30,7 @@ public class DataLoader implements CommandLineRunner {
 
         User user1 = User.builder()
                 .email("binderdezso97@gmail.com")
-                .password("password123")
+                .password("v")
                 .active(true)
                 .build();
 

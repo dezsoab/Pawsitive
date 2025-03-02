@@ -2,6 +2,7 @@ package com.pawsitive.pawsitive.auth.controller;
 
 import com.pawsitive.pawsitive.auth.jwt.service.JWTService;
 import com.pawsitive.pawsitive.auth.service.AuthService;
+import com.pawsitive.pawsitive.auth.service.AuthServiceImpl;
 import com.pawsitive.pawsitive.constants.PublicEndpoints;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
 import com.pawsitive.pawsitive.user.model.User;
@@ -36,16 +37,13 @@ public class AuthController {
     @PostMapping(PublicEndpoints.LOGIN)
     public ResponseEntity<Map<String, String>> login(@RequestBody User user, HttpServletResponse response) {
         logger.info("Received user login request");
+
         String token = authService.verify(user);
+        ResponseCookie cookie = authService.createCookie(token);
 
-        ResponseCookie cookie = ResponseCookie.from("pawsitive-jwt", token)
-                .httpOnly(true)
-                .secure(false) // TODO: switch back to true once on PROD (https)
-                .path("/")
-                .maxAge(TimeConstants.ONE_YEAR)
-                .build();
-
-        response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+        if (user.isPersistLogin()) {
+            response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+        }
 
         return ResponseEntity.status(HttpStatus.OK).body(Map.of("message", "Successful login"));
     }
