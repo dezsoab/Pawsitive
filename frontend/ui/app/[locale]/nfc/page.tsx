@@ -28,7 +28,7 @@ const ScannedNfcTag = () => {
     };
 
     fetchNFCTag();
-  });
+  }, [id, router]);
 
   useEffect(() => {
     const handleRedirect = async () => {
@@ -60,7 +60,7 @@ const ScannedNfcTag = () => {
     };
 
     handleRedirect();
-  }, [tagResponse, id, router, isRedirecting]);
+  }, [id, isRedirecting, router, tagResponse]);
 
   if (tagResponse == null) {
     return <Cat />;

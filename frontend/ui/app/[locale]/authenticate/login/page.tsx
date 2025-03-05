@@ -14,12 +14,13 @@ import Checkbox from "@mui/joy/Checkbox";
 import FormControl from "@mui/joy/FormControl";
 import FormLabel from "@mui/joy/FormLabel";
 import IconButton, { IconButtonProps } from "@mui/joy/IconButton";
-import Link from "next/link";
+
 import Input from "@mui/joy/Input";
 import Typography from "@mui/joy/Typography";
 import Stack from "@mui/joy/Stack";
 import Navbar from "@/components/navigation/Navbar";
 import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 interface FormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -124,16 +125,34 @@ const LoginForm = () => {
             >
               <Stack sx={{ gap: 4, mb: 2 }}>
                 <Stack sx={{ gap: 1 }}>
-                  <Typography
-                    component="h1"
-                    sx={{ fontSize: "var(--font-big)" }}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
                   >
-                    Sign in
-                  </Typography>
-                  <Typography sx={{ fontSize: "var(--font-mini)" }}>
-                    New to company?{" "}
-                    <Link href={`/authenticate/register?tagId=${id}`}>
-                      Sign up!
+                    <Typography
+                      component="h1"
+                      sx={{ fontSize: "var(--font-big)" }}
+                    >
+                      Sign in
+                    </Typography>
+                    <ColorSchemeToggle />
+                  </Box>
+                  <Typography
+                    sx={{ fontSize: "var(--font-mini)", fontWeight: "300" }}
+                  >
+                    New to Pawsitive?{" "}
+                    <Link
+                      href={`/authenticate/register?tagId=${id}`}
+                      style={{
+                        fontWeight: "600",
+                        textDecoration: "none",
+                        color: "var(--color-pink-mid)",
+                      }}
+                    >
+                      Sign up
                     </Link>
                   </Typography>
                 </Stack>
@@ -214,7 +233,13 @@ const LoginForm = () => {
                         label="Remember me"
                         name="persistent"
                       />
-                      <Link style={{ fontSize: "var(--font-mini)" }} href={"#"}>
+                      <Link
+                        style={{
+                          fontSize: "var(--font-mini)",
+                          color: "var(--color-pink-mid)",
+                        }}
+                        href={"#"}
+                      >
                         Forgot your password?
                       </Link>
                     </Box>
@@ -234,12 +259,6 @@ const LoginForm = () => {
               <Typography level="body-md" sx={{ textAlign: "center" }}>
                 © Pawsitive Collar {new Date().getFullYear()}
               </Typography>
-            </Box>
-            <Box
-              component="header"
-              sx={{ py: 3, display: "flex", justifyContent: "space-between" }}
-            >
-              <ColorSchemeToggle />
             </Box>
           </Box>
         </Box>

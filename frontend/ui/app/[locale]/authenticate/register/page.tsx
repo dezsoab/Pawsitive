@@ -11,7 +11,7 @@ import Checkbox from "@mui/joy/Checkbox";
 import FormControl from "@mui/joy/FormControl";
 import FormLabel from "@mui/joy/FormLabel";
 import IconButton, { IconButtonProps } from "@mui/joy/IconButton";
-import Link from "@mui/joy/Link";
+
 import Input from "@mui/joy/Input";
 import Typography from "@mui/joy/Typography";
 import Stack from "@mui/joy/Stack";
@@ -20,6 +20,7 @@ import { RegisterOwnerDTO } from "@/types/RegisterOwnerDTO";
 import { createOwner } from "@/api/post/createOwner";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
+import Link from "next/link";
 
 interface FormElements extends HTMLFormControlsCollection {
   firstName: HTMLInputElement;
@@ -91,9 +92,9 @@ const RegisterForm = () => {
             display: "flex",
             justifyContent: "flex-end",
             backdropFilter: "blur(12px)",
-            backgroundColor: "rgba(255 255 255 / 0.2)",
+            backgroundColor: "rgba(var(--color-white), .2)",
             [theme.getColorSchemeSelector("dark")]: {
-              backgroundColor: "rgba(0 0 0 / 0.4)",
+              backgroundColor: "rgba(0 0 0 / .2)",
             },
           })}
         >
@@ -132,14 +133,45 @@ const RegisterForm = () => {
             >
               <Stack sx={{ gap: 4, mb: 2 }}>
                 <Stack sx={{ gap: 1 }}>
-                  <Typography
-                    component="h1"
-                    sx={{ fontSize: "var(--font-big)" }}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
                   >
-                    Register now!
-                  </Typography>
-                  <Typography sx={{ fontSize: "var(--font-mini)" }}>
+                    <Typography
+                      component="h1"
+                      sx={{ fontSize: "var(--font-big)" }}
+                    >
+                      Register now!
+                    </Typography>
+                    <ColorSchemeToggle />
+                  </Box>
+                  <Typography
+                    sx={{ fontSize: "var(--font-mini)", fontWeight: "600" }}
+                  >
                     become a part of our mission
+                  </Typography>
+
+                  <Typography
+                    sx={{
+                      fontSize: "var(--font-mini)",
+                      fontWeight: "300",
+                      marginTop: "1rem",
+                    }}
+                  >
+                    Already have an account?{" "}
+                    <Link
+                      href={`/authenticate/login?tagId=${id}`}
+                      style={{
+                        fontWeight: "600",
+                        color: "var(--color-pink-mid)",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Log in here
+                    </Link>
                   </Typography>
                 </Stack>
               </Stack>
@@ -193,6 +225,11 @@ const RegisterForm = () => {
                         formElements.persistent.checked = true;
                       })
                       .then(() => {
+                        toast.info("Redirecting to your profile...", {
+                          position: "bottom-right",
+                        });
+                      })
+                      .then(() => {
                         router.push(`/profile/edit?tagId=${id}`);
                       })
                       .catch((e) => {
@@ -201,13 +238,19 @@ const RegisterForm = () => {
                   }}
                 >
                   <FormControl required>
-                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
+                    <FormLabel
+                      sx={{
+                        fontSize: "var(--font-small)",
+                      }}
+                    >
                       First Name
                     </FormLabel>
                     <Input
                       type="text"
                       name="firstName"
-                      sx={{ fontSize: "var(--font-small)" }}
+                      sx={{
+                        fontSize: "var(--font-small)",
+                      }}
                     />
                   </FormControl>
                   <FormControl required>
@@ -298,26 +341,16 @@ const RegisterForm = () => {
                     />
                   </FormControl>
                   <Stack sx={{ gap: 4, mt: 2 }}>
-                    <Box
+                    <Checkbox
                       sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
+                        zoom: 1.3,
                       }}
-                    >
-                      <Checkbox
-                        sx={{
-                          zoom: 1.3,
-                        }}
-                        size="lg"
-                        label="Remember me"
-                        name="persistent"
-                        defaultChecked
-                      />
-                      <Link sx={{ fontSize: "var(--font-mini)" }}>
-                        Forgot your password?
-                      </Link>
-                    </Box>
+                      size="lg"
+                      label="Remember me"
+                      name="persistent"
+                      defaultChecked
+                    />
+
                     <Button
                       text="Register"
                       style={{
@@ -338,9 +371,7 @@ const RegisterForm = () => {
             <Box
               component="header"
               sx={{ py: 3, display: "flex", justifyContent: "space-between" }}
-            >
-              <ColorSchemeToggle />
-            </Box>
+            ></Box>
           </Box>
         </Box>
         <Box
@@ -358,9 +389,9 @@ const RegisterForm = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundImage: "url(/assets/loginWhite.jpeg)",
+            backgroundImage: "url(/assets/registerWhite.jpg)",
             [theme.getColorSchemeSelector("dark")]: {
-              backgroundImage: "url(/assets/loginBlack.jpg)",
+              backgroundImage: "url(/assets/registerBlack.jpg)",
             },
           })}
         />

@@ -32,7 +32,7 @@ const ScannedPetProfile = () => {
     };
 
     fetchData();
-  });
+  }, [id]);
 
   if (!pet) {
     return <Cat />;
