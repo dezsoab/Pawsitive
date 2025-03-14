@@ -22,6 +22,10 @@
   font-size: var(--font-paragraph);
 }
 
+.form div textarea {
+  resize: vertical;
+}
+
 .form div input::placeholder,
 .form div textarea::placeholder {
   font-size: var(--font-mini);

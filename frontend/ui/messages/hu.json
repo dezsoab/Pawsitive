@@ -14,15 +14,46 @@
       "title": "Szeretem a nyugalmat, amit az ad, hogy tudom, a háziállatom adatai mindig elérhetők. A minőség és a design is csodálatos! A Pawsitive Collar valóban mindenre gondolt!",
       "customer_adjective": "Elégedett Vásárló"
     },
+    "about": {
+      "title": "Egyedi kisállat nyakörveinkről",
+      "about_description": "A Pawsitive Collar csapatánál szenvedélyesen készítünk stílusos és biztonságos kisállat nyakörveket.\n Minden nyakörv NFC címkés szoftvermegoldással van ellátva, amely a kisállat adatait jeleníti meg szkenneléskor.\n Szeretettel kézzel készítve kedvenc kisállata számára.",
+      "first_title": "Stílusos dizájnok",
+      "second_title": "Fokozott biztonság",
+      "third_title": "Nyugalom",
+      "block_1": "Tűnjön ki trendi és divatos kisállat nyakörveinkkel",
+      "block_2": "Tartsa kisállatát biztonságban és védve fejlett NFC címkés szoftverünkkel",
+      "block_3": "Soha többé ne aggódjon kisállata elvesztése miatt, köszönhetően innovatív technológiánknak",
+      "about_heading": "Egyedi kisállat nyakörveinkről"
+    },
+    "features": {
+      "title": "Kiegészítőink egyedi jellemzői",
+      "title_secondary": "Fedezze fel az innovatív technológiát és stílusos formatervezést, amely termékeinket megkülönbözteti a többiektől.",
+      "reason_1": "Kézzel készült, szeretettel",
+      "reason1_text": "Minden háziállat nyakörvét szenvedéllyel és gondossággal készítjük el.",
+      "reason_2": "NFC szoftver",
+      "reason2_text": "A beépített szoftveres megoldás azonnal megjeleníti háziállata adatait a beolvasás után.",
+      "reason_3": "Személyre szabható lehetőségek",
+      "reason3_text": "Személyre szabhatja kedvence nyakörvét egyedi dizájnnal és színekkel."
+    },
+    "services": {
+      "title": "Szolgáltatásaink kisállat-tulajdonosoknak",
+      "title_secondary": "Fedezze fel szolgáltatásaink széles választékát, melyek célja, hogy kisállatait biztonságban, stílusosan és védetten tartsák.",
+      "reason_1": "Egyedi terméktervezés",
+      "reason1_text": "Hozzon létre egy egyedi terméket kedvenc háziállatának.",
+      "reason_2": "Eltűnt kisállat segítség",
+      "reason2_text": "Az NFC szoftverünk segít újra egyesíteni az elveszett háziállatokat gazdáikkal.",
+      "reason_3": "Minőségi kézműves munka",
+      "reason3_text": "Tapasztalja meg a legfinomabb kézzel készített háziállat nyakörveket a piacon."
+    },
     "reasoning": {
       "title": "Miért válassz minket?",
       "title_secondary": "Az ok, amiért a gazdik az NFC technológiás, kézzel készített kisállat-kiegészítőinket választják kedvenceik számára.",
       "reason_1": "Stílusos dizájn",
-      "reason1_amount": "50+",
+      "reason1_amount": "50",
       "reason_2": "Újra egyesült boldog háziállat",
-      "reason2_amount": "1000+",
+      "reason2_amount": "1000",
       "reason_3": "Elégedett vásárló",
-      "reason3_amount": "5000+"
+      "reason3_amount": "5000"
     },
     "ctasection": {
       "title": "Készen állsz, hogy felfrissítsd háziállatod kiegészítőit?",
@@ -39,13 +70,51 @@
       "thank_you": "Köszönjük az üzenetet!",
       "title": "Lépj kapcsolatba velünk",
       "paragraph": "Van kérdésed vagy visszajelzésed? Küldj egy üzenetet, és amint lehet, válaszolunk."
+    },
+    "footer": {
+      "paragraph": "Legyen naprakész a legfrissebb hírekkel és ajánlatokkal a Pawsitive Collar-tól",
+      "rights": "Minden jog fenntartva."
     }
   },
   "About": {
-    "title": "A Pawsitive Collar-ról!"
+    "about": {
+      "label": "A Pawsitive-ról",
+      "paragraph": "A Pawsitive Collar csapatánál úgy gondoljuk, hogy kisállataink a legjobbat érdemlik. Ezért szenteljük magunkat annak, hogy magas minőségű nyakörveket, pórázokat és kiegészítőket készítsünk, amelyek egyszerre stílusosak és kényelmesek szőrös barátainak."
+    },
+    "history": {
+      "label": "Történetünk",
+      "paragraph": "A Pawsitive Collar-t 2024-ben egy kisállatbarátokból álló csapat alapította, akik frusztráltak voltak a piacon található magas minőségű, fenntartható kisállat-kiegészítők hiánya miatt. Célunk egy olyan márka létrehozása volt, amely nemcsak a legjobb termékeket kínálja szőrös barátainknak, hanem a környezetbarát gyakorlatokat is előtérbe helyezi."
+    },
+    "sustainability": {
+      "label": "Fenntarthatóság",
+      "paragraph": "A Pawsitive Collar-nál elkötelezettek vagyunk környezeti hatásunk csökkentése iránt. Minden termékünk fenntartható, természetes anyagokból, például pamutból vagy újrahasznosított műanyagból készül. Etikus beszállítókkal is együtt dolgozunk, hogy biztosítsuk a fair munkagyakorlatokat és a minimális hulladékot."
+    },
+    "team": {
+      "label": "A Csapatunk",
+      "paragraph": "A Pawsitive Collar csapata elkötelezett fiatalokból áll, akik a lehető legjobb termékeket és élményeket kívánják biztosítani szőrös barátaink számára. Ismerje meg az alapítókat és a kulcsfontosságú munkatársakat, akik mindezt lehetővé teszik.",
+      "person": {
+        "founder": "Alapító",
+        "lead_dev": "Vezető fejlesztő",
+        "co-founder": "Társalapító",
+        "product_design": "Terméktervező",
+        "developer": "Fejlesztő"
+      }
+    }
   },
   "Contact": {
-    "title": "Kapcsolat!"
+    "hero": {
+      "title": "Kérdezz tőlünk bátran!",
+      "description": "Ne habozz, lépj kapcsolatba barátságos csapatunkkal, hogy választ kapj az intelligens NFC nyakörveinkkel kapcsolatos kérdéseidre. Legyen szó segítségről vagy csak egy jó beszélgetésről, itt vagyunk, hogy segítsünk!",
+      "contact": "Kapcsolatfelvétel",
+      "follow": "Kövess minket a közösségi médiában, hogy mindig naprakész legyél a legújabb trendekkel, tippekkel és jutalmakkal kapcsolatban kedvenced számára!",
+      "email_btn": "Küldj emailt"
+    },
+    "contact": {
+      "info": "Kapcsolattartási információ",
+      "return": "Visszaküldési cím",
+      "tel": "Telefon",
+      "email": "E-mail"
+    }
   },
   "Shop": {
     "title": "Webshop!",
@@ -56,6 +125,30 @@
     "home": "Kezdőlap",
     "about": "Rólunk",
     "contact": "Kapcsolat",
-    "shop": "Webshop"
+    "shop": "Webshop",
+    "privacy": "Adatvédelmi irányelvek",
+    "terms": "Általános Szerződési Feltételek",
+    "faqs": "GYIK"
+  },
+  "NotFound": {
+    "title": "Úgy tűnik, eltévedtél",
+    "title_secondary": "Ne aggódj, Molli barátunk egy jobb utat is kiszimatolhat.",
+    "molli_message_part1": "UI: Ha neked is van egy Mollinak hívott háziállatod, örömmel hallanánk felőled. Küldj nekünk egy képet, vagy jelölj meg minket az ",
+    "molli_message_part2": "-on, és küldünk egy üzenetet Mollinak!",
+    "molli_image_alt": "A barátunk, Molli"
+  },
+  "ScannedPet": {
+    "breed": "Fajta",
+    "age": "Életkor",
+    "sex": {
+      "name": "Nem",
+      "male": "Kan",
+      "female": "Szuka"
+    },
+    "size": "Mérete",
+    "address": "Lakhely",
+    "tel": "Telefon",
+    "email": "E-Mail",
+    "lost": "Elveszett"
   }
 }

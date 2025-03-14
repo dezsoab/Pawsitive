@@ -1,18 +1,28 @@
 import "@testing-library/jest-dom";
-import { fireEvent, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import ProductSection from "@/app/[locale]/home/(products)/ProductSection";
 import locales from "@/test/util/language/locales";
-import { dummyProducts } from "@/app/[locale]/home/(products)/dummyProducts";
 import ProductGrid from "../../../app/[locale]/home/(products)/ProductGrid";
-import { setup } from "@/test/util/mocks/mockRender";
+import { dummyProducts } from "@/app/[locale]/home/(products)/dummyProducts";
+import { IntlProvider } from "next-intl";
 
 describe("Products section tests", () => {
+  beforeEach(() => {
+    jest.spyOn(console, "error").mockImplementation(jest.fn());
+  });
+
+  jest.mock("../../../util/fetchData", () => ({
+    fetchData: jest.fn().mockResolvedValue(dummyProducts),
+  }));
+
   it("renders hero content", () => {
     for (const [locale, { messages }] of Object.entries(locales)) {
-      setup({
-        Component: <ProductSection />,
-        messages: messages,
-        locale: locale,
+      render(<ProductSection />, {
+        wrapper: ({ children }) => (
+          <IntlProvider locale={locale} messages={messages}>
+            {children}
+          </IntlProvider>
+        ),
       });
 
       const localizedTitle = screen.getByText(messages.Index.products.title);
@@ -21,13 +31,16 @@ describe("Products section tests", () => {
   });
 
   it("fails if the language in heroContent title is incorrect", () => {
-    // assert that the function throws an error
-    // because instead of english title, the german is rendered
     expect(() => {
-      setup({
-        Component: <ProductSection />,
-        messages: locales.en.messages,
-        locale: locales.en.messages.Locale,
+      render(<ProductSection />, {
+        wrapper: ({ children }) => (
+          <IntlProvider
+            locale={locales.en.messages.Locale}
+            messages={locales.en.messages}
+          >
+            {children}
+          </IntlProvider>
+        ),
       });
 
       const heroContent = screen.getByRole("heading", { level: 2 });
@@ -37,68 +50,85 @@ describe("Products section tests", () => {
     }).toThrow();
   });
 
-  it("renders the 8 most loved products", () => {
-    expect(() => {
-      setup({
-        Component: <ProductSection />,
-        messages: locales.en.messages,
-        locale: locales.en.messages.Locale,
-      });
-
-      const images = screen.getAllByRole("img");
-      expect(images).toHaveLength(8);
+  it("renders the 8 most loved products", async () => {
+    render(<ProductSection />, {
+      wrapper: ({ children }) => (
+        <IntlProvider
+          locale={locales.en.messages.Locale}
+          messages={locales.en.messages}
+        >
+          {children}
+        </IntlProvider>
+      ),
     });
+
+    const images = await screen.findAllByRole("img");
+    expect(images).toHaveLength(8);
   });
 });
 
 describe("Product grid tests", () => {
-  it("should show image titles on hover", () => {
-    setup({
-      Component: <ProductGrid />,
-      messages: locales.en.messages,
-      locale: locales.en.messages.Locale,
+  it("should show image titles on hover", async () => {
+    render(<ProductGrid />, {
+      wrapper: ({ children }) => (
+        <IntlProvider
+          locale={locales.en.messages.Locale}
+          messages={locales.en.messages}
+        >
+          {children}
+        </IntlProvider>
+      ),
     });
 
-    const productCards = screen.getAllByRole("link");
+    const productCards = await screen.findAllByRole("link");
 
-    productCards.forEach((card) => {
+    for (const card of productCards) {
       const image = card.querySelector("img");
       const imageTitle = card.querySelector("h3");
 
       expect(image).toBeInTheDocument();
       expect(imageTitle).toBeInTheDocument();
 
-      // wait for initial render and to get hidden ASAP
-      waitFor(() => {
+      // Check initial visibility
+      await waitFor(() => {
         expect(imageTitle).not.toBeVisible();
       });
 
       fireEvent.mouseOver(card);
 
-      expect(imageTitle).toBeVisible();
-    });
+      await waitFor(() => {
+        expect(imageTitle).toBeVisible();
+      });
+    }
   });
 
-  it("redirects to product page based on productId", () => {
-    setup({
-      Component: <ProductGrid />,
-      messages: locales.en.messages,
-      locale: locales.en.messages.Locale,
+  it("redirects to product page based on productId", async () => {
+    render(<ProductGrid />, {
+      wrapper: ({ children }) => (
+        <IntlProvider
+          locale={locales.en.messages.Locale}
+          messages={locales.en.messages}
+        >
+          {children}
+        </IntlProvider>
+      ),
     });
 
-    const productCards = screen.getAllByRole("link");
+    const productCards = await screen.findAllByRole("link");
 
-    productCards.forEach((card) => {
+    for (const card of productCards) {
       const image = card.querySelector("img");
       const imageTitle = card.querySelector("h3")?.textContent;
       const productId = dummyProducts.find(
-        (product) => product.title == imageTitle
+        (product) => product.title === imageTitle
       )?.id;
 
       if (image) {
         fireEvent.click(image);
-        expect(card).toHaveAttribute("href", `/product/${productId}`);
+        await waitFor(() => {
+          expect(card).toHaveAttribute("href", `/product/${productId}`);
+        });
       }
-    });
+    }
   });
 });

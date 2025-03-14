@@ -4,10 +4,13 @@ import { useLocale, useTranslations } from "next-intl";
 import CTAButton from "@/components/cta/CTAButton";
 
 import { navigationRoutes } from "../../../../enums/navigationRoutes";
+import logger from "@/logging/logger";
 
 const CTASection = () => {
   const t = useTranslations();
   const locale = useLocale();
+
+  logger.info("Using Home -> CTA");
 
   return (
     <section className={styles.cta}>

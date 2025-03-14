@@ -35,3 +35,10 @@
 .testi div svg:not(:last-child) {
   margin-right: 0.8rem;
 }
+
+@media screen and (max-width: 1000px) {
+  .testi h3 {
+    font-size: var(--font-paragraph);
+    max-width: 95%;
+  }
+}

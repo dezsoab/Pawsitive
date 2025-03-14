@@ -4,6 +4,8 @@ import Navigation from "../../../components/navigation/Navbar";
 import { AppRouterContextProviderMock } from "@/test/util/mocks/app-router-context-provider-mock";
 import { AbstractIntlMessages, NextIntlClientProvider } from "next-intl";
 import { ReactElement } from "react";
+import { setImmediate } from "timers";
+global.setImmediate = setImmediate;
 
 export const setup = ({
   Component,

@@ -4,14 +4,17 @@ import styles from "./Testimonial.module.css";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Star from "./Star";
+import logger from "@/logging/logger";
 
 const Testimonial = () => {
   const t = useTranslations("Index.testimonial");
+
+  logger.info("Using Home -> testimonial");
   return (
     <section className={styles.testi}>
       <h3>{t("title")}</h3>
       <Image
-        src="/assets/customer.png"
+        src="/assets/customer.webp"
         width={70}
         height={70}
         alt="Dobrean Alexander"

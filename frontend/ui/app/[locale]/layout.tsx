@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../styles/globals.css";
-import Navbar from "../../components/navigation/Navbar";
+import { Roboto_Flex } from "next/font/google";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
-const inter = Inter({ subsets: ["latin"] });
+import "../styles/globals.css";
+import NavbarMobile from "../../components/navigation/NavbarMobile";
+import logger from "../../logging/logger";
+
+const roboto = Roboto_Flex({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Pawsitive solution for pets",
@@ -19,11 +23,14 @@ const RootLayout = ({
   params: { locale: string };
 }) => {
   const messages = useMessages();
+
+  logger.info(`Rendering RootLayout with locale: ${locale}`);
+
   return (
     <html lang={locale}>
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
+          <NavbarMobile />
           {children}
         </NextIntlClientProvider>
       </body>

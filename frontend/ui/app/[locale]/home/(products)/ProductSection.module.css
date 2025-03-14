@@ -23,3 +23,35 @@
   border: 0.5px solid black;
   margin: 5rem 0;
 }
+
+@media screen and (max-width: 1000px) {
+  .products {
+    text-align: center;
+  }
+
+  .products > h2 {
+    font-size: var(--font-mobile-header);
+  }
+
+  .products > h3 {
+    font-size: var(--font-small);
+    padding: 0 1rem;
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .divider {
+    margin: 2rem 0;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .products > h2 {
+    padding: 1rem;
+  }
+
+  .products > h3 {
+    padding: 0 2rem;
+  }
+}

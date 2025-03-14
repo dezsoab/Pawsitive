@@ -3,9 +3,12 @@ import ProductGrid from "./ProductGrid";
 import { useTranslations } from "next-intl";
 
 import styles from "./ProductSection.module.css";
+import logger from "@/logging/logger";
 
 const ProductSection = () => {
   const t = useTranslations();
+
+  logger.info("Using Home -> product section");
 
   return (
     <div className={styles.products}>

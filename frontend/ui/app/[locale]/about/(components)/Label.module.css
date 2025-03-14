@@ -1,0 +1,7 @@
+.label {
+  font-size: var(--font-big);
+  position: absolute;
+  top: 30px;
+  left: 35px;
+  z-index: 2;
+}

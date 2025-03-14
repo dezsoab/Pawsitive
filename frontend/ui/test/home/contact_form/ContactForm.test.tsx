@@ -1,4 +1,4 @@
-import { fireEvent, screen } from "@testing-library/react";
+import { fireEvent, screen, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import locales from "../../util/language/locales";
 import { setup } from "../../util/mocks/mockRender";
@@ -56,24 +56,26 @@ describe("Contact form tests", () => {
           messages: messages,
         });
 
-        fireEvent.change(
-          screen.getByLabelText(messages.Index.contact.name + ":"),
-          {
-            target: { value: "John Doe" },
-          }
-        );
-        fireEvent.change(
-          screen.getByLabelText(messages.Index.contact.email + ":"),
-          {
-            target: { value: "john@example.com" },
-          }
-        );
-        fireEvent.change(
-          screen.getByLabelText(messages.Index.contact.message + ":"),
-          {
-            target: { value: "This is the best product!" },
-          }
-        );
+        act(() => {
+          fireEvent.change(
+            screen.getByLabelText(messages.Index.contact.name + ":"),
+            {
+              target: { value: "John Doe" },
+            }
+          );
+          fireEvent.change(
+            screen.getByLabelText(messages.Index.contact.email + ":"),
+            {
+              target: { value: "john@example.com" },
+            }
+          );
+          fireEvent.change(
+            screen.getByLabelText(messages.Index.contact.message + ":"),
+            {
+              target: { value: "This is the best product!" },
+            }
+          );
+        });
 
         expect(
           screen.getByLabelText(messages.Index.contact.name + ":")
@@ -93,28 +95,34 @@ describe("Contact form tests", () => {
           messages: messages,
         });
 
-        fireEvent.change(
-          screen.getByLabelText(messages.Index.contact.name + ":"),
-          {
-            target: { value: "John Doe" },
-          }
-        );
-        fireEvent.change(
-          screen.getByLabelText(messages.Index.contact.email + ":"),
-          {
-            target: { value: "john@example.com" },
-          }
-        );
-        fireEvent.change(
-          screen.getByLabelText(messages.Index.contact.message + ":"),
-          {
-            target: { value: "This is the best product!" },
-          }
-        );
+        act(() => {
+          fireEvent.change(
+            screen.getByLabelText(messages.Index.contact.name + ":"),
+            {
+              target: { value: "John Doe" },
+            }
+          );
+          fireEvent.change(
+            screen.getByLabelText(messages.Index.contact.email + ":"),
+            {
+              target: { value: "john@example.com" },
+            }
+          );
+          fireEvent.change(
+            screen.getByLabelText(messages.Index.contact.message + ":"),
+            {
+              target: { value: "This is the best product!" },
+            }
+          );
+        });
 
-        fireEvent.click(
-          screen.getByRole("button", { name: messages.Index.contact.send_text })
-        );
+        await act(async () => {
+          fireEvent.click(
+            screen.getByRole("button", {
+              name: messages.Index.contact.send_text,
+            })
+          );
+        });
 
         expect(
           await screen.findByText(messages.Index.contact.thank_you)
@@ -143,9 +151,11 @@ describe("Contact form tests", () => {
       messages: messages,
     });
 
-    fireEvent.click(
-      screen.getByRole("button", { name: messages.Index.contact.send_text })
-    );
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole("button", { name: messages.Index.contact.send_text })
+      );
+    });
 
     expect(
       screen.getByLabelText(messages.Index.contact.name + ":")
@@ -168,25 +178,32 @@ describe("Contact form tests", () => {
       messages: messages,
     });
 
-    fireEvent.change(screen.getByLabelText(messages.Index.contact.name + ":"), {
-      target: { value: "John Doe" },
+    act(() => {
+      fireEvent.change(
+        screen.getByLabelText(messages.Index.contact.name + ":"),
+        {
+          target: { value: "John Doe" },
+        }
+      );
+      fireEvent.change(
+        screen.getByLabelText(messages.Index.contact.email + ":"),
+        {
+          target: { value: "john@example.com" },
+        }
+      );
+      fireEvent.change(
+        screen.getByLabelText(messages.Index.contact.message + ":"),
+        {
+          target: { value: "This is the best product!" },
+        }
+      );
     });
-    fireEvent.change(
-      screen.getByLabelText(messages.Index.contact.email + ":"),
-      {
-        target: { value: "john@example.com" },
-      }
-    );
-    fireEvent.change(
-      screen.getByLabelText(messages.Index.contact.message + ":"),
-      {
-        target: { value: "This is the best product!" },
-      }
-    );
 
-    fireEvent.click(
-      screen.getByRole("button", { name: messages.Index.contact.send_text })
-    );
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole("button", { name: messages.Index.contact.send_text })
+      );
+    });
 
     expect(global.fetch).toHaveBeenCalledWith(
       "/api/contactForm",
