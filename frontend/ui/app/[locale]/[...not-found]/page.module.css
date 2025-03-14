@@ -1,6 +1,6 @@
 .main {
   min-height: 100vh;
-  max-width: 1250px;
+  max-width: var(--max-width);
   display: flex;
   justify-content: center;
   align-items: center;
