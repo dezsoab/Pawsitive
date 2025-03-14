@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Flex } from "next/font/google";
 import { NextIntlClientProvider, useMessages } from "next-intl";
+import { Analytics } from "@vercel/analytics/react";
 
 import "../styles/globals.css";
 import NavbarMobile from "../../components/navigation/NavbarMobile";
@@ -29,6 +30,7 @@ const RootLayout = ({
   return (
     <html lang={locale}>
       <body className={roboto.className}>
+        <Analytics />
         <NextIntlClientProvider messages={messages}>
           <NavbarMobile />
           {children}
