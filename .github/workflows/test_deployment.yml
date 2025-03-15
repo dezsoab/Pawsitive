@@ -72,6 +72,5 @@ jobs:
             # Update docker-compose file with new image tag
             sed -i 's|image: dezsoab/springboot_backend:test.*|image: '$IMAGE_TAG'|' $COMPOSE_FILE
 
-            # Restart services using the correct compose file
             docker-compose -f $COMPOSE_FILE down
             docker-compose -f $COMPOSE_FILE up -d --force-recreate
