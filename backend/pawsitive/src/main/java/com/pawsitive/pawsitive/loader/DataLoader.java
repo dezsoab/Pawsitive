@@ -31,7 +31,7 @@ public class DataLoader implements CommandLineRunner {
         logger.info("Starting data loading...");
 
         if (userService.countUsers() > 0) {
-            logger.info("Database is NOT empty. Skipping test data loading.");
+            logger.info("Database is NOT empty. Skipping test-data loading.");
             return;
         }
 
