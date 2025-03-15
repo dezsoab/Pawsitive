@@ -24,7 +24,7 @@ jobs:
           distribution: "temurin"
 
       - name: Build the application
-        working-directory: ./backend
+        working-directory: ./backend/pawsitive
         run: |
           ./mvnw clean package -DskipTests
 
