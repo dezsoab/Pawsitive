@@ -52,18 +52,20 @@ jobs:
             CONTAINER_NAME="springboot_backend"
             IMAGE_TAG="dezsoab/springboot_backend:test-${{ github.sha }}"
 
-            # Ensure deployment directory exists
-            mkdir -p /server
-
-            # Stop and remove the old container (if running)
+            # Stop and remove old container (if exists)
             docker stop $CONTAINER_NAME || true
             docker rm $CONTAINER_NAME || true
 
-            # Pull the latest image
+            # Pull latest image
             docker pull $IMAGE_TAG
 
-            # Run the new container
-            docker run -d --name $CONTAINER_NAME -p 8080:8080 $IMAGE_TAG
+            # Run container with correct settings
+            docker run -d \
+              --name $CONTAINER_NAME \
+              -p 8080:8080 \
+              --restart unless-stopped \
+              -e SPRING_PROFILES_ACTIVE=test \
+              $IMAGE_TAG
 
             # Cleanup old images
             docker image prune -af
