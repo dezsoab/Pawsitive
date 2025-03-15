@@ -48,8 +48,7 @@ jobs:
           host: ${{ secrets.SSH_HOST_TEST }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            # Define variables
-            COMPOSE_DIR="/server"
+            COMPOSE_DIR="/root/server"
             COMPOSE_FILE="docker-compose.test.yml"
             IMAGE_TAG="dezsoab/springboot_backend:test-${{ github.sha }}"
 
