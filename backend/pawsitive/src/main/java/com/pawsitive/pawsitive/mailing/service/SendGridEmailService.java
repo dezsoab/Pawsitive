@@ -16,7 +16,7 @@ import java.io.IOException;
 @Service
 public class SendGridEmailService {
 
-    @Value("${sendgrid.api.key}")
+    @Value("${SENDGRID_API_KEY}")
     private String apiKey;
     private final String TEMPLATE_TEST_ID = "d-5f5d2eac38694f5b9081bcdb5286f087";
 
