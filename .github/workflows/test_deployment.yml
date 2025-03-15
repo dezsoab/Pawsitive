@@ -35,7 +35,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker image
-        working-directory: ./backend
+        working-directory: ./backend/pawsitive
         run: |
           docker build -t dezsoab/springboot_backend:test .
           docker push dezsoab/springboot_backend:test
