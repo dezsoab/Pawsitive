@@ -33,6 +33,10 @@ public class JWTFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
+        logger.info("Received following request: " + request);
+        logger.info("Received following request: " + request.getRequestURI());
+
+
         String requestURI = request.getRequestURI();
         if (PublicEndpoints.isPublicPath(requestURI)) {
             logger.info("Skipping JWT filter for public endpoint: {}", requestURI);
