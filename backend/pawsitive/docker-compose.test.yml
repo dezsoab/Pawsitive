@@ -1,8 +1,10 @@
-version: '3.8'
 services:
   app:
-    image: dezsoab/springboot_backend:test
     container_name: pawsitive_backend_test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dezsoab/springboot_backend:test
     ports:
       - "8080:8080"
     environment:
@@ -25,6 +27,8 @@ services:
       - "3306:3306"
     restart: always
     volumes:
-      - ~/mysql-pawsitive-test:/var/lib/mysql  # Change the path for macOS compatibility
+      - mysql_data:/var/lib/mysql
 
-volumes: {}
+volumes:
+  mysql_data:
+    driver: local
