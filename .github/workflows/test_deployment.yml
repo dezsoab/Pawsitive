@@ -37,8 +37,9 @@ jobs:
       - name: Build and push Docker image
         working-directory: ./backend/pawsitive
         run: |
-          docker build -t dezsoab/springboot_backend:test .
-          docker push dezsoab/springboot_backend:test
+          IMAGE_TAG=dezsoab/springboot_backend:test-${{ github.sha }}
+          docker build -t $IMAGE_TAG .
+          docker push $IMAGE_TAG
 
       - name: SSH into test server and deploy
         uses: appleboy/ssh-action@master
@@ -47,9 +48,22 @@ jobs:
           host: ${{ secrets.SSH_HOST_TEST }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /var/www/pawsitivecollar.com/Pawsitive/backend/pawsitive
-            docker compose stop app   # Stop only the app container, keeping MySQL running
-            docker compose rm -f app  # Remove old container
-            docker compose pull       # Pull the latest image
-            docker compose up -d app  # Start only the app container
-            docker image prune -f     # Cleanup old images
+            # Define variables
+            CONTAINER_NAME="springboot_backend"
+            IMAGE_TAG="dezsoab/springboot_backend:test-${{ github.sha }}"
+
+            # Ensure deployment directory exists
+            mkdir -p /server
+
+            # Stop and remove the old container (if running)
+            docker stop $CONTAINER_NAME || true
+            docker rm $CONTAINER_NAME || true
+
+            # Pull the latest image
+            docker pull $IMAGE_TAG
+
+            # Run the new container
+            docker run -d --name $CONTAINER_NAME -p 8080:8080 $IMAGE_TAG
+
+            # Cleanup old images
+            docker image prune -af
