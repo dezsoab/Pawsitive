@@ -48,15 +48,31 @@ jobs:
           host: ${{ secrets.SSH_HOST_TEST }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            # Navigate to the Docker Compose directory
-            cd /server
+            # Define variables
+            COMPOSE_DIR="/server"
+            COMPOSE_FILE="docker-compose.test.yml"
+            IMAGE_TAG="dezsoab/springboot_backend:test-${{ github.sha }}"
+
+            # Ensure the directory exists
+            if [ ! -d "$COMPOSE_DIR" ]; then
+              echo "Error: Directory $COMPOSE_DIR does not exist!"
+              exit 1
+            fi
+
+            cd $COMPOSE_DIR
+
+            # Ensure the compose file exists
+            if [ ! -f "$COMPOSE_FILE" ]; then
+              echo "Error: $COMPOSE_FILE not found in $COMPOSE_DIR!"
+              exit 1
+            fi
 
             # Pull the latest image
-            docker pull dezsoab/springboot_backend:test-${{ github.sha }}
+            docker pull $IMAGE_TAG
 
-            # Update the app service with the new image tag in docker-compose.yml
-            sed -i 's|image: dezsoab/springboot_backend:test.*|image: dezsoab/springboot_backend:test-${{ github.sha }}|' docker-compose.test.yml
+            # Update docker-compose file with new image tag
+            sed -i 's|image: dezsoab/springboot_backend:test.*|image: '$IMAGE_TAG'|' $COMPOSE_FILE
 
-            # Restart the application
-            docker-compose down
-            docker-compose up -d --force-recreate
+            # Restart services using the correct compose file
+            docker-compose -f $COMPOSE_FILE down
+            docker-compose -f $COMPOSE_FILE up -d --force-recreate
