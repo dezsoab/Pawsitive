@@ -28,8 +28,8 @@ public final class PublicEndpoints {
     }
 
     public static boolean isPublicPath(String requestURI) {
-        logger.info("Checking if endpoint - {} - is public", requestURI);
-        logger.info("Collected endpoints: {}", ENDPOINTS);
+        logger.debug("Checking if endpoint - {} - is public", requestURI);
+        logger.debug("Collected endpoints: {}", ENDPOINTS);
 
         return matchesPublicUrl(requestURI, "^/api/v1/nfcTag/[a-zA-Z0-9]+$") ||
                 matchesPublicUrl(requestURI, "^/api/v1/pet/[a-zA-Z0-9]+$") ||
