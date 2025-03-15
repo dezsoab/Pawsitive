@@ -11,26 +11,20 @@ services:
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=
     depends_on:
-      mysql:
-        condition: service_healthy
+      - mysql
     restart: always
 
   mysql:
     image: mysql:8.0
     container_name: pawsitive_mysql_test
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=pawsitive_TEST
     ports:
       - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql  # Persistent storage
     restart: always
-    healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
-      interval: 10s
-      retries: 5
-      timeout: 5s
+    volumes:
+      - ~/mysql-pawsitive-test:/var/lib/mysql  # Change the path for macOS compatibility
 
-volumes:
-  mysql_data:  # Named volume (stores data persistently)
+volumes: {}
