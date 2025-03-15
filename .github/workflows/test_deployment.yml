@@ -48,24 +48,15 @@ jobs:
           host: ${{ secrets.SSH_HOST_TEST }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            # Define variables
-            CONTAINER_NAME="springboot_backend"
-            IMAGE_TAG="dezsoab/springboot_backend:test-${{ github.sha }}"
+            # Navigate to the Docker Compose directory
+            cd /server
 
-            # Stop and remove old container (if exists)
-            docker stop $CONTAINER_NAME || true
-            docker rm $CONTAINER_NAME || true
+            # Pull the latest image
+            docker pull dezsoab/springboot_backend:test-${{ github.sha }}
 
-            # Pull latest image
-            docker pull $IMAGE_TAG
+            # Update the app service with the new image tag in docker-compose.yml
+            sed -i 's|image: dezsoab/springboot_backend:test.*|image: dezsoab/springboot_backend:test-${{ github.sha }}|' docker-compose.test.yml
 
-            # Run container with correct settings
-            docker run -d \
-              --name $CONTAINER_NAME \
-              -p 8080:8080 \
-              --restart unless-stopped \
-              -e SPRING_PROFILES_ACTIVE=test \
-              $IMAGE_TAG
-
-            # Cleanup old images
-            docker image prune -af
+            # Restart the application
+            docker-compose down
+            docker-compose up -d --force-recreate
