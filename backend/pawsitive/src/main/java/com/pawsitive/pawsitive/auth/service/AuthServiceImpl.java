@@ -3,6 +3,7 @@ package com.pawsitive.pawsitive.auth.service;
 import com.pawsitive.pawsitive.auth.jwt.service.JWTService;
 import com.pawsitive.pawsitive.dto.OwnerDTO;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
+import com.pawsitive.pawsitive.exception.LoginException;
 import com.pawsitive.pawsitive.exception.RegistrationFailedException;
 import com.pawsitive.pawsitive.mapper.RegisterOwnerMapper;
 import com.pawsitive.pawsitive.owner.model.Owner;
@@ -22,6 +23,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -66,6 +69,11 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public void loginUser(User user, HttpServletResponse response) {
         String token = verify(user);
+
+        if (token == null) {
+            throw new LoginException("Invalid email or password");
+        }
+
         ResponseCookie cookie = createCookie(token, user.isPersistLogin());
         setCookieHeader(response, cookie);
     }
@@ -132,16 +140,23 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String verify(User user) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword())
-        );
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword())
+            );
 
-        if (authentication.isAuthenticated()) {
-            logger.info("User is authenticated, generating JWT token");
-            return jwtService.generateToken(user.getEmail());
+            if (authentication.isAuthenticated()) {
+                logger.info("User is authenticated, generating JWT token");
+                return jwtService.generateToken(user.getEmail());
+            }
+
+        } catch (InternalAuthenticationServiceException e) {
+            logger.error("Authentication failed: {}", e.getMessage());
+        } catch (BadCredentialsException e) {
+            logger.warn("Invalid credentials provided for user: {}", user.getEmail());
         }
 
-        return "Fail";
+        return null;
     }
 
     @Override
