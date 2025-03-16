@@ -1,13 +1,10 @@
 package com.pawsitive.pawsitive.auth.controller;
 
-import com.pawsitive.pawsitive.auth.jwt.service.JWTService;
 import com.pawsitive.pawsitive.auth.service.AuthService;
-import com.pawsitive.pawsitive.auth.service.AuthServiceImpl;
 import com.pawsitive.pawsitive.constants.PublicEndpoints;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
 import com.pawsitive.pawsitive.mapper.RegisterOwnerMapper;
 import com.pawsitive.pawsitive.user.model.User;
-import com.pawsitive.pawsitive.util.date.TimeConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
@@ -28,7 +25,6 @@ public class AuthController {
     private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     private final AuthService authService;
-    private final JWTService jwtService;
     private final RegisterOwnerMapper registerOwnerMapper;
 
     @PostMapping(PublicEndpoints.LOGIN)
