@@ -13,9 +13,9 @@ import com.pawsitive.pawsitive.user.service.UserService;
 import com.pawsitive.pawsitive.util.date.TimeConstants;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +25,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.Optional;
 
 
 @Service
-@AllArgsConstructor
 public class AuthServiceImpl implements AuthService {
     private static final Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
 
@@ -41,6 +39,20 @@ public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
     private ApplicationContext context;
+
+    private boolean isSecureCookie;
+
+    public AuthServiceImpl(RegisterOwnerMapper registerOwnerMapper, UserService userService, OwnerService ownerService,
+                           AuthenticationManager authenticationManager, JWTService jwtService, ApplicationContext context,
+                           @Value("${IS_SECURE_COOKIE}") boolean isSecureCookie) {
+        this.registerOwnerMapper = registerOwnerMapper;
+        this.userService = userService;
+        this.ownerService = ownerService;
+        this.authenticationManager = authenticationManager;
+        this.jwtService = jwtService;
+        this.context = context;
+        this.isSecureCookie = isSecureCookie;
+    }
 
     @Override
     public ResponseCookie createCookie(String token, boolean persistLogin) {
@@ -53,9 +65,10 @@ public class AuthServiceImpl implements AuthService {
 
     private ResponseCookie createCookieWithJWT(String token, long expiresInSec) {
         logger.info("Creating Cookie for JWT Token. Expires in {} seconds", expiresInSec);
+        logger.info("Cookie is set to be secure: {}", isSecureCookie);
         return ResponseCookie.from(com.pawsitive.pawsitive.constants.Cookie.JWT.getCookieName(), token)
                 .httpOnly(true)
-                .secure(false) // TODO: switch back to true once on PROD (https)
+                .secure(isSecureCookie)
                 .path("/")
                 .maxAge(expiresInSec)
                 .build();

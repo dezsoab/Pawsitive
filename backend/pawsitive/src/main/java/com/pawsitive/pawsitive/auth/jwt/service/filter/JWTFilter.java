@@ -33,9 +33,7 @@ public class JWTFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        logger.info("Received following request: " + request);
-        logger.info("Received following request: " + request.getRequestURI());
-
+        logger.info("Received following {} request: {} ", request.getMethod(), request.getRequestURL());
 
         String requestURI = request.getRequestURI();
         if (PublicEndpoints.isPublicPath(requestURI)) {
