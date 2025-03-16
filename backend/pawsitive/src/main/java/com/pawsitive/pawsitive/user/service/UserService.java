@@ -6,4 +6,6 @@ public interface UserService {
     User registerUser(User user);
 
     boolean existsByEmail(String email);
+
+    long countUsers();
 }
