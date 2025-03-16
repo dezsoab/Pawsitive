@@ -1,16 +1,16 @@
-name: Docker TEST Deployment
+name: Docker PROD Deployment
 
 on:
   push:
     branches:
-      - main
+      - main #for testing purposes TODO: delete once works
   pull_request:
     branches:
-      - test
+      - prod
     types: [closed]
 
 jobs:
-  Deploy-to-TEST:
+  Deploy-to-PROD:
     runs-on: ubuntu-latest
 
     steps:
@@ -37,20 +37,20 @@ jobs:
       - name: Build and push Docker image
         working-directory: ./backend/pawsitive
         run: |
-          IMAGE_TAG=dezsoab/springboot_backend:test-${{ github.sha }}
+          IMAGE_TAG=dezsoab/springboot_backend:prod-${{ github.sha }}
           docker build -t $IMAGE_TAG .
           docker push $IMAGE_TAG
 
-      - name: SSH into TEST server and deploy
+      - name: SSH into PROD server and deploy
         uses: appleboy/ssh-action@master
         with:
           username: ${{ secrets.SSH_USERNAME }}
-          host: ${{ secrets.SSH_HOST_TEST }}
+          host: ${{ secrets.SSH_HOST_PROD }}
           key: ${{ secrets.SSH_KEY }}
           script: |
             COMPOSE_DIR="/root/server"
-            COMPOSE_FILE="docker-compose.test.yml"
-            IMAGE_TAG="dezsoab/springboot_backend:test-${{ github.sha }}"
+            COMPOSE_FILE="docker-compose.prod.yml"
+            IMAGE_TAG="dezsoab/springboot_backend:prod-${{ github.sha }}"
 
             # Ensure the directory exists
             if [ ! -d "$COMPOSE_DIR" ]; then
@@ -70,7 +70,7 @@ jobs:
             docker pull $IMAGE_TAG
 
             # Update docker-compose file with new image tag
-            sed -i 's|image: dezsoab/springboot_backend:test.*|image: '$IMAGE_TAG'|' $COMPOSE_FILE
+            sed -i 's|image: dezsoab/springboot_backend:prod.*|image: '$IMAGE_TAG'|' $COMPOSE_FILE
 
             docker-compose -f $COMPOSE_FILE down
             docker-compose -f $COMPOSE_FILE up -d --force-recreate
