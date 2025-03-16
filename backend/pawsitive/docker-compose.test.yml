@@ -13,7 +13,12 @@ services:
       mysql:
         condition: service_healthy
     restart: always
-
+    deploy:
+      resources:
+        limits:
+          memory: ${APP_MEMORY_LIMIT}
+        reservations:
+          memory: ${APP_MEMORY_RESERVATION}
   mysql:
     image: mysql:8.0
     container_name: pawsitive_mysql_test
@@ -31,6 +36,12 @@ services:
       interval: 10s
       retries: 5
       start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: ${MYSQL_MEMORY_LIMIT}
+        reservations:
+          memory: ${MYSQL_MEMORY_RESERVATION}
 
 volumes:
   mysql_data:
