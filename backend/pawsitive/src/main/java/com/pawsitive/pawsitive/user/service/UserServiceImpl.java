@@ -21,6 +21,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public long countUsers() {
+        return userRepository.count();
+    }
+
+    @Override
     public User registerUser(User user) {
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
             logger.warn("User with email '{}' already exists. Reverting user creation transaction.", user.getEmail());

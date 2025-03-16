@@ -23,11 +23,11 @@ public class MyUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByEmail(username);
         if (user.isEmpty()) {
-            logger.info("User not found: {}", username);
+            logger.debug("User not found: {}", username);
             return null;
         }
 
-        logger.info("User found: {}", user.get().getEmail());
+        logger.info("User found, ID: {}", user.get().getId());
         return new UserPrincipal(user.get());
     }
 }
