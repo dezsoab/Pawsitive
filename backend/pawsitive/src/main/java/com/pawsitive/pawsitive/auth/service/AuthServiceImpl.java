@@ -13,10 +13,12 @@ import com.pawsitive.pawsitive.user.service.UserService;
 import com.pawsitive.pawsitive.util.date.TimeConstants;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,6 +29,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.Optional;
+
+import static com.pawsitive.pawsitive.constants.Cookie.*;
 
 
 @Service
@@ -55,18 +59,43 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public ResponseCookie createCookie(String token, boolean persistLogin) {
+    public void setCookieHeader(HttpServletResponse response, ResponseCookie cookie) {
+        response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+    }
+
+    @Override
+    public void loginUser(User user, HttpServletResponse response) {
+        String token = verify(user);
+        ResponseCookie cookie = createCookie(token, user.isPersistLogin());
+        setCookieHeader(response, cookie);
+    }
+
+    @Override
+    public ResponseCookie createCookie(String jwtToken, boolean persistLogin) {
         if (!persistLogin) {
-            return createCookieWithJWT(token, TimeConstants.ONE_HOUR);
+            return createCookieWithJWT(jwtToken, TimeConstants.ONE_HOUR);
         }
 
-        return createCookieWithJWT(token, TimeConstants.ONE_YEAR);
+        return createCookieWithJWT(jwtToken, TimeConstants.ONE_YEAR);
+    }
+
+    @Override
+    public void logoutUser(HttpServletRequest request, HttpServletResponse response) {
+        logger.info("Invalidating logged in user state");
+        ResponseCookie cookie = ResponseCookie.from(JWT.getCookieName(), "")
+                .httpOnly(true)
+                .secure(isSecureCookie)
+                .path("/")
+                .maxAge(TimeConstants.ZERO)
+                .build();
+        setCookieHeader(response, cookie);
+        logger.info("User has successfully logged out");
     }
 
     private ResponseCookie createCookieWithJWT(String token, long expiresInSec) {
         logger.info("Creating Cookie for JWT Token. Expires in {} seconds", expiresInSec);
         logger.info("Cookie is set to be secure: {}", isSecureCookie);
-        return ResponseCookie.from(com.pawsitive.pawsitive.constants.Cookie.JWT.getCookieName(), token)
+        return ResponseCookie.from(JWT.getCookieName(), token)
                 .httpOnly(true)
                 .secure(isSecureCookie)
                 .path("/")
@@ -75,7 +104,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void registerOwner(RegisterOwnerDTO dto) {
+    public void registerOwner(RegisterOwnerDTO dto, HttpServletResponse response) {
         logger.info("Starting owner registration");
 
         if (userService.existsByEmail(dto.email())) {
@@ -90,6 +119,10 @@ public class AuthServiceImpl implements AuthService {
         owner.setUser(user);
         ownerService.createOwner(owner);
         logger.info("Owner registration successful for email: {}", dto.email());
+
+        String token = verify(registerOwnerMapper.toUser(dto));
+        ResponseCookie cookie = createCookie(token, dto.persistLogin());
+        setCookieHeader(response, cookie);
     }
 
     @Override

@@ -27,24 +27,24 @@ public class AuthController {
     private final AuthService authService;
     private final RegisterOwnerMapper registerOwnerMapper;
 
+    @DeleteMapping("/api/v1/auth/logout")
+    public ResponseEntity<Map<String, String>> logout(HttpServletRequest request, HttpServletResponse response) {
+        logger.info("Received user logout request");
+        authService.logoutUser(request, response);
+        return ResponseEntity.status(HttpStatus.OK).body(Map.of("message", "Successful logout"));
+    }
+
     @PostMapping(PublicEndpoints.LOGIN)
     public ResponseEntity<Map<String, String>> login(@RequestBody User user, HttpServletResponse response) {
         logger.info("Received user login request");
-        String token = authService.verify(user);
-        ResponseCookie cookie = authService.createCookie(token, user.isPersistLogin());
-        response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
-
+        authService.loginUser(user, response);
         return ResponseEntity.status(HttpStatus.OK).body(Map.of("message", "Successful login"));
     }
 
     @PostMapping(PublicEndpoints.REGISTER)
     public ResponseEntity<Map<String, String>> registerOwner(@RequestBody RegisterOwnerDTO registerOwnerDTO, HttpServletResponse response) {
         logger.info("Received user registration request");
-        authService.registerOwner(registerOwnerDTO);
-        String token = authService.verify(registerOwnerMapper.toUser(registerOwnerDTO));
-        ResponseCookie cookie = authService.createCookie(token, registerOwnerDTO.persistLogin());
-        response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
-
+        authService.registerOwner(registerOwnerDTO, response);
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("message", "Successful creation"));
     }
 
