@@ -1,9 +1,6 @@
 name: Docker PROD Deployment
 
 on:
-  push:
-    branches:
-      - main #for testing purposes TODO: delete once works
   pull_request:
     branches:
       - prod
