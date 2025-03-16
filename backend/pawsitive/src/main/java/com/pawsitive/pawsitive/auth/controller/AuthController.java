@@ -31,11 +31,6 @@ public class AuthController {
     private final JWTService jwtService;
     private final RegisterOwnerMapper registerOwnerMapper;
 
-    @GetMapping("/test")
-    public String test() {
-        return "fetch only possible if authenticated";
-    }
-
     @PostMapping(PublicEndpoints.LOGIN)
     public ResponseEntity<Map<String, String>> login(@RequestBody User user, HttpServletResponse response) {
         logger.info("Received user login request");
