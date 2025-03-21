@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -18,6 +20,22 @@ public class UserServiceImpl implements UserService {
 
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    @Override
+    public void updateUserIfPersistSettingChanged(User user) {
+        Optional<User> savedUser = userRepository.findByEmail(user.getEmail());
+        if (savedUser.isEmpty()) {
+            logger.info("User not persisted...");
+            return;
+        }
+
+        User existingUser = savedUser.get();
+        if (user.isPersistLogin() != existingUser.isPersistLogin()) {
+            logger.info("Updating persist login setting for user...");
+            existingUser.setPersistLogin(user.isPersistLogin());
+            userRepository.save(existingUser);
+        }
     }
 
     @Override

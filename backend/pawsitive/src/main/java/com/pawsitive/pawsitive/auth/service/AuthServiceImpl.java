@@ -1,7 +1,6 @@
 package com.pawsitive.pawsitive.auth.service;
 
 import com.pawsitive.pawsitive.auth.jwt.service.JWTService;
-import com.pawsitive.pawsitive.dto.OwnerDTO;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
 import com.pawsitive.pawsitive.exception.LoginException;
 import com.pawsitive.pawsitive.exception.RegistrationFailedException;
@@ -21,7 +20,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
@@ -74,6 +72,7 @@ public class AuthServiceImpl implements AuthService {
             throw new LoginException("Invalid email or password");
         }
 
+        userService.updateUserIfPersistSettingChanged(user);
         ResponseCookie cookie = createCookie(token, user.isPersistLogin());
         setCookieHeader(response, cookie);
     }
@@ -116,7 +115,7 @@ public class AuthServiceImpl implements AuthService {
         logger.info("Starting owner registration");
 
         if (userService.existsByEmail(dto.email())) {
-            logger.warn("Registration failed: Email {} is already registered", dto.email());
+            logger.warn("Registration failed: Email is already registered");
             throw new RegistrationFailedException("Email is already registered");
         }
 
@@ -126,16 +125,11 @@ public class AuthServiceImpl implements AuthService {
         Owner owner = registerOwnerMapper.toOwner(dto);
         owner.setUser(user);
         ownerService.createOwner(owner);
-        logger.info("Owner registration successful for email: {}", dto.email());
+        logger.info("Owner registration successful for ownerId: {}", owner.getId());
 
         String token = verify(registerOwnerMapper.toUser(dto));
         ResponseCookie cookie = createCookie(token, dto.persistLogin());
         setCookieHeader(response, cookie);
-    }
-
-    @Override
-    public ResponseEntity<OwnerDTO> loginOwner() {
-        return null;
     }
 
     @Override
@@ -153,7 +147,7 @@ public class AuthServiceImpl implements AuthService {
         } catch (InternalAuthenticationServiceException e) {
             logger.error("Authentication failed: {}", e.getMessage());
         } catch (BadCredentialsException e) {
-            logger.warn("Invalid credentials provided for user: {}", user.getEmail());
+            logger.warn("Invalid credentials provided for user");
         }
 
         return null;
