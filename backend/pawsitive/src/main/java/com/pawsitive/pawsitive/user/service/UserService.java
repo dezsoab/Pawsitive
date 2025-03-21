@@ -8,4 +8,6 @@ public interface UserService {
     boolean existsByEmail(String email);
 
     long countUsers();
+
+    void updateUserIfPersistSettingChanged(User user);
 }
