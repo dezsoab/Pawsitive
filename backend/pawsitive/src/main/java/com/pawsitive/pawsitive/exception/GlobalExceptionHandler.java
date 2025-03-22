@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler({TagNotFoundException.class, MapperException.class, AddressNotFoundException.class, IllegalArgumentException.class
             , RegistrationFailedException.class, JWTKeyGenerationException.class, PetNotFoundException.class,
-            LoginException.class})
+            LoginException.class, EmailSendFailedException.class})
     public ResponseEntity<Map<String, Object>> handleException(RuntimeException e) {
         printFormattedStackTrace(e);
         HttpStatus status = e.getClass().getAnnotation(ResponseStatus.class).value();

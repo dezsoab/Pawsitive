@@ -1,0 +1,29 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: ${SPRING_DATASOURCE_URL_PROD}
+    username: ${SPRING_DATASOURCE_USERNAME_PROD}
+    password: ${SPRING_DATASOURCE_PASSWORD_PROD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+---
+spring:
+  config:
+    activate:
+      on-profile: ${SPRING_PROFILES_ACTIVE}
+  datasource:
+    url: ${SPRING_DATASOURCE_URL_TEST}
+    username: ${SPRING_DATASOURCE_USERNAME_TEST}
+    password: ${SPRING_DATASOURCE_PASSWORD_TEST}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
