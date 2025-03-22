@@ -35,7 +35,7 @@ jobs:
         working-directory: ./backend/pawsitive
         run: |
           IMAGE_TAG=dezsoab/springboot_backend:test-${{ github.sha }}
-          docker build -t $IMAGE_TAG .
+          docker build --no-cache -t $IMAGE_TAG .
           docker push $IMAGE_TAG
 
       - name: SSH into TEST server and deploy
@@ -70,4 +70,5 @@ jobs:
             sed -i 's|image: dezsoab/springboot_backend:test.*|image: '$IMAGE_TAG'|' $COMPOSE_FILE
 
             docker-compose -f $COMPOSE_FILE down
+            docker system prune -f
             docker-compose -f $COMPOSE_FILE up -d --force-recreate
