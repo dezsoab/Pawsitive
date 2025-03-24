@@ -1,101 +1,96 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import React, { ChangeEvent, useState, FormEvent } from "react";
+import React, { FormEvent, useRef } from "react";
 
 import styles from "./ContactForm.module.css";
-
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
+import { ContactUsEmailRequestDTO } from "@/types/ContactUsEmailRequestDTO";
+import { sendContactUsInquiry } from "@/api/post/sendContactUsInquiry";
+import { ToastContainer, toast } from "react-toastify";
 
 const ContactForm = () => {
   const t = useTranslations("Index.contact");
 
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
   const handleSubmit = async (e: FormEvent) => {
+    const formData: ContactUsEmailRequestDTO = {
+      senderName: nameRef.current?.value || "",
+      senderEmail: emailRef.current?.value || "",
+      emailBody: messageRef.current?.value || "",
+    };
+
+    console.log(formData);
     e.preventDefault();
 
-    const res = await fetch("/api/contactForm", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (res.ok) {
-      setSubmitted(true);
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
+    toast
+      .promise(
+        sendContactUsInquiry(formData),
+        {
+          pending: "Sending inquiry to us...",
+          success: {
+            render: ({ data }: { data: { message: string } }) => data.message,
+          },
+          error: {
+            render: ({ data }: { data: { message: string } }) => data.message,
+          },
+        },
+        {
+          position: "bottom-right",
+        }
+      )
+      .then(() => {
+        nameRef.current!.value = "";
+        emailRef.current!.value = "";
+        messageRef.current!.value = "";
+      })
+      .catch((e) => {
+        console.error(e.message);
       });
-    } else {
-      // Handle error when testing
-    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <div>
-        <label htmlFor="name">{t("name")}:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder={t("name_placeholder")}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="email">{t("email")}:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder={t("email_placeholder")}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="message">{t("message")}:</label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          placeholder={t("message_placeholder")}
-          required
-          rows={5}
-        />
-      </div>
-      <button type="submit">{t("send_text")}</button>
-      {submitted && <p>{t("thank_you")}</p>}
-    </form>
+    <>
+      <ToastContainer style={{ fontSize: "var(--font-small)" }} />
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div>
+          <label htmlFor="name">{t("name")}:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            ref={nameRef}
+            placeholder={t("name_placeholder")}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="email">{t("email")}:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            ref={emailRef}
+            placeholder={t("email_placeholder")}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="message">{t("message")}:</label>
+          <textarea
+            id="message"
+            name="message"
+            ref={messageRef}
+            placeholder={t("message_placeholder")}
+            required
+            rows={5}
+          />
+        </div>
+        <button type="submit">{t("send_text")}</button>
+      </form>
+    </>
   );
 };
 
