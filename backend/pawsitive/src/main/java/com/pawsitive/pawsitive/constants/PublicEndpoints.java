@@ -1,6 +1,5 @@
 package com.pawsitive.pawsitive.constants;
 
-import com.pawsitive.pawsitive.nfctag.controller.NfcTagController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,12 +18,13 @@ public final class PublicEndpoints {
     public static final String NFCTAGID = "/api/v1/nfcTag/{tagId}";
     public static final String PETID = "/api/v1/pet/{id}";
     public static final String ISAUTHENTICATED = "/api/v1/auth/authenticated";
+    public static final String CONTACT_US_EMAIL = "/api/v1/mail/emailContactUs";
 
     private PublicEndpoints() {
     }
 
     static {
-        Collections.addAll(ENDPOINTS, LOGIN, REGISTER, ISAUTHENTICATED);
+        Collections.addAll(ENDPOINTS, LOGIN, REGISTER, ISAUTHENTICATED, CONTACT_US_EMAIL);
     }
 
     public static boolean isPublicPath(String requestURI) {

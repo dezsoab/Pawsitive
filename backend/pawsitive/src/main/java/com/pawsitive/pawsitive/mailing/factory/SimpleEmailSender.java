@@ -18,7 +18,7 @@ public class SimpleEmailSender implements BasicEmailSender {
     private static final Logger logger = LoggerFactory.getLogger(SimpleEmailSender.class);
 
     EmailRequestHandler emailRequestHandler;
-    private String apiKey;
+    private final String apiKey;
 
     public SimpleEmailSender(@Value("${SENDGRID_API_KEY}") String apiKey, EmailRequestHandler emailRequestHandler) {
         this.apiKey = apiKey;
@@ -37,5 +37,4 @@ public class SimpleEmailSender implements BasicEmailSender {
             throw new EmailSendFailedException(e.getMessage());
         }
     }
-
 }
