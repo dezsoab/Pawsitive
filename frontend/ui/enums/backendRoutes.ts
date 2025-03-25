@@ -1,5 +1,3 @@
-// const AUTH = "auth";
-
 export enum backendRoutes {
   AUTH = "auth",
   REGISTER = AUTH + "/register",
@@ -7,4 +5,5 @@ export enum backendRoutes {
   ISAUTHENTICATED = AUTH + "/authenticated",
   PET = "pet",
   NFCTAG = "nfcTag",
+  CONTACTUS = "mail/emailContactUs",
 }
