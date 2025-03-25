@@ -7,13 +7,16 @@ import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 @Component
 public class EmailRequestHandler {
-    public void sendEmailRequest(Mail mail, SendGrid sg, Request request, Logger logger) throws IOException {
+    private static final Logger logger = LoggerFactory.getLogger(EmailRequestHandler.class);
+
+    public void sendEmailRequest(Mail mail, SendGrid sg, Request request) throws IOException {
         request.setMethod(Method.POST);
         request.setEndpoint("mail/send");
         request.setBody(mail.build());
