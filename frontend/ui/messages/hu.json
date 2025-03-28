@@ -128,7 +128,8 @@
     "shop": "Webshop",
     "privacy": "Adatvédelmi irányelvek",
     "terms": "Általános Szerződési Feltételek",
-    "faqs": "GYIK"
+    "faqs": "GYIK",
+    "login": "Bejelentkezés"
   },
   "NotFound": {
     "title": "Úgy tűnik, eltévedtél",

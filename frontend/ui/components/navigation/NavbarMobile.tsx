@@ -83,6 +83,15 @@ const NavbarMobile = () => {
               {t("Navigation.contact")}
             </Link>
           </li>
+          <li>
+            <Link
+              href={navigationRoutes.LOGIN}
+              locale={locale}
+              onClick={toggleNavigation}
+            >
+              {t("Navigation.login")}
+            </Link>
+          </li>
         </ul>
         <CTAButton
           title={t("Navigation.shop")}

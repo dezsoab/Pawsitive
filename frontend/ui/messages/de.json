@@ -128,7 +128,8 @@
     "shop": "Shop",
     "privacy": "Datenschutzrichtlinie",
     "terms": "Allgemeine Geschäftsbedingungen",
-    "faqs": "Häufig gestellte Fragen"
+    "faqs": "Häufig gestellte Fragen",
+    "login": "Anmelden"
   },
   "NotFound": {
     "title": "Es scheint, als hättest du dich verlaufen",

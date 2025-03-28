@@ -63,6 +63,11 @@ const Navbar = ({ style }: NabarProps) => {
             {t("Navigation.contact")}
           </Link>
         </li>
+        <li>
+          <Link href={navigationRoutes.LOGIN} locale={locale}>
+            {t("Navigation.login")}
+          </Link>
+        </li>
       </ul>
       <CTAButton
         title={t("Navigation.shop")}
