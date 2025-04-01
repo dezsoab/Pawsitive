@@ -10,12 +10,14 @@ import { useLocale, useTranslations } from "next-intl";
 import LanguagePicker from "../language/LanguagePicker";
 
 import { navigationRoutes } from "../../enums/navigationRoutes";
+import { useAuth } from "@/context/AuthContext";
 
 type NabarProps = {
   style?: { [key: string]: string };
 };
 
 const Navbar = ({ style }: NabarProps) => {
+  const { isLoggedIn } = useAuth();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -33,6 +35,20 @@ const Navbar = ({ style }: NabarProps) => {
 
   const locale = useLocale();
   const t = useTranslations();
+
+  const authBtn = isLoggedIn ? (
+    <li>
+      <Link href={navigationRoutes.LOGOUT} locale={locale}>
+        {t("Navigation.logout")}
+      </Link>
+    </li>
+  ) : (
+    <li>
+      <Link href={navigationRoutes.LOGIN} locale={locale}>
+        {t("Navigation.login")}
+      </Link>
+    </li>
+  );
 
   return (
     <nav
@@ -63,6 +79,7 @@ const Navbar = ({ style }: NabarProps) => {
             {t("Navigation.contact")}
           </Link>
         </li>
+        {authBtn}
       </ul>
       <CTAButton
         title={t("Navigation.shop")}

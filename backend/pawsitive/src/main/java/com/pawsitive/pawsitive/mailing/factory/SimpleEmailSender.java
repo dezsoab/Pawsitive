@@ -31,7 +31,7 @@ public class SimpleEmailSender implements BasicEmailSender {
         Mail mail = new Mail(new Email(from), subject, new Email(to), content);
 
         try {
-            emailRequestHandler.sendEmailRequest(mail, new SendGrid(apiKey), new Request(), logger);
+            emailRequestHandler.sendEmailRequest(mail, new SendGrid(apiKey), new Request());
         } catch (Exception e) {
             logger.error(e.getMessage());
             throw new EmailSendFailedException(e.getMessage());

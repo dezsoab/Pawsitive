@@ -21,6 +21,7 @@ import Stack from "@mui/joy/Stack";
 import Navbar from "@/components/navigation/Navbar";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
 
 interface FormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -57,6 +58,7 @@ function ColorSchemeToggle(props: IconButtonProps) {
 }
 
 const LoginForm = () => {
+  const { setIsLoggedIn } = useAuth();
   const searchParams = useSearchParams();
   const id = searchParams.get("tagId");
   const router = useRouter();
@@ -188,6 +190,8 @@ const LoginForm = () => {
                         }
                       )
                       .then(() => {
+                        setIsLoggedIn(true);
+                        console.log("setting logged in true");
                         formElements.email.value = "";
                         formElements.password.value = "";
                       })

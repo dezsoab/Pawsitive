@@ -47,7 +47,7 @@ public class TemplateEmailSender implements TemplatedEmailSender {
             mail.addPersonalization(personalization);
             mail.setTemplateId(emailTemplate.getTemplateId());
 
-            emailRequestHandler.sendEmailRequest(mail, new SendGrid(apiKey), new Request(), logger);
+            emailRequestHandler.sendEmailRequest(mail, new SendGrid(apiKey), new Request());
         } catch (Exception e) {
             logger.error("Failed to send email with template ID: " + emailTemplate.getTemplateId(), e);
             throw new EmailSendFailedException(e.getMessage());

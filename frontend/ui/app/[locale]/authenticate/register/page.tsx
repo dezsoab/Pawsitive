@@ -21,6 +21,7 @@ import { createOwner } from "@/api/post/createOwner";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
 
 interface FormElements extends HTMLFormControlsCollection {
   firstName: HTMLInputElement;
@@ -67,6 +68,7 @@ const RegisterForm = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get("tagId");
   const router = useRouter();
+  const { setIsLoggedIn } = useAuth();
 
   return (
     <>
@@ -229,6 +231,7 @@ const RegisterForm = () => {
                           position: "bottom-right",
                         });
                       })
+                      .then(() => setIsLoggedIn(true))
                       .then(() => {
                         router.push(`/profile/edit?tagId=${id}`);
                       })
