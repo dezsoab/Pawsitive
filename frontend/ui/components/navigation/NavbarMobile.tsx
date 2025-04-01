@@ -11,11 +11,13 @@ import styles from "./NavbarMobile.module.css";
 import CTAButton from "../cta/CTAButton";
 import LanguagePicker from "../language/LanguagePicker";
 import Hamburger from "./Hamburger";
+import { useAuth } from "@/context/AuthContext";
 
 const NavbarMobile = () => {
   const locale = useLocale();
   const t = useTranslations();
   const ref = useRef<HTMLDivElement>(null);
+  const { isLoggedIn } = useAuth();
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -36,6 +38,28 @@ const NavbarMobile = () => {
     ref.current!.classList.toggle(styles.active);
     document.body.classList.toggle(styles.noscroll); // to disable scroll underneath when menu is active
   };
+
+  const authBtn = isLoggedIn ? (
+    <li>
+      <Link
+        href={navigationRoutes.LOGOUT}
+        locale={locale}
+        onClick={toggleNavigation}
+      >
+        {t("Navigation.logout")}
+      </Link>
+    </li>
+  ) : (
+    <li>
+      <Link
+        href={navigationRoutes.LOGIN}
+        locale={locale}
+        onClick={toggleNavigation}
+      >
+        {t("Navigation.login")}
+      </Link>
+    </li>
+  );
 
   return (
     <header
@@ -83,6 +107,7 @@ const NavbarMobile = () => {
               {t("Navigation.contact")}
             </Link>
           </li>
+          {authBtn}
         </ul>
         <CTAButton
           title={t("Navigation.shop")}

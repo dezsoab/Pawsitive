@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "../styles/globals.css";
 import NavbarMobile from "../../components/navigation/NavbarMobile";
 import logger from "../../logging/logger";
+import { AuthProvider } from "@/context/AuthContext";
 
 const roboto = Roboto_Flex({
   subsets: ["latin"],
@@ -32,8 +33,10 @@ const RootLayout = ({
       <body className={roboto.className}>
         <Analytics />
         <NextIntlClientProvider messages={messages}>
-          <NavbarMobile />
-          {children}
+          <AuthProvider>
+            <NavbarMobile />
+            {children}
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

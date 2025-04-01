@@ -128,7 +128,9 @@
     "shop": "Shop",
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
-    "faqs": "FAQs"
+    "faqs": "FAQs",
+    "login": "Login",
+    "logout": "Logout"
   },
   "NotFound": {
     "title": "Looks like you've lost your way",
