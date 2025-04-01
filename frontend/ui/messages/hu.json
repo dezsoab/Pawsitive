@@ -129,7 +129,8 @@
     "privacy": "Adatvédelmi irányelvek",
     "terms": "Általános Szerződési Feltételek",
     "faqs": "GYIK",
-    "login": "Bejelentkezés"
+    "login": "Bejelentkezés",
+    "logout": "Kijelentkezés"
   },
   "NotFound": {
     "title": "Úgy tűnik, eltévedtél",

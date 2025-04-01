@@ -129,7 +129,8 @@
     "privacy": "Datenschutzrichtlinie",
     "terms": "Allgemeine Geschäftsbedingungen",
     "faqs": "Häufig gestellte Fragen",
-    "login": "Anmelden"
+    "login": "Anmelden",
+    "logout": "Abmelden"
   },
   "NotFound": {
     "title": "Es scheint, als hättest du dich verlaufen",

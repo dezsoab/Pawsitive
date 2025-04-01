@@ -9,4 +9,5 @@ export enum navigationRoutes {
   INSTA = "/insta",
   FACEBOOK = "/facebook",
   LOGIN = "/authenticate/login",
+  LOGOUT = "/authenticate/logout",
 }

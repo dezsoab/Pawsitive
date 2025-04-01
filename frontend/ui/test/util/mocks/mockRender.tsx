@@ -5,6 +5,7 @@ import { AppRouterContextProviderMock } from "@/test/util/mocks/app-router-conte
 import { AbstractIntlMessages, NextIntlClientProvider } from "next-intl";
 import { ReactElement } from "react";
 import { setImmediate } from "timers";
+import { AuthProvider } from "@/context/AuthContext";
 global.setImmediate = setImmediate;
 
 export const setup = ({
@@ -32,11 +33,13 @@ export const setup = ({
   };
 
   render(
-    <AppRouterContextProviderMock router={routerMock}>
-      <NextIntlClientProvider messages={messages} locale={locale}>
-        {Component}
-      </NextIntlClientProvider>
-    </AppRouterContextProviderMock>
+    <AuthProvider>
+      <AppRouterContextProviderMock router={routerMock}>
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          {Component}
+        </NextIntlClientProvider>
+      </AppRouterContextProviderMock>
+    </AuthProvider>
   );
 
   return { push, back, forward, replace, refresh, prefetch };

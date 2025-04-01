@@ -129,7 +129,8 @@
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
     "faqs": "FAQs",
-    "login": "Login"
+    "login": "Login",
+    "logout": "Logout"
   },
   "NotFound": {
     "title": "Looks like you've lost your way",
