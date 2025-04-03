@@ -25,7 +25,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         const isAuthenticated = await checkIfAuthenticated();
         setIsLoggedIn(isAuthenticated);
       } catch (error) {
-        console.error("Token validation failed:", error);
         setIsLoggedIn(false);
       }
     };
