@@ -1,5 +1,6 @@
 package com.pawsitive.pawsitive.mailing.factory;
 
+import com.pawsitive.pawsitive.mailing.model.EmailSenderDetail;
 import com.pawsitive.pawsitive.mailing.model.EmailTemplateData;
 import com.pawsitive.pawsitive.exception.EmailSendFailedException;
 import com.pawsitive.pawsitive.mailing.service.EmailRequestHandler;
@@ -28,7 +29,7 @@ public class TemplateEmailSender implements TemplatedEmailSender {
     }
 
     @Override
-    public void sendEmail(String from, String to, EmailTemplateData emailTemplate
+    public void sendEmail(EmailSenderDetail emailSenderDetail, String to, EmailTemplateData emailTemplate
     ) {
         try {
             if (emailTemplate.getTemplateId() == null || emailTemplate.getTemplateId().isEmpty()) {
@@ -37,7 +38,7 @@ public class TemplateEmailSender implements TemplatedEmailSender {
             }
 
             Mail mail = new Mail();
-            mail.setFrom(new Email(from));
+            mail.setFrom(new Email(emailSenderDetail.authorizedSenderEmail(), emailSenderDetail.authorizedSenderName()));
 
             Personalization personalization = new Personalization();
             personalization.addTo(new Email(to));
@@ -49,7 +50,7 @@ public class TemplateEmailSender implements TemplatedEmailSender {
 
             emailRequestHandler.sendEmailRequest(mail, new SendGrid(apiKey), new Request());
         } catch (Exception e) {
-            logger.error("Failed to send email with template ID: " + emailTemplate.getTemplateId(), e);
+            logger.error("Failed to send email with template ID: {}", emailTemplate.getTemplateId(), e);
             throw new EmailSendFailedException(e.getMessage());
         }
     }
