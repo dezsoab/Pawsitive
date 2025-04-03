@@ -103,6 +103,7 @@ describe("Contact form tests", () => {
               senderName: "John Doe",
               senderEmail: "john@example.com",
               emailBody: "This is the best product!",
+              language: locale,
             }),
           })
         );
