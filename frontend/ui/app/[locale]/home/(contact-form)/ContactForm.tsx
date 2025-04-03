@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import React, { FormEvent, useRef } from "react";
 
 import styles from "./ContactForm.module.css";
@@ -9,6 +9,7 @@ import { sendContactUsInquiry } from "@/api/post/sendContactUsInquiry";
 import { ToastContainer, toast } from "react-toastify";
 
 const ContactForm = () => {
+  const locale = useLocale();
   const t = useTranslations("Index.contact");
 
   const nameRef = useRef<HTMLInputElement>(null);
@@ -20,9 +21,9 @@ const ContactForm = () => {
       senderName: nameRef.current?.value || "",
       senderEmail: emailRef.current?.value || "",
       emailBody: messageRef.current?.value || "",
+      language: locale,
     };
 
-    console.log(formData);
     e.preventDefault();
 
     toast

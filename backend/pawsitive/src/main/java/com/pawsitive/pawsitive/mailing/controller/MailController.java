@@ -15,7 +15,7 @@ public class MailController {
 
     @PostMapping("/emailContactUs")
     public ResponseEntity<RESTResponse> emailContactUs(@RequestBody ContactUsEmailRequestDTO email) {
-        sendGridEmailService.sendContactUsEmail(email.senderEmail(), email.senderName(), email.emailBody());
+        sendGridEmailService.sendContactUsEmail(email);
         return ResponseEntity.ok(new RESTResponse("Email inquiry successfully sent. Thank you!"));
     }
 }
