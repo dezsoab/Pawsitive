@@ -51,12 +51,6 @@ const OurTeam = ({
             imgSrc="/assets/collar2.webp"
             imgAlt="some Alt"
           />
-          <PersonTag
-            name="Dzenis"
-            roles={[t("About.team.person.developer")]}
-            imgSrc="/assets/collar3.webp"
-            imgAlt="some Alt"
-          />
         </div>
       </div>
     </section>
