@@ -47,7 +47,7 @@ const ScannedNfcTag = () => {
 
         if (isAuthenticated) {
           setIsRedirecting(true);
-          router.push(`/profile/edit?tagId=${id}`);
+          router.push(`/profile?tagId=${id}`);
         } else {
           setIsRedirecting(true);
           router.push(`/authenticate/login?tagId=${id}`);
