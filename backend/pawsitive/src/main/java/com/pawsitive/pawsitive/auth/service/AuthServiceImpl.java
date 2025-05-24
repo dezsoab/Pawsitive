@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -47,7 +48,7 @@ public class AuthServiceImpl implements AuthService {
 
     private boolean isSecureCookie;
 
-    public AuthServiceImpl(RegisterOwnerMapper registerOwnerMapper, UserService userService, OwnerService ownerService,
+    public AuthServiceImpl(RegisterOwnerMapper registerOwnerMapper, UserService userService, @Lazy OwnerService ownerService,
                            AuthenticationManager authenticationManager, JWTService jwtService, ApplicationContext context,
                            @Value("${IS_SECURE_COOKIE}") boolean isSecureCookie) {
         this.registerOwnerMapper = registerOwnerMapper;
@@ -173,11 +174,61 @@ public class AuthServiceImpl implements AuthService {
         String token = jwtCookie.get().getValue();
         try {
             logger.info("Getting UserDetails from Application Context");
-            UserDetails userDetails = context.getBean(MyUserDetailService.class).loadUserByUsername(jwtService.extractUsername(token));
+            UserDetails userDetails = context.getBean(MyUserDetailService.class).
+                    loadUserByUsername(jwtService.extractUsername(token));
             logger.info("Validating JWT Token");
             return jwtService.validateToken(token, userDetails);
         } catch (Exception e) {
             logger.error("Error validating JWT token: {}", e.getMessage());
+            return false;
+        }
+    }
+
+    @Override
+    public Optional<String> getUserName(HttpServletRequest request) {
+        logger.info("Retrieving user name from JWT Token");
+        Cookie[] cookies = request.getCookies();
+
+        logger.info("Looking for JWT token in cookies");
+        Optional<Cookie> jwtCookie = Arrays.stream(cookies)
+                .filter(cookie -> "pawsitive-jwt".equals(cookie.getName()))
+                .findFirst();
+
+        if (jwtCookie.isEmpty()) {
+            throw new RuntimeException("No JWT token found in cookies");
+        }
+
+        String token = jwtCookie.get().getValue();
+        try {
+            logger.info("Extracting username from token");
+            return Optional.of(jwtService.extractUsername(token));
+        } catch (Exception e) {
+            logger.error("Error while extracting username from token: {}", e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public boolean checkAuthUserEqualsOwnerByEmail(String email, HttpServletRequest request) {
+        logger.info("Received request to check if appuser equals owner by email");
+        Cookie[] cookies = request.getCookies();
+
+        logger.info("Looking for JWT token in cookies");
+        Optional<Cookie> jwtCookie = Arrays.stream(cookies)
+                .filter(cookie -> "pawsitive-jwt".equals(cookie.getName()))
+                .findFirst();
+
+        if (jwtCookie.isEmpty()) {
+            return false;
+        }
+
+        String token = jwtCookie.get().getValue();
+        try {
+            logger.info("Extracting username from token to check if matches owner identifier");
+            boolean appuserEqualsOwner = email.equals(jwtService.extractUsername(token));
+            return appuserEqualsOwner;
+        } catch (Exception e) {
+            logger.error("Error while validating appuser against owner: {}", e.getMessage());
             return false;
         }
     }

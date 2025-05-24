@@ -25,28 +25,6 @@ describe("ScannedPetDetails Component Tests", () => {
     expect(ageText).toBeInTheDocument();
   });
 
-  it("renders owner details correctly", () => {
-    setup({
-      Component: <ScannedPetDetails pet={petMock} />,
-      messages: locales.en.messages,
-      locale: locales.en.messages.Locale,
-    });
-
-    const addressText = screen.getByText(
-      `${locales.en.messages.ScannedPet.address}: ${petMock.owner.address.city}`
-    );
-    const phoneText = screen.getByText(
-      `${locales.en.messages.ScannedPet.tel}: ${petMock.owner.phone}`
-    );
-    const emailText = screen.getByText(
-      `${locales.en.messages.ScannedPet.email}: ${petMock.owner.email}`
-    );
-
-    expect(addressText).toBeInTheDocument();
-    expect(phoneText).toBeInTheDocument();
-    expect(emailText).toBeInTheDocument();
-  });
-
   it("renders correctly in all locales", () => {
     for (const [locale, { messages }] of Object.entries(locales)) {
       setup({

@@ -26,15 +26,6 @@ const ScannedPetDetails = ({ pet }: ScannedPetDetailsProps) => {
       </p>
       <p>{t("size")}: kozepes</p>
       <hr />
-      <p>
-        {t("address")}: {pet.owner.address.city}
-      </p>
-      <p>
-        {t("tel")}: {pet.owner.phone}
-      </p>
-      <p>
-        {t("email")}: {pet.owner.email}
-      </p>
     </div>
   );
 };

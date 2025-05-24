@@ -1,0 +1,7 @@
+export interface PetDTO {
+  name: string;
+  breed: string;
+  age: string;
+  sex: string;
+  nfcTagId: string;
+}

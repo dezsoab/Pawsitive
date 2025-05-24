@@ -113,6 +113,19 @@ const Navbar = ({ style }: NabarProps) => {
             {t("Navigation.contact")}
           </Link>
         </li>
+        {isLoggedIn && (
+          <li>
+            <Link
+              href={navigationRoutes.PROFILE}
+              locale={locale}
+              className={
+                isActivePath(navigationRoutes.PROFILE) ? styles.active : ""
+              }
+            >
+              {t("Navigation.profil")}
+            </Link>
+          </li>
+        )}
         {authBtn}
       </ul>
       <CTAButton

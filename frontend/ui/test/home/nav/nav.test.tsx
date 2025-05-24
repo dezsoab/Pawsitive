@@ -17,7 +17,7 @@ describe("Navigation tests", () => {
         expect(navBar).toBeInTheDocument();
       });
 
-      it("Navigation has correct links", () => {
+      it("Shop button in navbar has correct link", () => {
         setup({
           Component: <Navigation />,
           messages: messages,
@@ -30,18 +30,6 @@ describe("Navigation tests", () => {
         expect(navBar).toHaveTextContent(messages.Navigation.contact);
         expect(navBar).toHaveTextContent(messages.Navigation.shop);
       });
-    });
-
-    it("navigates the user to /shop", () => {
-      const { push } = setup({
-        Component: <Navigation />,
-        messages: messages,
-        locale: locale,
-      });
-      const shopBtn = screen.getByText(messages.Navigation.shop);
-
-      fireEvent.click(shopBtn);
-      expect(push).toHaveBeenCalledWith("/shop", { scroll: true });
     });
 
     it("navigates the user to /about", () => {

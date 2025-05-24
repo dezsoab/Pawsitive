@@ -6,6 +6,7 @@ import {
   useState,
   ReactNode,
   useEffect,
+  act,
 } from "react";
 import { checkIfAuthenticated } from "@/api/get/checkIfAuthenticated";
 

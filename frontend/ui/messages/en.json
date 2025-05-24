@@ -130,7 +130,8 @@
     "terms": "Terms & Conditions",
     "faqs": "FAQs",
     "login": "Login",
-    "logout": "Logout"
+    "logout": "Logout",
+    "profil": "Profile"
   },
   "NotFound": {
     "title": "Looks like you've lost your way",

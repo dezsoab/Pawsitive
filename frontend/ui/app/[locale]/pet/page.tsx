@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 
 import styles from "./ScannedPetProfile.module.css";
@@ -14,27 +14,46 @@ import ScannedPetDetails from "./ScannedPetDetails";
 import { Pet } from "@/types/Pet";
 import Cat from "@/components/loader/Cat";
 import { fetchPet } from "@/api/get/fetchPet";
+import { checkIfAuthenticated } from "@/api/get/checkIfAuthenticated";
+import userIsOwnerOfPet from "@/api/get/isAuthenticatedUserOwnerOfPet";
 
-const ScannedPetProfile = () => {
+const ScannedPetProfile: React.FC = () => {
   const searchParams = useSearchParams();
-  const id = searchParams.get("id");
+  const router = useRouter();
+  const petId = searchParams.get("petId") || "0";
+  const tagId = searchParams.get("tagId") || "0";
 
   const [pet, setPet] = useState<Pet | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const initialize = async () => {
       try {
-        const petData = await fetchPet(Number(id));
+        const isAuthenticated = await checkIfAuthenticated();
+
+        if (isAuthenticated) {
+          const isOwner = await userIsOwnerOfPet(petId);
+          if (isOwner) {
+            router.push(`/profile?tagId=${tagId}&petId=${petId}`);
+            return; // Exit early, no need to fetch pet
+          }
+        }
+
+        // Either not authenticated or not the owner
+        const petData = await fetchPet(Number(petId));
         setPet(petData);
       } catch (error) {
-        console.error("Error fetching pet:", error);
+        console.error("Error during pet scan handling:", error);
+        router.push(`/authenticate/login?tagId=${petId}`);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchData();
-  }, [id]);
+    initialize();
+  }, [petId, router, tagId]);
 
-  if (!pet) {
+  if (loading || !pet) {
     return <Cat />;
   }
 
@@ -49,7 +68,6 @@ const ScannedPetProfile = () => {
                 src={pet.photoUrl || molli}
                 alt={pet.name}
                 fill
-                // objectFit="contain"
                 objectFit="cover"
               />
             </div>

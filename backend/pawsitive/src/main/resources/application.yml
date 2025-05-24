@@ -9,7 +9,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: ${HIBERNATE_DDL_ACTION}
       dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
 ---
@@ -24,6 +24,6 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: ${HIBERNATE_DDL_ACTION}
       dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false

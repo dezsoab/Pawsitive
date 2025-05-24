@@ -130,7 +130,8 @@
     "terms": "Általános Szerződési Feltételek",
     "faqs": "GYIK",
     "login": "Bejelentkezés",
-    "logout": "Kijelentkezés"
+    "logout": "Kijelentkezés",
+    "profil": "Profil"
   },
   "NotFound": {
     "title": "Úgy tűnik, eltévedtél",

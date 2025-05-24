@@ -21,6 +21,12 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
+    public List<Pet> getByOwnerId(Long id) {
+        return petRepository.findByOwnerId(id);
+    }
+
+
+    @Override
     public Pet getPetById(Long id) {
         if (id == null) {
             throw new IllegalArgumentException("Pet ID cannot be null");
