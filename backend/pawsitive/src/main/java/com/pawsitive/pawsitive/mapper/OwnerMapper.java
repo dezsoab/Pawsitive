@@ -17,7 +17,8 @@ public class OwnerMapper {
     public OwnerDTO toDto(Owner owner) {
         if (owner == null) throw new MapperException("Owner entity cannot be null");
 
-        return new OwnerDTO(owner.getId(), owner.getFirstName(),
+        return new OwnerDTO(owner.getId(),
+                owner.getFirstName(),
                 owner.getLastName(),
                 owner.getPhone(), addressMapper.toDto(owner.getAddress()),
                 owner.getCreatedAt(), owner.getModifiedAt());

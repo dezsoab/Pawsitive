@@ -36,10 +36,6 @@ public class SendGridEmailService {
         this.receiverEmail = receiverEmail;
     }
 
-    public void sendTemplateEmail(String to, String templateID) {
-        templateEmailSender.sendEmail(senderDetail, to, new EmailTemplateData(templateID));
-    }
-
     public void sendContactUsEmail(ContactUsEmailRequestDTO request) {
         logger.info("Received contact us email request");
         basicEmailSender.sendEmail(senderDetail, receiverEmail, "New \"contact us\" inquiry",

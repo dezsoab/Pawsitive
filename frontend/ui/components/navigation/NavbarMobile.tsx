@@ -107,6 +107,17 @@ const NavbarMobile = () => {
               {t("Navigation.contact")}
             </Link>
           </li>
+          {isLoggedIn && (
+            <li>
+              <Link
+                href={navigationRoutes.PROFILE}
+                locale={locale}
+                onClick={toggleNavigation}
+              >
+                {t("Navigation.profil")}
+              </Link>
+            </li>
+          )}
           {authBtn}
         </ul>
         <CTAButton

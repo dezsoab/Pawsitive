@@ -24,16 +24,15 @@ const Logout = () => {
           )
           .then(() => {
             setIsLoggedIn(false);
-            router.replace("/home"); // Redirect immediately after logout
           })
-          .then(() => console.log("logout triggered"));
+          .then(() => router.replace("/home")); // Redirect immediately after logout
       } catch (e) {
         console.error("Logout error:", e);
       }
     };
 
     performLogout();
-  }, []);
+  });
 
   return <div>Logging out.....</div>;
 };

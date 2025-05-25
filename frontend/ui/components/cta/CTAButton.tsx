@@ -13,6 +13,8 @@ type CTAButtonProps = {
   classList?: string;
 };
 
+const isExternal = (url: string) => url.startsWith("http");
+
 const CTAButton = ({
   title,
   toPath,
@@ -21,6 +23,21 @@ const CTAButton = ({
   onClick,
   classList,
 }: CTAButtonProps) => {
+  if (isExternal(toPath)) {
+    return (
+      <a
+        href={toPath}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+      >
+        <button className={`${styles.ctaBtn} ${classList}`} style={style}>
+          {title}
+        </button>
+      </a>
+    );
+  }
+
   return (
     <Link href={toPath} locale={locale} onClick={onClick}>
       <button className={`${styles.ctaBtn} ${classList}`} style={style}>

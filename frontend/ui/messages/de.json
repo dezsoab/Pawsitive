@@ -130,7 +130,8 @@
     "terms": "Allgemeine Geschäftsbedingungen",
     "faqs": "Häufig gestellte Fragen",
     "login": "Anmelden",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "profil": "Profil"
   },
   "NotFound": {
     "title": "Es scheint, als hättest du dich verlaufen",

@@ -24,12 +24,7 @@ public class RegisterOwnerMapper {
     public Owner toOwner(RegisterOwnerDTO dto) {
         if (dto == null) throw new MapperException("RegisterOwnerDTO cannot be null");
 
-        Address address = Address.builder()
-                .country(dto.country())
-                .city(dto.city())
-                .zipCode(dto.zipCode())
-                .street(dto.street())
-                .build();
+        Address address = Address.builder().build();
 
         return Owner.builder()
                 .firstName(dto.firstName())

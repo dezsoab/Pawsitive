@@ -1,9 +1,10 @@
-import { fireEvent, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import locales from "../../util/language/locales";
 import CTASection from "@/app/[locale]/home/(CTASection)/CTASection";
 
 import { setup } from "../../util/mocks/mockRender";
+import { navigationRoutes } from "@/enums/navigationRoutes";
 
 describe("CTA Section tests", () => {
   for (const [locale, { messages }] of Object.entries(locales)) {
@@ -31,16 +32,19 @@ describe("CTA Section tests", () => {
       });
     });
 
-    it("navigates the user to /shop", () => {
-      const { push } = setup({
+    it("renders a link to the external shop with correct attributes", async () => {
+      setup({
         Component: <CTASection />,
         messages: messages,
         locale: locale,
       });
-      const shopBtn = screen.getByText(messages.Navigation.shop);
 
-      fireEvent.click(shopBtn);
-      expect(push).toHaveBeenCalledWith("/shop", { scroll: true });
+      const shopBtn = screen.getByText(messages.Navigation.shop);
+      const link = shopBtn.closest("a");
+
+      expect(link).toHaveAttribute("href", navigationRoutes.SHOP);
+      expect(link).toHaveAttribute("target", "_blank");
+      expect(link).toHaveAttribute("rel", "noopener noreferrer");
     });
 
     it("navigates the user to /about", () => {

@@ -45,7 +45,7 @@ function ColorSchemeToggle(props: IconButtonProps) {
       size="lg"
       variant="outlined"
       disabled={!mounted}
-      onClick={(event) => {
+      onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
         setMode(mode === "light" ? "dark" : "light");
         onClick?.(event);
       }}
@@ -78,7 +78,7 @@ const LoginForm = () => {
           }}
         />
         <Box
-          sx={(theme) => ({
+          sx={(theme: { getColorSchemeSelector: (arg0: string) => any }) => ({
             width: { xs: "100%", md: "50vw" },
             transition: "width var(--Transition-duration)",
             transitionDelay: "calc(var(--Transition-duration) + 0.1s)",
@@ -191,11 +191,16 @@ const LoginForm = () => {
                       )
                       .then(() => {
                         setIsLoggedIn(true);
-                        console.log("setting logged in true");
                         formElements.email.value = "";
                         formElements.password.value = "";
                       })
-                      .then(() => router.push(`/profile/edit?tagId=${id}`))
+                      .then(() => {
+                        if (id) {
+                          router.push(`/profile?tagId=${id}`);
+                        } else {
+                          router.push("/profile");
+                        }
+                      })
                       .catch((e) => {
                         console.error(e.message);
                       });
@@ -267,7 +272,7 @@ const LoginForm = () => {
           </Box>
         </Box>
         <Box
-          sx={(theme) => ({
+          sx={(theme: { getColorSchemeSelector: (arg0: string) => any }) => ({
             height: "100%",
             position: "fixed",
             right: 0,

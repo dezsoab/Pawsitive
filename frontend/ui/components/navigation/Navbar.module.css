@@ -48,10 +48,6 @@
   transition: all 0.4s ease;
 }
 
-.navBar.scrolled ul li a::before {
-  background-color: var(--color-white);
-}
-
 .navBar ul li a:hover::before {
   left: -10%;
 }
@@ -63,6 +59,21 @@
 .langPick {
   background-color: transparent;
   top: 4rem;
+}
+
+.navBar ul li a.active {
+  position: relative;
+}
+
+.navBar ul li a.active::before {
+  content: "";
+  height: 3px;
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  background-color: var(--color-pink-mid);
+  transition: all 0.4s ease;
 }
 
 @media screen and (max-width: 1200px) {

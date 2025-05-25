@@ -1,5 +1,6 @@
 package com.pawsitive.pawsitive.user.service;
 
+import com.pawsitive.pawsitive.exception.UserNotFoundException;
 import com.pawsitive.pawsitive.user.model.User;
 import com.pawsitive.pawsitive.user.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -36,6 +37,12 @@ public class UserServiceImpl implements UserService {
             existingUser.setPersistLogin(user.isPersistLogin());
             userRepository.save(existingUser);
         }
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("User not found by email"));
     }
 
     @Override

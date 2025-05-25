@@ -7,4 +7,7 @@ export enum backendRoutes {
   PET = "pet",
   NFCTAG = "nfcTag",
   CONTACTUS = "mail/emailContactUs",
+  ISAUTHENTICATEDUSEROWNEROFPET = "owner/isAuthenticatedUserOwnerOfPet",
+  PROFILE = "profile",
+  UPDATEPROFILE = "profile/update",
 }

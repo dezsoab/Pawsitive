@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseCookie;
 
+import java.util.Optional;
+
 
 public interface AuthService {
 
@@ -23,4 +25,8 @@ public interface AuthService {
     ResponseCookie createCookie(String token, boolean persistLogin);
 
     void logoutUser(HttpServletRequest request, HttpServletResponse response);
+
+    boolean checkAuthUserEqualsOwnerByEmail(String email, HttpServletRequest request);
+
+    Optional<String> getUserName(HttpServletRequest request);
 }
