@@ -10,4 +10,6 @@ public interface UserService {
     long countUsers();
 
     void updateUserIfPersistSettingChanged(User user);
+
+    User getUserByEmail(String email);
 }

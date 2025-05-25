@@ -2,7 +2,7 @@ export enum navigationRoutes {
   ABOUT = "/about",
   HOME = "/home",
   CONTACT = "/contact",
-  SHOP = "/shop",
+  SHOP = "https://shop.pawsitivecollar.com",
   PRIVACY = "/privacy-policy",
   TERMS = "/terms-and-conditions",
   FAQs = "/FAQs",
@@ -10,4 +10,5 @@ export enum navigationRoutes {
   FACEBOOK = "/facebook",
   LOGIN = "/authenticate/login",
   LOGOUT = "/authenticate/logout",
+  PROFILE = "/profile",
 }

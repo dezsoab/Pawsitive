@@ -11,6 +11,7 @@ import LanguagePicker from "../language/LanguagePicker";
 
 import { navigationRoutes } from "../../enums/navigationRoutes";
 import { useAuth } from "@/context/AuthContext";
+import { usePathname } from "next/navigation";
 
 type NabarProps = {
   style?: { [key: string]: string };
@@ -19,6 +20,15 @@ type NabarProps = {
 const Navbar = ({ style }: NabarProps) => {
   const { isLoggedIn } = useAuth();
   const [scrolled, setScrolled] = useState(false);
+  const currentPath = usePathname();
+
+  const isActivePath = (path: navigationRoutes) => {
+    if (!currentPath) {
+      return false;
+    }
+    const lastPathSection = currentPath.lastIndexOf("/");
+    return path.includes(currentPath.substring(lastPathSection));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,13 +48,21 @@ const Navbar = ({ style }: NabarProps) => {
 
   const authBtn = isLoggedIn ? (
     <li>
-      <Link href={navigationRoutes.LOGOUT} locale={locale}>
+      <Link
+        href={navigationRoutes.LOGOUT}
+        locale={locale}
+        className={isActivePath(navigationRoutes.LOGOUT) ? styles.active : ""}
+      >
         {t("Navigation.logout")}
       </Link>
     </li>
   ) : (
     <li>
-      <Link href={navigationRoutes.LOGIN} locale={locale}>
+      <Link
+        href={navigationRoutes.LOGIN}
+        locale={locale}
+        className={isActivePath(navigationRoutes.LOGIN) ? styles.active : ""}
+      >
         {t("Navigation.login")}
       </Link>
     </li>
@@ -65,20 +83,49 @@ const Navbar = ({ style }: NabarProps) => {
       </Link>
       <ul>
         <li>
-          <Link href={navigationRoutes.HOME} locale={locale}>
+          <Link
+            href={navigationRoutes.HOME}
+            locale={locale}
+            className={isActivePath(navigationRoutes.HOME) ? styles.active : ""}
+          >
             {t("Navigation.home")}
           </Link>
         </li>
         <li>
-          <Link href={navigationRoutes.ABOUT} locale={locale}>
+          <Link
+            href={navigationRoutes.ABOUT}
+            locale={locale}
+            className={
+              isActivePath(navigationRoutes.ABOUT) ? styles.active : ""
+            }
+          >
             {t("Navigation.about")}
           </Link>
         </li>
         <li>
-          <Link href={navigationRoutes.CONTACT} locale={locale}>
+          <Link
+            href={navigationRoutes.CONTACT}
+            locale={locale}
+            className={
+              isActivePath(navigationRoutes.CONTACT) ? styles.active : ""
+            }
+          >
             {t("Navigation.contact")}
           </Link>
         </li>
+        {isLoggedIn && (
+          <li>
+            <Link
+              href={navigationRoutes.PROFILE}
+              locale={locale}
+              className={
+                isActivePath(navigationRoutes.PROFILE) ? styles.active : ""
+              }
+            >
+              {t("Navigation.profil")}
+            </Link>
+          </li>
+        )}
         {authBtn}
       </ul>
       <CTAButton

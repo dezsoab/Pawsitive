@@ -19,9 +19,10 @@ import Navbar from "@/components/navigation/Navbar";
 import { RegisterOwnerDTO } from "@/types/RegisterOwnerDTO";
 import { createOwner } from "@/api/post/createOwner";
 import { useRouter, useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
+import { navigationRoutes } from "@/enums/navigationRoutes";
 
 interface FormElements extends HTMLFormControlsCollection {
   firstName: HTMLInputElement;
@@ -29,10 +30,6 @@ interface FormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
   password: HTMLInputElement;
   phone: HTMLInputElement;
-  country: HTMLInputElement;
-  city: HTMLInputElement;
-  zip: HTMLInputElement;
-  street: HTMLInputElement;
   persistent: HTMLInputElement;
 }
 interface SignInFormElement extends HTMLFormElement {
@@ -52,7 +49,7 @@ function ColorSchemeToggle(props: IconButtonProps) {
       size="lg"
       variant="outlined"
       disabled={!mounted}
-      onClick={(event) => {
+      onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         setMode(mode === "light" ? "dark" : "light");
         onClick?.(event);
       }}
@@ -69,6 +66,8 @@ const RegisterForm = () => {
   const id = searchParams.get("tagId");
   const router = useRouter();
   const { setIsLoggedIn } = useAuth();
+  const password1Ref = useRef<HTMLInputElement>(null);
+  const password2Ref = useRef<HTMLInputElement>(null);
 
   return (
     <>
@@ -85,7 +84,7 @@ const RegisterForm = () => {
           }}
         />
         <Box
-          sx={(theme) => ({
+          sx={(theme: { getColorSchemeSelector: (arg0: string) => any }) => ({
             width: { xs: "100%", md: "50vw" },
             transition: "width var(--Transition-duration)",
             transitionDelay: "calc(var(--Transition-duration) + 0.1s)",
@@ -183,15 +182,20 @@ const RegisterForm = () => {
                     event.preventDefault();
                     const formElements = event.currentTarget.elements;
 
+                    if (
+                      password1Ref.current?.value != password2Ref.current?.value
+                    ) {
+                      toast.error("The password fields must match!", {
+                        position: "bottom-right",
+                      });
+                      return;
+                    }
+
                     const owner: RegisterOwnerDTO = {
                       firstName: formElements.firstName.value,
                       lastName: formElements.lastName.value,
                       email: formElements.email.value,
                       password: formElements.password.value,
-                      country: formElements.country.value,
-                      city: formElements.city.value,
-                      zipCode: formElements.zip.value,
-                      street: formElements.street.value,
                       phone: formElements.phone.value,
                       persistLogin: formElements.persistent.checked,
                     };
@@ -219,10 +223,6 @@ const RegisterForm = () => {
                         formElements.lastName.value = "";
                         formElements.email.value = "";
                         formElements.password.value = "";
-                        formElements.country.value = "";
-                        formElements.city.value = "";
-                        formElements.zip.value = "";
-                        formElements.street.value = "";
                         formElements.phone.value = "";
                         formElements.persistent.checked = true;
                       })
@@ -233,7 +233,7 @@ const RegisterForm = () => {
                       })
                       .then(() => setIsLoggedIn(true))
                       .then(() => {
-                        router.push(`/profile/edit?tagId=${id}`);
+                        router.push(navigationRoutes.PROFILE);
                       })
                       .catch((e) => {
                         console.log(e.message);
@@ -291,58 +291,28 @@ const RegisterForm = () => {
 
                   <FormControl required>
                     <FormLabel sx={{ fontSize: "var(--font-small)" }}>
-                      Country
-                    </FormLabel>
-                    <Input
-                      type="text"
-                      name="country"
-                      sx={{ fontSize: "var(--font-small)" }}
-                    />
-                  </FormControl>
-
-                  <FormControl required>
-                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
-                      City
-                    </FormLabel>
-                    <Input
-                      type="text"
-                      name="city"
-                      sx={{ fontSize: "var(--font-small)" }}
-                    />
-                  </FormControl>
-
-                  <FormControl required>
-                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
-                      Zip
-                    </FormLabel>
-                    <Input
-                      type="text"
-                      name="zip"
-                      sx={{ fontSize: "var(--font-small)" }}
-                    />
-                  </FormControl>
-
-                  <FormControl required>
-                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
-                      Street
-                    </FormLabel>
-                    <Input
-                      type="text"
-                      name="street"
-                      sx={{ fontSize: "var(--font-small)" }}
-                    />
-                  </FormControl>
-
-                  <FormControl required>
-                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
                       Password
                     </FormLabel>
                     <Input
+                      slotProps={{ input: { ref: password1Ref } }}
                       type="password"
                       name="password"
                       sx={{ fontSize: "var(--font-small)" }}
                     />
                   </FormControl>
+
+                  <FormControl required>
+                    <FormLabel sx={{ fontSize: "var(--font-small)" }}>
+                      Password again
+                    </FormLabel>
+                    <Input
+                      slotProps={{ input: { ref: password2Ref } }}
+                      type="password"
+                      name="password2"
+                      sx={{ fontSize: "var(--font-small)" }}
+                    />
+                  </FormControl>
+
                   <Stack sx={{ gap: 4, mt: 2 }}>
                     <Checkbox
                       sx={{
@@ -378,7 +348,7 @@ const RegisterForm = () => {
           </Box>
         </Box>
         <Box
-          sx={(theme) => ({
+          sx={(theme: { getColorSchemeSelector: (arg0: string) => any }) => ({
             height: "100%",
             position: "fixed",
             right: 0,
