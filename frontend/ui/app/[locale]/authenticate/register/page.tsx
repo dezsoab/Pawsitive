@@ -22,6 +22,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { useRef } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
+import { navigationRoutes } from "@/enums/navigationRoutes";
 
 interface FormElements extends HTMLFormControlsCollection {
   firstName: HTMLInputElement;
@@ -232,7 +233,7 @@ const RegisterForm = () => {
                       })
                       .then(() => setIsLoggedIn(true))
                       .then(() => {
-                        router.push(`/profile?tagId=${id}`);
+                        router.push(navigationRoutes.PROFILE);
                       })
                       .catch((e) => {
                         console.log(e.message);

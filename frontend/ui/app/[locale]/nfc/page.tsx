@@ -1,6 +1,7 @@
 "use client";
 import { fetchTagResponseDTO } from "@/api/get/fetchTagResponseDTO";
 import Cat from "@/components/loader/Cat";
+import { navigationRoutes } from "@/enums/navigationRoutes";
 import { tagState } from "@/enums/tagState";
 import { TagResponseDTO } from "@/types/TagResponseDTO";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -21,7 +22,7 @@ const ScannedNfcTag = () => {
         setTagResponse(tagResponse);
       } catch (error) {
         console.error("Error fetching tagResponseDTO:", error);
-        router.push(`/nfc/help?tagId=${tagId}`);
+        router.push(navigationRoutes.HOME); // TODO: handle erroneous tag instead sending user to home!!
         return;
       }
     };
