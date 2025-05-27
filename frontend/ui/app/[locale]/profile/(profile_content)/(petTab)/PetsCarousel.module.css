@@ -1,0 +1,10 @@
+.petContainer {
+  background-color: blue;
+}
+
+.petCard {
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-small);
+}
