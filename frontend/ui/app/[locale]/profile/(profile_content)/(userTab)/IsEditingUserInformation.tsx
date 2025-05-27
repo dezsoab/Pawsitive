@@ -1,7 +1,7 @@
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
 import React, { Dispatch, FormEvent, SetStateAction, useRef } from "react";
 
-import styles from "../[userTab]/UserTab.module.css";
+import styles from "../(userTab)/UserTab.module.css";
 import { updateUserInformation } from "@/api/put/updateUserInformation";
 import { toast } from "react-toastify";
 

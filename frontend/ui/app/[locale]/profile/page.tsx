@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { checkIfAuthenticated } from "@/api/get/checkIfAuthenticated";
 import Cat from "@/components/loader/Cat";
-import Profile from "./[profile_content]/Profile";
+import Profile from "./(profile_content)/Profile";
 
 const PersonalPage = () => {
   const router = useRouter();

@@ -4,9 +4,9 @@ import { profileTabs } from "@/enums/profileTabs";
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import ProfileNavbar from "./[nav]/ProfileNavbar";
-import UserInformation from "./[userTab]/UserTab";
-import PetsCarousel from "./[petTab]/PetsCarousel";
+import ProfileNavbar from "./(nav)/ProfileNavbar";
+import UserInformation from "./(userTab)/UserTab";
+import PetsCarousel from "./(petTab)/PetsCarousel";
 import { ToastContainer } from "react-toastify";
 
 const Profile = () => {
