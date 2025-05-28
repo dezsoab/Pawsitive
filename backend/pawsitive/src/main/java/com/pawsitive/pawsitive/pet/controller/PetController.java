@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -27,6 +28,13 @@ public class PetController {
         this.petService = petService;
         this.petMapper = petMapper;
         this.ownerService = ownerService;
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PetDTO> updatePet(@PathVariable String id, @RequestBody PetDTO petDTO) {
+        logger.info("Received request to update pet with ID: {}", id);
+        petService.updatePet(id,petDTO);
+        return new ResponseEntity<>(petDTO, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

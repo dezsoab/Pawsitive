@@ -8,3 +8,8 @@
   flex-direction: column;
   font-size: var(--font-small);
 }
+
+.petImage {
+  width: 300px;
+  height: auto;
+}

@@ -5,5 +5,5 @@ export interface PetDTO {
   age: string;
   sex: string;
   nfcTagId: string;
-  imageUrl?: string;
+  photoUrl?: string;
 }
