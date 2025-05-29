@@ -125,7 +125,10 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
         <div key={pet.id} className={styles.petCard}>
           <Image
             className={styles.petImage}
-            src={pet.photoUrl || "/assets/missing-image.jpg"}
+            src={
+              `${pet.photoUrl}?t=${new Date().getTime()}` ||
+              "/assets/missing-image.jpg"
+            }
             alt={pet.name}
             width={100}
             height={100}
