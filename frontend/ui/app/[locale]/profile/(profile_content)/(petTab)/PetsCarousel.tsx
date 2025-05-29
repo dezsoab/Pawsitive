@@ -17,12 +17,12 @@ const MAX_IMAGE_SIZE_TO_COMPRESS = parseFloat(
   process.env.NEXT_PUBLIC_MAX_IMAGE_SIZE_TO_COMPRESS || "1.5"
 );
 const MAX_IMAGE_SIZE_TO_CHOOSE = parseFloat(
-  process.env.NEXT_PUBLIC_MAX_IMAGE_SIZE_TO_CHOOSE || "3"
+  process.env.NEXT_PUBLIC_MAX_IMAGE_SIZE_TO_CHOOSE || "4"
 );
 
 const imageCompressionOptions = {
   maxSizeMB: MAX_IMAGE_SIZE_TO_COMPRESS,
-  maxWidthOrHeight: 1024,
+  maxWidthOrHeight: 1800,
   useWebWorker: true,
 };
 
@@ -94,9 +94,7 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
 
     try {
       const compressedFile = await compressImage(file);
-      const fileName = `pet-${petId}-${Date.now()}.${file.name
-        .split(".")
-        .pop()}`;
+      const fileName = `pet-${petId}.${file.name.split(".").pop()}`;
       const photoUrl = await uploadToS3(compressedFile, fileName);
 
       let updatedPet = null;
@@ -138,7 +136,11 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
           <p>Sex: {pet.sex}</p>
           <p>Pet ID: {pet.id}</p>
           <p>Tag ID: {pet.nfcTagId}</p>
+          <label htmlFor={`file-upload-${pet.id}`}>
+            {pet.photoUrl ? "Update Picture" : "Add Picture"}
+          </label>
           <input
+            id={`file-upload-${pet.id}`}
             type="file"
             accept="image/*"
             onChange={(e) => {
