@@ -16,6 +16,8 @@
   --color-green: #446a46;
   --color-green-light: #5f9462;
   --color-green-dark: #2b4a2c;
+  --color-green-confirm: #17d720;
+  --color-red-decline: rgb(237, 42, 42);
 
   /* Rounding amounts */
   --rounding: 5px;

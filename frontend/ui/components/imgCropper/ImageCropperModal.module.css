@@ -1,0 +1,29 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cropContainer {
+  position: relative;
+  background: var(--color-pink-light);
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 1 / 1;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  z-index: 15;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 2rem;
+}

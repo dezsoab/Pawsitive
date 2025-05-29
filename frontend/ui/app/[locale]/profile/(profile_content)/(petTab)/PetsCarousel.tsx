@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import imageCompression from "browser-image-compression";
@@ -7,6 +7,7 @@ import styles from "./PetsCarousel.module.css";
 import { fetchPresignedPetUrl } from "@/api/get/fetchPresignedPetUrl";
 import { updatePet } from "@/api/put/updatePetDetails";
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
+import ImageCropperModal from "@/components/imgCropper/ImageCropperModal";
 
 interface PetsCarouselProps {
   profile: ProfileInformationDTO;
@@ -74,7 +75,13 @@ const updatePetInfo = async (
 };
 
 const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
-  const handleFileUpload = async (file: File, petId: number) => {
+  const [cropModal, setCropModal] = useState<{
+    file: File;
+    petId: number;
+    url: string;
+  } | null>(null);
+
+  const handleFileSelect = (file: File, petId: number) => {
     if (isFileTooLarge(file)) {
       toast.error(
         `File too large. Max ${MAX_IMAGE_SIZE_TO_CHOOSE}MB allowed.`,
@@ -92,42 +99,54 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
       return;
     }
 
-    try {
-      const compressedFile = await compressImage(file);
-      const fileName = `pet-${petId}.${file.name.split(".").pop()}`;
-      const photoUrl = await uploadToS3(compressedFile, fileName);
+    const fileUrl = URL.createObjectURL(file);
+    setCropModal({ file, petId, url: fileUrl });
+  };
 
-      let updatedPet = null;
-      const updatedPets = profile.pets.map((pet) => {
-        if (pet.id === petId) {
-          updatedPet = { ...pet, photoUrl };
-          return updatedPet;
-        }
-        return pet;
-      });
+  const handleCroppedImage = async (croppedBlob: Blob) => {
+    if (!cropModal) return;
+    const { file, petId } = cropModal;
 
-      setProfile({ ...profile, pets: updatedPets });
+    const fileName = `pet-${petId}.${file.name.split(".").pop()}`;
+    const compressedFile = await compressImage(
+      new File([croppedBlob], fileName, { type: croppedBlob.type })
+    );
 
-      if (updatedPet) {
-        await updatePetInfo(updatedPet);
+    const photoUrl = await uploadToS3(compressedFile, fileName);
+
+    let updatedPet;
+    const updatedPets = profile.pets.map((pet) => {
+      if (pet.id === petId) {
+        updatedPet = { ...pet, photoUrl };
+        return updatedPet;
       }
-    } catch (err) {
-      console.error("File upload error:", err);
-      toast.error("Unexpected error during image upload.", {
-        position: "bottom-right",
-      });
+      return pet;
+    });
+
+    setProfile({ ...profile, pets: updatedPets });
+    if (updatedPet) {
+      await updatePetInfo(updatedPet);
     }
+    setCropModal(null);
   };
 
   return (
     <div className={styles.petContainer}>
+      {cropModal && (
+        <ImageCropperModal
+          imageSrc={cropModal.url}
+          onCancel={() => setCropModal(null)}
+          onCropComplete={handleCroppedImage}
+        />
+      )}
       {profile.pets.map((pet) => (
         <div key={pet.id} className={styles.petCard}>
           <Image
             className={styles.petImage}
             src={
-              `${pet.photoUrl}?t=${new Date().getTime()}` ||
-              "/assets/missing-image.jpg"
+              pet.photoUrl
+                ? `${pet.photoUrl}?t=${new Date().getTime()}`
+                : "/assets/missing-image.jpg"
             }
             alt={pet.name}
             width={100}
@@ -143,12 +162,11 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
             {pet.photoUrl ? "Update Picture" : "Add Picture"}
           </label>
           <input
-            id={`file-upload-${pet.id}`}
             type="file"
             accept="image/*"
             onChange={(e) => {
               const file = e.target.files?.[0];
-              if (file) handleFileUpload(file, pet.id);
+              if (file) handleFileSelect(file, pet.id);
               e.target.value = "";
             }}
           />
