@@ -1,4 +1,10 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import imageCompression from "browser-image-compression";
@@ -80,6 +86,28 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
     petId: number;
     url: string;
   } | null>(null);
+  const [activePetId, setActivePetId] = useState<number | null>(null);
+  const containerRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setActivePetId(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleCardClick = (petId: number) => {
+    setActivePetId((prevId) => (prevId === petId ? null : petId));
+  };
 
   const handleFileSelect = (file: File, petId: number) => {
     if (isFileTooLarge(file)) {
@@ -131,7 +159,7 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
   };
 
   return (
-    <div className={styles.petContainer}>
+    <div>
       {cropModal && (
         <ImageCropperModal
           imageSrc={cropModal.url}
@@ -139,39 +167,77 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
           onCropComplete={handleCroppedImage}
         />
       )}
-      {profile.pets.map((pet) => (
-        <div key={pet.id} className={styles.petCard}>
-          <Image
-            className={styles.petImage}
-            src={
-              pet.photoUrl
-                ? `${pet.photoUrl}?t=${new Date().getTime()}`
-                : "/assets/missing-image.jpg"
-            }
-            alt={pet.name}
-            width={250}
-            height={250}
-          />
-          <p>Name: {pet.name}</p>
-          <p>Breed: {pet.breed}</p>
-          <p>Age: {pet.age}</p>
-          <p>Sex: {pet.sex}</p>
-          <p>Pet ID: {pet.id}</p>
-          <p>Tag ID: {pet.nfcTagId}</p>
-          <label htmlFor={`file-upload-${pet.id}`}>
-            {pet.photoUrl ? "Update Picture" : "Add Picture"}
-          </label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              if (file) handleFileSelect(file, pet.id);
-              e.target.value = "";
-            }}
-          />
-        </div>
-      ))}
+      <div className={styles.petContainer}>
+        <ul className={styles.cards}>
+          {profile.pets.map((pet) => (
+            <li key={pet.id} ref={containerRef}>
+              <div
+                className={`${styles.card} ${
+                  activePetId === pet.id ? styles.active : ""
+                }`}
+                onClick={() => handleCardClick(pet.id)}
+              >
+                <Image
+                  className={styles.card__image}
+                  src={
+                    pet.photoUrl
+                      ? `${pet.photoUrl}?t=${new Date().getTime()}`
+                      : "/assets/missing-image2.svg"
+                  }
+                  alt={pet.name}
+                  width={250}
+                  height={250}
+                />
+                <div className={styles.card__overlay}>
+                  <div className={styles.card__header}>
+                    <svg
+                      className={styles.card__arc}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path />
+                    </svg>
+                    <Image
+                      className={styles.card__thumb}
+                      src={
+                        pet.photoUrl
+                          ? `${pet.photoUrl}?t=${new Date().getTime()}`
+                          : "/assets/missing-image.svg"
+                      }
+                      alt={pet.name}
+                      width={250}
+                      height={250}
+                    />
+                    <div className={styles.card__header_text}>
+                      <h3 className={styles.card__title}>{pet.name}</h3>
+                      <span className={styles.card__status}>{pet.id}</span>
+                    </div>
+                  </div>
+                  <div className={styles.card__infos}>
+                    <p>Name: {pet.name}</p>
+                    <p>Breed: {pet.breed}</p>
+                    <p>Age: {pet.age}</p>
+                    <p>Sex: {pet.sex}</p>
+                    <p>Pet ID: {pet.id}</p>
+                    <p>Tag ID: {pet.nfcTagId}</p>
+                    <label htmlFor={`file-upload-${pet.id}`}>
+                      {pet.photoUrl ? "Update Picture" : "Add Picture"}
+                    </label>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) handleFileSelect(file, pet.id);
+                        e.target.value = "";
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

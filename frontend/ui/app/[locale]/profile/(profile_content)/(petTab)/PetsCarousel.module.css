@@ -1,15 +1,119 @@
-.petContainer {
-  background-color: blue;
+.cards {
+  --surface-color: var(--color-pink-dark);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 400px));
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  list-style-type: none;
 }
 
-.petCard {
-  background-color: grey;
-  display: flex;
-  flex-direction: column;
-  font-size: var(--font-small);
+.card {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 15px;
 }
 
-.petImage {
-  width: 300px;
+.card__image {
+  min-width: 300;
+  width: 400px;
   height: auto;
+}
+
+.card__overlay {
+  font-size: var(--font-paragraph);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: calc(var(--curve) * 1px);
+  background-color: var(--surface-color);
+  transform: translateY(100%);
+  transition: 0.25s ease-in-out;
+}
+
+.card:hover .card__overlay,
+.card.active .card__overlay {
+  transform: translateY(0);
+  cursor: pointer;
+}
+
+.card:hover .card__header,
+.card.active .card__header {
+  transform: translateY(0);
+}
+.active {
+  /* no styles needed, it just toggles CSS selectors above */
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: 0.25s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card__title {
+  color: var(--color-white);
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-size: var(--font-small);
+  color: #d7bdca;
+}
+
+.card__status {
+  font-size: var(--font-small);
+  color: #d7bdca;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #d7bdca;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.card__infos {
+  padding: 0 2rem 2rem 2rem;
 }

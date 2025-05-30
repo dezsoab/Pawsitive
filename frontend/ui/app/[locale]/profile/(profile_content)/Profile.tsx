@@ -29,7 +29,9 @@ const Profile = () => {
   if (!profile) return <Cat />;
 
   return (
-    <div>
+    <div
+      style={{ backgroundColor: "var(--color-pink-light)", minHeight: "100vh" }}
+    >
       <ToastContainer style={{ fontSize: "var(--font-small)" }} />
       <ProfileNavbar activeTab={activeTab} setActiveTab={setActiveTab} />
       {activeTab === profileTabs.PERSONAL && (
