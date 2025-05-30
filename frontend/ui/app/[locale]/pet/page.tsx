@@ -7,7 +7,6 @@ import Image from "next/image";
 import styles from "./ScannedPetProfile.module.css";
 
 import Navbar from "@/components/navigation/Navbar";
-import molli from "../../../public/assets/molli2.webp";
 import Ribbon from "@/components/ribbon/Ribbon";
 import ScannedPetDetails from "./ScannedPetDetails";
 
@@ -65,7 +64,11 @@ const ScannedPetProfile: React.FC = () => {
           <div className={styles.card}>
             <div className={styles.imgContainer}>
               <Image
-                src={pet.photoUrl || molli}
+                src={
+                  pet.photoUrl
+                    ? `${pet.photoUrl}?t=${new Date().getTime()}`
+                    : "/assets/missing-image.jpg"
+                }
                 alt={pet.name}
                 fill
                 objectFit="cover"
