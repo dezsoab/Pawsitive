@@ -149,8 +149,8 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
                 : "/assets/missing-image.jpg"
             }
             alt={pet.name}
-            width={100}
-            height={100}
+            width={250}
+            height={250}
           />
           <p>Name: {pet.name}</p>
           <p>Breed: {pet.breed}</p>

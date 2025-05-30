@@ -2,6 +2,7 @@ package com.pawsitive.pawsitive.loader;
 
 import com.pawsitive.pawsitive.address.model.Address;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
+import com.pawsitive.pawsitive.nfctag.model.TagStatus;
 import com.pawsitive.pawsitive.nfctag.service.NfcTagService;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.pet.model.Pet;
@@ -110,8 +111,19 @@ public class DataLoader implements CommandLineRunner {
             petService.createPet(pet2);
             logger.info("Second pet created: {}", pet2);
 
+            Pet pet3 = Pet.builder()
+                    .name("Cézár")
+                    .breed("Belgian Shepherd Groenendael")
+                    .age(2)
+                    .sex("Male")
+                    .owner(owner1)
+                    .build();
+
+            petService.createPet(pet3);
+            logger.info("Third pet created: {}", pet3);
+
             NfcTag assignedTag1 = NfcTag.builder()
-                    .status("active")
+                    .status(TagStatus.CLAIMED)
                     .pet(pet1)
                     .tagId("ABC123")
                     .build();
@@ -119,15 +131,23 @@ public class DataLoader implements CommandLineRunner {
             logger.info("First assigned nfc tag created: {}", assignedTag1);
 
             NfcTag assignedTag2 = NfcTag.builder()
-                    .status("active")
+                    .status(TagStatus.CLAIMED)
+                    .pet(pet3)
+                    .tagId("ABC12345")
+                    .build();
+            nfcTagService.createNfcTag(assignedTag2);
+            logger.info("First assigned nfc tag created: {}", assignedTag2);
+
+            NfcTag assignedTag3 = NfcTag.builder()
+                    .status(TagStatus.CLAIMED)
                     .pet(pet2)
                     .tagId("ABC1234")
                     .build();
-            nfcTagService.createNfcTag(assignedTag2);
-            logger.info("Second assigned nfc tag created: {}", assignedTag2);
+            nfcTagService.createNfcTag(assignedTag3);
+            logger.info("Third assigned nfc tag created: {}", assignedTag3);
 
             NfcTag unAssignedTag = NfcTag.builder()
-                    .status("inactive")
+                    .status(TagStatus.UNCLAIMED)
                     .pet(null)
                     .tagId("ABC1231")
                     .build();
