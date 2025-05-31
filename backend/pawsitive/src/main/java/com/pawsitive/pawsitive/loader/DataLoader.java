@@ -76,8 +76,8 @@ public class DataLoader implements CommandLineRunner {
             logger.info("First pet created: {}", pet1);
 
             User user2 = User.builder()
-                    .email("cinti.katona@example.com")
-                    .password("password123")
+                    .email("test@test.com")
+                    .password("v")
                     .active(true)
                     .build();
 

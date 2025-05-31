@@ -1,17 +1,20 @@
 .cards {
   --surface-color: var(--color-pink-dark);
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 400px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
   list-style-type: none;
+  max-width: 1280px; /* Limit total width to max 3-4 columns */
+  margin: 0 auto; /* Center the grid container itself */
 }
 
 .card {
   position: relative;
   display: block;
-  height: 100%;
+  max-height: 550px;
+  min-height: 500px;
   border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
