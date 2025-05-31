@@ -14,6 +14,7 @@ import { fetchPresignedPetUrl } from "@/api/get/fetchPresignedPetUrl";
 import { updatePet } from "@/api/put/updatePetDetails";
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
 import ImageCropperModal from "@/components/imgCropper/ImageCropperModal";
+import { useLocale, useTranslations } from "next-intl";
 
 interface PetsCarouselProps {
   profile: ProfileInformationDTO;
@@ -89,6 +90,9 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
   const [activePetId, setActivePetId] = useState<number | null>(null);
   const containerRef = useRef<HTMLLIElement>(null);
 
+  const locale = useLocale();
+  const t = useTranslations();
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -158,6 +162,15 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
     setCropModal(null);
   };
 
+  console.log(t("Pet.sex.male"));
+  console.log(profile.pets.find((pet) => pet.name == "Cézár")?.sex);
+  console.log(t("Pet.sex.male").localeCompare("Rüde", locale));
+
+  const sexTranslationMap = {
+    Male: t("Pet.sex.male"),
+    Female: t("Pet.sex.female"),
+  };
+
   return (
     <div>
       {cropModal && (
@@ -215,14 +228,29 @@ const PetsCarousel = ({ profile, setProfile }: PetsCarouselProps) => {
                       </div>
                     </div>
                     <div className={styles.card__infos}>
-                      <p>Name: {pet.name}</p>
-                      <p>Breed: {pet.breed}</p>
-                      <p>Age: {pet.age}</p>
-                      <p>Sex: {pet.sex}</p>
+                      <p>
+                        {t("Pet.name")}: {pet.name}
+                      </p>
+                      <p>
+                        {t("Pet.breed")}: {pet.breed}
+                      </p>
+                      <p>
+                        {t("Pet.age")}: {pet.age}
+                      </p>
+                      <p>
+                        {t("Pet.sex.name")}:{" "}
+                        {
+                          sexTranslationMap[
+                            pet.sex as keyof typeof sexTranslationMap
+                          ]
+                        }
+                      </p>
                       <p>Pet ID: {pet.id}</p>
                       <p>Tag ID: {pet.nfcTagId}</p>
                       <label htmlFor={`file-upload-${pet.id}`}>
-                        {pet.photoUrl ? "Update Picture" : "Add Picture"}
+                        {pet.photoUrl
+                          ? t("Dashboard.updateAction")
+                          : t("Dashboard.uploadAction")}
                       </label>
                       <input
                         type="file"

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import styles from "./ProfileNavbar.module.css";
 import Image from "next/image";
+import LanguagePicker from "@/components/language/LanguagePicker";
 
 interface ProfileNavbarProps {
   activeTab: profileTabs;
@@ -13,7 +14,7 @@ interface ProfileNavbarProps {
 
 const ProfileNavbar = ({ activeTab, setActiveTab }: ProfileNavbarProps) => {
   const locale = useLocale();
-  const t = useTranslations();
+  const t = useTranslations("Navigation");
 
   return (
     <div className={styles.nav}>
@@ -31,7 +32,7 @@ const ProfileNavbar = ({ activeTab, setActiveTab }: ProfileNavbarProps) => {
       </Link>
       <button>
         <Link href={navigationRoutes.HOME} locale={locale}>
-          {t("Navigation.home")}
+          {t("home")}
         </Link>
       </button>
       <button onClick={() => setActiveTab(profileTabs.PERSONAL)}>
@@ -42,7 +43,7 @@ const ProfileNavbar = ({ activeTab, setActiveTab }: ProfileNavbarProps) => {
             activeTab === profileTabs.PERSONAL ? styles.active : ""
           }`}
         >
-          {profileTabs.PERSONAL}
+          {t("personal")}
         </Link>
       </button>
       <button onClick={() => setActiveTab(profileTabs.PETS)}>
@@ -51,14 +52,15 @@ const ProfileNavbar = ({ activeTab, setActiveTab }: ProfileNavbarProps) => {
           locale={locale}
           className={`${activeTab === profileTabs.PETS ? styles.active : ""}`}
         >
-          {profileTabs.PETS}
+          {t("pets")}
         </Link>
       </button>
       <button>
         <Link href={navigationRoutes.LOGOUT} locale={locale}>
-          {t("Navigation.logout")}
+          {t("logout")}
         </Link>
       </button>
+      <LanguagePicker isScrolled={false} className={styles.language} />
     </div>
   );
 };

@@ -3,7 +3,7 @@ export interface PetDTO {
   name: string;
   breed: string;
   age: string;
-  sex: string;
+  sex: "Male" | "Female";
   nfcTagId: string;
   photoUrl?: string;
 }

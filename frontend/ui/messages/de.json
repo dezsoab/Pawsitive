@@ -131,7 +131,9 @@
     "faqs": "Häufig gestellte Fragen",
     "login": "Anmelden",
     "logout": "Abmelden",
-    "profil": "Profil"
+    "profil": "Profil",
+    "pets": "Haustiere",
+    "personal": "Persönliche"
   },
   "NotFound": {
     "title": "Es scheint, als hättest du dich verlaufen",
@@ -140,7 +142,8 @@
     "molli_message_part2": " und wir schicken Molli einen Gruß!",
     "molli_image_alt": "Unser Freund, Molli"
   },
-  "ScannedPet": {
+  "Pet": {
+    "name": "Name",
     "breed": "Rasse",
     "age": "Alter",
     "sex": {
@@ -153,5 +156,9 @@
     "tel": "Telefon",
     "email": "E-Mail",
     "lost": "Verloren"
+  },
+  "Dashboard": {
+    "updateAction": "Bild aktualisieren",
+    "uploadAction": "Bild hochladen"
   }
 }

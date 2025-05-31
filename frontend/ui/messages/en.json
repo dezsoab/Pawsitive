@@ -131,7 +131,9 @@
     "faqs": "FAQs",
     "login": "Login",
     "logout": "Logout",
-    "profil": "Profile"
+    "profil": "Profile",
+    "pets": "Pets",
+    "personal": "Personal"
   },
   "NotFound": {
     "title": "Looks like you've lost your way",
@@ -140,7 +142,8 @@
     "molli_message_part2": " and we'll send Molli a shout!",
     "molli_image_alt": "Our friend, Molli"
   },
-  "ScannedPet": {
+  "Pet": {
+    "name": "Name",
     "breed": "Breed",
     "age": "Age",
     "sex": {
@@ -153,5 +156,9 @@
     "tel": "Telephone",
     "email": "Email",
     "lost": "Lost"
+  },
+  "Dashboard": {
+    "updateAction": "Update Picture",
+    "uploadAction": "Upload Picture"
   }
 }
