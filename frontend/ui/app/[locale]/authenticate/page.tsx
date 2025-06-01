@@ -47,6 +47,10 @@ function PrinterModel({
   const start = useRef<number | null>(null);
   const cameraAnimationDuration = 2;
 
+  useEffect(() => {
+    start.current = null;
+  }, [action]);
+
   useFrame((state) => {
     if (!ref.current) return;
 
@@ -56,13 +60,12 @@ function PrinterModel({
     const easedT = easeInOutSine(t);
 
     if (action === null) {
-      // initial animation
+      // Initial animation
       state.camera.position.set(0, 1.5 - 0.8 * easedT, 3 - 1 * easedT);
       state.camera.lookAt(0, 0.5, 0);
     } else {
-      // animation after button click
-      state.camera.position.set(0, 0.9 + 0.6 * easedT, 2 - 0.5 * easedT);
-      state.camera.lookAt(0, 0.4, 0);
+      state.camera.position.set(0, 1.0 + 0.01 * easedT, 2.0 - 1.0 * easedT);
+      state.camera.lookAt(0, 0.5 - 0.9 * easedT, 0.1);
     }
   });
 
