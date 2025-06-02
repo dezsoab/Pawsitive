@@ -13,7 +13,8 @@ const CAMERA_DEFAULT_LOOKAT = new THREE.Vector3(0, 0.5, 0);
 const CAMERA_LOGIN_POS = new THREE.Vector3(0, 1.0, 1.0);
 const CAMERA_LOGIN_LOOKAT = new THREE.Vector3(0, -0.4, 0.1);
 
-const DEFAULT_CAMERA_POS = new THREE.Vector3(0, 1.5, 3);
+// Initial Camera position for the first ever render-animation
+const DEFAULT_CAMERA_POS = new THREE.Vector3(0, 1.55, 3);
 const DEFAULT_LOOKAT = new THREE.Vector3(0, 0.8, 1);
 
 export default function PrinterModel({
