@@ -8,7 +8,6 @@ export enum navigationRoutes {
   FAQs = "/FAQs",
   INSTA = "/insta",
   FACEBOOK = "/facebook",
-  LOGIN = "/authenticate/login",
   LOGOUT = "/authenticate/logout",
   PROFILE = "/profile",
   AUTH = "/authenticate",
