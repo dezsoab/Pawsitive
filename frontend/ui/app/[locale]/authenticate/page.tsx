@@ -73,7 +73,7 @@ export default function AuthenticatePage() {
     setShowTags(false);
     setTimeout(() => {
       setFormVisible(true);
-    }, 2000);
+    }, 1000);
   };
 
   const handleRegisterAnimation = () => {
@@ -82,7 +82,7 @@ export default function AuthenticatePage() {
     setShowTags(false);
     const timeout = setTimeout(() => {
       setFormVisible(true);
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timeout);
   };
 
@@ -136,7 +136,7 @@ export default function AuthenticatePage() {
           />
           {action != null && formVisible && (
             <Html
-              position={width < 1030 ? [0.13, -0.2, 0.5] : [0.8, -1, 0.2]} // mobile vs desktop
+              position={width < 1030 ? [0.2, -0.28, 0.5] : [0.8, -1, 0.2]} // mobile vs desktop
               center
               zIndexRange={[3, 4]}
             >

@@ -40,7 +40,7 @@ export default function PrinterModel({
   useLayoutEffect(() => {
     camera.position.copy(DEFAULT_CAMERA_POS);
     camera.lookAt(DEFAULT_LOOKAT);
-  }, []);
+  }, [camera]);
 
   useEffect(() => {
     // Reset the animation start
@@ -62,7 +62,7 @@ export default function PrinterModel({
       setToCameraPos(CAMERA_LOGIN_POS);
       setToLookAt(CAMERA_LOGIN_LOOKAT);
     }
-  }, [action, animationDirection]);
+  }, [camera, action, animationDirection]);
 
   useFrame((state) => {
     if (!ref.current) return;

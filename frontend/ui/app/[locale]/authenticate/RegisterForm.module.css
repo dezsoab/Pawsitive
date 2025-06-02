@@ -11,3 +11,43 @@
   transform: translate(-50%, -50%);
   width: 350px;
 }
+
+.form input,
+.form button {
+  font-size: var(--font-small);
+}
+
+.form label {
+  font-size: var(--font-mini);
+  margin-right: 1rem;
+}
+
+.form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form div,
+.form input {
+  margin-bottom: 1.4rem;
+}
+
+.form input {
+  padding: 0.2rem 0.5rem;
+}
+
+.animateForm {
+  animation: animate 1.5s ease-in-out forwards;
+}
+
+@keyframes animate {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -120%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
