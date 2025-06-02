@@ -43,6 +43,19 @@
   animation: animate 1.5s ease-in-out forwards;
 }
 
+.backBtn {
+  background-color: var(--color-red-decline);
+  padding: 0.5rem 1.2rem;
+  font-size: var(--font-small);
+  color: var(--color-white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 170px;
+  right: 133px;
+}
+
 @keyframes animate {
   from {
     opacity: 0;

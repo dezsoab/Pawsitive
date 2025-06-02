@@ -35,22 +35,29 @@ export default function LoginForm() {
   };
 
   return (
-    <form
-      onSubmit={loginSubmitHandler}
-      className={`${styles.form} ${styles.animateForm}`}
-    >
-      <input name="email" type="email" placeholder="Email" required />
-      <input name="password" type="password" placeholder="Password" required />
-      <div>
-        <label htmlFor="persistent">Remember me</label>
+    <>
+      <form
+        onSubmit={loginSubmitHandler}
+        className={`${styles.form} ${styles.animateForm}`}
+      >
+        <input name="email" type="email" placeholder="Email" required />
         <input
-          id="persistent"
-          name="persistent"
-          type="checkbox"
-          defaultChecked
+          name="password"
+          type="password"
+          placeholder="Password"
+          required
         />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+        <div>
+          <label htmlFor="persistent">Remember me</label>
+          <input
+            id="persistent"
+            name="persistent"
+            type="checkbox"
+            defaultChecked
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </>
   );
 }

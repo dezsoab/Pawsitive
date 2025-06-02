@@ -5,6 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Html } from "@react-three/drei";
 import * as THREE from "three";
 import Navbar from "@/components/navigation/Navbar";
+import styles from "./AuthenticatePage.module.css";
 
 import { useHelper } from "@react-three/drei";
 import { DirectionalLightHelper } from "three";
@@ -69,17 +70,39 @@ export default function AuthenticatePage() {
 
   const [action, setAction] = useState<"login" | "register" | null>(null);
   const [formVisible, setFormVisible] = useState(false);
+  const [animationDirection, setAnimationDirection] = useState<
+    "forward" | "backward"
+  >("forward");
+  const [showTags, setShowTags] = useState(true);
 
-  useEffect(() => {
-    if (action !== null) {
-      const timeout = setTimeout(() => {
-        setFormVisible(true);
-      }, 2000); // Match animation duration
-      return () => clearTimeout(timeout);
-    } else {
-      setFormVisible(false);
-    }
-  }, [action]);
+  const handleBackWardsAnimation = () => {
+    setAnimationDirection("backward");
+    setFormVisible(false);
+
+    const timeout = setTimeout(() => {
+      setShowTags(true);
+    }, 2000); // Match animation duration
+    return () => clearTimeout(timeout);
+  };
+
+  const handleLoginAnimation = () => {
+    setAnimationDirection("forward");
+    setAction("login");
+    setShowTags(false);
+    setTimeout(() => {
+      setFormVisible(true);
+    }, 2000);
+  };
+
+  const handleRegisterAnimation = () => {
+    setAnimationDirection("forward");
+    setAction("register");
+    setShowTags(false);
+    const timeout = setTimeout(() => {
+      setFormVisible(true);
+    }, 2000);
+    return () => clearTimeout(timeout);
+  };
 
   return (
     <>
@@ -95,19 +118,24 @@ export default function AuthenticatePage() {
           <SoftShadows />
           <Environment files="/assets/studioLighting.hdr" background={false} />
           <Suspense fallback={null}>
-            <PrinterModel model={clonedModel} action={action} />
-            {action === null && (
+            <PrinterModel
+              model={clonedModel}
+              action={action}
+              animationDirection={animationDirection}
+            />
+
+            {showTags && (
               <>
                 <ClickableTag
                   position={[-0.1, 0.45, 0.75]}
                   rotation={[Math.PI / 2 - 0.4, Math.PI / 2 - 1.4, -0.6]}
-                  onClick={() => setAction("login")}
+                  onClick={handleLoginAnimation}
                   pathToTagModel="/assets/testTag.glb"
                 />
                 <ClickableTag
                   position={[0.08, 0.45, 0.75]}
                   rotation={[Math.PI / 2 - 0.4, -Math.PI / 2 + 1.4, 0.65]}
-                  onClick={() => setAction("register")}
+                  onClick={handleRegisterAnimation}
                   pathToTagModel="/assets/testTag.glb"
                 />
               </>
@@ -118,6 +146,16 @@ export default function AuthenticatePage() {
             enableRotate={false}
             enableZoom={false}
           />
+          {action != null && formVisible && (
+            <Html position={[0.8, -1, 0.2]} center>
+              <button
+                className={styles.backBtn}
+                onClick={handleBackWardsAnimation}
+              >
+                BACK
+              </button>
+            </Html>
+          )}
         </Canvas>
         {action === "login" && formVisible && <LoginForm />}
         {action === "register" && formVisible && <RegisterForm />}
