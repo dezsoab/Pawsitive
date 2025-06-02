@@ -16,6 +16,9 @@ import BackButton from "./BackButton";
 import { useWindowSize } from "./getWindowSize";
 import Cat from "@/components/loader/Cat";
 import RegisterForm from "./RegisterForm";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
+import { navigationRoutes } from "@/enums/navigationRoutes";
 
 function DebugLight({
   position,
@@ -40,6 +43,13 @@ function DebugLight({
 }
 
 export default function AuthenticatePage() {
+  const { isLoggedIn } = useAuth();
+  const router = useRouter();
+  if (isLoggedIn) {
+    router.push(navigationRoutes.PROFILE);
+    return;
+  }
+
   const { scene } = useGLTF("/assets/printer.glb");
   const clonedModel = useMemo(() => {
     const clone = scene.clone();
