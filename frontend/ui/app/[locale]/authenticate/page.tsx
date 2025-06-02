@@ -57,6 +57,9 @@ export default function AuthenticatePage() {
   const [showTags, setShowTags] = useState(true);
   const { width } = useWindowSize();
 
+  const loginTagOffset = useMemo(() => Math.random() * Math.PI * 2, []);
+  const registerTagOffset = useMemo(() => Math.random() * Math.PI * 2, []);
+
   const handleBackWardsAnimation = () => {
     setAnimationDirection("backward");
     setFormVisible(false);
@@ -115,12 +118,14 @@ export default function AuthenticatePage() {
             {showTags && (
               <>
                 <ClickableTag
+                  randomOffset={loginTagOffset}
                   position={[-0.1, 0.45, 0.75]}
                   rotation={[Math.PI / 2 - 0.4, Math.PI / 2 - 1.4, -0.6]}
                   onClick={handleLoginAnimation}
                   pathToTagModel="/assets/testTag.glb"
                 />
                 <ClickableTag
+                  randomOffset={registerTagOffset}
                   position={[0.08, 0.45, 0.75]}
                   rotation={[Math.PI / 2 - 0.4, -Math.PI / 2 + 1.4, 0.65]}
                   onClick={handleRegisterAnimation}
