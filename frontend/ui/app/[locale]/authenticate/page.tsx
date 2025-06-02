@@ -1,11 +1,10 @@
 "use client";
 
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useMemo, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Html } from "@react-three/drei";
 import * as THREE from "three";
 import Navbar from "@/components/navigation/Navbar";
-import styles from "./AuthenticatePage.module.css";
 
 import { useHelper } from "@react-three/drei";
 import { DirectionalLightHelper } from "three";
@@ -13,6 +12,10 @@ import { SoftShadows, Environment } from "@react-three/drei";
 import PrinterModel from "./PrinterModel";
 import ClickableTag from "./ClickableTag";
 import LoginForm from "./LoginForm";
+import BackButton from "./BackButton";
+import { useWindowSize } from "./getWindowSize";
+import Cat from "@/components/loader/Cat";
+import RegisterForm from "./RegisterForm";
 
 function DebugLight({
   position,
@@ -36,28 +39,6 @@ function DebugLight({
   );
 }
 
-function RegisterForm() {
-  return (
-    <Html position={[0, 0.4, 0]} center>
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.5rem",
-          background: "white",
-          padding: "1rem",
-          borderRadius: "1rem",
-        }}
-      >
-        <input placeholder="Name" required />
-        <input placeholder="Email" type="email" required />
-        <input placeholder="Password" type="password" required />
-        <button type="submit">Register</button>
-      </form>
-    </Html>
-  );
-}
-
 export default function AuthenticatePage() {
   const { scene } = useGLTF("/assets/printer.glb");
   const clonedModel = useMemo(() => {
@@ -74,6 +55,7 @@ export default function AuthenticatePage() {
     "forward" | "backward"
   >("forward");
   const [showTags, setShowTags] = useState(true);
+  const { width } = useWindowSize();
 
   const handleBackWardsAnimation = () => {
     setAnimationDirection("backward");
@@ -114,10 +96,16 @@ export default function AuthenticatePage() {
           position: "relative",
         }}
       >
-        <Canvas shadows camera={{ position: [0, 0, 5], fov: 35 }}>
+        <Canvas
+          shadows
+          camera={{ position: [0, 0, 5], fov: width < 1030 ? 50 : 35 }}
+        >
           <SoftShadows />
-          <Environment files="/assets/studioLighting.hdr" background={false} />
-          <Suspense fallback={null}>
+          <Environment
+            files="/assets/brown_photostudio_02_1k.hdr"
+            background={false}
+          />
+          <Suspense fallback={<Cat />}>
             <PrinterModel
               model={clonedModel}
               action={action}
@@ -147,13 +135,12 @@ export default function AuthenticatePage() {
             enableZoom={false}
           />
           {action != null && formVisible && (
-            <Html position={[0.8, -1, 0.2]} center>
-              <button
-                className={styles.backBtn}
-                onClick={handleBackWardsAnimation}
-              >
-                BACK
-              </button>
+            <Html
+              position={width < 1030 ? [0.13, -0.2, 0.5] : [0.8, -1, 0.2]} // mobile vs desktop
+              center
+              zIndexRange={[3, 4]}
+            >
+              <BackButton onClick={handleBackWardsAnimation} />
             </Html>
           )}
         </Canvas>
