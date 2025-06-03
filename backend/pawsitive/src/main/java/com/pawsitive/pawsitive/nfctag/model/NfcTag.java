@@ -28,7 +28,8 @@ public class NfcTag {
     private Pet pet;
 
     @Column(nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private TagStatus status;
     @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;

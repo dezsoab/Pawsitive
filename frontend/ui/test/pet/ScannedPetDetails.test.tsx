@@ -15,10 +15,10 @@ describe("ScannedPetDetails Component Tests", () => {
     });
 
     const breedText = screen.getByText(
-      `${locales.en.messages.ScannedPet.breed}: ${petMock.breed}`
+      `${locales.en.messages.Pet.breed}: ${petMock.breed}`
     );
     const ageText = screen.getByText(
-      `${locales.en.messages.ScannedPet.age}: ${petMock.age}`
+      `${locales.en.messages.Pet.age}: ${petMock.age}`
     );
 
     expect(breedText).toBeInTheDocument();
@@ -34,7 +34,7 @@ describe("ScannedPetDetails Component Tests", () => {
       });
 
       const breedText = screen.getByText(
-        `${messages.ScannedPet.breed}: ${petMock.breed}`
+        `${messages.Pet.breed}: ${petMock.breed}`
       );
       expect(breedText).toBeInTheDocument();
     }
@@ -48,7 +48,7 @@ describe("ScannedPetDetails Component Tests", () => {
         locale: locales.en.messages.Locale,
       });
 
-      const breedText = screen.getByText(locales.de.messages.ScannedPet.breed);
+      const breedText = screen.getByText(locales.de.messages.Pet.breed);
       expect(breedText).toBeInTheDocument();
     }).toThrow();
   });

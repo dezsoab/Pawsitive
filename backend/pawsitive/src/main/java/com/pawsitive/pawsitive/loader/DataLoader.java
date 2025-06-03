@@ -2,6 +2,7 @@ package com.pawsitive.pawsitive.loader;
 
 import com.pawsitive.pawsitive.address.model.Address;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
+import com.pawsitive.pawsitive.nfctag.model.TagStatus;
 import com.pawsitive.pawsitive.nfctag.service.NfcTagService;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.pet.model.Pet;
@@ -75,8 +76,8 @@ public class DataLoader implements CommandLineRunner {
             logger.info("First pet created: {}", pet1);
 
             User user2 = User.builder()
-                    .email("cinti.katona@example.com")
-                    .password("password123")
+                    .email("test@test.com")
+                    .password("v")
                     .active(true)
                     .build();
 
@@ -110,8 +111,63 @@ public class DataLoader implements CommandLineRunner {
             petService.createPet(pet2);
             logger.info("Second pet created: {}", pet2);
 
+            Pet pet3 = Pet.builder()
+                    .name("Cézár")
+                    .breed("Belgian Shepherd Groenendael")
+                    .age(2)
+                    .sex("Male")
+                    .owner(owner1)
+                    .build();
+
+            petService.createPet(pet3);
+            logger.info("Third pet created: {}", pet3);
+
+            Pet pet4 = Pet.builder()
+                    .name("Dog4")
+                    .breed("Border collie")
+                    .age(2)
+                    .sex("Male")
+                    .owner(owner1)
+                    .build();
+
+            petService.createPet(pet4);
+            logger.info("Fourth pet created: {}", pet4);
+
+            Pet pet5 = Pet.builder()
+                    .name("Dog5")
+                    .breed("Belgian")
+                    .age(2)
+                    .sex("Male")
+                    .owner(owner1)
+                    .build();
+
+            petService.createPet(pet5);
+            logger.info("Fifth pet created: {}", pet5);
+
+            Pet pet6 = Pet.builder()
+                    .name("Dog6")
+                    .breed("Golden retriever")
+                    .age(2)
+                    .sex("Male")
+                    .owner(owner1)
+                    .build();
+
+            petService.createPet(pet6);
+            logger.info("Sixth pet created: {}", pet6);
+
+            Pet pet7 = Pet.builder()
+                    .name("Dog7")
+                    .breed("Terrier Mix")
+                    .age(2)
+                    .sex("Male")
+                    .owner(owner1)
+                    .build();
+
+            petService.createPet(pet7);
+            logger.info("Third pet created: {}", pet7);
+
             NfcTag assignedTag1 = NfcTag.builder()
-                    .status("active")
+                    .status(TagStatus.CLAIMED)
                     .pet(pet1)
                     .tagId("ABC123")
                     .build();
@@ -119,15 +175,55 @@ public class DataLoader implements CommandLineRunner {
             logger.info("First assigned nfc tag created: {}", assignedTag1);
 
             NfcTag assignedTag2 = NfcTag.builder()
-                    .status("active")
+                    .status(TagStatus.CLAIMED)
+                    .pet(pet3)
+                    .tagId("ABC12345")
+                    .build();
+            nfcTagService.createNfcTag(assignedTag2);
+            logger.info("First assigned nfc tag created: {}", assignedTag2);
+
+            NfcTag assignedTag3 = NfcTag.builder()
+                    .status(TagStatus.CLAIMED)
                     .pet(pet2)
                     .tagId("ABC1234")
                     .build();
-            nfcTagService.createNfcTag(assignedTag2);
-            logger.info("Second assigned nfc tag created: {}", assignedTag2);
+            nfcTagService.createNfcTag(assignedTag3);
+            logger.info("Third assigned nfc tag created: {}", assignedTag3);
+
+            NfcTag assignedTag4 = NfcTag.builder()
+                    .status(TagStatus.CLAIMED)
+                    .pet(pet4)
+                    .tagId("ABC123456")
+                    .build();
+            nfcTagService.createNfcTag(assignedTag4);
+            logger.info("Fourth assigned nfc tag created: {}", assignedTag4);
+
+            NfcTag assignedTag5 = NfcTag.builder()
+                    .status(TagStatus.CLAIMED)
+                    .pet(pet5)
+                    .tagId("ABC123467")
+                    .build();
+            nfcTagService.createNfcTag(assignedTag5);
+            logger.info("Fifth assigned nfc tag created: {}", assignedTag5);
+
+            NfcTag assignedTag6 = NfcTag.builder()
+                    .status(TagStatus.CLAIMED)
+                    .pet(pet6)
+                    .tagId("ABC12345678")
+                    .build();
+            nfcTagService.createNfcTag(assignedTag6);
+            logger.info("Sixth assigned nfc tag created: {}", assignedTag6);
+
+            NfcTag assignedTag7 = NfcTag.builder()
+                    .status(TagStatus.CLAIMED)
+                    .pet(pet7)
+                    .tagId("ABC123456789")
+                    .build();
+            nfcTagService.createNfcTag(assignedTag7);
+            logger.info("Seventh assigned nfc tag created: {}", assignedTag7);
 
             NfcTag unAssignedTag = NfcTag.builder()
-                    .status("inactive")
+                    .status(TagStatus.UNCLAIMED)
                     .pet(null)
                     .tagId("ABC1231")
                     .build();
