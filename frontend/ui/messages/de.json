@@ -2,124 +2,118 @@
   "Locale": "de",
   "Index": {
     "hero": {
-      "title": "Handgefertigte Haustierzubehör",
+      "title": "Handgefertigte Haustiermarken & Halsbänder",
       "title_extension": "mit integrierter NFC-Technologie",
-      "description": "Entdecken Sie einzigartige Haustierzubehör, die sorgfältig mit eingebetteter NFC-Technologie gefertigt wurden, und Stil mit fortschrittlicher Funktionalität kombinieren."
+      "description": "Entdecke stilvolle Accessoires für dein Haustier – handgefertigt mit smarter Technik, damit dein Liebling immer nur einen Scan entfernt ist."
     },
     "products": {
-      "title": "Entdecken Sie die beliebtesten Haustierprodukten!",
-      "title_secondary": "Schauen Sie sich unsere atemberaubende Kollektion handgefertigter Haustierprodukten an und finden Sie das perfekte Item für Ihren pelzigen Freund."
+      "title": "Von Haustieren geliebt. Von Menschen vertraut.",
+      "title_secondary": "Entdecke unsere handgemachten Halsbänder und NFC-Marken – einfach zu nutzen und bereit für jedes Abenteuer."
     },
     "testimonial": {
-      "title": "Ich liebe das beruhigende Gefühl zu wissen, dass die Informationen meines Haustiers immer zugänglich sind. Die Qualität und das Design sind auch wunderbar! Pawsitive Collar hat wirklich an alles gedacht!",
-      "customer_adjective": "Zufriedener Kunde"
+      "title": "Ich war begeistert, als jemand das Halsband meines Hundes gescannt hat und ich sofort eine SMS bekam. Die Qualität ist top und die Idee einfach genial. Danke, Pawsitive!",
+      "customer_adjective": "Dankbare Tierhalterin"
     },
     "about": {
-      "title": "Über unsere einzigartigen Haustierhalsbänder",
-      "about_description": "Bei Pawsitive sind wir leidenschaftlich daran interessiert, stilvolle und sichere Haustierhalsbänder zu kreieren.\nJedes Halsband wird mit einer NFC-Tag-Softwarelösung geliefert, die beim Scannen die Informationen Ihres Haustiers anzeigt.\nHandgefertigt mit Liebe für Ihr geliebtes Haustier.",
-      "first_title": "Design",
-      "second_title": "Sicherheit",
-      "third_title": "Sorgenlos",
-      "block_1": "Heben Sie ihr Haustier mit unseren trendigen und \nmodischen Haustierhalsbändern von der Masse ab",
-      "block_2": "Halten Sie Ihr Haustier sicher und geschützt mit unserer fortschrittlichen NFC-Tag-Software",
-      "block_3": "Machen Sie sich nie wieder Sorgen, Ihr Haustier zu verlieren, dank unserer innovativen Technologie",
-      "about_heading": "Über unsere Pet Collars"
+      "title": "Die Idee hinter Pawsitive",
+      "about_description": "Wir hatten genug von langweiligen Metallmarken, die schnell zerkratzen. Also haben wir etwas Besseres entwickelt – handgefertigte Halsbänder mit eingebauter NFC-Technologie.\n\nKeine Batterie. Kein Aufladen.\nNur ein Tap – und das Profil deines Haustiers erscheint sofort.",
+      "first_title": "Mit Liebe gemacht",
+      "second_title": "Smart & zuverlässig",
+      "third_title": "Für ein gutes Gefühl",
+      "block_1": "Unsere Produkte sind handgefertigt aus robusten Materialien wie PETG und Paracord – so individuell wie dein Haustier.",
+      "block_2": "Der integrierte NFC-Tag verlinkt sicher auf das Profil deines Tieres – du bestimmst, was angezeigt wird.",
+      "block_3": "Erhalte SMS- und E-Mail-Benachrichtigungen, sobald jemand den Tag deines Haustiers scannt – ganz ohne App.",
+      "about_heading": "Warum wir tun, was wir tun"
     },
     "features": {
-      "title": "Einzigartige Merkmale unserer Haustierzubehör",
-      "title_secondary": "Entdecken Sie die innovative Technologie und stilvollen Designs, die unsere Produkte von den anderen abheben.",
-      "reason_1": "Handgefertigt mit Liebe",
-      "reason1_text": "Jedes Haustierhalsband wird mit Leidenschaft und Sorgfalt handgefertigt.",
-      "reason_2": "NFC-Tag-Software",
-      "reason2_text": "Die integrierte Softwarelösung zeigt die Informationen Ihres Haustieres sofort nach dem Scannen an.",
-      "reason_3": "Anpassbare Optionen",
-      "reason3_text": "Personalisieren Sie das Halsband Ihres Haustieres mit einzigartigen Designs und Farben."
-    },
-    "reasoning": {
-      "title": "Warum das Pawsitive Collar wählen?",
-      "title_secondary": "Der Grund, warum Tierhalter sich für unsere handgefertigten Haustierzubehörteile mit NFC-Technologie für ihre geliebten Haustiere entscheiden.",
-      "reason_1": "Stilvolles Design",
-      "reason1_amount": "50",
-      "reason_2": "Glückliche wiedervereinte Haustiere",
-      "reason2_amount": "1000",
-      "reason_3": "Zufriedene Kunden",
-      "reason3_amount": "5000"
+      "title": "Was Pawsitive besonders macht",
+      "title_secondary": "Wir vereinen smarte Technik, hochwertige Materialien und handgemachtes Design in einem einzigartigen Produkt.",
+      "reason_1": "Handgemacht & robust",
+      "reason1_text": "Jedes Halsband und jede Marke wird mit Sorgfalt gefertigt – stark, stilvoll und einzigartig.",
+      "reason_2": "NFC-Technologie",
+      "reason2_text": "Der smarte Chip speichert einen sicheren Link zum Profil deines Haustiers. Kein App-Download nötig.",
+      "reason_3": "Wasserfest & zuverlässig",
+      "reason3_text": "Der NFC-Chip ist komplett versiegelt – wetterfest, manipulationssicher und immer einsatzbereit."
     },
     "services": {
-      "title": "Unsere Dienstleistungen für Haustierliebhaber",
-      "title_secondary": "Entdecken Sie unser Angebot an Dienstleistungen, die darauf abzielen, Ihre Haustiere sicher, stilvoll und geschützt zu halten.",
-      "reason_1": "Individuelle Produktgestaltung",
-      "reason1_text": "Erstellen Sie ein einzigartiges Produkt für Ihr geliebtes Haustier.",
-      "reason_2": "Hilfe bei verloren gegangenen Haustieren",
-      "reason2_text": "Unsere NFC-Software hilft dabei, verlorene Haustiere mit ihren Besitzern wieder zu vereinen.",
-      "reason_3": "Hochwertige Handwerkskunst",
-      "reason3_text": "Erleben Sie die feinsten handgefertigten Haustierhalsbänder auf dem Markt."
+      "title": "Unsere Services für Tierfreunde",
+      "title_secondary": "Ob individuelles Design oder Unterstützung beim Finden deines Lieblings – wir sind für dich da.",
+      "reason_1": "Individuelles Design",
+      "reason1_text": "Wähle aus vielen Stilen und gestalte dein persönliches Halsband.",
+      "reason_2": "Hilfe bei vermissten Tieren",
+      "reason2_text": "Erhalte Benachrichtigungen, sobald jemand dein Tier gefunden hat und den Tag scannt.",
+      "reason_3": "Qualität, die überzeugt",
+      "reason3_text": "Jedes Produkt wird mit viel Liebe zum Detail handgefertigt."
+    },
+    "reasoning": {
+      "title": "Darum vertrauen uns Tierhalter",
+      "title_secondary": "Mehr als nur ein Halsband – Pawsitive steht für Sicherheit, Stil und Innovation.",
+      "reason_1": "Einzigartige Designs",
+      "reason1_amount": "50+",
+      "reason_2": "Wieder vereinte Tiere",
+      "reason2_amount": "1000+",
+      "reason_3": "Zufriedene Kunden",
+      "reason3_amount": "5000+"
     },
     "ctasection": {
-      "title": "Bereit, das Zubehör Ihres Haustiers aufzurüsten?",
-      "title_secondary": "Entdecken Sie unsere Kollektion handgefertigter Produkte und schenken Sie Ihrem Haustier Sicherheit und Stil."
+      "title": "Mach mehr aus dem Halsband deines Haustiers.",
+      "title_secondary": "Stöbere in unserer Kollektion und finde heraus, wie schön Sicherheit sein kann."
     },
     "contact": {
       "name": "Name",
       "email": "E-Mail",
       "message": "Nachricht",
-      "name_placeholder": "Geben Sie hier Ihren Namen ein",
-      "email_placeholder": "Geben Sie hier Ihre E-Mail-Adresse ein",
-      "message_placeholder": "Geben Sie hier Ihre Nachricht ein",
+      "name_placeholder": "Gib deinen Namen ein",
+      "email_placeholder": "Gib deine E-Mail-Adresse ein",
+      "message_placeholder": "Schreib uns eine Nachricht",
       "send_text": "Senden",
-      "thank_you": "Vielen Dank für Ihre Nachricht!",
-      "title": "Kontaktieren Sie uns",
-      "paragraph": "Haben Sie eine Frage oder ein Feedback? Hinterlassen Sie eine Nachricht und wir melden uns so schnell wie möglich bei Ihnen."
+      "thank_you": "Danke für deine Nachricht! Wir melden uns bald bei dir.",
+      "title": "Kontaktiere uns",
+      "paragraph": "Du hast eine Frage oder Feedback? Schreib uns – wir antworten so schnell wie möglich."
     },
     "footer": {
-      "paragraph": "Bleiben Sie auf dem Laufenden mit den neuesten Nachrichten und Angeboten von Pawsitive Collar",
+      "paragraph": "Bleib auf dem Laufenden – neue Designs, Aktionen und süße Tiergeschichten.",
       "rights": "Alle Rechte vorbehalten."
     }
   },
   "About": {
     "about": {
       "label": "Über Pawsitive",
-      "paragraph": "Bei Pawsitive Collar glauben wir, dass unsere Haustiere das Beste verdienen. Deshalb haben wir uns der Herstellung hochwertiger Halsbänder, Leinen und Accessoires gewidmet, die sowohl stilvoll als auch bequem für Ihre pelzigen Begleiter sind."
+      "paragraph": "Bei Pawsitive Collar glauben wir, dass Haustiere mehr sind als nur Begleiter – sie sind Familie, Vertraute und Freunde fürs Leben.\n\nUnsere Reise begann mit einer einfachen Idee: durchdachte Produkte zu entwickeln, die die Bindung zwischen Mensch und Tier stärken. Wir verbinden Handarbeit mit intelligenter Technologie, um nicht nur Zubehör, sondern echte Sicherheit zu bieten.\n\nJedes unserer Produkte spiegelt unsere Liebe wider – für Tiere, für Design und für die Menschen, die sich mit ganzem Herzen um ihre Haustiere kümmern. Für uns erzählt jedes Halsband eine Geschichte: von Fürsorge, Verantwortung und Verbundenheit.\n\nOb beim täglichen Spaziergang oder in ruhigen Momenten zu Hause – unsere Halsbänder und Anhänger sind gemacht, um euch zu begleiten – funktional, schön und langlebig."
     },
     "history": {
       "label": "Unsere Geschichte",
-      "paragraph": "Pawsitive Collar wurde 2024 von einem Team von Tierliebhabern gegründet, die frustriert über den Mangel an hochwertigen, nachhaltigen Haustierzubehör auf dem Markt waren. Wir haben uns zum Ziel gesetzt, eine Marke zu schaffen, die nicht nur die besten Produkte für unsere pelzigen Freunde bietet, sondern auch umweltfreundliche Praktiken priorisiert."
+      "paragraph": "Pawsitive Collar wurde 2024 von zwei leidenschaftlichen Tierliebhabern gegründet, die frustriert waren über das fehlende Angebot an durchdachtem, funktionalem Zubehör. Viele Produkte wirkten lieblos, austauschbar oder wenig innovativ.\n\nDeshalb haben wir beschlossen, es selbst besser zu machen – ganz von vorne.\n\nWas mit Skizzen und Prototypen begann, entwickelte sich schnell zu einem echten Projekt mit 3D-Modellierung, Druck und Web-Technologien. Wir haben uns alles selbst beigebracht – vom CAD-Design bis zu NFC-Anwendungen – geleitet von einer Frage: Was würden wir uns für unsere eigenen Tiere wünschen?\n\nJeder Schritt auf unserem Weg wurde durch echtes Feedback von anderen Tierhaltern geprägt. Ihre Unterstützung und Geschichten inspirieren uns, immer besser zu werden."
     },
     "sustainability": {
       "label": "Nachhaltigkeit",
-      "paragraph": "Bei Pawsitive Collar sind wir bestrebt, unsere Umweltauswirkungen zu reduzieren. Alle unsere Produkte bestehen aus nachhaltigen, natürlichen Materialien wie Baumwolle oder recyceltem Kunststoff. Wir arbeiten auch mit ethischen Lieferanten zusammen, um faire Arbeitspraktiken und minimalen Abfall zu gewährleisten."
+      "paragraph": "Uns liegt nicht nur die Zukunft unserer Haustiere am Herzen – sondern auch die unseres Planeten.\n\nUnsere Werkstatt wird zu 100 % mit zertifiziertem Ökostrom betrieben. Wir verwenden langlebige Materialien wie PETG und hochwertiges Paracord, um Produkte zu schaffen, die lange halten und so Abfall vermeiden. Unser 3D-Druckprozess ist ressourcenschonend und ermöglicht die Wiederverwertung von Restmaterialien.\n\nWir produzieren nicht in Massen. Wir jagen keinen Trends hinterher. Jedes Produkt entsteht mit Bedacht – einzeln, für Tiere, die ihren Menschen alles bedeuten.\n\nAuch wenn wir noch klein sind: Wir wachsen bewusst und möchten Nachhaltigkeit in jedem Aspekt unserer Arbeit leben."
     },
     "team": {
       "label": "Unser Team",
-      "paragraph": "Unser Team bei Pawsitive Collar besteht aus engagierten Enthusiasten, die sich dafür einsetzen, die bestmöglichen Produkte und Erfahrungen für unsere pelzigen Freunde zu bieten. Lernen Sie die Gründer und die wichtigsten Mitarbeiter kennen, die all das möglich machen.",
+      "paragraph": "Wir sind ein Zwei-Personen-Team – Partner im Leben und in unserem Herzensprojekt – verbunden durch die Liebe zu Tieren, Design und Selbstgemachtem.\n\nGemeinsam kümmern wir uns um Produktentwicklung, NFC-Integration, das Flechten der Paracord-Halsbänder und den Online-Shop. Keine große Firma – nur zwei engagierte Tierfreunde, die abends und am Wochenende mit Herzblut an ihrer Idee arbeiten.\n\nWir wissen, wie schmerzhaft es ist, ein Tier zu verlieren, und wie erleichternd es ist, es wiederzufinden. Deshalb geht es bei uns nicht nur um schöne Halsbänder – sondern um clevere, verlässliche Lösungen, die Tiere sicherer machen.\n\nWir bauen eine Marke und eine Community auf, die Haustiere genauso wertschätzt wie wir.",
       "person": {
         "founder": "Gründer",
-        "lead_dev": "Leitender Entwickler",
         "co-founder": "Mitgründerin",
-        "product_design": "Produktdesignerin",
-        "developer": "Entwickler"
+        "lead_dev": "Produktdesignerin",
+        "product_design": "Terméktervező"
       }
     }
   },
   "Contact": {
     "hero": {
-      "title": "Wir sind für Sie da!",
-      "description": "Zögern Sie nicht, kontaktieren Sie unser freundliches Team, um Antworten zu unseren intelligenten NFC-Halsbändern zu erhalten. Ob Sie Unterstützung benötigen oder einfach nur plaudern möchten, wir sind hier, um zu helfen!",
-      "contact": "Kontaktinformationen",
-      "follow": "Folgen Sie uns in den sozialen Medien, um über die neuesten Trends, Tipps und Leckerbissen für Ihren pelzigen Freund informiert zu bleiben!",
-      "email_btn": "Email senden"
+      "title": "Wir sind für dich da.",
+      "description": "Hast du eine Frage zu unseren Produkten oder brauchst du Unterstützung? Schreib uns einfach – wir freuen uns über jede Nachricht und helfen dir gerne weiter.",
+      "contact": "So erreichst du uns",
+      "follow": "Folge uns auf Social Media, um Einblicke hinter die Kulissen, Tipps und Updates rund um unsere Produkte und tierische Begleiter zu erhalten.",
+      "email_btn": "E-Mail schreiben"
     },
     "contact": {
-      "info": "Kontaktinformation",
-      "return": "Rücksendeadresse",
+      "info": "Kontakt",
+      "return": "Adresse für Rücksendungen",
       "tel": "Telefon",
       "email": "E-Mail"
     }
-  },
-  "Shop": {
-    "title": "Webshop-Seite!",
-    "title_secondary": "Shop erkunden",
-    "description": "Hol dir das Pawsitive Collar"
   },
   "Navigation": {
     "home": "Startseite",
@@ -136,11 +130,11 @@
     "personal": "Persönliche"
   },
   "NotFound": {
-    "title": "Es scheint, als hättest du dich verlaufen",
-    "title_secondary": "Keine Sorge, unser Freund Molli kann einen besseren Weg erschnüffeln.",
-    "molli_message_part1": "PS: Falls du auch ein Haustier namens Molli hast, würden wir uns freuen, von dir zu hören. Schicke uns ein Bild oder markiere uns auf ",
-    "molli_message_part2": " und wir schicken Molli einen Gruß!",
-    "molli_image_alt": "Unser Freund, Molli"
+    "title": "Hoppla, diese Seite hat sich verirrt.",
+    "title_secondary": "Keine Sorge — unsere Fellnase Molli ist schon auf der Spur.",
+    "molli_message_part1": "PS: Hast du auch ein Haustier namens Molli? Zeig es uns! Schick ein Foto oder markiere uns auf ",
+    "molli_message_part2": ", und wir schicken eurer Molli einen besonderen Gruß!",
+    "molli_image_alt": "Unsere vierbeinige Freundin Molli"
   },
   "Pet": {
     "name": "Name",
@@ -160,5 +154,21 @@
   "Dashboard": {
     "updateAction": "Bild aktualisieren",
     "uploadAction": "Bild hochladen"
+  },
+  "Auth": {
+    "field": {
+      "email": "E-Mail",
+      "password": "Passwort",
+      "password2": "Passwort wiederholen",
+      "persistent": "Angemeldet bleiben",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "phone": "Telefon"
+    },
+    "btn": {
+      "login": "Anmelden",
+      "back": "Zurück",
+      "register": "Registrieren"
+    }
   }
 }

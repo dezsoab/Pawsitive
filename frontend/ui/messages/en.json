@@ -2,124 +2,118 @@
   "Locale": "en",
   "Index": {
     "hero": {
-      "title": "Hand Crafted Pet Accessories",
-      "title_extension": "with attached NFC technology",
-      "description": "Discover unique pet accessories meticulously crafted with embedded NFC technology, combining style with advanced functionality."
+      "title": "Handcrafted Tags & Collars",
+      "title_extension": "infused with smart NFC technology",
+      "description": "Discover beautifully designed pet accessories that blend timeless style with modern tech — making sure your furry friend is always just a scan away."
     },
     "products": {
-      "title": "Explore the most loved Pet Products!",
-      "title_secondary": "Take a look at our stunning collection of handcrafted pet products and find the the perfect match for your furry friend."
+      "title": "Loved by Pets. Trusted by Humans.",
+      "title_secondary": "Explore our handcrafted collars and NFC pet tags — built to last, easy to use, and ready for any adventure."
     },
     "testimonial": {
-      "title": "I love the peace of mind that comes with knowing my pet's information is always accessible. The quality and design is also lovely! Pawsitive Collar has truly thought of everything!",
-      "customer_adjective": "Happy Customer"
+      "title": "I was amazed when someone scanned my dog's tag and I got an SMS instantly. The quality is stunning and the idea is just genius. Thank you, Pawsitive!",
+      "customer_adjective": "Grateful Pet Owner"
     },
     "about": {
-      "title": "About our Unique Pet Collars",
-      "about_description": "At Fashionable Pet Collars, we are passionate about creating stylish and safe pet collars.\n Each collar comes with an NFC Tag software solution that displays your pet's information when scanned.\n Handcrafted with love for your beloved pet.",
-      "first_title": "Stylish designs",
-      "second_title": "Enhanced safety",
-      "third_title": "Peace of mind",
-      "block_1": "Stand out with our trendy and fashianable pet collars",
-      "block_2": "Keep your pet safe and secure with our advanced NFC Tag software",
-      "block_3": "Never worry about losing your pet again, thanks to our innovative technology",
-      "about_heading": "About our unique pet collars"
+      "title": "The Idea Behind Pawsitive",
+      "about_description": "We were tired of boring metal tags that fade and scratch.\nSo we built something better — handcrafted collars with built-in NFC tags that actually work when it matters.\n\nNo batteries. No charging.\nJust a tap, and your pet’s profile shows up instantly.",
+      "first_title": "Crafted with Care",
+      "second_title": "Smart & Reliable",
+      "third_title": "Built for Peace of Mind",
+      "block_1": "Our products are handmade using durable materials like PETG and paracord — each one is as unique as your pet.",
+      "block_2": "Our secure NFC tag links to a digital profile. You decide what info to show when someone scans it.",
+      "block_3": "Get notified via SMS and email the moment your pet's tag is scanned by someone — no app, no setup needed.",
+      "about_heading": "Why we do what we do"
     },
     "features": {
-      "title": "Unique Features of Our Pet Accessories",
-      "title_secondary": "Discover the innovative technology and stylish designs that set our products apart from the rest.",
-      "reason_1": "Handcrafted with Love",
-      "reason1_text": "Each pet collar is meticulously handmade with passion and care",
-      "reason_2": "NFC Tag Software",
-      "reason2_text": "The integrated software solution displays your pet's information instantly upon scanning",
-      "reason_3": "Customizable Options",
-      "reason3_text": "Personalize your pet's collar with unique designs and colors"
+      "title": "What Makes Pawsitive Special",
+      "title_secondary": "We combine premium materials, smart technology, and handmade design into one beautiful solution.",
+      "reason_1": "Handcrafted to Last",
+      "reason1_text": "Every collar and tag is carefully handmade — strong, stylish, and one of a kind.",
+      "reason_2": "Tap & Go NFC Tech",
+      "reason2_text": "Our smart tags store a secure link to your pet’s profile.\nJust tap with a phone — no app needed.",
+      "reason_3": "Waterproof & Worry-Free",
+      "reason3_text": "The NFC chip is sealed inside — completely weatherproof and always ready."
     },
     "services": {
-      "title": "Our Services for Pet Lovers",
-      "title_secondary": "Explore our range of services dedicated to keeping your pets safe, stylish and protected.",
-      "reason_1": "Custom Product Design",
-      "reason1_text": "Create a one-of-a-kind product for your beloved pet",
-      "reason_2": "Lost Pet Assistance",
-      "reason2_text": "Our NFC software helps reunite lost pets with their owners",
-      "reason_3": "Quality Craftsmanship",
-      "reason3_text": "Experience the finest handcrafted pet collars on the market"
+      "title": "What We Offer",
+      "title_secondary": "From lost pet assistance to premium product customization — we’ve got your pet covered.",
+      "reason_1": "Custom Designs",
+      "reason1_text": "Choose from a variety of styles and personalize your tag to match your pet’s personality.",
+      "reason_2": "Lost Pet Alerts",
+      "reason2_text": "Get SMS and email notifications the moment someone scans your lost pet’s tag.",
+      "reason_3": "Thoughtful Craftsmanship",
+      "reason3_text": "Each item is handmade with attention to detail, comfort, and durability."
     },
     "reasoning": {
-      "title": "Why choose us?",
-      "title_secondary": "The reason why pet owners choose our handcrafted pet accessories with NFC technology for their beloved pets.",
-      "reason_1": "Stylish Design",
-      "reason1_amount": "50",
-      "reason_2": "Happy pets reunited",
-      "reason2_amount": "1000",
-      "reason_3": "Satisfied customers",
-      "reason3_amount": "5000"
+      "title": "Why Pet Owners Trust Pawsitive",
+      "title_secondary": "More than just a tag — Pawsitive means safety, style, and support in one.",
+      "reason_1": "Unique Designs",
+      "reason1_amount": "50+",
+      "reason_2": "Pets Reunited",
+      "reason2_amount": "1000+",
+      "reason_3": "Smiling Customers",
+      "reason3_amount": "5000+"
     },
     "ctasection": {
-      "title": "Ready to upgrade your pet's accessories?",
-      "title_secondary": "Explore our collection of handcrafted products and give your pet the gift of safety and style."
+      "title": "Give your pet more than just a collar.",
+      "title_secondary": "Browse our handcrafted collection and discover how safety can look this good."
     },
     "contact": {
       "name": "Name",
-      "email": "E-Mail",
+      "email": "Email",
       "message": "Message",
       "name_placeholder": "Enter your name",
-      "email_placeholder": "Enter your E-Mail",
-      "message_placeholder": "Enter your message",
-      "send_text": "Send",
-      "thank_you": "Thank you for your message!",
-      "title": "Get in touch",
-      "paragraph": "Have a question or feedback? Drop a message and we'll get back to you as soon as possible"
+      "email_placeholder": "Enter your email address",
+      "message_placeholder": "Write us a message",
+      "send_text": "Send Message",
+      "thank_you": "Thanks for reaching out! We'll get back to you soon.",
+      "title": "We'd love to hear from you",
+      "paragraph": "Whether you have a question, suggestion, or just want to say hello — send us a message and we'll respond as soon as we can."
     },
     "footer": {
-      "paragraph": "Keep up with the latest news and offers from Pawsitive Collar",
+      "paragraph": "Stay updated with Pawsitive – new designs, restocks, and happy tail stories.",
       "rights": "All rights reserved."
     }
   },
   "About": {
     "about": {
       "label": "About Pawsitive",
-      "paragraph": "At Pawsitive Collar we believe that our pets deserve the best. That's why we have dedicated ourselves to creating high-quality collars, leashes, and accessories that are both stylish and comfortable for your furry companions."
+      "paragraph": "At Pawsitive Collar, we believe that pets are more than just companions — they are family, confidants, and lifelong friends.\n\nOur journey began with a simple idea: to create thoughtful products that strengthen the bond between humans and their pets. We aim to combine hands-on craftsmanship with smart technology to offer not just accessories, but peace of mind.\n\nEvery piece we make reflects our love — love for animals, for design, and for the people who care deeply for their pets. We believe that a pet’s collar should tell a story: one of care, responsibility, and connection.\n\nFrom daily adventures to quiet moments at home, our collars and tags are built to be with you and your pet — functional, beautiful, and built to last."
     },
     "history": {
       "label": "Our History",
-      "paragraph": "Pawsitive Collar was founded in 2024 by a team of pet lovers who were frustrated by the lack of high-quality, sustainable pet accessories on the market. We set out to create a brand that would not only provide the best products for our furry friends, but also prioritize eco-friendly practices."
+      "paragraph": "Pawsitive Collar was founded in 2024 by two passionate pet lovers who were frustrated by the lack of practical and thoughtfully designed pet accessories. Many existing products felt mass-produced, generic, or lacked real innovation.\n\nSo, we decided to build something better — from scratch.\n\nWhat began as sketches and prototypes quickly turned into a full project combining 3D modeling, printing, and web technologies. We taught ourselves everything from CAD design to embedded NFC workflows, driven by one question: what would we want for our own pets?\n\nEvery step of our journey has been shaped by direct feedback from fellow pet owners. Their support, ideas, and stories are what inspire us to keep improving."
     },
     "sustainability": {
       "label": "Sustainability",
-      "paragraph": "At Pawsitive Collar, we're dedicated to reducing our environmental impact. All of our products are made of sustainable, natural materials like cotton or recycled plastics. We also work with ethical suppliers to ensure fair labor practices and minimal waste."
+      "paragraph": "We care deeply about the future — not just of pets, but of the planet they roam.\n\nOur workshop runs entirely on certified green energy. We use durable materials like PETG and high-quality paracord to produce long-lasting products that reduce waste over time. Our 3D printing process is optimized to minimize excess and reuses leftover materials wherever possible.\n\nWe don’t mass-produce. We don’t chase trends. Every item is made with intention — created one at a time, for pets who mean the world to their humans.\n\nWhile we may be small, we’re committed to growing responsibly and making sustainability a core part of everything we do."
     },
     "team": {
       "label": "Our Team",
-      "paragraph": "Our team at Pawsitive Collar is made up of dedicated enthusiasts who are committed to providing the best possible products and experiences for our furry friends. Meet the founders and the key staff members who make it all happen.",
+      "paragraph": "We are a two-person team — partners in life and in purpose — who share a deep love for animals, design, and DIY creation.\n\nTogether, we handle everything from product development and NFC integration to hand-braiding paracord collars and running the online shop. It’s not a big operation — just two passionate pet parents working evenings and weekends to build something meaningful.\n\nWe know what it feels like to lose a pet and what a relief it is to find them again. That’s why our mission isn’t just to make beautiful collars, but to offer smart, reliable tools that help keep pets safe.\n\nIt’s about building a brand and community that values pets as much as we do.",
       "person": {
         "founder": "Founder",
-        "lead_dev": "Lead developer",
         "co-founder": "Co-Founder",
-        "product_design": "Product designer",
-        "developer": "Developer"
+        "lead_dev": "Lead Developer",
+        "product_design": "Product Designer"
       }
     }
   },
   "Contact": {
     "hero": {
-      "title": "Let's 'Collar'-borate!",
-      "description": "Don't paws and ponder alone! Contact our friendly pack to fetch answers about our smart NFC collars that keep tails wagging safely. Whether you need support or just want to chat about our tech, we’re here to help!",
-      "contact": "Contact Information",
-      "follow": "Join our pack on social media to stay updated with the latest trends, tips, and treats for your furry friend!",
-      "email_btn": "Email us"
+      "title": "We’re here for you.",
+      "description": "Got a question about our products or need a hand with something? Just drop us a message — we’re always happy to help and love hearing from fellow pet lovers.",
+      "contact": "How to reach us",
+      "follow": "Follow us on social media for behind-the-scenes updates, helpful tips, and news about our latest creations.",
+      "email_btn": "Send Email"
     },
     "contact": {
-      "info": "Contact information",
-      "return": "Return address",
-      "tel": "Telephone",
-      "email": "E-Mail"
+      "info": "Contact",
+      "return": "Return Address",
+      "tel": "Phone",
+      "email": "Email"
     }
-  },
-  "Shop": {
-    "title": "Web shop page!",
-    "title_secondary": "Explore Shop",
-    "description": "Get your Pawsitive Collar"
   },
   "Navigation": {
     "home": "Home",
@@ -136,11 +130,11 @@
     "personal": "Personal"
   },
   "NotFound": {
-    "title": "Looks like you've lost your way",
-    "title_secondary": "No fear, our friend Molli can sniff out a better path.",
-    "molli_message_part1": "PS: If you've also got a pet called Molli, we would love to hear from you. Send us a pic or tag us on ",
-    "molli_message_part2": " and we'll send Molli a shout!",
-    "molli_image_alt": "Our friend, Molli"
+    "title": "Uh-oh, this page took a wrong turn.",
+    "title_secondary": "Don’t worry — our furry guide Molli is on the trail.",
+    "molli_message_part1": "P.S. Do you also have a pet named Molli? We'd love to see them! Send us a photo or tag us on ",
+    "molli_message_part2": " and we’ll make sure your Molli gets a special mention.",
+    "molli_image_alt": "Our four-legged friend, Molli"
   },
   "Pet": {
     "name": "Name",
@@ -160,5 +154,21 @@
   "Dashboard": {
     "updateAction": "Update Picture",
     "uploadAction": "Upload Picture"
+  },
+  "Auth": {
+    "field": {
+      "email": "Email",
+      "password": "Password",
+      "password2": "Password Again",
+      "persistent": "Remember me",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone"
+    },
+    "btn": {
+      "login": "Login",
+      "back": "Back",
+      "register": "Register"
+    }
   }
 }

@@ -6,11 +6,13 @@ import { loginOwner } from "@/api/post/loginOwner";
 import { LoginOwnerDTO } from "@/types/LoginOwnerDTO";
 
 import styles from "./LoginForm.module.css";
+import { useTranslations } from "next-intl";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
   const id = searchParams.get("tagId");
   const router = useRouter();
+  const t = useTranslations();
 
   const loginSubmitHandler = async (
     event: React.FormEvent<HTMLFormElement>
@@ -40,15 +42,22 @@ export default function LoginForm() {
         onSubmit={loginSubmitHandler}
         className={`${styles.form} ${styles.animateForm}`}
       >
-        <input name="email" type="email" placeholder="Email" required />
+        <label htmlFor="email">{t("Auth.field.email")}</label>
+        <input
+          name="email"
+          type="email"
+          placeholder={t("Auth.field.email")}
+          required
+        />
+        <label htmlFor="password">{t("Auth.field.password")}</label>
         <input
           name="password"
           type="password"
-          placeholder="Password"
+          placeholder={t("Auth.field.password")}
           required
         />
         <div>
-          <label htmlFor="persistent">Remember me</label>
+          <label htmlFor="persistent">{t("Auth.field.persistent")}</label>
           <input
             id="persistent"
             name="persistent"
