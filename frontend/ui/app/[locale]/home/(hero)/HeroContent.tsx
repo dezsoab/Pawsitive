@@ -24,7 +24,7 @@ const HeroContent = () => {
       <p>{t("Index.hero.description")}</p>
       <CTAButton
         toPath={navigationRoutes.SHOP}
-        title={"Shop"}
+        title={t("Navigation.shop")}
         style={{
           backgroundColor: "var(--color-pink-mid)",
           color: "var(--color-white)",
