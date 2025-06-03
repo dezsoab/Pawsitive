@@ -50,14 +50,14 @@
 
 .edit_button {
   background-color: transparent;
-  border: 1px solid var(--color-pink-dark);
+  border: 1px solid var(--color-pink-mid);
   border-radius: 3px;
   cursor: pointer;
   padding: 0.2rem;
 }
 
 .edit_button svg {
-  fill: var(--color-pink-dark);
+  fill: var(--color-pink-mid);
   scale: 1.2;
 }
 

@@ -46,6 +46,8 @@ public class PetServiceImpl implements PetService {
         Pet existingPet = petRepository.findById(Long.valueOf(id))
                 .orElseThrow(() -> new PetNotFoundException("Pet not found"));
 
+        logger.info("Updating pet information for petId: {}", id);
+
         existingPet.setName(petDTO.name());
         existingPet.setAge(petDTO.age());
         existingPet.setBreed(petDTO.breed());

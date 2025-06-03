@@ -12,9 +12,6 @@ import { ToastContainer } from "react-toastify";
 const Profile = () => {
   const [profile, setProfile] = useState<ProfileInformationDTO>();
   const [activeTab, setActiveTab] = useState<profileTabs>(profileTabs.PERSONAL);
-  const searchParams = useSearchParams();
-  const tagId = searchParams.get("tagId");
-  const petId = searchParams.get("petId");
 
   useEffect(() => {
     const fetchUserInformation = async () => {

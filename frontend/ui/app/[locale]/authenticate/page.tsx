@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useMemo, useRef, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, Html } from "@react-three/drei";
 import * as THREE from "three";
@@ -45,10 +45,12 @@ function DebugLight({
 export default function AuthenticatePage() {
   const { isLoggedIn } = useAuth();
   const router = useRouter();
-  if (isLoggedIn) {
-    router.push(navigationRoutes.PROFILE);
-    return;
-  }
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push(navigationRoutes.PROFILE);
+    }
+  }, [isLoggedIn, router]);
 
   const { scene } = useGLTF("/assets/printer.glb");
   const clonedModel = useMemo(() => {
@@ -99,7 +101,9 @@ export default function AuthenticatePage() {
     return () => clearTimeout(timeout);
   };
 
-  return (
+  return isLoggedIn ? (
+    <Cat />
+  ) : (
     <>
       <Navbar style={{ backgroundColor: "var(--color-green)" }} />
       <div
