@@ -1,0 +1,87 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 15rem;
+  transition: 0.2s all ease-in;
+  background-color: var(--color-green);
+  height: 12rem;
+}
+
+.logoLink::before,
+.logoLink:hover::before {
+  content: none !important;
+}
+
+.nav img {
+  border-radius: 100%;
+}
+
+.nav button {
+  background-color: transparent;
+  border: none;
+  font-size: var(--font-paragraph);
+  cursor: pointer;
+  color: var(--color-white);
+  font-weight: 100;
+  overflow: hidden;
+}
+
+.nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  position: relative;
+  font-size: var(--font-paragraph);
+  font-weight: 100;
+}
+
+.nav a::before {
+  content: "";
+  height: 3px;
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  background-color: var(--color-pink-mid);
+  transition: all 0.4s ease;
+}
+
+.nav a:hover::before {
+  left: -10%;
+}
+
+.nav a.active::before {
+  left: -10%;
+}
+
+.navBar a.active {
+  position: relative;
+}
+
+.navBar a.active::before {
+  content: "";
+  height: 3px;
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  background-color: var(--color-pink-mid);
+  transition: all 0.4s ease;
+}
+
+.language {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1200px) {
+  .nav {
+    justify-content: space-evenly;
+    padding: 0.7rem 2rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .nav {
+    display: none;
+  }
+}

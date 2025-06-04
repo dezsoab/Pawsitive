@@ -10,4 +10,5 @@ export enum backendRoutes {
   ISAUTHENTICATEDUSEROWNEROFPET = "owner/isAuthenticatedUserOwnerOfPet",
   PROFILE = "profile",
   UPDATEPROFILE = "profile/update",
+  PRESIGNEDPETURL = "s3/presigned-url?fileName=",
 }

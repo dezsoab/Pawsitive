@@ -1,4 +1,6 @@
 package com.pawsitive.pawsitive.dto;
 
-public record TagResponseDTO(String status, Long petId) {
+import com.pawsitive.pawsitive.nfctag.model.TagStatus;
+
+public record TagResponseDTO(TagStatus status, Long petId) {
 }

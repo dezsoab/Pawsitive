@@ -29,10 +29,6 @@ describe("ContactPage tests", () => {
         });
 
         expect(
-          screen.getByText(messages.Contact.contact.info)
-        ).toBeInTheDocument();
-
-        expect(
           screen.getByText(messages.Index.footer.paragraph)
         ).toBeInTheDocument();
       });

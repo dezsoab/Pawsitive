@@ -9,7 +9,7 @@ interface ScannedPetDetailsProps {
 }
 
 const ScannedPetDetails = ({ pet }: ScannedPetDetailsProps) => {
-  const t = useTranslations("ScannedPet");
+  const t = useTranslations("Pet");
 
   pet.sex == "Male" ? (pet.sex = t("sex.male")) : (pet.sex = t("sex.female"));
 

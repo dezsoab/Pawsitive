@@ -52,7 +52,7 @@ const NavbarMobile = () => {
   ) : (
     <li>
       <Link
-        href={navigationRoutes.LOGIN}
+        href={navigationRoutes.AUTH}
         locale={locale}
         onClick={toggleNavigation}
       >

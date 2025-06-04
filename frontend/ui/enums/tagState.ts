@@ -1,4 +1,5 @@
 export enum tagState {
-  ASSIGNED = "assigned",
-  UNASSIGNED = "unassigned",
+  AVAILABLE = "AVAILABLE",
+  CLAIMED = "CLAIMED",
+  UNCLAIMED = "UNCLAIMED",
 }

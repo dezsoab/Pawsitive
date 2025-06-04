@@ -56,7 +56,7 @@ const ScannedNfcTag = () => {
 };
 
 const tagIsAssignedToPet = (tag: TagResponseDTO): boolean => {
-  return tag?.status == tagState.ASSIGNED;
+  return tag?.status == tagState.CLAIMED;
 };
 
 export default ScannedNfcTag;

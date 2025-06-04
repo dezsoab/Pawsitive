@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
-import styles from "../../app/[locale]/profile/[profile_content]/[userTab]/UserTab.module.css";
+import styles from "../../app/[locale]/profile/(profile_content)/(userTab)/UserTab.module.css";
 
 interface EditProps {
   edit: boolean;

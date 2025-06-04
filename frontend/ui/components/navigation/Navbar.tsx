@@ -59,9 +59,9 @@ const Navbar = ({ style }: NabarProps) => {
   ) : (
     <li>
       <Link
-        href={navigationRoutes.LOGIN}
+        href={navigationRoutes.AUTH}
         locale={locale}
-        className={isActivePath(navigationRoutes.LOGIN) ? styles.active : ""}
+        className={isActivePath(navigationRoutes.AUTH) ? styles.active : ""}
       >
         {t("Navigation.login")}
       </Link>
