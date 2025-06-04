@@ -16,6 +16,7 @@ import { fetchPresignedPetUrl } from "@/api/get/fetchPresignedPetUrl";
 import imageCompression from "browser-image-compression";
 import ImageCropperModal from "@/components/imgCropper/ImageCropperModal";
 import { PetDTO } from "@/types/PetDTO";
+import { Gender } from "@/enums/gender";
 
 interface PetCardsProps {
   profile: ProfileInformationDTO;
@@ -123,8 +124,8 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
   };
 
   const sexTranslationMap = {
-    Male: t("Pet.sex.male"),
-    Female: t("Pet.sex.female"),
+    MALE: t("Pet.sex.male"),
+    FEMALE: t("Pet.sex.female"),
   };
 
   const toggleEditMode = (petId: number) => {
@@ -165,7 +166,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
       name: nameRef.current!.value,
       age: ageRef.current!.value,
       breed: breedRef.current!.value,
-      sex: sexRef.current!.value as "Male" | "Female",
+      sex: sexRef.current!.value as Gender,
       photoUrl,
     };
 
@@ -194,6 +195,10 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
       compressedFile,
       petId,
     });
+  };
+
+  const getTranslatedSex = (sex: Gender | undefined): string => {
+    return sex ? sexTranslationMap[sex] : "-";
   };
 
   return (
@@ -313,10 +318,10 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                                 id={`sex-${pet.id}`}
                                 defaultValue={pet.sex}
                               >
-                                <option value="Male">
+                                <option value={Gender.MALE}>
                                   {t("Pet.sex.male")}
                                 </option>
-                                <option value="Female">
+                                <option value={Gender.FEMALE}>
                                   {t("Pet.sex.female")}
                                 </option>
                               </select>
@@ -351,12 +356,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                               {t("Pet.age")}: {pet.age}
                             </p>
                             <p>
-                              {t("Pet.sex.name")}:{" "}
-                              {
-                                sexTranslationMap[
-                                  pet.sex as keyof typeof sexTranslationMap
-                                ]
-                              }
+                              {t("Pet.sex.name")}: {getTranslatedSex(pet.sex)}
                             </p>
                             <p>Pet ID: {pet.id}</p>
                             <p>Tag ID: {pet.nfcTagId}</p>
