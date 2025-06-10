@@ -16,30 +16,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check if backend has changed
-        id: backend-check
-        run: |
-          echo "Checking for backend changes..."
-          BASE_SHA="${{ github.event.pull_request.base.sha }}"
-          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
-          echo "Base SHA: $BASE_SHA"
-          echo "Head SHA: $HEAD_SHA"
-          CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep '^backend/' || true)
-          if [ -z "$CHANGED" ]; then
-            echo "No backend changes detected. Skipping deployment."
-            echo "should_skip=true" >> $GITHUB_OUTPUT
-          else
-            echo "Backend changes detected:"
-            echo "$CHANGED"
-            echo "should_skip=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Exit if no backend changes
-        if: steps.backend-check.outputs.should_skip == 'true'
-        run: |
-          echo "Skipping rest of workflow..."
-          exit 0
-
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
