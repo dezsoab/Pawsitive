@@ -1,17 +1,11 @@
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 
 interface UserInformationProps {
   profile: ProfileInformationDTO;
-  setProfile: Dispatch<SetStateAction<ProfileInformationDTO | undefined>>;
-  isEditing: boolean;
 }
 
-const IsNotEditingUserInformation = ({
-  profile,
-  setProfile,
-  isEditing,
-}: UserInformationProps) => {
+const IsNotEditingUserInformation = ({ profile }: UserInformationProps) => {
   return (
     <div>
       <label htmlFor="email">Email</label>
