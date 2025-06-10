@@ -11,24 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout code with full history
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Check if backend has changed
         id: backend-check
         run: |
           echo "Checking for backend changes..."
-
-          # Extract base and head from the PR event
           BASE_SHA="${{ github.event.pull_request.base.sha }}"
           HEAD_SHA="${{ github.event.pull_request.head.sha }}"
-
           echo "Base SHA: $BASE_SHA"
           echo "Head SHA: $HEAD_SHA"
-
-          # Check for changes in backend/
-          CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep '^backend/')
-
+          CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep '^backend/' || true)
           if [ -z "$CHANGED" ]; then
             echo "No backend changes detected. Skipping deployment."
             echo "should_skip=true" >> $GITHUB_OUTPUT
