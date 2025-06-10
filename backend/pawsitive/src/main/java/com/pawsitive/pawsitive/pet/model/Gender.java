@@ -11,5 +11,4 @@ public enum Gender {
     Gender(String type) {
         this.type = type;
     }
-
 }
