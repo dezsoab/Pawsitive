@@ -32,11 +32,7 @@ const ProfileInformation = ({ profile, setProfile }: UserInformationProps) => {
           setProfile={setProfile}
         />
       ) : (
-        <IsNotEditingUserInformation
-          isEditing={isEditing}
-          profile={profile}
-          setProfile={setProfile}
-        />
+        <IsNotEditingUserInformation profile={profile} />
       )}
     </div>
   );
