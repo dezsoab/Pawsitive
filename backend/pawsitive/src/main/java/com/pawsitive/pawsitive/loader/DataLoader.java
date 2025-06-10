@@ -5,6 +5,7 @@ import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.nfctag.model.TagStatus;
 import com.pawsitive.pawsitive.nfctag.service.NfcTagService;
 import com.pawsitive.pawsitive.owner.model.Owner;
+import com.pawsitive.pawsitive.pet.model.Gender;
 import com.pawsitive.pawsitive.pet.model.Pet;
 import com.pawsitive.pawsitive.pet.service.PetService;
 import com.pawsitive.pawsitive.user.model.User;
@@ -68,7 +69,7 @@ public class DataLoader implements CommandLineRunner {
                     .name("Molli")
                     .breed("Border Collie")
                     .age(4)
-                    .sex("Female")
+                    .sex(Gender.FEMALE)
                     .owner(owner1)
                     .build();
 
@@ -104,7 +105,7 @@ public class DataLoader implements CommandLineRunner {
                     .name("Pille")
                     .breed("Unknown")
                     .age(6)
-                    .sex("Female")
+                    .sex(Gender.FEMALE)
                     .owner(owner2)
                     .build();
 
@@ -115,7 +116,7 @@ public class DataLoader implements CommandLineRunner {
                     .name("Cézár")
                     .breed("Belgian Shepherd Groenendael")
                     .age(2)
-                    .sex("Male")
+                    .sex(Gender.MALE)
                     .owner(owner1)
                     .build();
 
@@ -126,7 +127,7 @@ public class DataLoader implements CommandLineRunner {
                     .name("Dog4")
                     .breed("Border collie")
                     .age(2)
-                    .sex("Male")
+                    .sex(Gender.MALE)
                     .owner(owner1)
                     .build();
 
@@ -137,7 +138,7 @@ public class DataLoader implements CommandLineRunner {
                     .name("Dog5")
                     .breed("Belgian")
                     .age(2)
-                    .sex("Male")
+                    .sex(Gender.MALE)
                     .owner(owner1)
                     .build();
 
@@ -148,7 +149,7 @@ public class DataLoader implements CommandLineRunner {
                     .name("Dog6")
                     .breed("Golden retriever")
                     .age(2)
-                    .sex("Male")
+                    .sex(Gender.MALE)
                     .owner(owner1)
                     .build();
 
@@ -159,7 +160,7 @@ public class DataLoader implements CommandLineRunner {
                     .name("Dog7")
                     .breed("Terrier Mix")
                     .age(2)
-                    .sex("Male")
+                    .sex(Gender.MALE)
                     .owner(owner1)
                     .build();
 

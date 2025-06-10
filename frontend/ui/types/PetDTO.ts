@@ -1,9 +1,11 @@
+import { Gender } from "@/enums/gender";
+
 export interface PetDTO {
   id: number;
   name: string;
   breed: string;
   age: string;
-  sex: "Male" | "Female";
+  sex: Gender;
   nfcTagId: string;
   photoUrl?: string;
 }
