@@ -70,6 +70,7 @@ interface PetCardsProps {
 
 const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
   const [isEditMode, setIsEditMode] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [cropModal, setCropModal] = useState<{
     file: File;
     petId: number;
@@ -87,8 +88,6 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
   const breedRef = useRef<HTMLInputElement>(null);
   const ageRef = useRef<HTMLInputElement>(null);
   const sexRef = useRef<HTMLSelectElement>(null);
-  const petIdRef = useRef<HTMLParagraphElement>(null);
-  const petTagIdRef = useRef<HTMLParagraphElement>(null);
   const t = useTranslations();
 
   const toggleEdit = () => {
@@ -143,8 +142,19 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
       addPetAPI(createdPetDetail),
       {
         pending: "Updating pet...",
-        success: "Pet updated successfully!",
-        error: "Failed to update pet.",
+        success: {
+          render({ data }: { data: PetDTO }) {
+            return (
+              "Tag has been successfully linked to " + data.name + " 🎉" ||
+              "Something went wrong!"
+            );
+          },
+        },
+        error: {
+          render({ data }: { data: Error }) {
+            return data.message || "Something went wrong!";
+          },
+        },
       },
       {
         position: "bottom-right",
@@ -156,31 +166,37 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
 
   const addPetHandler = async (e: FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      let photoUrl = "";
+      if (imageCropResult) {
+        const { compressedFile, fileName } = imageCropResult;
+        photoUrl = await uploadToS3(compressedFile, fileName);
+      }
 
-    let photoUrl = "";
-    if (imageCropResult) {
-      const { compressedFile, fileName } = imageCropResult;
-      photoUrl = await uploadToS3(compressedFile, fileName);
+      const newPet: CreatePetDTO = {
+        nfcTagId: nfcTagIdRef.current!.value,
+        name: nameRef.current!.value,
+        age: ageRef.current!.value,
+        breed: breedRef.current!.value,
+        sex: sexRef.current!.value as Gender,
+        photoUrl,
+        ownerEmail: profile.email,
+      };
+
+      const savedPet: PetDTO = await addPet(newPet);
+      console.log(savedPet);
+      setProfile((prev) => ({
+        ...prev!,
+        pets: [...prev!.pets, savedPet],
+      }));
+      setimageCropResult(null);
+      setIsEditMode(false);
+    } catch (error) {
+      console.error("Failed to save pet", error);
+    } finally {
+      setIsSubmitting(false);
     }
-
-    const newPet: CreatePetDTO = {
-      nfcTagId: nfcTagIdRef.current!.value,
-      name: nameRef.current!.value,
-      age: ageRef.current!.value,
-      breed: breedRef.current!.value,
-      sex: sexRef.current!.value as Gender,
-      photoUrl,
-      ownerEmail: profile.email,
-    };
-
-    const savedPet: PetDTO = await addPet(newPet);
-    console.log(savedPet);
-    setProfile((prev) => ({
-      ...prev!,
-      pets: [...prev!.pets, savedPet],
-    }));
-    setimageCropResult(null);
-    setIsEditMode(false);
   };
 
   return (
@@ -259,7 +275,9 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
                 if (file) handleFileSelect(file, 1);
               }}
             />
-            <button type="submit">SAVE</button>
+            <button type="submit" disabled={isSubmitting}>
+              SAVE
+            </button>
             <button type="reset" onClick={toggleEdit}>
               CANCEL
             </button>

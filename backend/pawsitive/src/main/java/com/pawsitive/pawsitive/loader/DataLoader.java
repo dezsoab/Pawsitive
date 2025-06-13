@@ -124,9 +124,19 @@ public class DataLoader implements CommandLineRunner {
             petService.createPet(new CreatePetDTO(
                     "Dog7", "Terrier Mix", 2, Gender.MALE, "ABC123456789", null, user1.getEmail()));
 
-            // ----------------- One unclaimed tag to test with -----------------
+            // ----------------- Unclaimed tag to test with -----------------
             nfcTagService.createNfcTag(NfcTag.builder()
                     .tagId("a1")
+                    .status(TagStatus.UNCLAIMED)
+                    .build());
+
+            nfcTagService.createNfcTag(NfcTag.builder()
+                    .tagId("a2")
+                    .status(TagStatus.UNCLAIMED)
+                    .build());
+
+            nfcTagService.createNfcTag(NfcTag.builder()
+                    .tagId("a3")
                     .status(TagStatus.UNCLAIMED)
                     .build());
 
