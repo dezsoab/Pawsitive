@@ -1,5 +1,6 @@
 package com.pawsitive.pawsitive.pet.controller;
 
+import com.pawsitive.pawsitive.dto.CreatePetDTO;
 import com.pawsitive.pawsitive.dto.PetDTO;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
@@ -49,18 +50,11 @@ public class PetController {
     }
 
     @PostMapping()
-    public ResponseEntity<Pet> createPet(@RequestBody Pet pet) {
-        logger.info("Received request to create pet: {}", pet);
-        Optional<Owner> owner = ownerService.getOwnerById(pet.getOwner().getId());
-
-        if (owner.isEmpty()) {
-            logger.warn("Owner not found for pet: {}", pet);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-
-        pet.setOwner(owner.get());
-        Pet createdPet = petService.createPet(pet);
-        logger.info("Pet created successfully: {}", createdPet);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdPet);
+    public ResponseEntity<PetDTO> createPet(@RequestBody CreatePetDTO createPetDto) {
+        logger.info("Received request to create pet: {}", createPetDto);
+        Pet savedPet = petService.createPet(createPetDto);
+        PetDTO savedPetDTO = petMapper.toDto(savedPet);
+        logger.info("Pet created successfully: {}", savedPet);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedPetDTO);
     }
 }

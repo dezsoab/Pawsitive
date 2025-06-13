@@ -1,5 +1,6 @@
 package com.pawsitive.pawsitive.pet.service;
 
+import com.pawsitive.pawsitive.dto.CreatePetDTO;
 import com.pawsitive.pawsitive.dto.PetDTO;
 import com.pawsitive.pawsitive.pet.model.Pet;
 
@@ -10,7 +11,7 @@ public interface PetService {
 
     Pet getPetById(Long id);
 
-    Pet createPet(Pet pet);
+    Pet createPet(CreatePetDTO createPetDTO);
 
     void deletePet(Long id);
 

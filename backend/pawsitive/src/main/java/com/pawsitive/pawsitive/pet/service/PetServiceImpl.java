@@ -1,14 +1,22 @@
 package com.pawsitive.pawsitive.pet.service;
 
+import com.pawsitive.pawsitive.dto.CreatePetDTO;
 import com.pawsitive.pawsitive.dto.PetDTO;
 import com.pawsitive.pawsitive.exception.PetNotFoundException;
+import com.pawsitive.pawsitive.exception.TagInvalidException;
 import com.pawsitive.pawsitive.mapper.PetMapper;
-import com.pawsitive.pawsitive.pet.controller.PetController;
+import com.pawsitive.pawsitive.nfctag.model.NfcTag;
+import com.pawsitive.pawsitive.nfctag.model.TagStatus;
+import com.pawsitive.pawsitive.nfctag.service.NfcTagService;
+import com.pawsitive.pawsitive.owner.service.OwnerService;
 import com.pawsitive.pawsitive.pet.model.Pet;
 import com.pawsitive.pawsitive.pet.repository.PetRepository;
+import com.pawsitive.pawsitive.user.model.User;
+import com.pawsitive.pawsitive.user.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
@@ -18,9 +26,15 @@ public class PetServiceImpl implements PetService {
     private static final Logger logger = LoggerFactory.getLogger(PetServiceImpl.class);
 
     private final PetRepository petRepository;
+    private final NfcTagService nfcTagService;
+    private final UserService userService;
+    private final PetMapper petMapper;
 
-    public PetServiceImpl(PetRepository petRepository) {
+    public PetServiceImpl(PetRepository petRepository, NfcTagService nfcTagService, UserService userService, PetMapper petMapper) {
         this.petRepository = petRepository;
+        this.nfcTagService = nfcTagService;
+        this.userService = userService;
+        this.petMapper = petMapper;
     }
 
     @Override
@@ -69,12 +83,45 @@ public class PetServiceImpl implements PetService {
                 .orElseThrow(() -> new PetNotFoundException("Pet not found with ID: " + id));
     }
 
+    @Transactional
     @Override
-    public Pet createPet(Pet pet) {
-        if (pet == null) {
-            throw new IllegalArgumentException("Pet cannot be null");
+    public Pet createPet(CreatePetDTO createPetDTO) {
+        if (createPetDTO == null) {
+            throw new IllegalArgumentException("CreatePetDTO cannot be null");
         }
-        return petRepository.save(pet);
+
+        NfcTag nfcTagByTagId = nfcTagService.getNfcTagByTagId(createPetDTO.nfcTagId());
+//        1. check if NFC Tag is existing and unassigned
+        if (!nfcTagService.tagIsUnclaimed(nfcTagByTagId)) {
+            logger.error("NFC tag {} is not claimed", nfcTagByTagId);
+            throw new TagInvalidException("Invalid NFC Tag or is already claimed");
+        }
+
+//        2. set the tag as claimed
+        nfcTagService.setTagStatus(nfcTagByTagId, TagStatus.CLAIMED);
+
+//        3. check if owner exists and all OK
+
+        User userByEmail = userService.getUserByEmail(createPetDTO.ownerEmail());
+
+//        4. create pet
+        logger.info("Constructing pet object...");
+        Pet pet = new Pet();
+        pet.setName(createPetDTO.name());
+        pet.setAge(createPetDTO.age());
+        pet.setBreed(createPetDTO.breed());
+        pet.setSex(createPetDTO.sex());
+        pet.setPhotoUrl(createPetDTO.photoUrl());
+        pet.setNfcTag(nfcTagByTagId);
+        pet.setOwner(userByEmail.getOwner());
+
+        nfcTagService.linkPetToTag(nfcTagByTagId, pet);
+
+
+        Pet savedPet = petRepository.save(pet);
+        logger.info("Pet with id {} created successfully, and attached to NFC Tag: {}", savedPet.getId(), nfcTagByTagId.getId());
+
+        return savedPet;
     }
 
     @Override

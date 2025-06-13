@@ -17,6 +17,7 @@ import imageCompression from "browser-image-compression";
 import ImageCropperModal from "@/components/imgCropper/ImageCropperModal";
 import { PetDTO } from "@/types/PetDTO";
 import { Gender } from "@/enums/gender";
+import AddPetCard from "./AddPetCard";
 
 interface PetCardsProps {
   profile: ProfileInformationDTO;
@@ -368,6 +369,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                 </li>
               );
             })}
+          <AddPetCard profile={profile} setProfile={setProfile} />
         </ul>
       </div>
     </div>

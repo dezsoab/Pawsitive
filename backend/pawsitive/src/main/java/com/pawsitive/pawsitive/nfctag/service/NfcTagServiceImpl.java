@@ -3,8 +3,10 @@ package com.pawsitive.pawsitive.nfctag.service;
 import com.pawsitive.pawsitive.dto.TagResponseDTO;
 import com.pawsitive.pawsitive.exception.TagNotFoundException;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
+import com.pawsitive.pawsitive.nfctag.model.TagStatus;
 import com.pawsitive.pawsitive.nfctag.repository.NfcTagRepository;
 import com.pawsitive.pawsitive.mapper.TagResponseMapper;
+import com.pawsitive.pawsitive.pet.model.Pet;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +20,26 @@ public class NfcTagServiceImpl implements NfcTagService {
 
     private final NfcTagRepository nfcTagRepository;
     private final TagResponseMapper tagResponseMapper;
+
+    @Override
+    public void linkPetToTag(NfcTag nfcTagByTagId, Pet pet) {
+        logger.info("Linking pet to NFC Tag: {}", nfcTagByTagId.getId());
+        nfcTagByTagId.setPet(pet);
+    }
+
+    @Override
+    public void setTagStatus(NfcTag nfcTagByTagId, TagStatus tagStatus) {
+        logger.info("Setting NFC Tag {} status to {}", nfcTagByTagId, tagStatus);
+        NfcTag tag = nfcTagRepository.findByTagId(nfcTagByTagId.getTagId())
+                .orElseThrow(() -> new TagNotFoundException("Tag not found"));
+        tag.setStatus(tagStatus);
+        nfcTagRepository.save(tag);
+    }
+
+    @Override
+    public boolean tagIsUnclaimed(NfcTag nfcTag) {
+        return nfcTag.getStatus() == TagStatus.UNCLAIMED;
+    }
 
     @Override
     public TagResponseDTO processScannedTag(String tagId) {
