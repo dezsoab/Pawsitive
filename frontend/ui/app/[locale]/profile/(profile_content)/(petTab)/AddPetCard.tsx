@@ -7,6 +7,8 @@ import React, {
   useState,
 } from "react";
 
+import { v4 as uuidv4 } from "uuid";
+
 import styles from "./AddPetCard.module.css";
 import { Gender } from "@/enums/gender";
 import { useTranslations } from "next-intl";
@@ -19,6 +21,7 @@ import { PetDTO } from "@/types/PetDTO";
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
 import { addPetAPI } from "@/api/post/addPetAPI";
 import { CreatePetDTO } from "@/types/CreatePetDTO";
+import { updatePet } from "@/api/put/updatePetDetails";
 
 const MAX_IMAGE_SIZE_TO_COMPRESS = parseFloat(
   process.env.NEXT_PUBLIC_MAX_IMAGE_SIZE_TO_COMPRESS || "1.5"
@@ -73,14 +76,12 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cropModal, setCropModal] = useState<{
     file: File;
-    petId: number;
     url: string;
   } | null>(null);
 
   const [imageCropResult, setimageCropResult] = useState<{
     fileName: string;
     compressedFile: File;
-    petId: number;
   } | null>();
 
   const nfcTagIdRef = useRef<HTMLInputElement>(null);
@@ -94,7 +95,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
     setIsEditMode(!isEditMode);
   };
 
-  const handleFileSelect = (file: File, petId: number) => {
+  const handleFileSelect = (file: File) => {
     if (isFileTooLarge(file)) {
       toast.error(
         `File too large. Max ${MAX_IMAGE_SIZE_TO_CHOOSE}MB allowed.`,
@@ -113,14 +114,16 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
     }
 
     const fileUrl = URL.createObjectURL(file);
-    setCropModal({ file, petId, url: fileUrl });
+    setCropModal({ file, url: fileUrl });
   };
 
   const handleCroppedImage = async (croppedBlob: Blob) => {
     if (!cropModal) return;
-    const { file, petId } = cropModal;
+    const { file } = cropModal;
 
-    const fileName = `pet-${petId}.${file.name.split(".").pop()}`;
+    const extension = file.name.split(".").pop();
+    const fileName = `pet-${uuidv4()}.${extension}`;
+    console.log("generated file name: " + fileName);
     const compressedFile = await compressImage(
       new File([croppedBlob], fileName, { type: croppedBlob.type })
     );
@@ -130,7 +133,6 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
     setimageCropResult({
       fileName,
       compressedFile,
-      petId,
     });
   };
 
@@ -169,10 +171,6 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
     setIsSubmitting(true);
     try {
       let photoUrl = "";
-      if (imageCropResult) {
-        const { compressedFile, fileName } = imageCropResult;
-        photoUrl = await uploadToS3(compressedFile, fileName);
-      }
 
       const newPet: CreatePetDTO = {
         nfcTagId: nfcTagIdRef.current!.value,
@@ -180,16 +178,34 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
         age: ageRef.current!.value,
         breed: breedRef.current!.value,
         sex: sexRef.current!.value as Gender,
-        photoUrl,
+        photoUrl: "",
         ownerEmail: profile.email,
       };
 
       const savedPet: PetDTO = await addPet(newPet);
       console.log(savedPet);
-      setProfile((prev) => ({
-        ...prev!,
-        pets: [...prev!.pets, savedPet],
-      }));
+
+      if (imageCropResult) {
+        const { compressedFile, fileName } = imageCropResult;
+        photoUrl = await uploadToS3(compressedFile, fileName);
+
+        // Update savedPet with the new photo URL
+        const updatedPet: PetDTO = await updatePet({
+          ...savedPet,
+          photoUrl,
+        });
+
+        setProfile((prev) => ({
+          ...prev!,
+          pets: [...prev!.pets, updatedPet],
+        }));
+      } else {
+        // in case there was no image upload set the pet in local state as is
+        setProfile((prev) => ({
+          ...prev!,
+          pets: [...prev!.pets, savedPet],
+        }));
+      }
       setimageCropResult(null);
       setIsEditMode(false);
     } catch (error) {
@@ -233,6 +249,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               type="text"
               id="nfcTagId"
               placeholder="NFC Tag ID"
+              required
             />
             <label htmlFor={`name-${1}`}>{t("Pet.name")}:</label>
             <input
@@ -240,6 +257,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               type="text"
               // id={`name-${pet.id}`}
               placeholder="Add pet name"
+              required
             />
             <br />
             <label htmlFor="breed">{t("Pet.breed")}:</label>
@@ -248,6 +266,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               type="text"
               id="breed"
               placeholder="Add pet breed"
+              required
             />
             <br />
             <label htmlFor="age">{t("Pet.age")}:</label>
@@ -258,10 +277,11 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               placeholder="Add pet age"
               min={0}
               max={20}
+              required
             />
             <br />
             <label htmlFor="sex">{t("Pet.sex.name")}:</label>
-            <select ref={sexRef} id="sex">
+            <select ref={sexRef} id="sex" required>
               <option value={Gender.MALE}>{t("Pet.sex.male")}</option>
               <option value={Gender.FEMALE}>{t("Pet.sex.female")}</option>
             </select>
@@ -272,7 +292,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               accept="image/*"
               onChange={(e) => {
                 const file = e.target.files?.[0];
-                if (file) handleFileSelect(file, 1);
+                if (file) handleFileSelect(file);
               }}
             />
             <button type="submit" disabled={isSubmitting}>
