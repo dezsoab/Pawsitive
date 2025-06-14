@@ -123,7 +123,6 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
 
     const extension = file.name.split(".").pop();
     const fileName = `pet-${uuidv4()}.${extension}`;
-    console.log("generated file name: " + fileName);
     const compressedFile = await compressImage(
       new File([croppedBlob], fileName, { type: croppedBlob.type })
     );

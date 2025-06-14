@@ -19,6 +19,8 @@ import { PetDTO } from "@/types/PetDTO";
 import { Gender } from "@/enums/gender";
 import AddPetCard from "./AddPetCard";
 
+import { v4 as uuidv4 } from "uuid";
+
 interface PetCardsProps {
   profile: ProfileInformationDTO;
   setProfile: Dispatch<SetStateAction<ProfileInformationDTO | undefined>>;
@@ -184,7 +186,8 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
     if (!cropModal) return;
     const { file, petId } = cropModal;
 
-    const fileName = `pet-${petId}.${file.name.split(".").pop()}`;
+    const extension = file.name.split(".").pop();
+    const fileName = `pet-${uuidv4()}.${extension}`;
     const compressedFile = await compressImage(
       new File([croppedBlob], fileName, { type: croppedBlob.type })
     );
