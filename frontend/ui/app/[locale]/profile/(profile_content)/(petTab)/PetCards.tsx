@@ -29,9 +29,7 @@ interface PetCardsProps {
   setProfile: Dispatch<SetStateAction<ProfileInformationDTO | undefined>>;
 }
 
-const updatePetInfo = async (
-  updatedPet: ProfileInformationDTO["pets"][0]
-): Promise<void> => {
+const updatePetInfo = async (updatedPet: PetDTO): Promise<void> => {
   await toast.promise(
     updatePet(updatedPet),
     {
@@ -50,13 +48,13 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
   const [cropModal, setCropModal] = useState<{
     file: File;
     url: string;
+    photoUrl?: string;
   } | null>(null);
+
   const nameRef = useRef<HTMLInputElement>(null);
   const breedRef = useRef<HTMLInputElement>(null);
   const ageRef = useRef<HTMLInputElement>(null);
   const sexRef = useRef<HTMLSelectElement>(null);
-  const petIdRef = useRef<HTMLParagraphElement>(null);
-  const petTagIdRef = useRef<HTMLParagraphElement>(null);
 
   const t = useTranslations();
 
@@ -79,10 +77,10 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
     setActivePet((prevPet) => (prevPet === pet ? undefined : pet));
   };
 
-  const [imageCropResult, setimageCropResult] = useState<{
+  const [imageCropResult, setImageCropResult] = useState<{
     fileName: string;
     compressedFile: File;
-  } | null>();
+  } | null>(null);
 
   const updatePetInformationSubmitHandler = async (
     e: FormEvent,
@@ -90,7 +88,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
   ) => {
     e.preventDefault();
 
-    let photoUrl = originalPet.photoUrl ?? "";
+    let photoUrl = originalPet.photoUrl;
 
     if (imageCropResult) {
       const { compressedFile, fileName } = imageCropResult;
@@ -112,7 +110,8 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
       pet.id === updatedPet.id ? updatedPet : pet
     );
     setProfile({ ...profile, pets: updatedPets });
-    setimageCropResult(null);
+    setImageCropResult(null);
+    setEditPetId(null);
   };
 
   const getTranslatedSex = (sex: Gender | undefined): string => {
@@ -130,8 +129,8 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
               file,
               cropModal,
               setCropModal,
-              setimageCropResult,
-              activePet?.photoUrl
+              setImageCropResult,
+              cropModal.photoUrl
             )
           }
         />
@@ -185,9 +184,9 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                           <h3 className={styles.card__title}>{pet.name}</h3>
                           <span className={styles.card__status}>{pet.id}</span>
                         </div>
-
                         <button
                           onClick={(e) => {
+                            e.stopPropagation();
                             toggleEditMode(pet.id);
                           }}
                         >
@@ -197,80 +196,85 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
 
                       <div className={styles.card__infos}>
                         {isEditMode ? (
-                          <>
-                            <form
-                              key={pet.id}
-                              onSubmit={(e) =>
-                                updatePetInformationSubmitHandler(e, pet)
-                              }
+                          <form
+                            key={pet.id}
+                            onSubmit={(e) =>
+                              updatePetInformationSubmitHandler(e, pet)
+                            }
+                          >
+                            <label htmlFor={`name-${pet.id}`}>
+                              {t("Pet.name")}:
+                            </label>
+                            <input
+                              ref={nameRef}
+                              type="text"
+                              id={`name-${pet.id}`}
+                              defaultValue={pet.name}
+                            />
+                            <br />
+                            <label htmlFor={`breed-${pet.id}`}>
+                              {t("Pet.breed")}:
+                            </label>
+                            <input
+                              ref={breedRef}
+                              type="text"
+                              id={`breed-${pet.id}`}
+                              defaultValue={pet.breed}
+                            />
+                            <br />
+                            <label htmlFor={`age-${pet.id}`}>
+                              {t("Pet.age")}:
+                            </label>
+                            <input
+                              ref={ageRef}
+                              type="number"
+                              id={`age-${pet.id}`}
+                              defaultValue={pet.age}
+                              min={0}
+                              max={20}
+                            />
+                            <br />
+                            <label htmlFor={`sex-${pet.id}`}>
+                              {t("Pet.sex.name")}:
+                            </label>
+                            <select
+                              ref={sexRef}
+                              id={`sex-${pet.id}`}
+                              defaultValue={pet.sex}
                             >
-                              <label htmlFor={`name-${pet.id}`}>
-                                {t("Pet.name")}:
-                              </label>
-                              <input
-                                ref={nameRef}
-                                type="text"
-                                id={`name-${pet.id}`}
-                                defaultValue={pet.name}
-                              />
-                              <br />
-                              <label htmlFor={`breed-${pet.id}`}>
-                                {t("Pet.breed")}:
-                              </label>
-                              <input
-                                ref={breedRef}
-                                type="text"
-                                id={`breed-${pet.id}`}
-                                defaultValue={pet.breed}
-                              />
-                              <br />
-                              <label htmlFor={`age-${pet.id}`}>
-                                {t("Pet.age")}:
-                              </label>
-                              <input
-                                ref={ageRef}
-                                type="number"
-                                id={`age-${pet.id}`}
-                                defaultValue={pet.age}
-                                min={0}
-                                max={20}
-                              />
-                              <br />
-                              <label htmlFor={`sex-${pet.id}`}>
-                                {t("Pet.sex.name")}:
-                              </label>
-                              <select
-                                ref={sexRef}
-                                id={`sex-${pet.id}`}
-                                defaultValue={pet.sex}
-                              >
-                                <option value={Gender.MALE}>
-                                  {t("Pet.sex.male")}
-                                </option>
-                                <option value={Gender.FEMALE}>
-                                  {t("Pet.sex.female")}
-                                </option>
-                              </select>
-                              <p ref={petIdRef}>Pet ID: {pet.id}</p>
-                              <p ref={petTagIdRef}>Tag ID: {pet.nfcTagId}</p>
-                              <label htmlFor={`file-upload-${pet.id}`}>
-                                {pet.photoUrl
-                                  ? t("Dashboard.updateAction") + ":"
-                                  : t("Dashboard.uploadAction") + ":"}
-                              </label>
-                              <input
-                                id={`file-upload-${pet.id}`}
-                                type="file"
-                                accept="image/*"
-                                onChange={(e) => {
-                                  const file = e.target.files?.[0];
-                                  if (file)
-                                    handleFileSelect(file, setCropModal);
-                                }}
-                              />
-                              <button type="submit">SAVE</button>
-                            </form>
-                          </>
+                              <option value={Gender.MALE}>
+                                {t("Pet.sex.male")}
+                              </option>
+                              <option value={Gender.FEMALE}>
+                                {t("Pet.sex.female")}
+                              </option>
+                            </select>
+                            <p>Pet ID: {pet.id}</p>
+                            <p>Tag ID: {pet.nfcTagId}</p>
+                            <label htmlFor={`file-upload-${pet.id}`}>
+                              {pet.photoUrl
+                                ? t("Dashboard.updateAction") + ":"
+                                : t("Dashboard.uploadAction") + ":"}
+                            </label>
+                            <input
+                              id={`file-upload-${pet.id}`}
+                              type="file"
+                              accept="image/*"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                  const modalData = handleFileSelect(file);
+                                  if (modalData) {
+                                    setCropModal({
+                                      ...modalData,
+                                      photoUrl: pet.photoUrl,
+                                    });
+                                  }
+                                }
+                              }}
+                            />
+                            <button type="submit">SAVE</button>
+                          </form>
                         ) : (
                           <>
                             <p>

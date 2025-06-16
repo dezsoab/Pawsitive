@@ -41,7 +41,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
   const [imageCropResult, setimageCropResult] = useState<{
     fileName: string;
     compressedFile: File;
-  } | null>();
+  } | null>(null);
 
   const nfcTagIdRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
@@ -214,7 +214,14 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               accept="image/*"
               onChange={(e) => {
                 const file = e.target.files?.[0];
-                if (file) handleFileSelect(file, setCropModal);
+                if (file) {
+                  const modalData = handleFileSelect(file);
+                  if (modalData) {
+                    setCropModal({
+                      ...modalData,
+                    });
+                  }
+                }
               }}
             />
             <button type="submit" disabled={isSubmitting}>
