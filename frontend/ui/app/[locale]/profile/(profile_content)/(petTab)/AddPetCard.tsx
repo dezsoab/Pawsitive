@@ -22,49 +22,15 @@ import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
 import { addPetAPI } from "@/api/post/addPetAPI";
 import { CreatePetDTO } from "@/types/CreatePetDTO";
 import { updatePet } from "@/api/put/updatePetDetails";
-
-const MAX_IMAGE_SIZE_TO_COMPRESS = parseFloat(
-  process.env.NEXT_PUBLIC_MAX_IMAGE_SIZE_TO_COMPRESS || "1.5"
-);
-const MAX_IMAGE_SIZE_TO_CHOOSE = parseFloat(
-  process.env.NEXT_PUBLIC_MAX_IMAGE_SIZE_TO_CHOOSE || "4"
-);
-
-const isFileTooLarge = (file: File): boolean =>
-  file.size > MAX_IMAGE_SIZE_TO_CHOOSE * 1024 * 1024;
-
-const isFileTypeSupported = (file: File): boolean =>
-  ["image/jpeg", "image/png"].includes(file.type);
-
-const imageCompressionOptions = {
-  maxSizeMB: MAX_IMAGE_SIZE_TO_COMPRESS,
-  maxWidthOrHeight: 1800,
-  useWebWorker: true,
-};
-
-const uploadToS3 = async (file: File, fileName: string): Promise<string> => {
-  const { uploadUrl } = await fetchPresignedPetUrl(fileName);
-  const photoUrl = uploadUrl.split("?")[0];
-
-  await toast.promise(
-    fetch(uploadUrl, {
-      method: "PUT",
-      headers: {
-        "Content-Type": file.type,
-        "Cache-Control": "no-cache",
-      },
-      body: file,
-    }),
-    {
-      pending: "Uploading image...",
-      success: "Upload successful!",
-      error: "Upload failed.",
-    },
-    { position: "bottom-right", toastId: `upload-${fileName}` }
-  );
-
-  return photoUrl;
-};
+import {
+  compressImage,
+  imageCompressionOptions,
+  isFileTooLarge,
+  isFileTypeSupported,
+  MAX_IMAGE_SIZE_TO_CHOOSE,
+  uploadToS3,
+} from "@/util/uploadImageUtils";
+import { apiMethod } from "@/enums/apiMethod";
 
 interface PetCardsProps {
   profile: ProfileInformationDTO;
@@ -135,9 +101,6 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
     });
   };
 
-  const compressImage = async (file: File): Promise<File> =>
-    await imageCompression(file, imageCompressionOptions);
-
   const addPet = async (createdPetDetail: CreatePetDTO): Promise<PetDTO> => {
     const response = await toast.promise(
       addPetAPI(createdPetDetail),
@@ -186,7 +149,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
 
       if (imageCropResult) {
         const { compressedFile, fileName } = imageCropResult;
-        photoUrl = await uploadToS3(compressedFile, fileName);
+        photoUrl = await uploadToS3(compressedFile, fileName, apiMethod.PUT);
 
         // Update savedPet with the new photo URL
         const updatedPet: PetDTO = await updatePet({
