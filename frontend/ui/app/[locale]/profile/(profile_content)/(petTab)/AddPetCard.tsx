@@ -7,15 +7,11 @@ import React, {
   useState,
 } from "react";
 
-import { v4 as uuidv4 } from "uuid";
-
 import styles from "./AddPetCard.module.css";
 import { Gender } from "@/enums/gender";
 import { useTranslations } from "next-intl";
 import ImageCropperModal from "@/components/imgCropper/ImageCropperModal";
 import { toast } from "react-toastify";
-import imageCompression from "browser-image-compression";
-import { fetchPresignedPetUrl } from "@/api/get/fetchPresignedPetUrl";
 import { PetDTO } from "@/types/PetDTO";
 
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
@@ -23,11 +19,8 @@ import { addPetAPI } from "@/api/post/addPetAPI";
 import { CreatePetDTO } from "@/types/CreatePetDTO";
 import { updatePet } from "@/api/put/updatePetDetails";
 import {
-  compressImage,
-  imageCompressionOptions,
-  isFileTooLarge,
-  isFileTypeSupported,
-  MAX_IMAGE_SIZE_TO_CHOOSE,
+  handleCroppedImage,
+  handleFileSelect,
   uploadToS3,
 } from "@/util/uploadImageUtils";
 import { apiMethod } from "@/enums/apiMethod";
@@ -59,46 +52,6 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
 
   const toggleEdit = () => {
     setIsEditMode(!isEditMode);
-  };
-
-  const handleFileSelect = (file: File) => {
-    if (isFileTooLarge(file)) {
-      toast.error(
-        `File too large. Max ${MAX_IMAGE_SIZE_TO_CHOOSE}MB allowed.`,
-        {
-          position: "bottom-right",
-        }
-      );
-      return;
-    }
-
-    if (!isFileTypeSupported(file)) {
-      toast.error("Only JPEG and PNG images are allowed.", {
-        position: "bottom-right",
-      });
-      return;
-    }
-
-    const fileUrl = URL.createObjectURL(file);
-    setCropModal({ file, url: fileUrl });
-  };
-
-  const handleCroppedImage = async (croppedBlob: Blob) => {
-    if (!cropModal) return;
-    const { file } = cropModal;
-
-    const extension = file.name.split(".").pop();
-    const fileName = `pet-${uuidv4()}.${extension}`;
-    const compressedFile = await compressImage(
-      new File([croppedBlob], fileName, { type: croppedBlob.type })
-    );
-
-    setCropModal(null);
-
-    setimageCropResult({
-      fileName,
-      compressedFile,
-    });
   };
 
   const addPet = async (createdPetDetail: CreatePetDTO): Promise<PetDTO> => {
@@ -183,7 +136,14 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
         <ImageCropperModal
           imageSrc={cropModal.url}
           onCancel={() => setCropModal(null)}
-          onCropComplete={handleCroppedImage}
+          onCropComplete={(file) =>
+            handleCroppedImage(
+              file,
+              cropModal,
+              setCropModal,
+              setimageCropResult
+            )
+          }
         />
       )}
       {!isEditMode && (
@@ -254,7 +214,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               accept="image/*"
               onChange={(e) => {
                 const file = e.target.files?.[0];
-                if (file) handleFileSelect(file);
+                if (file) handleFileSelect(file, setCropModal);
               }}
             />
             <button type="submit" disabled={isSubmitting}>

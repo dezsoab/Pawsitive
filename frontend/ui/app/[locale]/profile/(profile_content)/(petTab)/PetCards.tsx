@@ -12,65 +12,22 @@ import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
 import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 import { updatePet } from "@/api/put/updatePetDetails";
-import { fetchPresignedPetUrl } from "@/api/get/fetchPresignedPetUrl";
-import imageCompression from "browser-image-compression";
 import ImageCropperModal from "@/components/imgCropper/ImageCropperModal";
 import { PetDTO } from "@/types/PetDTO";
 import { Gender } from "@/enums/gender";
 import AddPetCard from "./AddPetCard";
 
-import { v4 as uuidv4 } from "uuid";
+import {
+  handleCroppedImage,
+  handleFileSelect,
+  uploadToS3,
+} from "@/util/uploadImageUtils";
+import { apiMethod } from "@/enums/apiMethod";
 
 interface PetCardsProps {
   profile: ProfileInformationDTO;
   setProfile: Dispatch<SetStateAction<ProfileInformationDTO | undefined>>;
 }
-
-const MAX_IMAGE_SIZE_TO_COMPRESS = parseFloat(
-  process.env.NEXT_PUBLIC_MAX_IMAGE_SIZE_TO_COMPRESS || "1.5"
-);
-const MAX_IMAGE_SIZE_TO_CHOOSE = parseFloat(
-  process.env.NEXT_PUBLIC_MAX_IMAGE_SIZE_TO_CHOOSE || "4"
-);
-
-const imageCompressionOptions = {
-  maxSizeMB: MAX_IMAGE_SIZE_TO_COMPRESS,
-  maxWidthOrHeight: 1800,
-  useWebWorker: true,
-};
-
-const isFileTooLarge = (file: File): boolean =>
-  file.size > MAX_IMAGE_SIZE_TO_CHOOSE * 1024 * 1024;
-
-const isFileTypeSupported = (file: File): boolean =>
-  ["image/jpeg", "image/png"].includes(file.type);
-
-const compressImage = async (file: File): Promise<File> =>
-  await imageCompression(file, imageCompressionOptions);
-
-const uploadToS3 = async (file: File, fileName: string): Promise<string> => {
-  const { uploadUrl } = await fetchPresignedPetUrl(fileName);
-  const photoUrl = uploadUrl.split("?")[0];
-
-  await toast.promise(
-    fetch(uploadUrl, {
-      method: "PUT",
-      headers: {
-        "Content-Type": file.type,
-        "Cache-Control": "no-cache",
-      },
-      body: file,
-    }),
-    {
-      pending: "Uploading image...",
-      success: "Upload successful!",
-      error: "Upload failed.",
-    },
-    { position: "bottom-right", toastId: `upload-${fileName}` }
-  );
-
-  return photoUrl;
-};
 
 const updatePetInfo = async (
   updatedPet: ProfileInformationDTO["pets"][0]
@@ -87,12 +44,11 @@ const updatePetInfo = async (
 };
 
 const PetCards = ({ profile, setProfile }: PetCardsProps) => {
-  const [activePetId, setActivePetId] = useState<number | null>(null);
+  const [activePet, setActivePet] = useState<PetDTO>();
   const [editPetId, setEditPetId] = useState<number | null>(null);
 
   const [cropModal, setCropModal] = useState<{
     file: File;
-    petId: number;
     url: string;
   } | null>(null);
   const nameRef = useRef<HTMLInputElement>(null);
@@ -103,28 +59,6 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
   const petTagIdRef = useRef<HTMLParagraphElement>(null);
 
   const t = useTranslations();
-
-  const handleFileSelect = (file: File, petId: number) => {
-    if (isFileTooLarge(file)) {
-      toast.error(
-        `File too large. Max ${MAX_IMAGE_SIZE_TO_CHOOSE}MB allowed.`,
-        {
-          position: "bottom-right",
-        }
-      );
-      return;
-    }
-
-    if (!isFileTypeSupported(file)) {
-      toast.error("Only JPEG and PNG images are allowed.", {
-        position: "bottom-right",
-      });
-      return;
-    }
-
-    const fileUrl = URL.createObjectURL(file);
-    setCropModal({ file, petId, url: fileUrl });
-  };
 
   const sexTranslationMap = {
     MALE: t("Pet.sex.male"),
@@ -141,14 +75,13 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
     setEditPetId((prevId) => (prevId === petId ? null : petId));
   };
 
-  const handleCardClick = (petId: number) => {
-    setActivePetId((prevId) => (prevId === petId ? null : petId));
+  const handleCardClick = (pet: PetDTO) => {
+    setActivePet((prevPet) => (prevPet === pet ? undefined : pet));
   };
 
   const [imageCropResult, setimageCropResult] = useState<{
     fileName: string;
     compressedFile: File;
-    petId: number;
   } | null>();
 
   const updatePetInformationSubmitHandler = async (
@@ -161,7 +94,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
 
     if (imageCropResult) {
       const { compressedFile, fileName } = imageCropResult;
-      photoUrl = await uploadToS3(compressedFile, fileName);
+      photoUrl = await uploadToS3(compressedFile, fileName, apiMethod.PUT);
     }
 
     const updatedPet: PetDTO = {
@@ -182,25 +115,6 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
     setimageCropResult(null);
   };
 
-  const handleCroppedImage = async (croppedBlob: Blob) => {
-    if (!cropModal) return;
-    const { file, petId } = cropModal;
-
-    const extension = file.name.split(".").pop();
-    const fileName = `pet-${uuidv4()}.${extension}`;
-    const compressedFile = await compressImage(
-      new File([croppedBlob], fileName, { type: croppedBlob.type })
-    );
-
-    setCropModal(null);
-
-    setimageCropResult({
-      fileName,
-      compressedFile,
-      petId,
-    });
-  };
-
   const getTranslatedSex = (sex: Gender | undefined): string => {
     return sex ? sexTranslationMap[sex] : "-";
   };
@@ -211,7 +125,15 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
         <ImageCropperModal
           imageSrc={cropModal.url}
           onCancel={() => setCropModal(null)}
-          onCropComplete={handleCroppedImage}
+          onCropComplete={(file) =>
+            handleCroppedImage(
+              file,
+              cropModal,
+              setCropModal,
+              setimageCropResult,
+              activePet?.photoUrl
+            )
+          }
         />
       )}
       <div className={styles.petContainer}>
@@ -225,9 +147,9 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                 <li key={pet.id}>
                   <div
                     className={`${styles.card} ${
-                      activePetId === pet.id ? styles.active : ""
+                      activePet === pet ? styles.active : ""
                     }`}
-                    onClick={() => handleCardClick(pet.id)}
+                    onClick={() => handleCardClick(pet)}
                   >
                     <Image
                       className={styles.card__image}
@@ -342,7 +264,8 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                                 accept="image/*"
                                 onChange={(e) => {
                                   const file = e.target.files?.[0];
-                                  if (file) handleFileSelect(file, pet.id);
+                                  if (file)
+                                    handleFileSelect(file, setCropModal);
                                 }}
                               />
                               <button type="submit">SAVE</button>
