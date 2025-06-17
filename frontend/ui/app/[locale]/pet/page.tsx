@@ -16,10 +16,10 @@ import { fetchPet } from "@/api/get/fetchPet";
 import { navigationRoutes } from "@/enums/navigationRoutes";
 
 const ScannedPetProfile: React.FC = () => {
-  const searchParams = useSearchParams();
   const router = useRouter();
+
+  const searchParams = useSearchParams();
   const petId = searchParams.get("petId") || "0";
-  const tagId = searchParams.get("tagId") || "0";
 
   const [pet, setPet] = useState<Pet | null>(null);
   const [loading, setLoading] = useState(true);

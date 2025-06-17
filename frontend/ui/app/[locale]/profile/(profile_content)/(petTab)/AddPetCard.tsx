@@ -24,6 +24,7 @@ import {
   uploadToS3,
 } from "@/util/uploadImageUtils";
 import { apiMethod } from "@/enums/apiMethod";
+import { useSearchParams } from "next/navigation";
 
 interface PetCardsProps {
   profile: ProfileInformationDTO;
@@ -31,6 +32,9 @@ interface PetCardsProps {
 }
 
 const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
+  const searchParams = useSearchParams();
+  const tagIdInUrl = searchParams.get("tagId");
+
   const [isEditMode, setIsEditMode] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [cropModal, setCropModal] = useState<{
@@ -172,6 +176,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               id="nfcTagId"
               placeholder="NFC Tag ID"
               required
+              defaultValue={tagIdInUrl ?? ""}
             />
             <label htmlFor={`name-${1}`}>{t("Pet.name")}:</label>
             <input
