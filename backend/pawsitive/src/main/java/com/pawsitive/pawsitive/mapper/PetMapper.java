@@ -12,9 +12,14 @@ public class PetMapper implements Mapper<Pet, PetDTO> {
     @Override
     public PetDTO toDto(Pet pet) {
         if (pet == null) throw new MapperException("Pet entity cannot be null");
-        return new PetDTO(pet.getId(), pet.getName(),
-                pet.getBreed(), pet.getAge(), pet.getSex(),
-                pet.getNfcTag().getTagId(), pet.getPhotoUrl(), pet.getCreatedAt(),
+        return new PetDTO(pet.getId(),
+                pet.getName(),
+                pet.getBreed(),
+                pet.getAge(),
+                pet.getSex(),
+                pet.getNfcTag().getTagId(),
+                pet.getPhotoUrl(),
+                pet.getCreatedAt(),
                 pet.getModifiedAt());
     }
 

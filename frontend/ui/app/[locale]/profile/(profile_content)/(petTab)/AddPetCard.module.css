@@ -1,0 +1,31 @@
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-height: 550px;
+  min-height: 500px;
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: var(--color-pink-mid);
+}
+
+.card:hover {
+  cursor: pointer;
+  background-color: var(--color-pink-dark);
+}
+
+.card p {
+  font-size: var(--font-paragraph);
+  color: var(--color-pink-light);
+  font-weight: 400;
+  margin-top: 4rem;
+}
+
+.plus_icon {
+  scale: 2;
+  fill: var(--color-pink-light);
+}

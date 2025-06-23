@@ -1,17 +1,15 @@
 "use client";
 
 import React from "react";
-import { useSearchParams, useRouter } from "next/navigation";
 import { loginOwner } from "@/api/post/loginOwner";
 import { LoginOwnerDTO } from "@/types/LoginOwnerDTO";
 
 import styles from "./LoginForm.module.css";
 import { useTranslations } from "next-intl";
+import { useAuth } from "@/context/AuthContext";
 
 export default function LoginForm() {
-  const searchParams = useSearchParams();
-  const id = searchParams.get("tagId");
-  const router = useRouter();
+  const { setIsLoggedIn } = useAuth();
   const t = useTranslations();
 
   const loginSubmitHandler = async (
@@ -30,7 +28,7 @@ export default function LoginForm() {
     try {
       await loginOwner(loginData);
       form.reset();
-      router.push(id ? `/profile?tagId=${id}` : "/profile");
+      setIsLoggedIn(true);
     } catch {
       alert("not OK login"); // TODO: write on the A1 screen
     }

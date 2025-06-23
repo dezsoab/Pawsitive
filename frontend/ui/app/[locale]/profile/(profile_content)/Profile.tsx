@@ -2,14 +2,17 @@ import { fetchProfileInformation } from "@/api/get/fetchProfile";
 import Cat from "@/components/loader/Cat";
 import { profileTabs } from "@/enums/profileTabs";
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
-import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import ProfileNavbar from "./(nav)/ProfileNavbar";
 import UserInformation from "./(userTab)/UserTab";
 import PetsCarousel from "./(petTab)/PetsCarousel";
 import { ToastContainer } from "react-toastify";
+import { queryParams } from "@/enums/queryParams";
+import { useSearchParams } from "next/navigation";
 
 const Profile = () => {
+  const searchParams = useSearchParams();
+  const isFreshTag = searchParams.get(queryParams.ISFRESHTAG) === "true";
   const [profile, setProfile] = useState<ProfileInformationDTO>();
   const [activeTab, setActiveTab] = useState<profileTabs>(profileTabs.PERSONAL);
 
@@ -21,6 +24,10 @@ const Profile = () => {
     };
 
     fetchUserInformation();
+
+    if (isFreshTag) {
+      setActiveTab(profileTabs.PETS);
+    }
   }, []);
 
   if (!profile) return <Cat />;
