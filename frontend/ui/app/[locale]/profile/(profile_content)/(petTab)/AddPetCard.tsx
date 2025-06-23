@@ -178,12 +178,12 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               required
               defaultValue={tagIdInUrl ?? ""}
             />
-            <label htmlFor={`name-${1}`}>{t("Pet.name")}:</label>
+            <label htmlFor="petName">{t("Pet.name")}:</label>
             <input
               ref={nameRef}
               type="text"
-              // id={`name-${pet.id}`}
-              placeholder="Add pet name"
+              id="petName"
+              placeholder={t("Pet.name")}
               required
             />
             <br />
@@ -192,7 +192,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               ref={breedRef}
               type="text"
               id="breed"
-              placeholder="Add pet breed"
+              placeholder={t("Pet.breed")}
               required
             />
             <br />
@@ -201,7 +201,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               ref={ageRef}
               type="number"
               id="age"
-              placeholder="Add pet age"
+              placeholder={t("Pet.age")}
               min={0}
               max={20}
               required
@@ -212,7 +212,9 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               <option value={Gender.MALE}>{t("Pet.sex.male")}</option>
               <option value={Gender.FEMALE}>{t("Pet.sex.female")}</option>
             </select>
-            <label htmlFor={`file-upload-${1}`}>Add pet image</label>
+            <label htmlFor={`file-upload-${1}`}>
+              {t("Dashboard.uploadAction")}
+            </label>
             <input
               id={`file-upload-${1}`}
               type="file"

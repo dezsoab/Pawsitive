@@ -4,6 +4,7 @@ import { fetchTagResponseDTO } from "@/api/get/fetchTagResponseDTO";
 import userIsOwnerOfPet from "@/api/get/isAuthenticatedUserOwnerOfPet";
 import Cat from "@/components/loader/Cat";
 import { navigationRoutes } from "@/enums/navigationRoutes";
+import { queryParams } from "@/enums/queryParams";
 import { tagState } from "@/enums/tagState";
 import { TagResponseDTO } from "@/types/TagResponseDTO";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -28,11 +29,15 @@ const ScannedNfcTag = () => {
 
         if (tag.status === tagState.UNCLAIMED) {
           if (isAuthenticated) {
-            router.push(`${navigationRoutes.PROFILE}?tagId=${tagId}`);
+            router.push(
+              `${navigationRoutes.PROFILE}?tagId=${tagId}&${queryParams.ISFRESHTAG}=true`
+            );
             setIsRedirecting(true);
             return;
           } else {
-            router.push(`${navigationRoutes.AUTH}?tagId=${tagId}`);
+            router.push(
+              `${navigationRoutes.AUTH}?${queryParams.TAGID}=${tagId}&${queryParams.ISFRESHTAG}=true`
+            );
             setIsRedirecting(true);
             return;
           }
@@ -43,20 +48,20 @@ const ScannedNfcTag = () => {
             const isOwner = await userIsOwnerOfPet("" + tag.petId);
             if (isOwner) {
               router.push(
-                `${navigationRoutes.PROFILE}?tagId=${tagId}&petId=${tag.petId}`
+                `${navigationRoutes.PROFILE}?${queryParams.TAGID}=${tagId}&petId=${tag.petId}`
               );
               setIsRedirecting(true);
               return;
             } else {
               router.push(
-                `${navigationRoutes.PET}?petId=${tag.petId}&tagId=${tagId}`
+                `${navigationRoutes.PET}?${queryParams.PETID}=${tag.petId}&${queryParams.TAGID}=${tagId}`
               );
               setIsRedirecting(true);
               return;
             }
           } else {
             router.push(
-              `${navigationRoutes.PET}?petId=${tag.petId}&tagId=${tagId}`
+              `${navigationRoutes.PET}?${queryParams.PETID}=${tag.petId}&${queryParams.TAGID}=${tagId}`
             );
             setIsRedirecting(true);
             return;

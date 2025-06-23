@@ -17,8 +17,9 @@ import { useWindowSize } from "./getWindowSize";
 import Cat from "@/components/loader/Cat";
 import RegisterForm from "./RegisterForm";
 import { useAuth } from "@/context/AuthContext";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { navigationRoutes } from "@/enums/navigationRoutes";
+import { queryParams } from "@/enums/queryParams";
 
 function DebugLight({
   position,
@@ -43,12 +44,17 @@ function DebugLight({
 }
 
 export default function AuthenticatePage() {
+  const searchParams = useSearchParams();
+  const isFreshTag = Boolean(searchParams.get(queryParams.ISFRESHTAG));
+  const tagId = searchParams.get(queryParams.TAGID);
   const { isLoggedIn } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.push(navigationRoutes.PROFILE);
+      router.push(
+        `${navigationRoutes.PROFILE}?${queryParams.TAGID}=${tagId}&${queryParams.ISFRESHTAG}=${isFreshTag}`
+      );
     }
   }, [isLoggedIn, router]);
 
