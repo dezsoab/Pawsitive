@@ -13,44 +13,33 @@ import ScannedPetDetails from "./ScannedPetDetails";
 import { Pet } from "@/types/Pet";
 import Cat from "@/components/loader/Cat";
 import { fetchPet } from "@/api/get/fetchPet";
-import { checkIfAuthenticated } from "@/api/get/checkIfAuthenticated";
-import userIsOwnerOfPet from "@/api/get/isAuthenticatedUserOwnerOfPet";
+import { navigationRoutes } from "@/enums/navigationRoutes";
 
 const ScannedPetProfile: React.FC = () => {
-  const searchParams = useSearchParams();
   const router = useRouter();
+
+  const searchParams = useSearchParams();
   const petId = searchParams.get("petId") || "0";
-  const tagId = searchParams.get("tagId") || "0";
 
   const [pet, setPet] = useState<Pet | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const initialize = async () => {
+    const fetchData = async () => {
       try {
-        const isAuthenticated = await checkIfAuthenticated();
-
-        if (isAuthenticated) {
-          const isOwner = await userIsOwnerOfPet(petId);
-          if (isOwner) {
-            router.push(`/profile?tagId=${tagId}&petId=${petId}`);
-            return; // Exit early, no need to fetch pet
-          }
-        }
-
-        // Either not authenticated or not the owner
+        setLoading(true);
         const petData = await fetchPet(Number(petId));
         setPet(petData);
       } catch (error) {
-        console.error("Error during pet scan handling:", error);
-        router.push(`/authenticate/login?tagId=${petId}`);
+        console.error("Error fetching pet data", error);
+        router.push(navigationRoutes.HOME);
       } finally {
         setLoading(false);
       }
     };
 
-    initialize();
-  }, [petId, router, tagId]);
+    fetchData();
+  }, [petId, router]);
 
   if (loading || !pet) {
     return <Cat />;

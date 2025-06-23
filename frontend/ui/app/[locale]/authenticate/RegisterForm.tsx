@@ -1,17 +1,14 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
 
 import styles from "./RegisterForm.module.css";
 import { useAuth } from "@/context/AuthContext";
 import { RegisterOwnerDTO } from "@/types/RegisterOwnerDTO";
 import { createOwner } from "@/api/post/createOwner";
-import { navigationRoutes } from "@/enums/navigationRoutes";
 import { useTranslations } from "next-intl";
 
 export default function RegisterForm() {
-  const router = useRouter();
   const { setIsLoggedIn } = useAuth();
   const t = useTranslations();
 
@@ -47,7 +44,6 @@ export default function RegisterForm() {
     try {
       await createOwner(registerData);
       form.reset();
-      router.push(navigationRoutes.PROFILE);
       setIsLoggedIn(true);
     } catch {
       alert("not OK register"); // TODO: write on the A1 screen

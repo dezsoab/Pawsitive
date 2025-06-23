@@ -1,7 +1,10 @@
 "use client";
+import { checkIfAuthenticated } from "@/api/get/checkIfAuthenticated";
 import { fetchTagResponseDTO } from "@/api/get/fetchTagResponseDTO";
+import userIsOwnerOfPet from "@/api/get/isAuthenticatedUserOwnerOfPet";
 import Cat from "@/components/loader/Cat";
 import { navigationRoutes } from "@/enums/navigationRoutes";
+import { queryParams } from "@/enums/queryParams";
 import { tagState } from "@/enums/tagState";
 import { TagResponseDTO } from "@/types/TagResponseDTO";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -16,47 +19,68 @@ const ScannedNfcTag = () => {
   const [isRedirecting, setIsRedirecting] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchNFCTag = async () => {
+    const handleTagScan = async () => {
+      if (!tagId || isRedirecting) return;
+
       try {
-        const tagResponse = await fetchTagResponseDTO(String(tagId));
-        setTagResponse(tagResponse);
-      } catch (error) {
-        console.error("Error fetching tagResponseDTO:", error);
-        router.push(navigationRoutes.HOME); // TODO: handle erroneous tag instead sending user to home!!
-        return;
+        const tag = await fetchTagResponseDTO(tagId);
+        setTagResponse(tag);
+        const isAuthenticated = await checkIfAuthenticated();
+
+        if (tag.status === tagState.UNCLAIMED) {
+          if (isAuthenticated) {
+            router.push(
+              `${navigationRoutes.PROFILE}?tagId=${tagId}&${queryParams.ISFRESHTAG}=true`
+            );
+            setIsRedirecting(true);
+            return;
+          } else {
+            router.push(
+              `${navigationRoutes.AUTH}?${queryParams.TAGID}=${tagId}&${queryParams.ISFRESHTAG}=true`
+            );
+            setIsRedirecting(true);
+            return;
+          }
+        }
+
+        if (tag.status === tagState.CLAIMED) {
+          if (isAuthenticated) {
+            const isOwner = await userIsOwnerOfPet("" + tag.petId);
+            if (isOwner) {
+              router.push(
+                `${navigationRoutes.PROFILE}?${queryParams.TAGID}=${tagId}&petId=${tag.petId}`
+              );
+              setIsRedirecting(true);
+              return;
+            } else {
+              router.push(
+                `${navigationRoutes.PET}?${queryParams.PETID}=${tag.petId}&${queryParams.TAGID}=${tagId}`
+              );
+              setIsRedirecting(true);
+              return;
+            }
+          } else {
+            router.push(
+              `${navigationRoutes.PET}?${queryParams.PETID}=${tag.petId}&${queryParams.TAGID}=${tagId}`
+            );
+            setIsRedirecting(true);
+            return;
+          }
+        }
+
+        throw new Error("Tag is in erroneous state");
+      } catch (err) {
+        console.error("Invalid tag", err);
+        router.push(navigationRoutes.HOME);
       }
     };
 
-    fetchNFCTag();
-  }, [tagId, router]);
+    handleTagScan();
+  }, [tagId, isRedirecting, router]);
 
-  useEffect(() => {
-    const handleRedirect = async () => {
-      if (isRedirecting || !tagResponse) {
-        return;
-      }
-
-      if (tagIsAssignedToPet(tagResponse)) {
-        setIsRedirecting(true);
-        router.push(`/pet?petId=${tagResponse.petId}&tagId=${tagId}`);
-        return;
-      }
-
-      // TODO: what happens if the tag is not assigned to a pet??
-      // -> it is a fresh tag bought from the store most probably so
-      // auth the user (either login or register) to add data to the tag
-    };
-
-    handleRedirect();
-  }, [tagId, isRedirecting, router, tagResponse]);
-
-  if (tagResponse == null) {
+  if (tagResponse == null || isRedirecting) {
     return <Cat />;
   }
-};
-
-const tagIsAssignedToPet = (tag: TagResponseDTO): boolean => {
-  return tag?.status == tagState.CLAIMED;
 };
 
 export default ScannedNfcTag;

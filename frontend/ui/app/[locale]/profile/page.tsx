@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { checkIfAuthenticated } from "@/api/get/checkIfAuthenticated";
 import Cat from "@/components/loader/Cat";
 import Profile from "./(profile_content)/Profile";
@@ -9,9 +9,6 @@ import { navigationRoutes } from "@/enums/navigationRoutes";
 
 const PersonalPage = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const tagId = searchParams.get("tagId") || "";
-  const petId = searchParams.get("petId") || "";
 
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +29,7 @@ const PersonalPage = () => {
     };
 
     allowOnlyAuthenticatedUsers();
-  }, [petId, tagId, router]);
+  }, [router]);
 
   if (loading) {
     return <Cat />;

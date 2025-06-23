@@ -11,4 +11,5 @@ export enum navigationRoutes {
   LOGOUT = "/authenticate/logout",
   PROFILE = "/profile",
   AUTH = "/authenticate",
+  PET = "/pet",
 }
