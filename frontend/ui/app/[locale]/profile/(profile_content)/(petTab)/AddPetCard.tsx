@@ -197,6 +197,8 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
             <input
               ref={ageRef}
               type="number"
+              inputMode="decimal"
+              pattern="[0-9]*"
               id="age"
               placeholder={t("Pet.age")}
               min={0}
