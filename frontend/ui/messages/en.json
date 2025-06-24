@@ -153,7 +153,9 @@
   },
   "Dashboard": {
     "updateAction": "Update Picture",
-    "uploadAction": "Upload Picture"
+    "uploadAction": "Upload Picture",
+    "cancel": "Cancel",
+    "save": "Save"
   },
   "Auth": {
     "field": {

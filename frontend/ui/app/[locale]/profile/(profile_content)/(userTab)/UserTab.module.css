@@ -8,12 +8,10 @@
 
 .information {
   flex: 1;
-  /* background-color: blue; */
 }
 
 .render {
   flex: 1;
-  /* background-color: orange; */
 }
 
 .userTab h1 {
@@ -51,7 +49,7 @@
 .edit_button {
   background-color: transparent;
   border: 1px solid var(--color-pink-mid);
-  border-radius: 3px;
+  border-radius: var(--rounding);
   cursor: pointer;
   padding: 0.2rem;
 }
@@ -61,13 +59,48 @@
   scale: 1.2;
 }
 
-.information input {
-  width: 50%;
+.information form {
+  display: flex;
+  flex-direction: column;
+}
+
+.information form input {
+  padding: 0.2rem 0.5rem;
+  width: 70%;
   font-weight: 100;
-  padding: 0.1rem 0 0 0.2rem;
+}
+
+.save_edit {
+  padding: 0.6rem 1.7rem;
+  width: fit-content;
+  font-size: var(--font-paragraph);
+  border: none;
+  border-radius: var(--rounding);
+  transition: all 0.1s linear;
+  background-color: var(--color-pink-mid);
+  margin-top: 1rem;
+}
+
+.save_edit:hover {
+  cursor: pointer;
+  scale: 1.03;
+  background-color: var(--color-pink-dark) !important;
+  color: var(--color-white);
 }
 
 /* ===== RENDER STYLING ===== */
 .render canvas {
   cursor: grab;
+}
+
+/* ===== RESPONSIVE STYLING ===== */
+
+@media screen and (max-width: 768px) {
+  .userTab {
+    flex-direction: column;
+    padding: 10rem 0;
+    height: auto;
+    gap: 3rem;
+    overflow-x: hidden;
+  }
 }

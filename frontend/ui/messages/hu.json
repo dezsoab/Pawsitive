@@ -153,7 +153,9 @@
   },
   "Dashboard": {
     "updateAction": "Kép frissítése",
-    "uploadAction": "Kép feltöltése"
+    "uploadAction": "Kép feltöltése",
+    "cancel": "Mégse",
+    "save": "Mentés"
   },
   "Auth": {
     "field": {
