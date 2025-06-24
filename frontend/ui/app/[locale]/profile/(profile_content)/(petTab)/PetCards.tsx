@@ -217,6 +217,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                               type="text"
                               id={`name-${pet.id}`}
                               defaultValue={pet.name}
+                              required
                             />
                             <br />
                             <label htmlFor={`breed-${pet.id}`}>

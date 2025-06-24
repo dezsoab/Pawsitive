@@ -43,6 +43,7 @@
 
 .card label {
   font-size: var(--font-mini);
+  margin-top: 1rem;
 }
 
 .buttonsContainer {

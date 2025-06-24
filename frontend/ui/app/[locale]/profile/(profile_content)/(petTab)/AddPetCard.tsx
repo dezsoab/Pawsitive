@@ -192,7 +192,6 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               type="text"
               id="breed"
               placeholder={t("Pet.breed")}
-              required
             />
             <label htmlFor="age">{t("Pet.age")}:</label>
             <input
