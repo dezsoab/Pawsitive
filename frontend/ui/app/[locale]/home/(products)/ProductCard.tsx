@@ -24,7 +24,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
   productRefs,
 }) => {
   return (
-    <Link key={product.id} href={`/product/${product.id}`} locale={locale}>
+    // <Link key={product.id} href={`/product/${product.id}`} locale={locale}> // leave for later reference when the products will
+    // get linked to Shopify
+    // for now it is enough to make it not clickable so using a single DIV
+    <div key={product.id}>
       <div
         ref={(el) => {
           productRefs.current[index] = el;
@@ -40,7 +43,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <h3>{product.title}</h3>
         <p>{product.description}</p>
       </div>
-    </Link>
+    </div>
+    // </Link>
   );
 };
 
