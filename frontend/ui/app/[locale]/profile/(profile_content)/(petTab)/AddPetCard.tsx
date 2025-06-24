@@ -230,10 +230,10 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
             />
             <div className={styles.buttonsContainer}>
               <button type="reset" onClick={toggleEdit}>
-                CANCEL
+                {t("Dashboard.cancel")}
               </button>
               <button type="submit" disabled={isSubmitting}>
-                SAVE
+                {t("Dashboard.save")}
               </button>
             </div>
           </form>
