@@ -43,7 +43,6 @@
 .card:hover .card__overlay,
 .card.active .card__overlay {
   transform: translateY(0);
-  cursor: pointer;
 }
 
 .card:hover .card__header,
@@ -126,6 +125,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.editOption:hover,
+.editOption svg:hover {
+  cursor: pointer;
 }
 
 .editOption svg {
