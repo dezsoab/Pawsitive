@@ -145,3 +145,9 @@
   color: var(--color-pink-light);
   text-align: right;
 }
+
+@media screen and (max-width: 770px) {
+  .cards {
+    gap: 3rem;
+  }
+}
