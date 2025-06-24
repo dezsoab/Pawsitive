@@ -29,3 +29,48 @@
   scale: 2;
   fill: var(--color-pink-light);
 }
+
+.card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.card input {
+  padding: 0.2rem 0.5rem;
+  width: 100%;
+  font-weight: 100;
+}
+
+.card label {
+  font-size: var(--font-mini);
+  margin-top: 1rem;
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card button {
+  padding: 0.6rem 1.7rem;
+  width: fit-content;
+  font-size: var(--font-mini);
+  border: none;
+  border-radius: var(--rounding);
+  transition: all 0.1s linear;
+  background-color: var(--color-pink-light);
+  margin-top: 1rem;
+}
+
+.card button:hover {
+  cursor: pointer;
+  background-color: var(--color-pink-mid) !important;
+  color: var(--color-white);
+}
+
+.card select {
+  width: max-content;
+}

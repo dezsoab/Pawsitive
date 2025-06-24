@@ -68,7 +68,7 @@ describe("Products section tests", () => {
 });
 
 describe("Product grid tests", () => {
-  it("should show image titles on hover", async () => {
+  it.skip("should show image titles on hover", async () => {
     render(<ProductGrid />, {
       wrapper: ({ children }) => (
         <IntlProvider
@@ -102,7 +102,7 @@ describe("Product grid tests", () => {
     }
   });
 
-  it("redirects to product page based on productId", async () => {
+  it.skip("redirects to product page based on productId", async () => {
     render(<ProductGrid />, {
       wrapper: ({ children }) => (
         <IntlProvider

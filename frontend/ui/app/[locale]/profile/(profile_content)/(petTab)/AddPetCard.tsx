@@ -186,16 +186,13 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               placeholder={t("Pet.name")}
               required
             />
-            <br />
             <label htmlFor="breed">{t("Pet.breed")}:</label>
             <input
               ref={breedRef}
               type="text"
               id="breed"
               placeholder={t("Pet.breed")}
-              required
             />
-            <br />
             <label htmlFor="age">{t("Pet.age")}:</label>
             <input
               ref={ageRef}
@@ -206,7 +203,6 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               max={20}
               required
             />
-            <br />
             <label htmlFor="sex">{t("Pet.sex.name")}:</label>
             <select ref={sexRef} id="sex" required>
               <option value={Gender.MALE}>{t("Pet.sex.male")}</option>
@@ -231,12 +227,14 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
                 }
               }}
             />
-            <button type="submit" disabled={isSubmitting}>
-              SAVE
-            </button>
-            <button type="reset" onClick={toggleEdit}>
-              CANCEL
-            </button>
+            <div className={styles.buttonsContainer}>
+              <button type="reset" onClick={toggleEdit}>
+                {t("Dashboard.cancel")}
+              </button>
+              <button type="submit" disabled={isSubmitting}>
+                {t("Dashboard.save")}
+              </button>
+            </div>
           </form>
         </div>
       )}

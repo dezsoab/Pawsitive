@@ -43,7 +43,6 @@
 .card:hover .card__overlay,
 .card.active .card__overlay {
   transform: translateY(0);
-  cursor: pointer;
 }
 
 .card:hover .card__header,
@@ -57,7 +56,7 @@
 .card__header {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 2em;
   padding: 2em;
@@ -120,4 +119,39 @@
 
 .card__infos {
   padding: 0 2rem 2rem 2rem;
+}
+
+.editOption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.editOption:hover,
+.editOption svg:hover {
+  cursor: pointer;
+}
+
+.editOption svg {
+  fill: var(--color-pink-light);
+  scale: 1.2;
+}
+
+.editOption button {
+  background-color: transparent;
+  border: 1px solid var(--color-pink-light);
+  padding: 0.2rem;
+}
+
+.editOption span {
+  margin-left: 0.5rem;
+  font-size: 1.15rem;
+  color: var(--color-pink-light);
+  text-align: right;
+}
+
+@media screen and (max-width: 770px) {
+  .cards {
+    gap: 3rem;
+  }
 }
