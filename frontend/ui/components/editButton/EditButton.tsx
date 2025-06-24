@@ -6,7 +6,7 @@ interface EditProps {
   setEdit: Dispatch<SetStateAction<boolean>>;
 }
 
-const EditIcon = () => (
+export const EditIcon = () => (
   <svg
     width="24"
     height="24"
@@ -20,7 +20,7 @@ const EditIcon = () => (
   </svg>
 );
 
-const StopEditIcon = () => (
+export const StopEditIcon = () => (
   <svg
     width="24"
     height="24"

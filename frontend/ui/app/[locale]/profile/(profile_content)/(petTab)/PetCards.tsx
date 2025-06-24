@@ -23,6 +23,7 @@ import {
   uploadToS3,
 } from "@/util/uploadImageUtils";
 import { apiMethod } from "@/enums/apiMethod";
+import { EditIcon, StopEditIcon } from "@/components/editButton/EditButton";
 
 interface PetCardsProps {
   profile: ProfileInformationDTO;
@@ -184,14 +185,20 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                           <h3 className={styles.card__title}>{pet.name}</h3>
                           <span className={styles.card__status}>{pet.id}</span>
                         </div>
-                        <button
+                        <div
+                          className={styles.editOption}
                           onClick={(e) => {
                             e.stopPropagation();
                             toggleEditMode(pet.id);
                           }}
                         >
-                          {isEditMode ? "Cancel" : "Edit"}
-                        </button>
+                          <button>
+                            {isEditMode ? <StopEditIcon /> : <EditIcon />}
+                          </button>
+                          <span>
+                            {isEditMode ? "stop editing" : "click to edit"}
+                          </span>
+                        </div>
                       </div>
 
                       <div className={styles.card__infos}>
