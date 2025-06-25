@@ -142,14 +142,14 @@ export default function AuthenticatePage() {
                   position={[-0.1, 0.45, 0.75]}
                   rotation={[Math.PI / 2 - 0.4, Math.PI / 2 - 1.4, -0.6]}
                   onClick={handleLoginAnimation}
-                  pathToTagModel="/assets/testTag.glb"
+                  pathToTagModel="/assets/Bone_login.glb"
                 />
                 <ClickableTag
                   randomOffset={registerTagOffset}
-                  position={[0.08, 0.45, 0.75]}
+                  position={[0.09, 0.45, 0.75]}
                   rotation={[Math.PI / 2 - 0.4, -Math.PI / 2 + 1.4, 0.65]}
                   onClick={handleRegisterAnimation}
-                  pathToTagModel="/assets/testTag.glb"
+                  pathToTagModel="/assets/Bone_signup.glb"
                 />
               </>
             )}
@@ -177,4 +177,5 @@ export default function AuthenticatePage() {
 }
 
 useGLTF.preload("/assets/printer.glb");
-useGLTF.preload("/assets/testTag.glb");
+useGLTF.preload("/assets/Bone_signup.glb");
+useGLTF.preload("/assets/Bone_login.glb");

@@ -25,7 +25,7 @@ export default function ClickableTag({
 
   const model = useMemo(() => {
     const clone = scene.clone();
-    clone.scale.set(2.7, 2.7, 2.7);
+    clone.scale.set(3.45, 3.45, 3.45);
     return clone;
   }, [scene]);
 
