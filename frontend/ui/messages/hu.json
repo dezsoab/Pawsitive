@@ -94,9 +94,10 @@
       "paragraph": "Mi egy kétfős csapat vagyunk — az életben és a céljainkban is partnerek — akiket összeköt az állatok, a design és az alkotás szeretete.\n\nEgyütt végezzük a termékfejlesztést, az NFC integrációt, a paracord nyakörvek kézi fonását és az online bolt működtetését. Nem egy nagy vállalkozás — csak két szenvedélyes állattartó, akik esténként és hétvégén dolgoznak egy számukra fontos projekten.\n\nTudjuk, milyen érzés elveszíteni egy kedvencet, és milyen megkönnyebbülés megtalálni őt. Ezért a célunk nem csupán szép nyakörveket készíteni, hanem megbízható, okos eszközöket kínálni, amik segítenek biztonságban tudni kis barátainkat.\n\nEgy olyan márkát és közösséget építünk, amely legalább annyira értékeli a háziállatokat, mint mi.",
       "person": {
         "founder": "Alapító",
-        "co-founder": "Társ-alapító",
         "lead_dev": "Vezető fejlesztő",
-        "product_design": "Terméktervező"
+        "co-founder": "Társalapító",
+        "product_design": "Terméktervező",
+        "developer": "Fejlesztő"
       }
     }
   },

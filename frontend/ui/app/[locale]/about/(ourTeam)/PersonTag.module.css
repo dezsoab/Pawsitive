@@ -13,6 +13,9 @@
 .personImage {
   border-radius: 8px;
   transition: transform 0.3s ease;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .personTag:hover .personImage {

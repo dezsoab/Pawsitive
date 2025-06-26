@@ -94,9 +94,10 @@
       "paragraph": "Wir sind ein Zwei-Personen-Team – Partner im Leben und in unserem Herzensprojekt – verbunden durch die Liebe zu Tieren, Design und Selbstgemachtem.\n\nGemeinsam kümmern wir uns um Produktentwicklung, NFC-Integration, das Flechten der Paracord-Halsbänder und den Online-Shop. Keine große Firma – nur zwei engagierte Tierfreunde, die abends und am Wochenende mit Herzblut an ihrer Idee arbeiten.\n\nWir wissen, wie schmerzhaft es ist, ein Tier zu verlieren, und wie erleichternd es ist, es wiederzufinden. Deshalb geht es bei uns nicht nur um schöne Halsbänder – sondern um clevere, verlässliche Lösungen, die Tiere sicherer machen.\n\nWir bauen eine Marke und eine Community auf, die Haustiere genauso wertschätzt wie wir.",
       "person": {
         "founder": "Gründer",
+        "lead_dev": "Leitender Entwickler",
         "co-founder": "Mitgründerin",
-        "lead_dev": "Produktdesignerin",
-        "product_design": "Terméktervező"
+        "product_design": "Produktdesignerin",
+        "developer": "Entwickler"
       }
     }
   },

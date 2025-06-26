@@ -43,8 +43,8 @@ const PersonTag: React.FC<PersonTagProps> = ({
       <Image
         src={imgSrc}
         alt={imgAlt}
-        width={170}
-        height={200}
+        width={300}
+        height={300}
         className={styles.personImage}
       />
       <h4>{name}</h4>

@@ -48,7 +48,7 @@ const OurTeam = ({
               t("About.team.person.co-founder"),
               t("About.team.person.product_design"),
             ]}
-            imgSrc="/assets/collar2.webp"
+            imgSrc="/assets/Cintia.webp"
             imgAlt="some Alt"
           />
         </div>

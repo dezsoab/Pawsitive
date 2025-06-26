@@ -94,9 +94,10 @@
       "paragraph": "We are a two-person team — partners in life and in purpose — who share a deep love for animals, design, and DIY creation.\n\nTogether, we handle everything from product development and NFC integration to hand-braiding paracord collars and running the online shop. It’s not a big operation — just two passionate pet parents working evenings and weekends to build something meaningful.\n\nWe know what it feels like to lose a pet and what a relief it is to find them again. That’s why our mission isn’t just to make beautiful collars, but to offer smart, reliable tools that help keep pets safe.\n\nIt’s about building a brand and community that values pets as much as we do.",
       "person": {
         "founder": "Founder",
-        "co-founder": "Co-Founder",
         "lead_dev": "Lead Developer",
-        "product_design": "Product Designer"
+        "co-founder": "Co-Founder",
+        "product_design": "Product Designer",
+        "developer": "Developer"
       }
     }
   },
