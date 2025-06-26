@@ -13,6 +13,7 @@ import Features from "./(features)/Features";
 
 import molli1 from "@/public/assets/molli1.webp";
 import cezar2 from "@/public/assets/cezar2.webp";
+import TagSection from "./(tag)/TagSection";
 
 export default function Home() {
   logger.info("Rendering Home");
@@ -22,6 +23,7 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <TagSection />
         <AboutSection />
         <Features
           bgc="var(--color-white)"
