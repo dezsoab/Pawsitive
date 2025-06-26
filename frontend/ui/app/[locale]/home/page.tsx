@@ -4,7 +4,6 @@ import Testimonial from "./(testimonial)/Testimonial";
 import AboutSection from "./(about)/AboutSection";
 import Reasoning from "./(reasoning)/Reasoning";
 import CTASection from "./(CTASection)/CTASection";
-import PrinterSection from "./(printer)/PrinterSection";
 import ContactFormContainer from "./(contact-form)/ContactFormContainer";
 
 import Navbar from "../../../components/navigation/Navbar";
@@ -14,6 +13,7 @@ import Features from "./(features)/Features";
 
 import molli1 from "@/public/assets/molli1.webp";
 import cezar2 from "@/public/assets/cezar2.webp";
+import TagSection from "./(tag)/TagSection";
 
 export default function Home() {
   logger.info("Rendering Home");
@@ -23,7 +23,7 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <PrinterSection />
+        <TagSection />
         <AboutSection />
         <Features
           bgc="var(--color-white)"

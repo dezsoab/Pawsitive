@@ -13,12 +13,12 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import * as THREE from "three";
 
 import Cat from "@/components/loader/Cat";
-import styles from "./PrinterSection.module.css";
+import styles from "./TagSection.module.css";
 import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const RotatingPrinter = ({
+const RotatingTag = ({
   model,
   triggerRef,
 }: {
@@ -69,16 +69,16 @@ const ForceResize = () => {
   return null;
 };
 
-const PrinterSection = () => {
+const TagSection = () => {
   const t = useTranslations();
-  const { scene } = useGLTF("/assets/printer.glb");
+  const { scene } = useGLTF("/assets/Bone_bella.glb");
   const triggerRef = useRef<HTMLDivElement>(null);
 
   const clonedScene = useMemo(() => {
     const clone = scene.clone();
-    const scale = 1.4;
+    const scale = 12;
     clone.scale.set(scale, scale, scale);
-    clone.rotation.x = Math.PI / 2;
+    clone.rotation.x = 1.2;
     clone.position.y = 0.05;
     return clone;
   }, [scene]);
@@ -126,7 +126,7 @@ const PrinterSection = () => {
           <ForceResize />
           <Environment preset="warehouse" background={false} />
           <Suspense fallback={<Cat />}>
-            <RotatingPrinter model={clonedScene} triggerRef={triggerRef} />
+            <RotatingTag model={clonedScene} triggerRef={triggerRef} />
           </Suspense>
           <OrbitControls
             enablePan={false}
@@ -152,6 +152,6 @@ const PrinterSection = () => {
   );
 };
 
-export default PrinterSection;
+export default TagSection;
 
-useGLTF.preload("/assets/printer.glb");
+useGLTF.preload("/assets/Bone_bella.glb");
