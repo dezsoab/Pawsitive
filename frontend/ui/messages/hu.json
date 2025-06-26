@@ -2,106 +2,106 @@
   "Locale": "hu",
   "Index": {
     "hero": {
-      "title": "Kézzel készített pórázok és nyakörvek",
-      "title_extension": "beépített NFC technológiával",
-      "description": "Fedezd fel az egyedi tervezésű állatkiegészítőket, amelyek ötvözik a stílust és a modern technológiát – kedvenced adatai egyetlen érintéssel elérhetők."
+      "title": "Kézműves Kisállat Biléták és Nyakörvek",
+      "title_extension": "Okos NFC Technológiával a Nyugalmadért",
+      "description": "Fedezd fel a gyönyörűen megtervezett kisállat-kiegészítőket, amik időtlen stílust ötvöznek a legmodernebb biztonsággal."
     },
     "printerSection": {
-      "title1": "Precíz munka.",
-      "title2": "Okosan felturbózva.",
-      "title3": "Állatszerető lelkülettel.",
-      "description1": "Minden bilétát házon belül, saját 3D nyomtatóval készítünk, prémium, környezetbarát alapanyagokból. A végeredmény könnyű, mégis strapabíró – bírja a mindennapi rohanást, miközben stílusos kiegészítője is a kedvencednek.",
-      "description2": "Ami elsőre csak egy sima bilétának tűnik, az valójában sokkal több. A beépített NFC chip egy digitális profilhoz vezet, ami segít gyorsan visszajuttatni az elveszett kedvenceket a gazdájukhoz – nincs app, nincs elem, csak egy egyszerű érintés."
+      "title1": "Gondos Kézművesség.",
+      "title2": "Okos Megoldások.",
+      "title3": "Kalandra Készülve.",
+      "description1": "Minden Pawsitive bilétát szeretettel, itt a stúdiónkban nyomtatunk, prémium, környezetbarát anyagokból. Az eredmény? Hihetetlenül könnyű, mégis szuper tartós darabok, amik készen állnak kisállatod minden kalandjára – és garantáltan imádnivalóan fognak kinézni!",
+      "description2": "Gyönyörű külseje mögött azonban erős, okos technológia rejtőzik. Egy beágyazott NFC chip azonnal átfogó digitális profilhoz csatlakozik, létfontosságú mentőövet nyújtva az elveszett háziállatoknak. Nincs app, nincs elem, nincs macera – csak egy egyszerű, azonnali érintés, és kisállatod információi elérhetővé válnak."
     },
     "products": {
-      "title": "Kedvencek kedvence. Gazdik bizalma.",
-      "title_secondary": "Fedezd fel kézzel készített nyakörveinket és NFC bilétákat – tartósak, praktikusak és minden kalandra készen állnak."
+      "title": "A Kiskedvencek Imádják. Az Emberek Bíznak Benne.",
+      "title_secondary": "Fedezd fel kézműves nyakörveinket és okos NFC kisállat bilétáinkat — tartósak, szuperkönnyen használhatók, és készen állnak minden farokcsóválásra és kalandra."
     },
     "testimonial": {
-      "title": "Elképesztő érzés volt, amikor valaki leolvasta a kutyám bilétáját, és azonnal SMS-t kaptam. A minőség kifogástalan, az ötlet zseniális. Köszönöm, Pawsitive!",
-      "customer_adjective": "Hálás gazdi"
+      "title": "Teljesen el voltam ámulva, amikor valaki leolvasta a kutyám bilétáját, és azonnal kaptam egy SMS-t! A minőség gyönyörű, az ötlet pedig egyszerűen zseniális. Köszi, Pawsitive!",
+      "customer_adjective": "Hálás Kisállat Szülő"
     },
     "about": {
-      "title": "A Pawsitive története",
-      "about_description": "Elegünk lett a karcolódó, unalmas fém bilétákból. Ezért alkottunk valami jobbat – kézzel készült nyakörveket beépített NFC-vel.\n\nNincs szükség elemre vagy töltésre.\nCsak egy érintés – és megjelenik a kedvenced profilja.",
-      "first_title": "Szeretettel készítve",
-      "second_title": "Okos & megbízható",
-      "third_title": "Nyugodt szívvel",
-      "block_1": "Termékeink strapabíró PETG-ből és paracordból készülnek – minden darab egyedi.",
-      "block_2": "A beépített NFC tag egy biztonságos linket tárol – te döntöd el, milyen adat jelenik meg az oldalon.",
-      "block_3": "Amint valaki leolvassa a bilétát, SMS-t és e-mailt kapsz – app nélkül működik.",
-      "about_heading": "Miért csináljuk, amit csinálunk"
+      "title": "A Pawsitive Története: Szerelemmel Készítve",
+      "about_description": "Elegünk lett az unalmas, karcos fém bilétákból, amik túl gyorsan megkoptak.\nÍgy aztán valami igazán különlegeset alkottunk — kézműves nyakörveket okos NFC-bilétákkal, amik a legfontosabb pillanatban tényleg működnek.\n\nNincs elem. Nincs töltés.\nCsak egy egyszerű érintés, és kisállatod profilja azonnal megjelenik. Pofonegyszerű!",
+      "first_title": "Szívvel Készítve",
+      "second_title": "Okos, Egyszerű és Biztonságos",
+      "third_title": "Nyugalom, Kézbesítve",
+      "block_1": "Egyedi termékeinket szeretettel, kézzel készítjük szuper tartós PETG és paracord anyagokból — mindegyik olyan egyedi és csodálatos, mint a saját kisállatod.",
+      "block_2": "Biztonságos NFC bilétánk közvetlenül egy személyre szabott digitális profilhoz kapcsolódik. Te döntöd el, milyen információk jelenjenek meg, ha valaki leolvassa.",
+      "block_3": "Azonnali SMS és e-mail értesítéseket kapsz, abban a pillanatban, amikor valaki leolvassa elveszett kisállatod bilétáját — nincs szükség alkalmazás letöltésére, bonyolult beállításokra!",
+      "about_heading": "Miért hoztuk létre a Pawsitive-ot"
     },
     "features": {
-      "title": "Mi teszi különlegessé a Pawsitive-ot?",
-      "title_secondary": "Okos technológia, stílusos dizájn és minőségi kézműves munka – egy termékben.",
-      "reason_1": "Kézzel készített tartósság",
-      "reason1_text": "Minden terméket kézzel készítünk – egyedi, stílusos és időtálló.",
-      "reason_2": "NFC technológia",
-      "reason2_text": "A biléta egy biztonságos linket tartalmaz a kisállatod profiljához – nem kell app.",
-      "reason_3": "Vízálló és strapabíró",
-      "reason3_text": "Az NFC chip zárt, vízálló és mindig működik."
+      "title": "Mitől olyan különleges a Pawsitive?",
+      "title_secondary": "Szeretettel ötvözzük a prémium anyagokat, az okos technológiát és a gondos kézműves tervezést egy gyönyörű, megbízható megoldásba.",
+      "reason_1": "Élethosszig Tartó Kézművesség",
+      "reason1_text": "Minden nyakörv és biléta gondosan, hihetetlen figyelemmel készül — erős, stílusos és igazán egyedi.",
+      "reason_2": "Tap and Go NFC Tech",
+      "reason2_text": "Okos bilétáink biztonságosan tárolják kisállatod egyedi profiljának linkjét.\nCsak érintsd hozzá egy telefonhoz — soha nincs szükség külön alkalmazásra!",
+      "reason_3": "Kalandra Kész & Vízálló",
+      "reason3_text": "Az NFC chip teljesen le van zárva — időjárásálló, és mindig készen áll tócsákra, játékra és minden másra!"
     },
     "services": {
-      "title": "Szolgáltatásaink állatbarátoknak",
-      "title_secondary": "Egyedi termékek, értesítések, megbízható kézműves munka – minden egy helyen.",
-      "reason_1": "Személyre szabott dizájn",
-      "reason1_text": "Válaszd ki a stílust és színeket, és készítsd el kedvenced saját nyakörvét.",
-      "reason_2": "Elveszett állat értesítés",
-      "reason2_text": "Amint valaki leolvassa a bilétát, azonnal értesítést kapsz.",
-      "reason_3": "Minőségi kézművesség",
-      "reason3_text": "Minden terméket gondosan, kézzel készítünk – szívvel és lélekkel."
+      "title": "Amit Neked és Kisállatodnak kínálunk",
+      "title_secondary": "A biléta-scan értesítéstől a prémium termék testreszabásáig - mindig számíthatsz ránk",
+      "reason_1": "Egyedi Tervezés, Kedvenceknek Készült",
+      "reason1_text": "Válassz a stílusok széles választékából, és szabd személyre bilétádat, hogy tökéletesen illeszkedjen kisállatod személyiségéhez.",
+      "reason_2": "Azonnali Elveszett Kisállat Riasztások",
+      "reason2_text": "Azonnali SMS és e-mail értesítéseket kapsz, abban a pillanatban, amikor valaki leolvassa elveszett kisállatod bilétáját.",
+      "reason_3": "Gondos, Kézműves Minőség",
+      "reason3_text": "Minden egyes darabot szeretettel és páratlan odafigyeléssel készítünk, szem előtt tartva a kényelmet és a tartósságot."
     },
     "reasoning": {
-      "title": "Miért választanak minket a gazdik?",
-      "title_secondary": "Nem csak egy termék – a Pawsitive biztonságot, stílust és nyugalmat jelent.",
-      "reason_1": "Egyedi dizájnok",
+      "title": "Miért Bíznak a Gazdik a Pawsitive-ban?",
+      "title_secondary": "A Pawsitive a biztonságot, a stílust és a támogatást jelenti egy boldog csomagban.",
+      "reason_1": "Egyedi Dizájn",
       "reason1_amount": "50+",
-      "reason_2": "Újra egymásra talált kedvencek",
+      "reason_2": "Boldog Kisállat",
       "reason2_amount": "1000+",
-      "reason_3": "Elégedett vásárlók",
+      "reason_3": "Mosolygó Vásárló",
       "reason3_amount": "5000+"
     },
     "ctasection": {
-      "title": "Adj többet kedvenced nyakörvéhez.",
-      "title_secondary": "Nézd meg kollekciónkat és fedezd fel, milyen stílusos lehet a biztonság."
+      "title": "Adj kedvencednek többet egy nyakörvnél.",
+      "title_secondary": "Fedezd fel elbűvölő kézműves kollekciónkat, és nézd meg, milyen elképesztően jól nézhet ki a biztonság."
     },
     "contact": {
-      "name": "Név",
-      "email": "E-mail",
-      "message": "Üzenet",
-      "name_placeholder": "Add meg a neved",
-      "email_placeholder": "Add meg az e-mail címed",
-      "message_placeholder": "Írj nekünk üzenetet",
-      "send_text": "Küldés",
-      "thank_you": "Köszönjük üzeneted! Hamarosan válaszolunk.",
-      "title": "Lépj kapcsolatba velünk",
-      "paragraph": "Kérdésed van vagy visszajelzést küldenél? Írj nekünk bátran – hamar válaszolunk!"
+      "name": "A Neved",
+      "email": "Az E-mail Címed",
+      "message": "Az Üzeneted",
+      "name_placeholder": "Add meg a neved!",
+      "email_placeholder": "Írd be az e-mail címed",
+      "message_placeholder": "Írj nekünk egy rövid üzenetet – szívesen hallanánk felőled!",
+      "send_text": "Üzenet Küldése!",
+      "thank_you": "Hurrá! Köszi, hogy felvetted velünk a kapcsolatot! Hamarosan válaszolunk.",
+      "title": "Nagyon szeretnénk beszélgetni!",
+      "paragraph": "Legyen szó kérdésről, nagyszerű javaslatról - küldj nekünk üzenetet, és a lehető leghamarabb válaszolunk!"
     },
     "footer": {
-      "paragraph": "Maradj naprakész – új dizájnok, akciók és boldog történetek a Pawsitive-tól.",
+      "paragraph": "Maradj naprakész a Pawsitive-val – új dizájnokért, készletfeltöltésekért és szívmelengető farokcsóválós történetekért!",
       "rights": "Minden jog fenntartva."
     }
   },
   "About": {
     "about": {
-      "label": "Rólunk – Pawsitive",
-      "paragraph": "A Pawsitive Collarnál hisszük, hogy a háziállatok többek, mint lakótársak — ők családtagok, bizalmasok és életre szóló barátok.\n\nUtunk egy egyszerű ötlettel kezdődött: olyan átgondolt termékeket alkotni, amelyek erősítik az ember és háziállat közti köteléket. Kézművességet ötvözünk okos technológiával, hogy ne csak kiegészítőket, hanem nyugalmat is nyújtsunk.\n\nMinden egyes darab szeretetünket tükrözi — az állatok, a design, és azok iránt, akik szívből gondoskodnak kis kedvenceikről. Hisszük, hogy egy nyakörv történetet mesél: gondoskodásról, felelősségről és kötődésről.\n\nA mindennapi kalandoktól a nyugodt otthoni pillanatokig, nyakörveink és bilétáink azért készülnek, hogy mindig ott legyenek veletek — funkcionálisak, szépek és tartósak."
+      "label": "A Pawsitive-ról",
+      "paragraph": "A Pawsitive Collar-nál a háziállatok dédelgetett családtagok. Átgondolt termékeket hozunk létre a köztetek lévő kötelék erősítésére, ötvözve a kézművességet az okos tech-kel a valódi nyugalomért.\n\nMinden darab tükrözi mély szeretetünket az állatok, a dizájn és a róluk gondoskodó emberek iránt. Egy kisállat nyakörvének és azonosító bilétájának történetet kell mesélnie: gondoskodásról, felelősségről és kapcsolatról.\n\nNyakörveink és bilétáink minden kalandra készültek — funkcionálisak, gyönyörűek és tartósak."
     },
     "history": {
       "label": "Történetünk",
-      "paragraph": "A Pawsitive Collar 2024-ben született két lelkes állatbarát kezdeményezéseként, akiket zavart a praktikus és igényes kialakítású kiegészítők hiánya. A legtöbb termék tömeggyártottnak, általánosnak vagy épp ötlettelennek tűnt.\n\nEzért úgy döntöttünk, hogy nulláról indulva valami jobbat hozunk létre.\n\nA kezdeti skiccekből és prototípusokból hamar valós projekt lett, amely ötvözi a 3D modellezést, nyomtatást és webes technológiákat. Mindent magunk tanultunk meg — a CAD-tervezéstől az NFC-alapú rendszerekig — egyetlen kérdés vezérelve minket: mit szeretnénk mi a saját kedvenceinknek?\n\nUtunk minden lépését állattartók visszajelzései formálták. Támogatásuk, ötleteik és történeteik inspirálnak minket a folyamatos fejlődésre."
+      "paragraph": "A Pawsitive Collar 2024-ben született. Mint szenvedélyes kisállatbarátok, elegünk volt a sablonos kiegészítőkből, ezért valami jobbat építettünk a semmiből.\n\nEgy kérdés vezérelt minket: mit szeretnénk *saját* kedvenceinknek? Szívhez szóló visszajelzéseitek továbbra is inspirálnak minket minden nap."
     },
     "sustainability": {
-      "label": "Fenntarthatóság",
-      "paragraph": "Szívből törődünk a jövővel — nemcsak a háziállatok, hanem a bolygó jövőjével is.\n\nMűhelyünk 100%-ban tanúsított zöld energiával működik. Tartós anyagokat használunk, mint a PETG és minőségi paracord, hogy hosszú élettartamú termékeket készítsünk, ezzel is csökkentve a hulladékot. 3D nyomtatási folyamatainkat optimalizáltuk, hogy a felesleget minimalizáljuk és az anyagokat újrahasznosítsuk, amikor csak lehet.\n\nNem gyártunk tömegesen. Nem követjük a trendeket. Minden darab tudatosan készül — egyesével, azoknak a kis kedvenceknek, akik a mindent jelentik a gazdáiknak.\n\nBár még kicsik vagyunk, felelősségteljesen szeretnénk növekedni, és a fenntarthatóságot minden lépésünkbe beépíteni."
+      "label": "Zöldebb Mancsnyom",
+      "paragraph": "Mélyen törődünk kedvenceinkkel és a bolygóval. Műhelyünk zöld energiával működik. Tartós, környezetbarát anyagokat használunk, mint a PETG és a paracord a hulladék csökkentésére. 3D nyomtatásunk minimalizálja a felesleget, és ahol lehetséges, újrahasznosítjuk az anyagokat.\n\nNem gyártunk tömegesen. Minden darab egyesével készül. Felelősségteljes növekedésre törekszünk, a fenntarthatóság a munkánk alapja."
     },
     "team": {
-      "label": "Csapatunk",
-      "paragraph": "Mi egy kétfős csapat vagyunk — az életben és a céljainkban is partnerek — akiket összeköt az állatok, a design és az alkotás szeretete.\n\nEgyütt végezzük a termékfejlesztést, az NFC integrációt, a paracord nyakörvek kézi fonását és az online bolt működtetését. Nem egy nagy vállalkozás — csak két szenvedélyes állattartó, akik esténként és hétvégén dolgoznak egy számukra fontos projekten.\n\nTudjuk, milyen érzés elveszíteni egy kedvencet, és milyen megkönnyebbülés megtalálni őt. Ezért a célunk nem csupán szép nyakörveket készíteni, hanem megbízható, okos eszközöket kínálni, amik segítenek biztonságban tudni kis barátainkat.\n\nEgy olyan márkát és közösséget építünk, amely legalább annyira értékeli a háziállatokat, mint mi.",
+      "label": "A Pawsitive csapat",
+      "paragraph": "Egy kis, de annál erősebb kétfős csapat vagyunk, akik mélyen szeretik az állatokat, a dizájnt és a DIY-t. Mindent mi kezelünk a terméktervezéstől a nyakörvek készítéséig és az üzlet működtetéséig.\n\nIsmerjük az elveszett kisállat megtalálásának problémáját. Küldetésünk: okos, megbízható eszközöket kínálni, amelyek valóban segítenek biztonságban tartani a háziállatokat.\n\nEz egy olyan márka és közösség építéséről szól, amely annyira értékeli a háziállatokat, mint mi!",
       "person": {
         "founder": "Alapító",
-        "lead_dev": "Vezető fejlesztő",
+        "lead_dev": "Vezető Fejlesztő",
         "co-founder": "Társalapító",
         "product_design": "Terméktervező",
         "developer": "Fejlesztő"
@@ -110,11 +110,11 @@
   },
   "Contact": {
     "hero": {
-      "title": "Itt vagyunk, ha szükséged van ránk.",
-      "description": "Kérdésed van a termékeinkkel kapcsolatban vagy segítségre van szükséged? Írj nekünk bátran – örömmel segítünk!",
-      "contact": "Elérhetőségeink",
-      "follow": "Kövess minket a közösségi médiában, ha kíváncsi vagy a kulisszák mögötti pillanatokra, tippekre és friss hírekre.",
-      "email_btn": "Email küldése"
+      "title": "Mindig itt vagyunk neked!",
+      "description": "Kérdésed van termékeinkről, vagy segítségre van szükséged valamiben? Csak írj nekünk üzenetet — mindig örömmel segítünk!",
+      "contact": "Hogyan csóválj nekünk!",
+      "follow": "Kövess minket a közösségi médiában a kulisszák mögötti bepillantásokért, hasznos tippekért és legújabb alkotásainkról szóló hírekért!",
+      "email_btn": "E-mail küldése!"
     },
     "contact": {
       "info": "Kapcsolat",
