@@ -50,7 +50,7 @@ const AboutSection = () => {
             <CalmIcon />
             <div className={styles.featureText}>
               <h2>{t("Index.about.third_title")}</h2>
-              <p>{t("Index.about.block_2")}</p>
+              <p>{t("Index.about.block_3")}</p>
             </div>
           </section>
         </div>
