@@ -11,7 +11,7 @@ import Footer from "../../../components/footer/Footer";
 import logger from "@/logging/logger";
 import Features from "./(features)/Features";
 
-import molli1 from "@/public/assets/molli1.webp";
+import showcase1 from "@/public/assets/showcase1.webp";
 import cezar2 from "@/public/assets/cezar2.webp";
 import TagSection from "./(tag)/TagSection";
 
@@ -33,7 +33,7 @@ export default function Home() {
         <Features
           bgc="var(--color-pink-light)"
           flexDir="row-reverse"
-          imgPath={molli1}
+          imgPath={showcase1}
           isServices={true}
         />
         <ProductSection />

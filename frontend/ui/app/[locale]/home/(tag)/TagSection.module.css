@@ -8,6 +8,7 @@
   margin: 0 auto;
   padding: 10rem 0 0 0;
   gap: 2rem;
+  overflow: hidden;
 }
 
 .printerText,
