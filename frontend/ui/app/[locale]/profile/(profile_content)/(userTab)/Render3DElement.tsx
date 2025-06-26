@@ -47,11 +47,11 @@ function RotatingTag({ model }: { model: THREE.Object3D }) {
 }
 
 export default function Render3DElement() {
-  const { scene } = useGLTF("/assets/testTag.glb");
+  const { scene } = useGLTF("/assets/CoffeCat.glb");
 
   const clonedTag = useMemo(() => {
     const model = scene.clone();
-    model.scale.set(1, 1, 1);
+    model.scale.set(0.8, 0.8, 0.8);
     return model;
   }, [scene]);
 
@@ -84,4 +84,4 @@ export default function Render3DElement() {
   );
 }
 
-useGLTF.preload("/assets/testTag.glb");
+useGLTF.preload("/assets/CoffeCat.glb");
