@@ -4,6 +4,7 @@ import Testimonial from "./(testimonial)/Testimonial";
 import AboutSection from "./(about)/AboutSection";
 import Reasoning from "./(reasoning)/Reasoning";
 import CTASection from "./(CTASection)/CTASection";
+import PrinterSection from "./(printer)/PrinterSection";
 import ContactFormContainer from "./(contact-form)/ContactFormContainer";
 
 import Navbar from "../../../components/navigation/Navbar";
@@ -22,6 +23,7 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
+        <PrinterSection />
         <AboutSection />
         <Features
           bgc="var(--color-white)"
