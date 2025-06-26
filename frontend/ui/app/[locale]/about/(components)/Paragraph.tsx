@@ -23,8 +23,8 @@ const Paragraph = ({ title, slideFrom }: ParagraphProps) => {
         opacity: 1,
         scrollTrigger: {
           trigger: paragraphRef.current,
-          start: "top 90%",
-          end: "bottom 70%",
+          start: "top 95%",
+          end: "bottom 55%",
           scrub: true,
         },
       }
