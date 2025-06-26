@@ -23,10 +23,10 @@ const AboutSection = () => {
         </section>
         <section>
           <Image
-            src={"/assets/cat_about.webp"}
-            alt={"White cat"}
-            width={600}
-            height={450}
+            src={"/assets/showcase2.webp"}
+            alt="Product showcase"
+            width={500}
+            height={500}
           />
         </section>
       </div>
