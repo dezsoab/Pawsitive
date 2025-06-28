@@ -6,6 +6,7 @@ import { checkIfAuthenticated } from "@/api/get/checkIfAuthenticated";
 import Cat from "@/components/loader/Cat";
 import Profile from "./(profile_content)/Profile";
 import { navigationRoutes } from "@/enums/navigationRoutes";
+import Footer from "@/components/footer/Footer";
 
 const PersonalPage = () => {
   const router = useRouter();
@@ -36,9 +37,12 @@ const PersonalPage = () => {
   }
 
   return (
-    <main>
-      <Profile />
-    </main>
+    <>
+      <main>
+        <Profile />
+      </main>
+      <Footer />
+    </>
   );
 };
 
