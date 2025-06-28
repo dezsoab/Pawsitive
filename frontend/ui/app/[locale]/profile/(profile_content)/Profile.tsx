@@ -10,6 +10,8 @@ import { ToastContainer } from "react-toastify";
 import { queryParams } from "@/enums/queryParams";
 import { useSearchParams } from "next/navigation";
 
+import styles from "./Profile.module.css";
+
 const Profile = () => {
   const searchParams = useSearchParams();
   const isFreshTag = searchParams.get(queryParams.ISFRESHTAG) === "true";
@@ -19,7 +21,6 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserInformation = async () => {
       const userInfo = await fetchProfileInformation();
-      console.log(userInfo);
       setProfile(userInfo);
     };
 
@@ -33,18 +34,18 @@ const Profile = () => {
   if (!profile) return <Cat />;
 
   return (
-    <div
-      style={{ backgroundColor: "var(--color-pink-light)", minHeight: "100vh" }}
-    >
+    <>
       <ToastContainer style={{ fontSize: "var(--font-small)" }} />
       <ProfileNavbar activeTab={activeTab} setActiveTab={setActiveTab} />
-      {activeTab === profileTabs.PERSONAL && (
-        <UserInformation profile={profile} setProfile={setProfile} />
-      )}
-      {activeTab === profileTabs.PETS && (
-        <PetsCarousel profile={profile} setProfile={setProfile} />
-      )}
-    </div>
+      <div className={styles.profileContainer}>
+        {activeTab === profileTabs.PERSONAL && (
+          <UserInformation profile={profile} setProfile={setProfile} />
+        )}
+        {activeTab === profileTabs.PETS && (
+          <PetsCarousel profile={profile} setProfile={setProfile} />
+        )}
+      </div>
+    </>
   );
 };
 

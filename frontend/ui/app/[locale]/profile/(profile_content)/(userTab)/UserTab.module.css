@@ -1,9 +1,25 @@
+.userPage {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 10rem;
+}
+
+.userPage h1 {
+  font-size: var(--font-huge);
+  padding-top: 5rem;
+}
+
+.userPage hr {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
 .userTab {
   background-color: var(--color-pink-light);
   display: flex;
-  padding: 5rem;
   align-items: center;
-  height: calc(100vh - 12rem);
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .information {
@@ -12,14 +28,6 @@
 
 .render {
   flex: 1;
-}
-
-.userTab h1 {
-  font-size: var(--font-mid);
-}
-
-.userTab hr {
-  margin-bottom: 3rem;
 }
 
 /* ===== INFORMATION STYLING ===== */
@@ -35,13 +43,14 @@
   margin-bottom: 1rem;
 }
 
-.information .trigger_edit {
+.userPage .trigger_edit {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.information .edit_hint {
-  font-size: 1.2rem;
+.edit_hint {
+  font-size: var(--font-mini);
   margin-top: 3rem;
   margin-right: 2rem;
 }
@@ -98,9 +107,25 @@
 @media screen and (max-width: 768px) {
   .userTab {
     flex-direction: column;
-    padding: 10rem 0;
     height: auto;
     gap: 3rem;
     overflow-x: hidden;
+  }
+
+  .userPage {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .information {
+    align-self: flex-start;
+  }
+
+  .information {
+    width: 100%;
+  }
+  .information form input {
+    width: 100%;
   }
 }
