@@ -1,34 +1,29 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 import styles from "./UserTab.module.css";
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
-import EditButton from "@/components/editButton/EditButton";
 import IsEditingUserInformation from "./IsEditingUserInformation";
 import IsNotEditingUserInformation from "./IsNotEditingUserInformation";
 
 interface UserInformationProps {
   profile: ProfileInformationDTO;
   setProfile: Dispatch<SetStateAction<ProfileInformationDTO | undefined>>;
+  isEditing: boolean;
+  setIsEditing: Dispatch<SetStateAction<boolean>>;
 }
 
-const ProfileInformation = ({ profile, setProfile }: UserInformationProps) => {
-  const [isEditing, setisEditing] = useState(false);
+const ProfileInformation = ({
+  profile,
+  setProfile,
+  isEditing,
+  setIsEditing,
+}: UserInformationProps) => {
   return (
     <div className={styles.information}>
-      <h1>Personal Information</h1>
-      <div className={styles.trigger_edit}>
-        <p className={styles.edit_hint}>
-          {isEditing
-            ? "click on the pen to cancel editing"
-            : "click on the pen to edit the fields"}
-        </p>
-        <EditButton edit={isEditing} setEdit={setisEditing} />
-      </div>
-      <hr />
       {isEditing ? (
         <IsEditingUserInformation
           profile={profile}
-          setIsEditing={setisEditing}
+          setIsEditing={setIsEditing}
           setProfile={setProfile}
         />
       ) : (
