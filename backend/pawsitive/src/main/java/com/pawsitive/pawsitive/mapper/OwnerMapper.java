@@ -21,6 +21,7 @@ public class OwnerMapper {
                 owner.getFirstName(),
                 owner.getLastName(),
                 owner.getPhone(), addressMapper.toDto(owner.getAddress()),
+                owner.isAddressVisible(),
                 owner.getCreatedAt(), owner.getModifiedAt());
     }
 
@@ -33,6 +34,7 @@ public class OwnerMapper {
                 .lastName(dto.lastName())
                 .phone(dto.phone())
                 .address(addressMapper.toEntity(dto.address()))
+                .isAddressVisible(dto.isAddressVisible())
                 .build();
     }
 }

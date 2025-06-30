@@ -4,5 +4,6 @@ export interface PetOwnerDTO {
   firstName: string;
   lastName: string;
   phone: string;
-  address: AddressDTO;
+  address?: AddressDTO;
+  isAddressVisible: boolean;
 }

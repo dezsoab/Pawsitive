@@ -23,6 +23,7 @@ const IsEditingUserInformation = ({
   const zipRef = useRef<HTMLInputElement>(null);
   const cityRef = useRef<HTMLInputElement>(null);
   const streetRef = useRef<HTMLInputElement>(null);
+  const consentRef = useRef<HTMLInputElement>(null);
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -42,8 +43,10 @@ const IsEditingUserInformation = ({
           city: cityRef.current?.value || null,
           street: streetRef.current?.value || null,
         },
+        isAddressVisible: consentRef.current?.checked || false,
       },
     };
+
     toast
       .promise(
         updateUserInformation(updatedProfile),
@@ -74,7 +77,6 @@ const IsEditingUserInformation = ({
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="email">Email</label>
         <input disabled id="email" name="email" value={profile.email} />
-
         <label htmlFor="firstName">First Name*</label>
         <input
           required
@@ -104,29 +106,37 @@ const IsEditingUserInformation = ({
           ref={countryRef}
           id="country"
           name="country"
-          defaultValue={profile.owner.address.country || ""}
+          defaultValue={profile.owner?.address?.country || ""}
         />
         <label htmlFor="zip">Zip</label>
         <input
           ref={zipRef}
           id="zip"
           name="zip"
-          defaultValue={profile.owner.address.zipCode || ""}
+          defaultValue={profile.owner?.address?.zipCode || ""}
         />
         <label htmlFor="city">City</label>
         <input
           ref={cityRef}
           id="city"
           name="city"
-          defaultValue={profile.owner.address.city || ""}
+          defaultValue={profile.owner?.address?.city || ""}
         />
         <label htmlFor="street">Street</label>
         <input
           ref={streetRef}
           id="street"
           name="street"
-          defaultValue={profile.owner.address.street || ""}
+          defaultValue={profile.owner?.address?.street || ""}
         />
+        <label className={styles.consent}>
+          <input
+            ref={consentRef}
+            type="checkbox"
+            defaultChecked={profile.owner.isAddressVisible}
+          />
+          <p>Show my address on pet’s public profile</p>
+        </label>
         <button type="submit" className={styles.save_edit}>
           Save
         </button>

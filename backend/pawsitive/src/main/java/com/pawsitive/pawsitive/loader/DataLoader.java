@@ -61,6 +61,7 @@ public class DataLoader implements CommandLineRunner {
                     .phone("+123456789")
                     .user(user1)
                     .address(address1)
+                    .isAddressVisible(false)
                     .build();
 
             user1.setOwner(owner1);
@@ -85,6 +86,7 @@ public class DataLoader implements CommandLineRunner {
                     .phone("+36123456789")
                     .user(user2)
                     .address(address2)
+                    .isAddressVisible(true)
                     .build();
 
             user2.setOwner(owner2);
