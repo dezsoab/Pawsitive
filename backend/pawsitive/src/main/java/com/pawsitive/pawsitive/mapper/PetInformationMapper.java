@@ -26,7 +26,13 @@ public class PetInformationMapper implements Mapper<Pet, PetInformationDTO> {
     public PetInformationDTO toDto(Pet pet) {
 
         PetDTO petDTO = petMapper.toDto(pet);
-        OwnerDTO ownerDTO = ownerMapper.toDto(pet.getOwner());
+        OwnerDTO originalOwnerDTO = ownerMapper.toDto(pet.getOwner());
+
+        // Remove address if there is no consent from owner to show
+        OwnerDTO ownerDTO = originalOwnerDTO.isAddressVisible() ? originalOwnerDTO : new OwnerDTO(originalOwnerDTO.id(),
+                originalOwnerDTO.firstName(), originalOwnerDTO.lastName(), originalOwnerDTO.phone(),
+                null, originalOwnerDTO.isAddressVisible(), null, null);
+
         User userByOwnerId = userService.getUserByOwnerId(ownerDTO.id());
         return new PetInformationDTO(petDTO, ownerDTO, userByOwnerId.getEmail());
     }
