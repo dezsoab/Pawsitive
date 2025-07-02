@@ -24,6 +24,7 @@ import {
 } from "@/util/uploadImageUtils";
 import { apiMethod } from "@/enums/apiMethod";
 import { EditIcon, StopEditIcon } from "@/components/editButton/EditButton";
+import { getTranslatedSex } from "@/util/translationHelper";
 
 interface PetCardsProps {
   profile: ProfileInformationDTO;
@@ -58,11 +59,6 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
   const sexRef = useRef<HTMLSelectElement>(null);
 
   const t = useTranslations();
-
-  const sexTranslationMap = {
-    MALE: t("Pet.sex.male"),
-    FEMALE: t("Pet.sex.female"),
-  };
 
   const toggleEditMode = (petId: number) => {
     if (editPetId !== null && editPetId !== petId) {
@@ -113,10 +109,6 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
     setProfile({ ...profile, pets: updatedPets });
     setImageCropResult(null);
     setEditPetId(null);
-  };
-
-  const getTranslatedSex = (sex: Gender | undefined): string => {
-    return sex ? sexTranslationMap[sex] : "-";
   };
 
   return (
@@ -297,7 +289,8 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                               {t("Pet.age")}: {pet.age}
                             </p>
                             <p>
-                              {t("Pet.sex.name")}: {getTranslatedSex(pet.sex)}
+                              {t("Pet.sex.name")}:{" "}
+                              {getTranslatedSex(t, pet.sex)}
                             </p>
                             <p>Pet ID: {pet.id}</p>
                             <p>Tag ID: {pet.nfcTagId}</p>

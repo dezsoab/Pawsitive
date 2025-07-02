@@ -12,4 +12,6 @@ public interface UserService {
     void updateUserIfPersistSettingChanged(User user);
 
     User getUserByEmail(String email);
+
+    User getUserByOwnerId(Long ownerId);
 }
