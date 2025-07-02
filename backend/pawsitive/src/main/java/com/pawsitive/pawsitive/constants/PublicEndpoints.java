@@ -17,6 +17,7 @@ public final class PublicEndpoints {
     public static final String REGISTER = "/api/v1/auth/register";
     public static final String NFCTAGID = "/api/v1/nfcTag/{tagId}";
     public static final String PETID = "/api/v1/pet/{id}";
+    public static final String PETINFORMATION = "/api/v1/pet/information/{id}";
     public static final String ISAUTHENTICATED = "/api/v1/auth/authenticated";
     public static final String CONTACT_US_EMAIL = "/api/v1/mail/emailContactUs";
 
@@ -33,6 +34,7 @@ public final class PublicEndpoints {
 
         return matchesPublicUrl(requestURI, "^/api/v1/nfcTag/[a-zA-Z0-9]+$") ||
                 matchesPublicUrl(requestURI, "^/api/v1/pet/[a-zA-Z0-9]+$") ||
+                matchesPublicUrl(requestURI, "^/api/v1/pet/information/[a-zA-Z0-9]+$") ||
                 ENDPOINTS.contains(requestURI);
     }
 

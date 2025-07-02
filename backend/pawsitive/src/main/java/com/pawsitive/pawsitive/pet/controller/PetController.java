@@ -2,6 +2,7 @@ package com.pawsitive.pawsitive.pet.controller;
 
 import com.pawsitive.pawsitive.dto.CreatePetDTO;
 import com.pawsitive.pawsitive.dto.PetDTO;
+import com.pawsitive.pawsitive.dto.PetInformationDTO;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
 import com.pawsitive.pawsitive.pet.model.Pet;
@@ -23,12 +24,10 @@ public class PetController {
 
     private final PetService petService;
     private final PetMapper petMapper;
-    private final OwnerService ownerService;
 
-    public PetController(PetService petService, PetMapper petMapper, OwnerService ownerService) {
+    public PetController(PetService petService, PetMapper petMapper) {
         this.petService = petService;
         this.petMapper = petMapper;
-        this.ownerService = ownerService;
     }
 
     @PutMapping("/{id}")
@@ -56,5 +55,13 @@ public class PetController {
         PetDTO savedPetDTO = petMapper.toDto(savedPet);
         logger.info("Pet created successfully: {}", savedPet);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedPetDTO);
+    }
+
+    @GetMapping("/information/{id}")
+    public ResponseEntity<PetInformationDTO> getPetInformation(@PathVariable Long id) {
+        logger.info("Received request to get pet information with ID: {}", id);
+        ResponseEntity<PetInformationDTO> body = ResponseEntity.status(HttpStatus.OK).body(petService.getPetInformation(id));
+        logger.info("Returning PetInformationDTO for petId: {}", id);
+        return body;
     }
 }

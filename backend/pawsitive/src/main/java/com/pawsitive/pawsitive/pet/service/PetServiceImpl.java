@@ -2,8 +2,10 @@ package com.pawsitive.pawsitive.pet.service;
 
 import com.pawsitive.pawsitive.dto.CreatePetDTO;
 import com.pawsitive.pawsitive.dto.PetDTO;
+import com.pawsitive.pawsitive.dto.PetInformationDTO;
 import com.pawsitive.pawsitive.exception.PetNotFoundException;
 import com.pawsitive.pawsitive.exception.TagInvalidException;
+import com.pawsitive.pawsitive.mapper.PetInformationMapper;
 import com.pawsitive.pawsitive.mapper.PetMapper;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.nfctag.model.TagStatus;
@@ -28,13 +30,13 @@ public class PetServiceImpl implements PetService {
     private final PetRepository petRepository;
     private final NfcTagService nfcTagService;
     private final UserService userService;
-    private final PetMapper petMapper;
+    private final PetInformationMapper petInformationMapper;
 
-    public PetServiceImpl(PetRepository petRepository, NfcTagService nfcTagService, UserService userService, PetMapper petMapper) {
+    public PetServiceImpl(PetRepository petRepository, NfcTagService nfcTagService, UserService userService, PetInformationMapper petInformationMapper) {
         this.petRepository = petRepository;
         this.nfcTagService = nfcTagService;
         this.userService = userService;
-        this.petMapper = petMapper;
+        this.petInformationMapper = petInformationMapper;
     }
 
     @Override
@@ -45,6 +47,15 @@ public class PetServiceImpl implements PetService {
     @Override
     public List<Pet> getByOwnerId(Long id) {
         return petRepository.findByOwnerId(id);
+    }
+
+    @Override
+    public PetInformationDTO getPetInformation(Long petId) {
+        Pet pet = petRepository.findById(petId).orElseThrow(() -> new PetNotFoundException("Pet not found!"));
+        logger.info("Found pet {} and now mapping to PetInformationDTO", petId);
+        PetInformationDTO dto = petInformationMapper.toDto(pet);
+        logger.info("Successfully mapped pet {} to PetInformationDTO", petId);
+        return dto;
     }
 
     @Override

@@ -21,16 +21,25 @@ const IsNotEditingUserInformation = ({ profile }: UserInformationProps) => {
       <p>{profile.owner.phone}</p>
 
       <label htmlFor="country">County</label>
-      <p>{profile.owner.address.country}</p>
+      <p>{profile.owner?.address?.country}</p>
 
       <label htmlFor="zip">Zip</label>
-      <p>{profile.owner.address.zipCode}</p>
+      <p>{profile.owner?.address?.zipCode}</p>
 
       <label htmlFor="city">City</label>
-      <p>{profile.owner.address.city}</p>
+      <p>{profile.owner?.address?.city}</p>
 
       <label htmlFor="street">Street</label>
-      <p>{profile.owner.address.street}</p>
+      <p>{profile.owner?.address?.street}</p>
+
+      <br />
+      <p>
+        You{" "}
+        {`${
+          profile.owner.isAddressVisible ? "are" : "are not"
+        } consent to show your address`}
+      </p>
+      <span>you can change your settings in edit mode</span>
     </div>
   );
 };

@@ -5,4 +5,5 @@ export interface RegisterOwnerDTO {
   password: string;
   phone: string;
   persistLogin: boolean;
+  preferredLanguage: string;
 }

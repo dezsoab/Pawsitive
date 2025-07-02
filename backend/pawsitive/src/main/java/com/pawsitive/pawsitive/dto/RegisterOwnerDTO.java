@@ -6,6 +6,7 @@ public record RegisterOwnerDTO(
         String phone,
         String email,
         String password,
-        boolean persistLogin
+        boolean persistLogin,
+        String preferredLanguage
 ) {
 }

@@ -1,9 +1,25 @@
+.userPage {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 10rem;
+}
+
+.userPage h1 {
+  font-size: var(--font-huge);
+  padding-top: 5rem;
+}
+
+.userPage hr {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
 .userTab {
   background-color: var(--color-pink-light);
   display: flex;
-  padding: 5rem;
   align-items: center;
-  height: calc(100vh - 12rem);
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .information {
@@ -14,18 +30,9 @@
   flex: 1;
 }
 
-.userTab h1 {
-  font-size: var(--font-mid);
-}
-
-.userTab hr {
-  margin-bottom: 3rem;
-}
-
 /* ===== INFORMATION STYLING ===== */
 
 .information label {
-  display: block;
   font-size: var(--font-mini);
 }
 
@@ -35,13 +42,14 @@
   margin-bottom: 1rem;
 }
 
-.information .trigger_edit {
+.userPage .trigger_edit {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.information .edit_hint {
-  font-size: 1.2rem;
+.edit_hint {
+  font-size: var(--font-mini);
   margin-top: 3rem;
   margin-right: 2rem;
 }
@@ -66,8 +74,47 @@
 
 .information form input {
   padding: 0.2rem 0.5rem;
-  width: 70%;
   font-weight: 100;
+}
+
+.consent {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.consent input[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  width: 50px;
+  height: 25px;
+  background: #ccc;
+  border-radius: 50px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.consent input:checked[type="checkbox"] {
+  background: var(--color-green-light);
+}
+
+.consent input[type="checkbox"]::after {
+  position: absolute;
+  content: "";
+  width: 25px;
+  height: 25px;
+  top: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+.consent input:checked[type="checkbox"]::after {
+  left: 50%;
 }
 
 .save_edit {
@@ -98,9 +145,27 @@
 @media screen and (max-width: 768px) {
   .userTab {
     flex-direction: column;
-    padding: 10rem 0;
     height: auto;
     gap: 3rem;
     overflow-x: hidden;
+  }
+
+  .userPage {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .information {
+    align-self: flex-start;
+  }
+
+  .information {
+    width: 100%;
+  }
+
+  .userPage h1 {
+    font-size: var(--font-big);
+    padding-top: 5rem;
   }
 }

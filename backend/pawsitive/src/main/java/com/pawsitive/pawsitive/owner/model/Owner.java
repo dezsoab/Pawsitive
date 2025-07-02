@@ -36,6 +36,9 @@ public class Owner {
     @JoinColumn(name = "addressId")
     private Address address;
 
+    @Column(nullable = false)
+    private boolean isAddressVisible;
+
     @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;

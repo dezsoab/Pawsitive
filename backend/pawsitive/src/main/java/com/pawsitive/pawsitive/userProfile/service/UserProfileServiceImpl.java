@@ -89,6 +89,7 @@ public class UserProfileServiceImpl implements UserProfileService {
         owner.setFirstName(dto.owner().firstName());
         owner.setLastName(dto.owner().lastName());
         owner.setPhone(dto.owner().phone());
+        owner.setAddressVisible(dto.owner().isAddressVisible());
 
         if (dto.owner().address() != null) {
             logger.info("Updating address for owner ID {}", owner.getId());
