@@ -4,6 +4,7 @@ import com.pawsitive.pawsitive.auth.jwt.service.JWTService;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
 import com.pawsitive.pawsitive.exception.LoginException;
 import com.pawsitive.pawsitive.exception.RegistrationFailedException;
+import com.pawsitive.pawsitive.mailing.service.SendGridEmailService;
 import com.pawsitive.pawsitive.mapper.RegisterOwnerMapper;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
@@ -45,11 +46,12 @@ public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
     private ApplicationContext context;
+    private final SendGridEmailService sendGridEmailService;
 
     private boolean isSecureCookie;
 
     public AuthServiceImpl(RegisterOwnerMapper registerOwnerMapper, UserService userService, @Lazy OwnerService ownerService,
-                           AuthenticationManager authenticationManager, JWTService jwtService, ApplicationContext context,
+                           AuthenticationManager authenticationManager, JWTService jwtService, ApplicationContext context, SendGridEmailService sendGridEmailService,
                            @Value("${IS_SECURE_COOKIE}") boolean isSecureCookie) {
         this.registerOwnerMapper = registerOwnerMapper;
         this.userService = userService;
@@ -57,6 +59,7 @@ public class AuthServiceImpl implements AuthService {
         this.authenticationManager = authenticationManager;
         this.jwtService = jwtService;
         this.context = context;
+        this.sendGridEmailService = sendGridEmailService;
         this.isSecureCookie = isSecureCookie;
     }
 
@@ -131,6 +134,12 @@ public class AuthServiceImpl implements AuthService {
         String token = verify(registerOwnerMapper.toUser(dto));
         ResponseCookie cookie = createCookie(token, dto.persistLogin());
         setCookieHeader(response, cookie);
+
+        try {
+            sendGridEmailService.sendWelcomeEmail(owner.getLastName(), user.getEmail(), dto.preferredLanguage());
+        } catch (Exception e) {
+            logger.error("Failed to send welcome email to {}: {}", user.getEmail(), e.getMessage(), e);
+        }
     }
 
     @Override

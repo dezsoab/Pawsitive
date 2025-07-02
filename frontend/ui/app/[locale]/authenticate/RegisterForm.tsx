@@ -6,10 +6,12 @@ import styles from "./RegisterForm.module.css";
 import { useAuth } from "@/context/AuthContext";
 import { RegisterOwnerDTO } from "@/types/RegisterOwnerDTO";
 import { createOwner } from "@/api/post/createOwner";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function RegisterForm() {
   const { setIsLoggedIn } = useAuth();
+  const locale = useLocale() || "en";
   const t = useTranslations();
 
   const registerSubmitHandler = async (
@@ -39,19 +41,34 @@ export default function RegisterForm() {
       phone: phone.value,
       password: password1.value,
       persistLogin: persistent.checked,
+      preferredLanguage: locale,
     };
 
     try {
-      await createOwner(registerData);
+      await toast.promise(
+        createOwner(registerData),
+        {
+          pending: "Registering account...",
+          success: "Successful registration! 🎉",
+          error: {
+            render({ data }: { data: Error }) {
+              return data.message || "Something went wrong!";
+            },
+          },
+        },
+        { position: "bottom-right" }
+      );
+
       form.reset();
       setIsLoggedIn(true);
-    } catch {
-      alert("not OK register"); // TODO: write on the A1 screen
+    } catch (e) {
+      console.error("Registration error:", e);
     }
   };
 
   return (
     <>
+      <ToastContainer style={{ fontSize: "var(--font-small)" }} />
       <form
         onSubmit={registerSubmitHandler}
         className={`${styles.form} ${styles.animateForm}`}

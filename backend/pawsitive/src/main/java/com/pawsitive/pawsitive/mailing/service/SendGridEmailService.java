@@ -53,4 +53,12 @@ public class SendGridEmailService {
         templateEmailSender.sendEmail(senderDetail, request.senderEmail(), emailTemplateData);
         logger.info("Successfully notified user about inquiry processing");
     }
+
+    public void sendWelcomeEmail(String firstName, String registeredEmail, String language) {
+        logger.info("Processing welcome email to {}...", firstName);
+        EmailTemplateData emailTemplateData = new EmailTemplateData(EmailTemplateID.WELCOME_REGISTERED.getId(language));
+        emailTemplateData.addDynamicTemplateData("first_name", firstName);
+        templateEmailSender.sendEmail(senderDetail, registeredEmail, emailTemplateData);
+        logger.info("Successfully sent welcome email to {}...", firstName);
+    }
 }
