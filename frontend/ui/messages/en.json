@@ -180,5 +180,9 @@
       "back": "Back",
       "register": "Register"
     }
+  },
+  "ScannedPetDetail": {
+    "thankYouMessage": "You're a hero! 🐾 Thanks for helping {petName} find their way home.",
+    "city": "City"
   }
 }

@@ -24,6 +24,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByOwnerId(Long ownerId) {
+        return userRepository.findByOwnerId(ownerId)
+                .orElseThrow(() -> new UserNotFoundException("User not found with connection to owner id {}" + ownerId));
+    }
+
+    @Override
     public void updateUserIfPersistSettingChanged(User user) {
         Optional<User> savedUser = userRepository.findByEmail(user.getEmail());
         if (savedUser.isEmpty()) {

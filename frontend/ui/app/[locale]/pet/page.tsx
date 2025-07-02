@@ -2,18 +2,14 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Image from "next/image";
-
-import styles from "./ScannedPetProfile.module.css";
 
 import Navbar from "@/components/navigation/Navbar";
-import Ribbon from "@/components/ribbon/Ribbon";
-import ScannedPetDetails from "./ScannedPetDetails";
 
 import { Pet } from "@/types/Pet";
 import Cat from "@/components/loader/Cat";
 import { fetchPet } from "@/api/get/fetchPet";
 import { navigationRoutes } from "@/enums/navigationRoutes";
+import ScannedPetDetail from "./ScannedPetDetail";
 
 const ScannedPetProfile: React.FC = () => {
   const router = useRouter();
@@ -48,30 +44,7 @@ const ScannedPetProfile: React.FC = () => {
   return (
     <>
       <Navbar style={{ backgroundColor: "var(--color-green)" }} />
-      <div className={styles.background}>
-        <main className={styles.main}>
-          <div className={styles.card}>
-            <div className={styles.imgContainer}>
-              <Image
-                src={
-                  pet.photoUrl
-                    ? `${pet.photoUrl}?t=${new Date().getTime()}`
-                    : "/assets/missing-image.jpg"
-                }
-                alt={pet.name}
-                fill
-                objectFit="cover"
-              />
-            </div>
-            <div className={styles.petDetails}>
-              <div className={styles.petContent}>
-                <Ribbon name={pet.name} />
-                <ScannedPetDetails pet={pet} />
-              </div>
-            </div>
-          </div>
-        </main>
-      </div>
+      <ScannedPetDetail />
     </>
   );
 };

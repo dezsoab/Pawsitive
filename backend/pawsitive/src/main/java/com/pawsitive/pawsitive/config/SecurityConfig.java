@@ -41,6 +41,7 @@ public class SecurityConfig {
                                 PublicEndpoints.REGISTER,
                                 PublicEndpoints.NFCTAGID,
                                 PublicEndpoints.PETID,
+                                PublicEndpoints.PETINFORMATION,
                                 PublicEndpoints.ISAUTHENTICATED,
                                 PublicEndpoints.CONTACT_US_EMAIL)
                         .permitAll()

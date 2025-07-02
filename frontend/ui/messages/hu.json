@@ -180,5 +180,9 @@
       "back": "Vissza",
       "register": "Regisztráció"
     }
+  },
+  "ScannedPetDetail": {
+    "thankYouMessage": "Hős vagy! 🐾 Köszönjük, hogy segítesz {petName}-nak hazatalálni.",
+    "city": "Város"
   }
 }
