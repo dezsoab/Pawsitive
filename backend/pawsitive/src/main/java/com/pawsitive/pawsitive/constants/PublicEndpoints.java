@@ -20,12 +20,13 @@ public final class PublicEndpoints {
     public static final String PETINFORMATION = "/api/v1/pet/information/{id}";
     public static final String ISAUTHENTICATED = "/api/v1/auth/authenticated";
     public static final String CONTACT_US_EMAIL = "/api/v1/mail/emailContactUs";
+    public static final String SCANNED_LOCATION = "/api/v1/location/scanned";
 
     private PublicEndpoints() {
     }
 
     static {
-        Collections.addAll(ENDPOINTS, LOGIN, REGISTER, ISAUTHENTICATED, CONTACT_US_EMAIL);
+        Collections.addAll(ENDPOINTS, LOGIN, REGISTER, ISAUTHENTICATED, CONTACT_US_EMAIL, SCANNED_LOCATION);
     }
 
     public static boolean isPublicPath(String requestURI) {

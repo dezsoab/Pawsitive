@@ -200,3 +200,58 @@
 .petContactCTA a:nth-of-type(2) svg {
   fill: var(--color-pink-dark);
 }
+
+.consentShareCoordinates {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+
+.consentBox {
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.consentBox p,
+.consentBox button {
+  font-size: var(--font-paragraph);
+}
+
+.consentBox button {
+  padding: 1rem 1.8rem;
+  border-radius: var(--rounding);
+}
+
+.consentBox button:nth-of-type(1) {
+  background-color: var(--color-white);
+}
+
+.consentBox button:nth-of-type(1):hover {
+  background-color: #f1f1f1;
+}
+
+.consentBox button:nth-of-type(2) {
+  background-color: var(--color-pink-mid);
+}
+
+.consentBox button:nth-of-type(2):hover {
+  background-color: var(--color-pink-light);
+}
+
+.consentBox button:hover {
+  cursor: pointer;
+}

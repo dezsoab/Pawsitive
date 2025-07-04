@@ -43,7 +43,8 @@ public class SecurityConfig {
                                 PublicEndpoints.PETID,
                                 PublicEndpoints.PETINFORMATION,
                                 PublicEndpoints.ISAUTHENTICATED,
-                                PublicEndpoints.CONTACT_US_EMAIL)
+                                PublicEndpoints.CONTACT_US_EMAIL,
+                                PublicEndpoints.SCANNED_LOCATION)
                         .permitAll()
                         .anyRequest()
                         .authenticated()
