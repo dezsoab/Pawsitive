@@ -12,4 +12,6 @@ export enum backendRoutes {
   UPDATEPROFILE = "profile/update",
   PRESIGNEDPETURL = "s3/presigned-url?fileName=",
   PETINFORMATION = PET + "/information",
+  LOCATION = "location",
+  SCANNEDLOCATION = LOCATION + "/scanned",
 }
