@@ -5,6 +5,7 @@ import com.pawsitive.pawsitive.dto.ScannedLocationDTO;
 import com.pawsitive.pawsitive.geolocation.model.ScannedLocation;
 import com.pawsitive.pawsitive.geolocation.service.LocationService;
 import com.pawsitive.pawsitive.geolocation.service.ScannedLocationServiceImpl;
+import com.pawsitive.pawsitive.mailing.service.SendGridEmailService;
 import com.pawsitive.pawsitive.mapper.ScannedLocationMapper;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -24,12 +25,14 @@ public class ScannedLocationController {
 
     private final LocationService<ScannedLocation> locationService;
     private final ScannedLocationMapper scannedLocationMapper;
+    private final SendGridEmailService sendGridEmailService;
 
     @PostMapping
     public ResponseEntity<RESTResponse> save(@RequestBody ScannedLocationDTO dto) {
-        logger.info("Processing scanned location request for pet: {}", dto.pet().id());
-        ScannedLocation entity = scannedLocationMapper.toEntity(dto);
-        locationService.saveLocation(entity);
+        logger.info("Received scanned location for pet: {}", dto.pet().id());
+        ScannedLocation location = scannedLocationMapper.toEntity(dto);
+        locationService.saveLocation(location);
+        sendGridEmailService.sendScannedPet(location, dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(new RESTResponse("Scanned location saved"));
     }
 }

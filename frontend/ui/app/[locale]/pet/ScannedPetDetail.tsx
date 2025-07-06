@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./ScannedPetDetail.module.css";
 import Image from "next/image";
 import PawIcon from "@/components/pawIcon/PawIcon";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import PhoneIcon from "@/components/phoneIcon/PhoneIcon";
 import EmailIcon from "../home/(contact-form)/EmailIcon";
 import { fetchPetInformationDTO } from "@/api/get/fetchPetInformationDTO";
@@ -27,6 +27,7 @@ const ScannedPetDetail = () => {
   const t = useTranslations();
   const searchParams = useSearchParams();
   const petId = searchParams.get(queryParams.PETID);
+  const locale = useLocale();
 
   const [showLocationPrompt, setShowLocationPrompt] = useState<boolean>(true);
   const [petInformation, setPetInformation] = useState<PetInformationDTO>();
@@ -43,6 +44,7 @@ const ScannedPetDetail = () => {
           latitude,
           longitude,
           pet: info.petDTO,
+          locale,
         };
 
         await toast.promise(

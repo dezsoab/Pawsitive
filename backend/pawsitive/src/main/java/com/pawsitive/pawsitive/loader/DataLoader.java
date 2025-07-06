@@ -43,7 +43,8 @@ public class DataLoader implements CommandLineRunner {
         try {
             // ----------------- Create Users -----------------
             User user1 = User.builder()
-                    .email("binderdezso97random@gmail.com")
+//                    .email("binderdezso97random@gmail.com")
+                    .email("binderdezso97@gmail.com")
                     .password("v")
                     .active(true)
                     .build();
