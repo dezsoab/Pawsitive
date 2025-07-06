@@ -4,6 +4,7 @@ import com.pawsitive.pawsitive.dto.ScannedLocationDTO;
 import com.pawsitive.pawsitive.exception.SmsSendFailException;
 import com.pawsitive.pawsitive.geolocation.model.ScannedLocation;
 import com.pawsitive.pawsitive.messaging.mailing.service.SendGridEmailService;
+import com.pawsitive.pawsitive.util.string.StringUtil;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
@@ -57,6 +58,6 @@ public class TwilioSmsService implements SmsService {
         ResourceBundle bundle = ResourceBundle.getBundle("messages", locale);
         String template = bundle.getString("sms.message");
         String mapsUrl = String.format("https://www.google.com/maps?q=%s,%s", lat, lon);
-        return String.format(template, petName, mapsUrl);
+        return String.format(template, StringUtil.removeAccent(petName), mapsUrl);
     }
 }
