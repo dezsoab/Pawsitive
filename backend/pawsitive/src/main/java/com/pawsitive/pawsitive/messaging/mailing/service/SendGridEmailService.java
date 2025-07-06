@@ -1,13 +1,13 @@
-package com.pawsitive.pawsitive.mailing.service;
+package com.pawsitive.pawsitive.messaging.mailing.service;
 
 import com.pawsitive.pawsitive.dto.ContactUsEmailRequestDTO;
 import com.pawsitive.pawsitive.dto.ScannedLocationDTO;
 import com.pawsitive.pawsitive.geolocation.model.ScannedLocation;
-import com.pawsitive.pawsitive.mailing.model.EmailSenderDetail;
-import com.pawsitive.pawsitive.mailing.model.EmailTemplateData;
+import com.pawsitive.pawsitive.messaging.mailing.model.EmailSenderDetail;
+import com.pawsitive.pawsitive.messaging.mailing.model.EmailTemplateData;
 import com.pawsitive.pawsitive.constants.EmailTemplateID;
-import com.pawsitive.pawsitive.mailing.factory.BasicEmailSender;
-import com.pawsitive.pawsitive.mailing.factory.TemplateEmailSender;
+import com.pawsitive.pawsitive.messaging.mailing.factory.BasicEmailSender;
+import com.pawsitive.pawsitive.messaging.mailing.factory.TemplateEmailSender;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.pet.model.Pet;
 import org.slf4j.Logger;

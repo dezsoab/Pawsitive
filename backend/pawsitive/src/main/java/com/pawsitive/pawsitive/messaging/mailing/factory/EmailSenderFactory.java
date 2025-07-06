@@ -1,4 +1,4 @@
-package com.pawsitive.pawsitive.mailing.factory;
+package com.pawsitive.pawsitive.messaging.mailing.factory;
 
 public interface EmailSenderFactory<T extends BaseEmailSender> {
     T create();

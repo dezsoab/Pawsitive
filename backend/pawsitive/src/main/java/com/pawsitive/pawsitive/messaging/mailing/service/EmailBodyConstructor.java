@@ -1,4 +1,4 @@
-package com.pawsitive.pawsitive.mailing.service;
+package com.pawsitive.pawsitive.messaging.mailing.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

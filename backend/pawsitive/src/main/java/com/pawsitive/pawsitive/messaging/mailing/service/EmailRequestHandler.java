@@ -1,4 +1,4 @@
-package com.pawsitive.pawsitive.mailing.service;
+package com.pawsitive.pawsitive.messaging.mailing.service;
 
 import com.pawsitive.pawsitive.exception.EmailSendFailedException;
 import com.sendgrid.Method;

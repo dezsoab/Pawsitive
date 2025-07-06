@@ -1,4 +1,4 @@
-package com.pawsitive.pawsitive.mailing.model;
+package com.pawsitive.pawsitive.messaging.mailing.model;
 
 import lombok.Getter;
 

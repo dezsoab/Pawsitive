@@ -4,7 +4,7 @@ import com.pawsitive.pawsitive.auth.jwt.service.JWTService;
 import com.pawsitive.pawsitive.dto.RegisterOwnerDTO;
 import com.pawsitive.pawsitive.exception.LoginException;
 import com.pawsitive.pawsitive.exception.RegistrationFailedException;
-import com.pawsitive.pawsitive.mailing.service.SendGridEmailService;
+import com.pawsitive.pawsitive.messaging.mailing.service.SendGridEmailService;
 import com.pawsitive.pawsitive.mapper.RegisterOwnerMapper;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
@@ -84,10 +84,10 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public ResponseCookie createCookie(String jwtToken, boolean persistLogin) {
         if (!persistLogin) {
-            return createCookieWithJWT(jwtToken, TimeConstants.ONE_HOUR);
+            return createCookieWithJWT(jwtToken, TimeConstants.ONE_HOUR_SEC);
         }
 
-        return createCookieWithJWT(jwtToken, TimeConstants.ONE_YEAR);
+        return createCookieWithJWT(jwtToken, TimeConstants.ONE_YEAR_SEC);
     }
 
     @Override
