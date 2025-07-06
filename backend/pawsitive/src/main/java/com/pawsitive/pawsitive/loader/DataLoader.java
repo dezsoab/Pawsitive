@@ -43,7 +43,8 @@ public class DataLoader implements CommandLineRunner {
         try {
             // ----------------- Create Users -----------------
             User user1 = User.builder()
-                    .email("binderdezso97random@gmail.com")
+//                    .email("binderdezso97random@gmail.com")
+                    .email("binderdezso97@gmail.com")
                     .password("v")
                     .active(true)
                     .build();
@@ -58,7 +59,7 @@ public class DataLoader implements CommandLineRunner {
             Owner owner1 = Owner.builder()
                     .firstName("Dezso")
                     .lastName("Binder")
-                    .phone("+123456789")
+                    .phone("+436764872920")
                     .user(user1)
                     .address(address1)
                     .isAddressVisible(false)

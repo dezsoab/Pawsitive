@@ -25,7 +25,7 @@ public class ScannedLocationMapper implements Mapper<ScannedLocation, ScannedLoc
     public ScannedLocationDTO toDto(ScannedLocation entity) {
         logger.info("Mapping scanned location: {} to DTO", entity);
         return new ScannedLocationDTO(entity.getId(), entity.getLatitude(),
-                entity.getLongitude(), petMapper.toDto(entity.getPet()), entity.getScannedAt());
+                entity.getLongitude(), petMapper.toDto(entity.getPet()), entity.getScannedAt(), null);
     }
 
     @Override

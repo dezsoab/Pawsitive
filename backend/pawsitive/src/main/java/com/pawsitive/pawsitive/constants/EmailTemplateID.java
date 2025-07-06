@@ -12,6 +12,11 @@ public enum EmailTemplateID {
             "en", "d-9a06522950f94ea88305a7f244e0aea7",
             "hu", "d-490d66751aae49848a5133c361c2dac0",
             "de", "d-50b5a07db4744b57900ae858ecdea68b"
+    )),
+    SCANNED_PET(Map.of(
+            "en", "d-f74e842bbeee4eeb84ea8001ab925b5f",
+            "hu", "d-1d33ba194631424a8066a71aca98cc85",
+            "de", "d-bb92eed1689c410da16e89dca441211c"
     ));
 
     private final Map<String, String> templateIds;

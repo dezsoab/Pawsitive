@@ -1,15 +1,21 @@
-package com.pawsitive.pawsitive.mailing.service;
+package com.pawsitive.pawsitive.messaging.mailing.service;
 
 import com.pawsitive.pawsitive.dto.ContactUsEmailRequestDTO;
-import com.pawsitive.pawsitive.mailing.model.EmailSenderDetail;
-import com.pawsitive.pawsitive.mailing.model.EmailTemplateData;
+import com.pawsitive.pawsitive.dto.ScannedLocationDTO;
+import com.pawsitive.pawsitive.geolocation.model.ScannedLocation;
+import com.pawsitive.pawsitive.messaging.mailing.model.EmailSenderDetail;
+import com.pawsitive.pawsitive.messaging.mailing.model.EmailTemplateData;
 import com.pawsitive.pawsitive.constants.EmailTemplateID;
-import com.pawsitive.pawsitive.mailing.factory.BasicEmailSender;
-import com.pawsitive.pawsitive.mailing.factory.TemplateEmailSender;
+import com.pawsitive.pawsitive.messaging.mailing.factory.BasicEmailSender;
+import com.pawsitive.pawsitive.messaging.mailing.factory.TemplateEmailSender;
+import com.pawsitive.pawsitive.owner.model.Owner;
+import com.pawsitive.pawsitive.pet.model.Pet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.time.format.DateTimeFormatter;
 
 @Service
 public class SendGridEmailService {
@@ -20,6 +26,7 @@ public class SendGridEmailService {
     private final EmailBodyConstructor emailBodyConstructor;
     private final EmailSenderDetail senderDetail;
     private final String receiverEmail;
+
 
     public SendGridEmailService(
             TemplateEmailSender templateEmailSender,
@@ -60,5 +67,26 @@ public class SendGridEmailService {
         emailTemplateData.addDynamicTemplateData("first_name", firstName);
         templateEmailSender.sendEmail(senderDetail, registeredEmail, emailTemplateData);
         logger.info("Successfully sent welcome email to {}...", firstName);
+    }
+
+    public void sendScannedPet(ScannedLocation location, ScannedLocationDTO scannedLocationDTO) {
+        logger.info("Preparing scanned pet email...");
+
+        Pet pet = location.getPet();
+        Owner owner = pet.getOwner();
+
+        EmailTemplateData emailTemplateData = new EmailTemplateData(
+                EmailTemplateID.SCANNED_PET.getId(scannedLocationDTO.locale())
+        );
+
+        emailTemplateData.addDynamicTemplateData("petName", pet.getName());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        emailTemplateData.addDynamicTemplateData("scanDateTime", formatter.format(location.getScannedAt()));
+        emailTemplateData.addDynamicTemplateData("ownerFirstName", owner.getFirstName());
+        emailTemplateData.addDynamicTemplateData("lat", location.getLatitude());
+        emailTemplateData.addDynamicTemplateData("lon", location.getLongitude());
+
+        logger.info("Sending scanned pet email to: {}", owner.getUser().getEmail());
+        templateEmailSender.sendEmail(senderDetail, owner.getUser().getEmail(), emailTemplateData);
     }
 }

@@ -1,9 +1,9 @@
-package com.pawsitive.pawsitive.mailing.factory;
+package com.pawsitive.pawsitive.messaging.mailing.factory;
 
-import com.pawsitive.pawsitive.mailing.model.EmailSenderDetail;
-import com.pawsitive.pawsitive.mailing.model.EmailTemplateData;
+import com.pawsitive.pawsitive.messaging.mailing.model.EmailSenderDetail;
+import com.pawsitive.pawsitive.messaging.mailing.model.EmailTemplateData;
 import com.pawsitive.pawsitive.exception.EmailSendFailedException;
-import com.pawsitive.pawsitive.mailing.service.EmailRequestHandler;
+import com.pawsitive.pawsitive.messaging.mailing.service.EmailRequestHandler;
 import com.sendgrid.Request;
 import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
@@ -51,7 +51,7 @@ public class TemplateEmailSender implements TemplatedEmailSender {
             emailRequestHandler.sendEmailRequest(mail, new SendGrid(apiKey), new Request());
         } catch (Exception e) {
             logger.error("Failed to send email with template ID: {}", emailTemplate.getTemplateId(), e);
-            throw new EmailSendFailedException(e.getMessage());
+            throw new EmailSendFailedException("Failed to send email");
         }
     }
 

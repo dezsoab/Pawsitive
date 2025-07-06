@@ -12,6 +12,8 @@ spring:
       ddl-auto: ${HIBERNATE_DDL_ACTION}
       dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
+  messages:
+    encoding: UTF-8
 ---
 spring:
   config:
@@ -27,3 +29,5 @@ spring:
       ddl-auto: ${HIBERNATE_DDL_ACTION}
       dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
+  messages:
+    encoding: UTF-8
