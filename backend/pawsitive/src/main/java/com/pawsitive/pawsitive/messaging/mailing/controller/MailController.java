@@ -1,8 +1,8 @@
-package com.pawsitive.pawsitive.mailing.controller;
+package com.pawsitive.pawsitive.messaging.mailing.controller;
 
 import com.pawsitive.pawsitive.dto.ContactUsEmailRequestDTO;
 import com.pawsitive.pawsitive.dto.RESTResponse;
-import com.pawsitive.pawsitive.mailing.service.SendGridEmailService;
+import com.pawsitive.pawsitive.messaging.mailing.service.SendGridEmailService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

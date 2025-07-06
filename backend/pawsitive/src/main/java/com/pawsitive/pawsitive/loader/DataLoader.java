@@ -59,7 +59,7 @@ public class DataLoader implements CommandLineRunner {
             Owner owner1 = Owner.builder()
                     .firstName("Dezso")
                     .lastName("Binder")
-                    .phone("+123456789")
+                    .phone("+436764872920")
                     .user(user1)
                     .address(address1)
                     .isAddressVisible(false)
