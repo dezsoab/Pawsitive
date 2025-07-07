@@ -32,7 +32,7 @@ const IsEditingUserInformation = ({
 
   const validatePhoneNumber = (phone: string): boolean => {
     if (isInvalidPhoneNumber(phone.trim())) {
-      toast.error(t("Auth.field.phoneValidationFail"), {
+      toast.error(t("Auth.notification.phoneValidationFail"), {
         position: "bottom-right",
       });
       return false;

@@ -173,17 +173,20 @@
       "persistent": "Angemeldet bleiben",
       "firstName": "Vorname",
       "lastName": "Nachname",
-      "phone": "Telefon",
-      "phoneValidationFail": "Bitte gib eine gültige Telefonnummer mit + und Landesvorwahl ein.",
-      "passwordMismatch": "Die eingegebenen Passwörter stimmen nicht überein.",
-      "registerPending": "Konto wird registriert...",
-      "registerSuccess": "Registrierung erfolgreich! 🎉",
-      "registerError": "Etwas ist schiefgelaufen!"
+      "phone": "Telefon"
     },
     "btn": {
       "login": "Anmelden",
       "back": "Zurück",
       "register": "Registrieren"
+    },
+    "notification": {
+      "phoneValidationFail": "Bitte gib eine gültige Telefonnummer mit + und Landesvorwahl ein.",
+      "passwordMismatch": "Die eingegebenen Passwörter stimmen nicht überein.",
+      "registerPending": "Konto wird registriert...",
+      "registerSuccess": "Registrierung erfolgreich! 🎉",
+      "registerError": "Etwas ist schiefgelaufen!",
+      "loginFailed": "Anmeldung fehlgeschlagen. Bitte überprüfe deine Zugangsdaten."
     }
   },
   "ScannedPetDetail": {

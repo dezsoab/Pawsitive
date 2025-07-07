@@ -17,7 +17,7 @@ export default function RegisterForm() {
 
   const validatePhoneNumber = (phone: HTMLFormElement): boolean => {
     if (isInvalidPhoneNumber(phone.value.trim())) {
-      toast.error(t("Auth.field.phoneValidationFail"), {
+      toast.error(t("Auth.notification.phoneValidationFail"), {
         position: "bottom-right",
       });
       return false;
@@ -30,7 +30,9 @@ export default function RegisterForm() {
     password2: HTMLFormElement
   ) => {
     if (isPasswordTheSame(password1, password2)) {
-      toast(t("Auth.field.passwordMismatch"), { position: "bottom-right" });
+      toast(t("Auth.notification.passwordMismatch"), {
+        position: "bottom-right",
+      });
       return;
     }
   };
@@ -67,11 +69,11 @@ export default function RegisterForm() {
       await toast.promise(
         createOwner(registerData),
         {
-          pending: t("Auth.field.registerPending"),
-          success: t("Auth.field.registerSuccess"),
+          pending: t("Auth.notification.registerPending"),
+          success: t("Auth.notification.registerSuccess"),
           error: {
             render({ data }: { data: Error }) {
-              return data.message || t("Auth.field.registerError");
+              return data.message || t("Auth.notification.registerError");
             },
           },
         },

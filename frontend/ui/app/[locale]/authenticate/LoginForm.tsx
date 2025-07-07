@@ -7,6 +7,7 @@ import { LoginOwnerDTO } from "@/types/LoginOwnerDTO";
 import styles from "./LoginForm.module.css";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/context/AuthContext";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function LoginForm() {
   const { setIsLoggedIn } = useAuth();
@@ -30,12 +31,15 @@ export default function LoginForm() {
       form.reset();
       setIsLoggedIn(true);
     } catch {
-      alert("not OK login"); // TODO: write on the A1 screen
+      toast.error(t("Auth.notification.loginFailed"), {
+        position: "bottom-right",
+      });
     }
   };
 
   return (
     <>
+      <ToastContainer style={{ fontSize: "var(--font-small)" }} />
       <form
         onSubmit={loginSubmitHandler}
         className={`${styles.form} ${styles.animateForm}`}

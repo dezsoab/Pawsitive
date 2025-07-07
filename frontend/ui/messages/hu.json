@@ -173,17 +173,20 @@
       "persistent": "Emlékezz rám",
       "firstName": "Keresztnév",
       "lastName": "Vezetéknév",
-      "phone": "Telefonszám",
-      "phoneValidationFail": "Kérlek, adj meg egy érvényes telefonszámot + jellel és országhívószámmal.",
-      "passwordMismatch": "A megadott jelszavak nem egyeznek.",
-      "registerPending": "Fiók regisztrálása folyamatban...",
-      "registerSuccess": "Sikeres regisztráció! 🎉",
-      "registerError": "Valami hiba történt!"
+      "phone": "Telefonszám"
     },
     "btn": {
       "login": "Bejelentkezés",
       "back": "Vissza",
       "register": "Regisztráció"
+    },
+    "notification": {
+      "phoneValidationFail": "Kérlek, adj meg egy érvényes telefonszámot + jellel és országhívószámmal.",
+      "passwordMismatch": "A megadott jelszavak nem egyeznek.",
+      "registerPending": "Fiók regisztrálása folyamatban...",
+      "registerSuccess": "Sikeres regisztráció! 🎉",
+      "registerError": "Valami hiba történt!",
+      "loginFailed": "Sikertelen bejelentkezés. Kérlek, ellenőrizd a bejelentkezési adatokat."
     }
   },
   "ScannedPetDetail": {
