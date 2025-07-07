@@ -67,11 +67,11 @@ export default function RegisterForm() {
       await toast.promise(
         createOwner(registerData),
         {
-          pending: "Registering account...",
-          success: "Successful registration! 🎉",
+          pending: t("Auth.field.registerPending"),
+          success: t("Auth.field.registerSuccess"),
           error: {
             render({ data }: { data: Error }) {
-              return data.message || "Something went wrong!";
+              return data.message || t("Auth.field.registerError");
             },
           },
         },

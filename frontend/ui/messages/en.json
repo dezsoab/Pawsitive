@@ -175,7 +175,10 @@
       "lastName": "Last Name",
       "phone": "Phone",
       "phoneValidationFail": "Please enter a valid phone number starting with + and country code.",
-      "passwordMismatch": "The provided passwords are not the same."
+      "passwordMismatch": "The provided passwords are not the same.",
+      "registerPending": "Registering account...",
+      "registerSuccess": "Successful registration! 🎉",
+      "registerError": "Something went wrong!"
     },
     "btn": {
       "login": "Login",

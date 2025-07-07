@@ -175,7 +175,10 @@
       "lastName": "Vezetéknév",
       "phone": "Telefonszám",
       "phoneValidationFail": "Kérlek, adj meg egy érvényes telefonszámot + jellel és országhívószámmal.",
-      "passwordMismatch": "A megadott jelszavak nem egyeznek."
+      "passwordMismatch": "A megadott jelszavak nem egyeznek.",
+      "registerPending": "Fiók regisztrálása folyamatban...",
+      "registerSuccess": "Sikeres regisztráció! 🎉",
+      "registerError": "Valami hiba történt!"
     },
     "btn": {
       "login": "Bejelentkezés",

@@ -175,7 +175,10 @@
       "lastName": "Nachname",
       "phone": "Telefon",
       "phoneValidationFail": "Bitte gib eine gültige Telefonnummer mit + und Landesvorwahl ein.",
-      "passwordMismatch": "Die eingegebenen Passwörter stimmen nicht überein."
+      "passwordMismatch": "Die eingegebenen Passwörter stimmen nicht überein.",
+      "registerPending": "Konto wird registriert...",
+      "registerSuccess": "Registrierung erfolgreich! 🎉",
+      "registerError": "Etwas ist schiefgelaufen!"
     },
     "btn": {
       "login": "Anmelden",
