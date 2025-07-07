@@ -173,7 +173,9 @@
       "persistent": "Angemeldet bleiben",
       "firstName": "Vorname",
       "lastName": "Nachname",
-      "phone": "Telefon"
+      "phone": "Telefon",
+      "phoneValidationFail": "Bitte gib eine gültige Telefonnummer mit + und Landesvorwahl ein.",
+      "passwordMismatch": "Die eingegebenen Passwörter stimmen nicht überein."
     },
     "btn": {
       "login": "Anmelden",

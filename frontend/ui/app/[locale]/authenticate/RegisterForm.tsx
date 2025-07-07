@@ -8,11 +8,32 @@ import { RegisterOwnerDTO } from "@/types/RegisterOwnerDTO";
 import { createOwner } from "@/api/post/createOwner";
 import { useLocale, useTranslations } from "next-intl";
 import { toast, ToastContainer } from "react-toastify";
+import { isInvalidPhoneNumber, isPasswordTheSame } from "@/util/validation";
 
 export default function RegisterForm() {
   const { setIsLoggedIn } = useAuth();
   const locale = useLocale() || "en";
   const t = useTranslations();
+
+  const validatePhoneNumber = (phone: HTMLFormElement): boolean => {
+    if (isInvalidPhoneNumber(phone.value.trim())) {
+      toast.error(t("Auth.field.phoneValidationFail"), {
+        position: "bottom-right",
+      });
+      return false;
+    }
+    return true;
+  };
+
+  const validatePassword = (
+    password1: HTMLFormElement,
+    password2: HTMLFormElement
+  ) => {
+    if (isPasswordTheSame(password1, password2)) {
+      toast(t("Auth.field.passwordMismatch"), { position: "bottom-right" });
+      return;
+    }
+  };
 
   const registerSubmitHandler = async (
     event: React.FormEvent<HTMLFormElement>
@@ -29,10 +50,8 @@ export default function RegisterForm() {
       persistent,
     } = form.elements as any;
 
-    if (password1.value != password2.value) {
-      alert("PW not the same!!");
-      return;
-    }
+    validatePassword(password1, password2);
+    if (!validatePhoneNumber(phone)) return;
 
     const registerData: RegisterOwnerDTO = {
       firstName: firstName.value,

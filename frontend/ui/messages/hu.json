@@ -173,7 +173,9 @@
       "persistent": "Emlékezz rám",
       "firstName": "Keresztnév",
       "lastName": "Vezetéknév",
-      "phone": "Telefonszám"
+      "phone": "Telefonszám",
+      "phoneValidationFail": "Kérlek, adj meg egy érvényes telefonszámot + jellel és országhívószámmal.",
+      "passwordMismatch": "A megadott jelszavak nem egyeznek."
     },
     "btn": {
       "login": "Bejelentkezés",

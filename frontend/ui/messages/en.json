@@ -173,7 +173,9 @@
       "persistent": "Remember me",
       "firstName": "First Name",
       "lastName": "Last Name",
-      "phone": "Phone"
+      "phone": "Phone",
+      "phoneValidationFail": "Please enter a valid phone number starting with + and country code.",
+      "passwordMismatch": "The provided passwords are not the same."
     },
     "btn": {
       "login": "Login",

@@ -1,9 +1,12 @@
+"use client";
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
 import React, { Dispatch, FormEvent, SetStateAction, useRef } from "react";
 
 import styles from "../(userTab)/UserTab.module.css";
 import { updateUserInformation } from "@/api/put/updateUserInformation";
 import { toast } from "react-toastify";
+import { isInvalidPhoneNumber } from "@/util/validation";
+import { useTranslations } from "next-intl";
 
 interface UserInformationProps {
   profile: ProfileInformationDTO;
@@ -25,8 +28,24 @@ const IsEditingUserInformation = ({
   const streetRef = useRef<HTMLInputElement>(null);
   const consentRef = useRef<HTMLInputElement>(null);
 
+  const t = useTranslations();
+
+  const validatePhoneNumber = (phone: string): boolean => {
+    if (isInvalidPhoneNumber(phone.trim())) {
+      toast.error(t("Auth.field.phoneValidationFail"), {
+        position: "bottom-right",
+      });
+      return false;
+    }
+    return true;
+  };
+
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    if (!validatePhoneNumber(phoneRef.current?.value || "")) {
+      return;
+    }
 
     const updatedProfile = {
       ...profile,
@@ -35,7 +54,7 @@ const IsEditingUserInformation = ({
         ...profile.owner,
         firstName: firstNameRef.current?.value || "",
         lastName: lastNameRef.current?.value || "",
-        phone: phoneRef.current?.value || "",
+        phone: phoneRef.current?.value.trim() || "",
         address: {
           ...profile.owner.address,
           country: countryRef.current?.value || null,
