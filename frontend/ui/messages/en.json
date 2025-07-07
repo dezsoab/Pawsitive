@@ -160,10 +160,35 @@
     "lost": "Lost"
   },
   "Dashboard": {
-    "updateAction": "Update Picture",
+    "title": "Personal Information",
+    "updateAction": "Update Picture 📸",
     "uploadAction": "Upload Picture",
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "personal": {
+      "email": "Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone number",
+      "country": "Country",
+      "zip": "Zip",
+      "city": "City",
+      "street": "Street",
+      "addressVisible": "Show my address on pet’s public profile 🐾",
+      "addressConsentStatus": "You {status} consent to show your address",
+      "editHint": "You can change your settings in edit mode",
+      "pending": "Updating user information... ⏳",
+      "success": "User information updated successfully! 🎉",
+      "error": "Failed to update user information."
+    },
+    "common": {
+      "are": "are",
+      "areNot": "are not"
+    },
+    "editHint": {
+      "start": "Click on the pen to edit the fields",
+      "cancel": "Click on the pen to cancel editing"
+    }
   },
   "Auth": {
     "field": {

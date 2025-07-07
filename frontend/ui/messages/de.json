@@ -160,10 +160,35 @@
     "lost": "Verloren"
   },
   "Dashboard": {
-    "updateAction": "Bild aktualisieren",
+    "title": "Persönliche Informationen",
+    "updateAction": "Bild aktualisieren 📸",
     "uploadAction": "Bild hochladen",
     "cancel": "Abbrechen",
-    "save": "Speichern"
+    "save": "Speichern",
+    "personal": {
+      "email": "E-Mail",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "phone": "Telefonnummer",
+      "country": "Land",
+      "zip": "PLZ",
+      "city": "Stadt",
+      "street": "Straße",
+      "addressVisible": "Meine Adresse im öffentlichen Profil meines Haustiers anzeigen 🐾",
+      "addressConsentStatus": "Du {status} zugestimmt, deine Adresse anzuzeigen",
+      "editHint": "Du kannst deine Einstellungen im Bearbeitungsmodus ändern",
+      "pending": "Benutzerdaten werden aktualisiert... ⏳",
+      "success": "Benutzerdaten erfolgreich aktualisiert! 🎉",
+      "error": "Fehler beim Aktualisieren der Benutzerdaten."
+    },
+    "common": {
+      "are": "hast",
+      "areNot": "hast nicht"
+    },
+    "editHint": {
+      "start": "Klicke auf den Stift, um die Felder zu bearbeiten",
+      "cancel": "Klicke auf den Stift, um das Bearbeiten abzubrechen"
+    }
   },
   "Auth": {
     "field": {
