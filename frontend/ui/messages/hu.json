@@ -142,7 +142,12 @@
     "title_secondary": "Ne aggódj — bundás barátunk, Molli, máris szimatot fogott!",
     "molli_message_part1": "Ui.: Neked is Molli a kedvenced neve? Küldj róla egy képet vagy jelölj meg minket ",
     "molli_message_part2": ", és küldünk neki egy kis üdvözletet!",
-    "molli_image_alt": "Négylábú barátunk, Molli"
+    "molli_image_alt": "Négylábú barátunk, Molli",
+    "contact": {
+      "title": "Valami nincs rendben? Segítünk!",
+      "paragraph": "Molli mindenre talál megoldást!",
+      "message_placeholder": "Írd le, hogy mi nem működött."
+    }
   },
   "Pet": {
     "name": "Név",

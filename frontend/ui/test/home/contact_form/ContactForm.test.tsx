@@ -2,9 +2,9 @@ import { fireEvent, screen, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import locales from "../../util/language/locales";
 import { setup } from "../../util/mocks/mockRender";
-import ContactForm from "@/app/[locale]/home/(contact-form)/ContactForm";
 import { mockFetchResponse } from "@/test/util/mocks/mockFetch";
 import { apiMethod } from "@/enums/apiMethod";
+import ContactForm from "@/components/contactForm/ContactForm";
 
 beforeEach(() => {
   global.fetch = jest.fn(() =>
@@ -22,7 +22,15 @@ describe("Contact form tests", () => {
   for (const [locale, { messages }] of Object.entries(locales)) {
     describe(`Locale: ${locale}`, () => {
       test("renders contact form with all fields", () => {
-        setup({ Component: <ContactForm />, locale, messages });
+        setup({
+          Component: (
+            <ContactForm
+              messagePlaceholder={messages.Index.contact.message_placeholder}
+            />
+          ),
+          locale,
+          messages,
+        });
 
         expect(
           screen.getByLabelText(messages.Index.contact.name + ":")
@@ -36,7 +44,15 @@ describe("Contact form tests", () => {
       });
 
       test("updates form data on input change", () => {
-        setup({ Component: <ContactForm />, locale, messages });
+        setup({
+          Component: (
+            <ContactForm
+              messagePlaceholder={messages.Index.contact.message_placeholder}
+            />
+          ),
+          locale,
+          messages,
+        });
 
         const nameInput = screen.getByLabelText(
           messages.Index.contact.name + ":"
@@ -64,7 +80,15 @@ describe("Contact form tests", () => {
       });
 
       test("submits the form and resets fields", async () => {
-        setup({ Component: <ContactForm />, locale, messages });
+        setup({
+          Component: (
+            <ContactForm
+              messagePlaceholder={messages.Index.contact.message_placeholder}
+            />
+          ),
+          locale,
+          messages,
+        });
 
         const nameInput = screen.getByLabelText(
           messages.Index.contact.name + ":"
@@ -118,7 +142,15 @@ describe("Contact form tests", () => {
 
   test("shows validation errors if required fields are empty", async () => {
     const messages = locales.en.messages;
-    setup({ Component: <ContactForm />, locale: "en", messages });
+    setup({
+      Component: (
+        <ContactForm
+          messagePlaceholder={messages.Index.contact.message_placeholder}
+        />
+      ),
+      locale: "en",
+      messages,
+    });
 
     await act(async () => {
       fireEvent.click(

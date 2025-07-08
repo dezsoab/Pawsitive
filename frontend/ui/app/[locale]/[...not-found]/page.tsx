@@ -6,6 +6,7 @@ import CTAButton from "@/components/cta/CTAButton";
 import { navigationRoutes } from "@/enums/navigationRoutes";
 import molli from "../../../public/assets/molli.png";
 import styles from "./page.module.css";
+import ContactFormContainer from "@/components/contactForm/ContactFormContainer";
 
 const NotFoundPage = () => {
   const locale = useLocale();
@@ -28,18 +29,6 @@ const NotFoundPage = () => {
             }}
             locale={locale}
           />
-          <br />
-          <small>
-            {t("NotFound.molli_message_part1")}
-            <a
-              href={navigationRoutes.INSTA}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-            {t("NotFound.molli_message_part2")}
-          </small>
         </div>
         <Image
           src={molli}
@@ -48,6 +37,24 @@ const NotFoundPage = () => {
           height={500}
         />
       </main>
+      <ContactFormContainer
+        title={t("NotFound.contact.title")}
+        paragraph={t("NotFound.contact.paragraph")}
+        messagePlaceholder={t("NotFound.contact.message_placeholder")}
+      />
+      <div className={styles.small}>
+        <p>
+          {t("NotFound.molli_message_part1")}
+          <a
+            href={navigationRoutes.INSTA}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+          {t("NotFound.molli_message_part2")}
+        </p>
+      </div>
     </>
   );
 };

@@ -142,7 +142,12 @@
     "title_secondary": "Keine Sorge — unsere Fellnase Molli ist schon auf der Spur.",
     "molli_message_part1": "PS: Hast du auch ein Haustier namens Molli? Zeig es uns! Schick ein Foto oder markiere uns auf ",
     "molli_message_part2": ", und wir schicken eurer Molli einen besonderen Gruß!",
-    "molli_image_alt": "Unsere vierbeinige Freundin Molli"
+    "molli_image_alt": "Unsere vierbeinige Freundin Molli",
+    "contact": {
+      "title": "Stimmt etwas nicht? Wir helfen dir weiter!",
+      "paragraph": "Molli findet für alles eine Lösung!",
+      "message_placeholder": "Beschreibe, was nicht funktioniert hat."
+    }
   },
   "Pet": {
     "name": "Name",
