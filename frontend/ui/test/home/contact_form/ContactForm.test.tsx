@@ -4,6 +4,7 @@ import locales from "../../util/language/locales";
 import { setup } from "../../util/mocks/mockRender";
 import ContactForm from "@/app/[locale]/home/(contact-form)/ContactForm";
 import { mockFetchResponse } from "@/test/util/mocks/mockFetch";
+import { apiMethod } from "@/enums/apiMethod";
 
 beforeEach(() => {
   global.fetch = jest.fn(() =>
@@ -95,7 +96,7 @@ describe("Contact form tests", () => {
         expect(global.fetch).toHaveBeenCalledWith(
           expect.stringContaining("/mail/emailContactUs"),
           expect.objectContaining({
-            method: "POST",
+            method: apiMethod.POST,
             headers: expect.objectContaining({
               "Content-Type": "application/json",
             }),
