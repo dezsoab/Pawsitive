@@ -6,5 +6,5 @@ export const isPasswordTheSame = (
   password1: HTMLFormElement,
   password2: HTMLFormElement
 ) => {
-  return password1.value != password2.value;
+  return password1.value == password2.value;
 };

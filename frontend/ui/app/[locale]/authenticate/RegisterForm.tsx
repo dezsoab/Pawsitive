@@ -29,7 +29,7 @@ export default function RegisterForm() {
     password1: HTMLFormElement,
     password2: HTMLFormElement
   ) => {
-    if (isPasswordTheSame(password1, password2)) {
+    if (!isPasswordTheSame(password1, password2)) {
       toast(t("Auth.notification.passwordMismatch"), {
         position: "bottom-right",
       });
