@@ -7,7 +7,7 @@ import Image from "next/image";
 import PawIcon from "@/components/pawIcon/PawIcon";
 import { useLocale, useTranslations } from "next-intl";
 import PhoneIcon from "@/components/phoneIcon/PhoneIcon";
-import EmailIcon from "../home/(contact-form)/EmailIcon";
+
 import { fetchPetInformationDTO } from "@/api/get/fetchPetInformationDTO";
 import { PetInformationDTO } from "@/types/PetInformationDTO";
 import { useSearchParams } from "next/navigation";
@@ -22,6 +22,7 @@ import confetti from "canvas-confetti";
 import { saveScannedLocation } from "@/api/post/saveScannedLocation";
 import { ScannedLocationDTO } from "@/types/ScannedLocationDTO";
 import { toast, ToastContainer } from "react-toastify";
+import EmailIcon from "@/components/emailIcon/EmailIcon";
 
 const ScannedPetDetail = () => {
   const t = useTranslations();
