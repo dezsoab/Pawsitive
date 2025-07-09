@@ -4,7 +4,6 @@ import Testimonial from "./(testimonial)/Testimonial";
 import AboutSection from "./(about)/AboutSection";
 import Reasoning from "./(reasoning)/Reasoning";
 import CTASection from "./(CTASection)/CTASection";
-import ContactFormContainer from "./(contact-form)/ContactFormContainer";
 
 import Navbar from "../../../components/navigation/Navbar";
 import Footer from "../../../components/footer/Footer";
@@ -14,6 +13,7 @@ import Features from "./(features)/Features";
 import showcase1 from "@/public/assets/showcase1.webp";
 import cezar2 from "@/public/assets/cezar2.webp";
 import TagSection from "./(tag)/TagSection";
+import Contact from "./(contact-form)/Contact";
 
 export default function Home() {
   logger.info("Rendering Home");
@@ -40,7 +40,7 @@ export default function Home() {
         <Testimonial />
         <Reasoning />
         <CTASection />
-        <ContactFormContainer />
+        <Contact />
         <Footer />
       </main>
     </>

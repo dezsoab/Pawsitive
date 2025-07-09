@@ -8,11 +8,35 @@ import { RegisterOwnerDTO } from "@/types/RegisterOwnerDTO";
 import { createOwner } from "@/api/post/createOwner";
 import { useLocale, useTranslations } from "next-intl";
 import { toast, ToastContainer } from "react-toastify";
+import { isInvalidPhoneNumber, isPasswordTheSame } from "@/util/validation";
 
 export default function RegisterForm() {
   const { setIsLoggedIn } = useAuth();
   const locale = useLocale() || "en";
   const t = useTranslations();
+
+  const validatePhoneNumber = (phone: HTMLFormElement): boolean => {
+    if (isInvalidPhoneNumber(phone.value.trim())) {
+      toast.error(t("Auth.notification.phoneValidationFail"), {
+        position: "bottom-right",
+      });
+      return false;
+    }
+    return true;
+  };
+
+  const validatePassword = (
+    password1: HTMLFormElement,
+    password2: HTMLFormElement
+  ): boolean => {
+    if (!isPasswordTheSame(password1, password2)) {
+      toast.error(t("Auth.notification.passwordMismatch"), {
+        position: "bottom-right",
+      });
+      return false;
+    }
+    return true;
+  };
 
   const registerSubmitHandler = async (
     event: React.FormEvent<HTMLFormElement>
@@ -29,10 +53,8 @@ export default function RegisterForm() {
       persistent,
     } = form.elements as any;
 
-    if (password1.value != password2.value) {
-      alert("PW not the same!!");
-      return;
-    }
+    if (!validatePassword(password1, password2)) return;
+    if (!validatePhoneNumber(phone)) return;
 
     const registerData: RegisterOwnerDTO = {
       firstName: firstName.value,
@@ -48,11 +70,11 @@ export default function RegisterForm() {
       await toast.promise(
         createOwner(registerData),
         {
-          pending: "Registering account...",
-          success: "Successful registration! 🎉",
+          pending: t("Auth.notification.registerPending"),
+          success: t("Auth.notification.registerSuccess"),
           error: {
             render({ data }: { data: Error }) {
-              return data.message || "Something went wrong!";
+              return data.message || t("Auth.notification.registerError");
             },
           },
         },

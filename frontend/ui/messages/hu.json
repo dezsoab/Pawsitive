@@ -142,7 +142,12 @@
     "title_secondary": "Ne aggódj — bundás barátunk, Molli, máris szimatot fogott!",
     "molli_message_part1": "Ui.: Neked is Molli a kedvenced neve? Küldj róla egy képet vagy jelölj meg minket ",
     "molli_message_part2": ", és küldünk neki egy kis üdvözletet!",
-    "molli_image_alt": "Négylábú barátunk, Molli"
+    "molli_image_alt": "Négylábú barátunk, Molli",
+    "contact": {
+      "title": "Valami nincs rendben? Segítünk!",
+      "paragraph": "Molli mindenre talál megoldást!",
+      "message_placeholder": "Írd le, hogy mi nem működött."
+    }
   },
   "Pet": {
     "name": "Név",
@@ -160,10 +165,35 @@
     "lost": "Elveszett"
   },
   "Dashboard": {
-    "updateAction": "Kép frissítése",
+    "title": "Személyes adatok",
+    "updateAction": "Kép frissítése 📸",
     "uploadAction": "Kép feltöltése",
     "cancel": "Mégse",
-    "save": "Mentés"
+    "save": "Mentés",
+    "personal": {
+      "email": "Email",
+      "firstName": "Keresztnév",
+      "lastName": "Vezetéknév",
+      "phone": "Telefonszám",
+      "country": "Ország",
+      "zip": "Irányítószám",
+      "city": "Város",
+      "street": "Utca",
+      "addressVisible": "Mutasd meg a lakcímemet a háziállat nyilvános profilján 🐾",
+      "addressConsentStatus": "{status} ahhoz, hogy a lakcímed megjelenjen a kisállat profilján.",
+      "editHint": "A beállításokat szerkesztési módban módosíthatod",
+      "pending": "Felhasználói adatok frissítése... ⏳",
+      "success": "A felhasználói adatok sikeresen frissítve! 🎉",
+      "error": "Nem sikerült frissíteni a felhasználói adatokat."
+    },
+    "common": {
+      "are": "Hozzájárulsz",
+      "areNot": "Nem járulsz hozzá"
+    },
+    "editHint": {
+      "start": "Kattints a ceruzára a mezők szerkesztéséhez",
+      "cancel": "Kattints a ceruzára a szerkesztés megszakításához"
+    }
   },
   "Auth": {
     "field": {
@@ -179,6 +209,14 @@
       "login": "Bejelentkezés",
       "back": "Vissza",
       "register": "Regisztráció"
+    },
+    "notification": {
+      "phoneValidationFail": "Kérlek, adj meg egy érvényes telefonszámot + jellel és országhívószámmal.",
+      "passwordMismatch": "A megadott jelszavak nem egyeznek.",
+      "registerPending": "Fiók regisztrálása folyamatban...",
+      "registerSuccess": "Sikeres regisztráció! 🎉",
+      "registerError": "Valami hiba történt!",
+      "loginFailed": "Sikertelen bejelentkezés. Kérlek, ellenőrizd a bejelentkezési adatokat."
     }
   },
   "ScannedPetDetail": {

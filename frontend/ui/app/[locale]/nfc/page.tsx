@@ -71,7 +71,7 @@ const ScannedNfcTag = () => {
         throw new Error("Tag is in erroneous state");
       } catch (err) {
         console.error("Invalid tag", err);
-        router.push(navigationRoutes.HOME);
+        router.push(navigationRoutes.NOTFOUND);
       }
     };
 

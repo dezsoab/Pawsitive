@@ -1,5 +1,4 @@
 .main {
-  min-height: 100vh;
   max-width: var(--max-width);
   display: flex;
   justify-content: center;
@@ -44,4 +43,23 @@
 
 .main small {
   font-size: var(--font-mini);
+}
+
+.small {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  font-size: var(--font-mini);
+  padding: 5rem 0;
+}
+
+.small a {
+  text-decoration: none;
+  color: var(--color-pink-mid);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1250px) {
+  .small {
+    padding: 5rem 2rem;
+  }
 }

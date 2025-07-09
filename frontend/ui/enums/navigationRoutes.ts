@@ -12,4 +12,5 @@ export enum navigationRoutes {
   PROFILE = "/profile",
   AUTH = "/authenticate",
   PET = "/pet",
+  NOTFOUND = "/404",
 }

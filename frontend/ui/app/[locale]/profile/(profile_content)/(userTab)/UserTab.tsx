@@ -6,6 +6,7 @@ import styles from "./UserTab.module.css";
 import ProfileInformation from "./ProfileInformation";
 import Render3DElement from "./Render3DElement";
 import EditButton from "@/components/editButton/EditButton";
+import { useTranslations } from "next-intl";
 
 interface UserInformationProps {
   profile: ProfileInformationDTO;
@@ -14,15 +15,16 @@ interface UserInformationProps {
 
 const UserTab = ({ profile, setProfile }: UserInformationProps) => {
   const [isEditing, setIsEditing] = useState(false);
+  const t = useTranslations();
 
   return (
     <div className={styles.userPage}>
-      <h1>Personal Information</h1>
+      <h1>{t("Dashboard.title")}</h1>
       <div className={styles.trigger_edit}>
         <p className={styles.edit_hint}>
           {isEditing
-            ? "click on the pen to cancel editing"
-            : "click on the pen to edit the fields"}
+            ? t("Dashboard.editHint.cancel")
+            : t("Dashboard.editHint.start")}
         </p>
         <EditButton edit={isEditing} setEdit={setIsEditing} />
       </div>
