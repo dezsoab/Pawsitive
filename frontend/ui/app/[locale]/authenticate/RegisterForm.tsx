@@ -28,13 +28,14 @@ export default function RegisterForm() {
   const validatePassword = (
     password1: HTMLFormElement,
     password2: HTMLFormElement
-  ) => {
+  ): boolean => {
     if (!isPasswordTheSame(password1, password2)) {
-      toast(t("Auth.notification.passwordMismatch"), {
+      toast.error(t("Auth.notification.passwordMismatch"), {
         position: "bottom-right",
       });
-      return;
+      return false;
     }
+    return true;
   };
 
   const registerSubmitHandler = async (
@@ -52,7 +53,7 @@ export default function RegisterForm() {
       persistent,
     } = form.elements as any;
 
-    validatePassword(password1, password2);
+    if (!validatePassword(password1, password2)) return;
     if (!validatePhoneNumber(phone)) return;
 
     const registerData: RegisterOwnerDTO = {
