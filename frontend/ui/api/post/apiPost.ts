@@ -1,6 +1,8 @@
+import { apiMethod } from "@/enums/apiMethod";
+
 export const apiPost = async <T, U>(endpoint: string, body: U): Promise<T> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${endpoint}`, {
-    method: "POST",
+    method: apiMethod.POST,
     headers: {
       "Content-Type": "application/json",
     },

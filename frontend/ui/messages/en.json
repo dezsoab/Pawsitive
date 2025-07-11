@@ -142,7 +142,12 @@
     "title_secondary": "Don’t worry — our furry guide Molli is on the trail.",
     "molli_message_part1": "P.S. Do you also have a pet named Molli? We'd love to see them! Send us a photo or tag us on ",
     "molli_message_part2": " and we’ll make sure your Molli gets a special mention.",
-    "molli_image_alt": "Our four-legged friend, Molli"
+    "molli_image_alt": "Our four-legged friend, Molli",
+    "contact": {
+      "title": "Something’s not right? We’re here to help!",
+      "paragraph": "Molli finds a solution to everything!",
+      "message_placeholder": "Describe what didn’t work."
+    }
   },
   "Pet": {
     "name": "Name",
@@ -160,10 +165,35 @@
     "lost": "Lost"
   },
   "Dashboard": {
-    "updateAction": "Update Picture",
+    "title": "Personal Information",
+    "updateAction": "Update Picture 📸",
     "uploadAction": "Upload Picture",
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "personal": {
+      "email": "Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone number",
+      "country": "Country",
+      "zip": "Zip",
+      "city": "City",
+      "street": "Street",
+      "addressVisible": "Show my address on pet’s public profile 🐾",
+      "addressConsentStatus": "You {status} consent to show your address",
+      "editHint": "You can change your settings in edit mode",
+      "pending": "Updating user information... ⏳",
+      "success": "User information updated successfully! 🎉",
+      "error": "Failed to update user information."
+    },
+    "common": {
+      "are": "are",
+      "areNot": "are not"
+    },
+    "editHint": {
+      "start": "Click on the pen to edit the fields",
+      "cancel": "Click on the pen to cancel editing"
+    }
   },
   "Auth": {
     "field": {
@@ -179,6 +209,14 @@
       "login": "Login",
       "back": "Back",
       "register": "Register"
+    },
+    "notification": {
+      "phoneValidationFail": "Please enter a valid phone number starting with + and country code.",
+      "passwordMismatch": "The provided passwords are not the same.",
+      "registerPending": "Registering account...",
+      "registerSuccess": "Successful registration! 🎉",
+      "registerError": "Something went wrong!",
+      "loginFailed": "Login failed. Please check your credentials."
     }
   },
   "ScannedPetDetail": {

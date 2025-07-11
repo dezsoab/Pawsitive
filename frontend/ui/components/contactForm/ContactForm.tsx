@@ -8,7 +8,11 @@ import { ContactUsEmailRequestDTO } from "@/types/ContactUsEmailRequestDTO";
 import { sendContactUsInquiry } from "@/api/post/sendContactUsInquiry";
 import { ToastContainer, toast } from "react-toastify";
 
-const ContactForm = () => {
+interface ContactFormProps {
+  messagePlaceholder: string;
+}
+
+const ContactForm = ({ messagePlaceholder }: ContactFormProps) => {
   const locale = useLocale();
   const t = useTranslations("Index.contact");
 
@@ -84,7 +88,7 @@ const ContactForm = () => {
             id="message"
             name="message"
             ref={messageRef}
-            placeholder={t("message_placeholder")}
+            placeholder={messagePlaceholder}
             required
             rows={5}
           />

@@ -1,9 +1,11 @@
+import { apiMethod } from "@/enums/apiMethod";
+
 export const apiDelete = async <T, U>(
   endpoint: string,
   body: U
 ): Promise<T> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${endpoint}`, {
-    method: "DELETE",
+    method: apiMethod.DELETE,
     headers: {
       "Content-Type": "application/json",
     },

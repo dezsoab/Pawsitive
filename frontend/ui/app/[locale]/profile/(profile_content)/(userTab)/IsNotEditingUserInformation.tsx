@@ -1,4 +1,5 @@
 import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 interface UserInformationProps {
@@ -6,40 +7,42 @@ interface UserInformationProps {
 }
 
 const IsNotEditingUserInformation = ({ profile }: UserInformationProps) => {
+  const t = useTranslations();
   return (
     <div>
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email">{t("Dashboard.personal.email")}</label>
       <p>{profile.email}</p>
 
-      <label htmlFor="firstName">First Name</label>
+      <label htmlFor="firstName">{t("Dashboard.personal.firstName")}</label>
       <p>{profile.owner.firstName}</p>
 
-      <label htmlFor="lastName">Last Name</label>
+      <label htmlFor="lastName">{t("Dashboard.personal.lastName")}</label>
       <p>{profile.owner.lastName}</p>
 
-      <label htmlFor="phone">Phone number</label>
+      <label htmlFor="phone">{t("Dashboard.personal.phone")}</label>
       <p>{profile.owner.phone}</p>
 
-      <label htmlFor="country">County</label>
+      <label htmlFor="country">{t("Dashboard.personal.country")}</label>
       <p>{profile.owner?.address?.country}</p>
 
-      <label htmlFor="zip">Zip</label>
+      <label htmlFor="zip">{t("Dashboard.personal.zip")}</label>
       <p>{profile.owner?.address?.zipCode}</p>
 
-      <label htmlFor="city">City</label>
+      <label htmlFor="city">{t("Dashboard.personal.city")}</label>
       <p>{profile.owner?.address?.city}</p>
 
-      <label htmlFor="street">Street</label>
+      <label htmlFor="street">{t("Dashboard.personal.street")}</label>
       <p>{profile.owner?.address?.street}</p>
 
       <br />
       <p>
-        You{" "}
-        {`${
-          profile.owner.isAddressVisible ? "are" : "are not"
-        } consent to show your address`}
+        {t("Dashboard.personal.addressConsentStatus", {
+          status: profile.owner.isAddressVisible
+            ? t("Dashboard.common.are")
+            : t("Dashboard.common.areNot"),
+        })}
       </p>
-      <span>you can change your settings in edit mode</span>
+      <span>{t("Dashboard.personal.editHint")}</span>
     </div>
   );
 };

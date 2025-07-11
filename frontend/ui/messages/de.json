@@ -142,7 +142,12 @@
     "title_secondary": "Keine Sorge — unsere Fellnase Molli ist schon auf der Spur.",
     "molli_message_part1": "PS: Hast du auch ein Haustier namens Molli? Zeig es uns! Schick ein Foto oder markiere uns auf ",
     "molli_message_part2": ", und wir schicken eurer Molli einen besonderen Gruß!",
-    "molli_image_alt": "Unsere vierbeinige Freundin Molli"
+    "molli_image_alt": "Unsere vierbeinige Freundin Molli",
+    "contact": {
+      "title": "Stimmt etwas nicht? Wir helfen dir weiter!",
+      "paragraph": "Molli findet für alles eine Lösung!",
+      "message_placeholder": "Beschreibe, was nicht funktioniert hat."
+    }
   },
   "Pet": {
     "name": "Name",
@@ -160,10 +165,35 @@
     "lost": "Verloren"
   },
   "Dashboard": {
-    "updateAction": "Bild aktualisieren",
+    "title": "Persönliche Informationen",
+    "updateAction": "Bild aktualisieren 📸",
     "uploadAction": "Bild hochladen",
     "cancel": "Abbrechen",
-    "save": "Speichern"
+    "save": "Speichern",
+    "personal": {
+      "email": "E-Mail",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "phone": "Telefonnummer",
+      "country": "Land",
+      "zip": "PLZ",
+      "city": "Stadt",
+      "street": "Straße",
+      "addressVisible": "Meine Adresse im öffentlichen Profil meines Haustiers anzeigen 🐾",
+      "addressConsentStatus": "Du {status} zugestimmt, deine Adresse anzuzeigen",
+      "editHint": "Du kannst deine Einstellungen im Bearbeitungsmodus ändern",
+      "pending": "Benutzerdaten werden aktualisiert... ⏳",
+      "success": "Benutzerdaten erfolgreich aktualisiert! 🎉",
+      "error": "Fehler beim Aktualisieren der Benutzerdaten."
+    },
+    "common": {
+      "are": "hast",
+      "areNot": "hast nicht"
+    },
+    "editHint": {
+      "start": "Klicke auf den Stift, um die Felder zu bearbeiten",
+      "cancel": "Klicke auf den Stift, um das Bearbeiten abzubrechen"
+    }
   },
   "Auth": {
     "field": {
@@ -179,6 +209,14 @@
       "login": "Anmelden",
       "back": "Zurück",
       "register": "Registrieren"
+    },
+    "notification": {
+      "phoneValidationFail": "Bitte gib eine gültige Telefonnummer mit + und Landesvorwahl ein.",
+      "passwordMismatch": "Die eingegebenen Passwörter stimmen nicht überein.",
+      "registerPending": "Konto wird registriert...",
+      "registerSuccess": "Registrierung erfolgreich! 🎉",
+      "registerError": "Etwas ist schiefgelaufen!",
+      "loginFailed": "Anmeldung fehlgeschlagen. Bitte überprüfe deine Zugangsdaten."
     }
   },
   "ScannedPetDetail": {

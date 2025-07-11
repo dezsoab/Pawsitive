@@ -23,7 +23,7 @@ const PersonalPage = () => {
         }
       } catch (error) {
         console.error("Error checking ownership:", error);
-        // TODO: Handle error, potentially redirect to login
+        router.push(navigationRoutes.AUTH);
       } finally {
         setLoading(false);
       }

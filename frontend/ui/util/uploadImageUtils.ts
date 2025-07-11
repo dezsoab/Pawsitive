@@ -2,6 +2,7 @@ import imageCompression from "browser-image-compression";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-toastify";
 import { fetchPresignedPetUrl } from "@/api/get/fetchPresignedPetUrl";
+import { apiMethod } from "@/enums/apiMethod";
 
 export const MAX_IMAGE_SIZE_TO_COMPRESS = parseFloat(
   process.env.NEXT_PUBLIC_MAX_IMAGE_SIZE_TO_COMPRESS || "1.5"
@@ -91,7 +92,7 @@ export const handleCroppedImage = async (
 export const uploadToS3 = async (
   file: File,
   fileName: string,
-  apiMethod: "PUT" | "POST" | "GET"
+  apiMethod: apiMethod.PUT | apiMethod.POST | apiMethod.GET
 ): Promise<string> => {
   const { uploadUrl } = await fetchPresignedPetUrl(fileName);
   const photoUrl = uploadUrl.split("?")[0];
