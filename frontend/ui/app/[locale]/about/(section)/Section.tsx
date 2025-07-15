@@ -10,6 +10,10 @@ type SectionProps = {
   imageAlt: string;
   label: string;
   paragraph: string;
+  paragraph2?: string;
+  paragraph3?: string;
+  paragraph4?: string;
+  paragraph5?: string;
   contentStyle?: { [key: string]: string };
   containerStyle?: { [key: string]: string };
   slideFrom?: number;
@@ -20,6 +24,10 @@ const Section = ({
   imageAlt,
   label,
   paragraph,
+  paragraph2,
+  paragraph3,
+  paragraph4,
+  paragraph5,
   contentStyle,
   containerStyle,
   slideFrom,
@@ -42,6 +50,10 @@ const Section = ({
             <BrushStroke />
           </div>
           <Paragraph title={paragraph} slideFrom={slideFrom} />
+          {paragraph2 && <Paragraph title={paragraph2} slideFrom={slideFrom} />}
+          {paragraph3 && <Paragraph title={paragraph3} slideFrom={slideFrom} />}
+          {paragraph4 && <Paragraph title={paragraph4} slideFrom={slideFrom} />}
+          {paragraph5 && <Paragraph title={paragraph5} slideFrom={slideFrom} />}
         </div>
       </div>
     </section>

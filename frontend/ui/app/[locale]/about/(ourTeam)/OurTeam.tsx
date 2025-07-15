@@ -10,6 +10,10 @@ import BrushStroke from "../(components)/BrushStroke";
 type OurTeamProps = {
   label: string;
   paragraph: string;
+  paragraph2?: string;
+  paragraph3?: string;
+  paragraph4?: string;
+  paragraph5?: string;
   contentStyle?: { [key: string]: string };
   containerStyle?: { [key: string]: string };
 };
@@ -17,6 +21,10 @@ type OurTeamProps = {
 const OurTeam = ({
   label,
   paragraph,
+  paragraph2,
+  paragraph3,
+  paragraph4,
+  paragraph5,
   containerStyle,
   contentStyle,
 }: OurTeamProps) => {
@@ -31,6 +39,10 @@ const OurTeam = ({
             <BrushStroke />
           </div>
           <Paragraph title={paragraph} slideFrom={-150} />
+          {paragraph2 && <Paragraph title={paragraph2} slideFrom={-150} />}
+          {paragraph3 && <Paragraph title={paragraph3} slideFrom={-150} />}
+          {paragraph4 && <Paragraph title={paragraph4} slideFrom={-150} />}
+          {paragraph5 && <Paragraph title={paragraph5} slideFrom={-150} />}
         </div>
         <div className={styles.person_container}>
           <PersonTag
@@ -40,7 +52,7 @@ const OurTeam = ({
               t("About.team.person.lead_dev"),
             ]}
             imgSrc="/assets/dezso.webp"
-            imgAlt="some Alt"
+            imgAlt="Our founder, Dezso"
           />
           <PersonTag
             name="Cintia"
@@ -49,7 +61,7 @@ const OurTeam = ({
               t("About.team.person.product_design"),
             ]}
             imgSrc="/assets/Cintia.webp"
-            imgAlt="some Alt"
+            imgAlt="Our co-founder, Cintia"
           />
         </div>
       </div>

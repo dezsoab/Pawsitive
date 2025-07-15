@@ -15,21 +15,26 @@ const Paragraph = ({ title, slideFrom }: ParagraphProps) => {
   const paragraphRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      paragraphRef.current,
-      { x: slideFrom, opacity: 0 },
-      {
-        x: 0,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: paragraphRef.current,
-          start: "top 95%",
-          end: "top 50%",
-          scrub: true,
-        },
-      }
-    );
-  });
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        paragraphRef.current,
+        { x: slideFrom, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: paragraphRef.current,
+            start: "top 95%",
+            end: "top 50%",
+            scrub: true,
+          },
+        }
+      );
+    }, paragraphRef);
+
+    return () => ctx.revert(); // clean up on unmount
+  }, [slideFrom]);
 
   return (
     <p className={styles.text} ref={paragraphRef}>

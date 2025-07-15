@@ -86,19 +86,33 @@
   "About": {
     "about": {
       "label": "Über Pawsitive",
-      "paragraph": "Bei Pawsitive Collar sind Haustiere geschätzte Familienmitglieder. Wir schaffen durchdachte Produkte, um die Bindung zwischen euch zu stärken, indem wir Handwerkskunst mit intelligenter Technologie für echte Seelenruhe verbinden.\n\nJedes Stück spiegelt unsere tiefe Liebe zu Tieren, Design und den Menschen wider, die sich um sie kümmern. Ein Haustierhalsband und ein Identifikationsanhänger sollten eine Geschichte erzählen: von Fürsorge, Verantwortung und Verbundenheit.\n\nUnsere Halsbänder und Anhänger sind für jedes Abenteuer gemacht – funktional, schön und langlebig."
+      "paragraph": "Bei Pawsitive Collar glauben wir, dass Haustiere nicht einfach nur Tiere sind – sie sind Familie. Sie bringen Freude, Treue und Trost in unser Leben und verdienen Produkte, die mit derselben Liebe gemacht sind.",
+      "paragraph2": "Deshalb vereinen unsere Halsbänder und Marken durchdachtes Design mit intelligenter Technologie. Sie sind nicht nur schön – sie geben dir Sicherheit, dass dein Haustier jederzeit gut geschützt ist.",
+      "paragraph3": "Wir achten auf jedes Detail: den Sitz, das Gefühl, die Haltbarkeit. Denn unsere Produkte gehören nicht ins Regal – sie sind für matschige Wanderungen, Regentage, Sonnenbäder und Kuscheleinheiten gemacht.",
+      "paragraph4": "Hinter jedem Produkt steht eine tiefe Wertschätzung für Tiere – und für die Menschen, die sie lieben. Dieses Vertrauen ist für uns kein Nebenprodukt – es ist unser Versprechen."
     },
     "history": {
       "label": "Unsere Geschichte",
-      "paragraph": "Pawsitive Collar wurde 2024 gegründet. Als leidenschaftliche Tierliebhaber hatten wir die Nase voll von Massenware, also haben wir von Grund auf etwas Besseres gebaut.\n\nEine Frage leitete uns: Was würden wir uns *für unsere eigenen* Haustiere wünschen? Euer herzerwärmendes Feedback inspiriert uns weiterhin jeden Tag."
+      "paragraph": "Pawsitive Collar entstand 2024 – aus Frust und Liebe. Wir hatten genug von langweiligem, lieblos hergestelltem Zubehör.",
+      "paragraph2": "Also fingen wir ganz klein an – nur wir zwei, mit Skizzen, Ideen und dem Mut, alles selbst zu lernen: Design, 3D-Druck, smarte Technik. Jede Entscheidung entstand aus einer einfachen Frage: Was würden *wir* für *unsere* eigenen Haustiere wollen?",
+      "paragraph3": "Wir starteten ohne Investoren, ohne Lagerhalle – nur mit Leidenschaft, einem 3D-Drucker und einem sehr geduldigen Hund namens Molli.",
+      "paragraph4": "Heute wachsen wir mit einer Community von Tierliebhabern, die genauso fühlen wie wir.",
+      "paragraph5": "Jede Nachricht, jedes Foto, jede Geschichte, die ihr uns schickt, erinnert uns daran, warum wir angefangen haben – und motiviert uns weiterzumachen."
     },
     "sustainability": {
       "label": "Grünerer Pfotenabdruck",
-      "paragraph": "Wir kümmern uns tief um unsere Haustiere und den Planeten. Unsere Werkstatt wird mit grüner Energie betrieben. Wir verwenden langlebige, umweltfreundliche Materialien wie PETG und Paracord, um Abfall zu reduzieren. Unser 3D-Druck minimiert Überschuss, und wo möglich, recyceln wir Materialien.\n\nWir produzieren nicht in Massen. Jedes Stück wird einzeln gefertigt. Wir streben nach verantwortungsvollem Wachstum, wobei Nachhaltigkeit die Grundlage unserer Arbeit ist."
+      "paragraph": "Nachhaltigkeit ist für uns kein Trend – sie gehört zu unserem Fundament.",
+      "paragraph2": "Unser Studio läuft mit Ökostrom. Wir verwenden Materialien wie PETG und Paracord, weil sie langlebig und ressourcenschonend sind. Unser 3D-Druck ist effizient und minimiert Abfall.",
+      "paragraph3": "Jedes Halsband und jede Marke wird auf Bestellung handgefertigt. Keine Massenproduktion – sondern echtes Handwerk, Stück für Stück.",
+      "paragraph4": "Wir suchen ständig nach neuen Wegen, unseren ökologischen Pfotenabdruck zu verringern und verantwortungsvoll zu wachsen. Denn unsere Liebe zu Tieren schließt den Planeten mit ein.",
+      "paragraph5": "Besser für Tiere. Besser für Menschen. Besser für die Umwelt."
     },
     "team": {
       "label": "Das Pawsitive Team",
-      "paragraph": "Wir sind ein kleines, aber mächtiges Zweierteam mit einer tiefen Liebe zu Tieren, Design und DIY. Wir kümmern uns um alles, von der Produktgestaltung über die Herstellung der Halsbänder bis hin zum Betrieb des Geschäfts.\n\nWir kennen das Problem, ein verlorenes Haustier zu finden. Unsere Mission: intelligente, zuverlässige Werkzeuge anzubieten, die wirklich dazu beitragen, Haustiere sicher zu halten.\n\nEs geht darum, eine Marke und eine Gemeinschaft aufzubauen, die Haustiere genauso schätzt wie wir!",
+      "paragraph": "Wir sind Cintia und Dezso – Partner im Leben und in unserer Mission. Was als Wochenendidee begann, wurde zu etwas Größerem und Tiefgründigerem.",
+      "paragraph2": "Wir machen alles selbst: Design, Entwicklung, Flechten, Verpacken, Kundenservice – alles aus unserem kleinen Studio, begleitet von wedelnden Schwänzen und neuen Prototypen.",
+      "paragraph3": "Wir erinnern uns noch genau an die erste Übergabe eines Halsbands – an einen nervösen Hund und das Lächeln seiner Besitzer. Dieser Moment treibt uns bis heute an.",
+      "paragraph4": "Wir sind ein kleines Team mit großen Herzen – und einer klaren Mission: Eine Marke und Community zu bauen, die Tiere schützt und die Verbindung feiert, die uns mit ihnen verbindet.",
       "person": {
         "founder": "Gründer",
         "lead_dev": "Leitender Entwickler",
