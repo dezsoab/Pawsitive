@@ -4,11 +4,8 @@ on:
   push:
     branches:
       - main
-      - test
-      - prod
   pull_request:
     branches:
-      - main
       - test
       - prod
 
@@ -24,7 +21,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "18.18"
-
 
       - name: Install dependencies
         run: npm install

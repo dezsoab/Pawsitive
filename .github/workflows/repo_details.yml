@@ -4,11 +4,8 @@ on:
   push:
     branches:
       - main
-      - test
-      - prod
   pull_request:
     branches:
-      - main
       - test
       - prod
 
