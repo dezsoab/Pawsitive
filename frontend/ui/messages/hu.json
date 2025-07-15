@@ -86,19 +86,33 @@
   "About": {
     "about": {
       "label": "A Pawsitive-ról",
-      "paragraph": "A Pawsitive Collar-nál a háziállatok dédelgetett családtagok. Átgondolt termékeket hozunk létre a köztetek lévő kötelék erősítésére, ötvözve a kézművességet az okos tech-kel a valódi nyugalomért.\n\nMinden darab tükrözi mély szeretetünket az állatok, a dizájn és a róluk gondoskodó emberek iránt. Egy kisállat nyakörvének és azonosító bilétájának történetet kell mesélnie: gondoskodásról, felelősségről és kapcsolatról.\n\nNyakörveink és bilétáink minden kalandra készültek — funkcionálisak, gyönyörűek és tartósak."
+      "paragraph": "A Pawsitive Collar-nál hisszük, hogy a háziállatok nem csupán állatok – ők a család részei. Örömöt, hűséget és szeretetet hoznak az életünkbe, és megérdemlik, hogy ugyanezzel a szeretettel készítsünk számukra termékeket.",
+      "paragraph2": "Ezért kombináljuk a gondosan megtervezett dizájnt intelligens technológiával. Nyakörveink és bilétáink nemcsak szépek – biztonságot is nyújtanak, hogy kedvenced mindig egy pillanat alatt elérhető legyen.",
+      "paragraph3": "Minden részlet számít: az illeszkedés, az érzet, a tartósság. Termékeink nem dísznek készülnek – elkísérik a kutyákat esőben, sárban, napsütésben és összebújós pillanatokban is.",
+      "paragraph4": "Minden, amit készítünk, mély szeretetből fakad – az állatok és az emberek iránt, akik gondoskodnak róluk. Ez nem csak funkcionalitás – ez bizalom és felelősség."
     },
     "history": {
       "label": "Történetünk",
-      "paragraph": "A Pawsitive Collar 2024-ben született. Mint szenvedélyes kisállatbarátok, elegünk volt a sablonos kiegészítőkből, ezért valami jobbat építettünk a semmiből.\n\nEgy kérdés vezérelt minket: mit szeretnénk *saját* kedvenceinknek? Szívhez szóló visszajelzéseitek továbbra is inspirálnak minket minden nap."
+      "paragraph": "A Pawsitive Collar 2024-ben született – nem egy irodában, hanem két lelkes állatbarát szívében, akik többre vágytak a sablonos kiegészítőknél.",
+      "paragraph2": "Két ember, nulla befektető, nulla tapasztalat – de hatalmas elszántság. Skiccektől a 3D nyomtatásig, okos technológiákig mindent magunktól tanultunk meg. Egyetlen kérdés vezetett minket: mit szeretnénk *mi* a *saját* kisállatainknak?",
+      "paragraph3": "Kezdettől velünk volt Molli, a türelmes kiskutyánk – első tesztalanyunk és társunk az első lépésekben.",
+      "paragraph4": "Ma már egyre többen vagyunk – egy közösség, akik ugyanúgy törődnek, mint mi.",
+      "paragraph5": "A történeteitek, visszajelzéseitek, bizalmatok nap mint nap inspirálnak minket. És ez még csak a kezdet."
     },
     "sustainability": {
       "label": "Zöldebb Mancsnyom",
-      "paragraph": "Mélyen törődünk kedvenceinkkel és a bolygóval. Műhelyünk zöld energiával működik. Tartós, környezetbarát anyagokat használunk, mint a PETG és a paracord a hulladék csökkentésére. 3D nyomtatásunk minimalizálja a felesleget, és ahol lehetséges, újrahasznosítjuk az anyagokat.\n\nNem gyártunk tömegesen. Minden darab egyesével készül. Felelősségteljes növekedésre törekszünk, a fenntarthatóság a munkánk alapja."
+      "paragraph": "Számunkra a fenntarthatóság nem trend – hanem alapelv.",
+      "paragraph2": "Műhelyünk zöld energiával működik. Olyan anyagokat használunk, mint a PETG és a paracord – tartósak, újrahasznosíthatók és környezetkímélők.",
+      "paragraph3": "3D nyomtatási folyamatunk hatékony és takarékos. Nem gyártunk többet, mint kell – és mindig igyekszünk újrahasznosítani, amit lehet.",
+      "paragraph4": "Nálunk nincs tömeggyártás. Minden egyes terméket kézzel, gondosan készítünk el – eggyel többet a szükségesnél sosem.",
+      "paragraph5": "Hiszünk benne, hogy lehet felelősen növekedni – és a kisállataink jövőjéért már ma tennünk kell."
     },
     "team": {
       "label": "A Pawsitive csapat",
-      "paragraph": "Egy kis, de annál erősebb kétfős csapat vagyunk, akik mélyen szeretik az állatokat, a dizájnt és a DIY-t. Mindent mi kezelünk a terméktervezéstől a nyakörvek készítéséig és az üzlet működtetéséig.\n\nIsmerjük az elveszett kisállat megtalálásának problémáját. Küldetésünk: okos, megbízható eszközöket kínálni, amelyek valóban segítenek biztonságban tartani a háziállatokat.\n\nEz egy olyan márka és közösség építéséről szól, amely annyira értékeli a háziállatokat, mint mi!",
+      "paragraph": "Mi vagyunk Cintia és Dezső – társak az életben és a küldetésben. Egy egyszerű hétvégi ötletből lett valami sokkal nagyobb és szívhez szólóbb.",
+      "paragraph2": "Mindent mi csinálunk: tervezés, programozás, fonás, csomagolás, ügyfélszolgálat – egy kis stúdióból, kutyákkal a lábunk alatt és prototípusokkal az asztalon.",
+      "paragraph3": "Emlékszünk az első nyakörvre, amit személyesen adtunk át egy félős kutyusnak – és az öröm a gazdi szemében. Ez a pillanat mindent megért.",
+      "paragraph4": "Lehet, hogy kicsi a csapatunk, de a szívünk nagy – és a célunk tiszta: egy olyan márkát és közösséget építeni, ami őszintén törődik az állatokkal.",
       "person": {
         "founder": "Alapító",
         "lead_dev": "Vezető Fejlesztő",

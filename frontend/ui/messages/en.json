@@ -86,19 +86,33 @@
   "About": {
     "about": {
       "label": "About Pawsitive",
-      "paragraph": "At Pawsitive Collar, pets are cherished family. We create thoughtful products to strengthen that bond, combining craftsmanship with smart tech for genuine peace of mind.\n\nEvery piece reflects our deep love for animals, design, and the people who care for them. A pet’s collar should tell a story: of care, responsibility, and connection.\n\nOur collars and tags are built for every adventure — functional, beautiful, and crafted to last."
+      "paragraph": "At Pawsitive Collar, we believe pets aren’t just animals — they’re family. They bring joy, loyalty, and comfort into our lives, and they deserve products made with that same love.",
+      "paragraph2": "That’s why our collars and tags blend thoughtful design with smart tech. They’re not just beautiful — they’re built to help you feel confident that your pet is safe and always just a scan away.",
+      "paragraph3": "We obsess over every detail: the fit, the feel, the durability. Because our products don’t sit on shelves — they’re made to join muddy hikes, rainy walks, sunny naps, and everything in between.",
+      "paragraph4": "Behind every product is a deep respect for animals and the humans who care for them. We don’t take that trust lightly — we wear it like a collar."
     },
     "history": {
       "label": "Our Story",
-      "paragraph": "Pawsitive Collar was born in 2024. As passionate pet lovers, we were tired of generic accessories, so we built something better from scratch.\n\nFrom sketches to smart tech, we self-taught everything, driven by one question: what would *we* want for our *own* pets? Your heartfelt feedback continues to inspire us every day."
+      "paragraph": "Pawsitive Collar was born in 2024 out of frustration and love. We were tired of bland, mass-produced pet gear that lacked both personality and function.",
+      "paragraph2": "So we started small — just the two of us, sketching ideas and learning everything from scratch: design, 3D printing, smart tech. Every decision came from a simple question: what would *we* want for *our* own pets?",
+      "paragraph3": "We launched with no investors, no big warehouse — just passion, a printer, and a very patient dog named Molli.",
+      "paragraph4": "Today, we’re proud to be growing with a community of pet lovers who care deeply, just like we do.",
+      "paragraph5": "Every message, photo, and story you send reminds us why we started — and keeps us moving forward."
     },
     "sustainability": {
       "label": "Greener PawPrint",
-      "paragraph": "We care deeply about our pets and the planet. Our workshop runs on green energy. We use durable, eco-friendly materials like PETG and paracord to reduce waste. Our 3D printing minimizes excess, reusing materials whenever possible.\n\nWe don’t mass-produce. Every item is made with intention, one at a time. We're committed to growing responsibly, making sustainability a core part of everything we do."
+      "paragraph": "Sustainability isn’t just a nice-to-have — it’s part of our foundation.",
+      "paragraph2": "We power our workshop with green energy and use durable, low-waste materials like PETG and paracord. Our 3D printing process is efficient and designed to minimize excess.",
+      "paragraph3": "Each collar and tag is made to order, by hand. No overproduction, no shortcuts — just intentional craft, one piece at a time.",
+      "paragraph4": "We're constantly looking for better ways to reduce our footprint and grow responsibly. Because our love for animals includes the planet they call home.",
+      "paragraph5": "Better for pets. Better for people. Better for the planet."
     },
     "team": {
       "label": "Meet Pawsitive",
-      "paragraph": "We're a small but mighty two-person team, partners in life and purpose, who share a deep love for animals, design, and DIY. We handle everything from product design to hand-braiding collars and running our shop.\n\nWe know the relief of finding a lost pet. Our mission: offer smart, reliable tools that genuinely help keep pets safe.\n\nIt’s about building a brand and community that cherishes pets as much as we do!",
+      "paragraph": "We’re Cintia and Dezso, partners in life and in purpose. What started as a weekend idea turned into something far bigger — and far more meaningful.",
+      "paragraph2": "We do everything ourselves: design, development, braiding, packing, customer support — all from our little studio, surrounded by wagging tails and prototypes.",
+      "paragraph3": "We still remember hand-delivering our first collar to a friend’s anxious pup — and the relief in their eyes when it worked. That moment drives everything we do.",
+      "paragraph4": "We may be a tiny team, but our hearts are full — and our mission is clear: to build a brand that protects pets, looks fabulous and celebrates the bond you share.",
       "person": {
         "founder": "Founder",
         "lead_dev": "Lead Developer",
