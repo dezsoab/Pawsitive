@@ -18,6 +18,9 @@ export default function AboutPage() {
         <Section
           label={t("About.about.label")}
           paragraph={t("About.about.paragraph")}
+          paragraph2={t("About.about.paragraph2")}
+          paragraph3={t("About.about.paragraph3")}
+          paragraph4={t("About.about.paragraph4")}
           imageSrc="/assets/molli1.webp"
           imageAlt="some Alt"
           slideFrom={-150}
@@ -25,6 +28,10 @@ export default function AboutPage() {
         <Section
           label={t("About.history.label")}
           paragraph={t("About.history.paragraph")}
+          paragraph2={t("About.history.paragraph2")}
+          paragraph3={t("About.history.paragraph3")}
+          paragraph4={t("About.history.paragraph4")}
+          paragraph5={t("About.history.paragraph5")}
           imageSrc="/assets/cezar1.webp"
           imageAlt="some Alt"
           contentStyle={{ flexDirection: "row-reverse" }}
@@ -34,6 +41,10 @@ export default function AboutPage() {
         <Section
           label={t("About.sustainability.label")}
           paragraph={t("About.sustainability.paragraph")}
+          paragraph2={t("About.sustainability.paragraph2")}
+          paragraph3={t("About.sustainability.paragraph3")}
+          paragraph4={t("About.sustainability.paragraph4")}
+          paragraph5={t("About.sustainability.paragraph5")}
           imageSrc="/assets/cezar2.webp"
           imageAlt="some Alt"
           slideFrom={150}
@@ -41,6 +52,9 @@ export default function AboutPage() {
         <OurTeam
           label={t("About.team.label")}
           paragraph={t("About.team.paragraph")}
+          paragraph2={t("About.team.paragraph2")}
+          paragraph3={t("About.team.paragraph3")}
+          paragraph4={t("About.team.paragraph4")}
         />
       </main>
       <Footer />

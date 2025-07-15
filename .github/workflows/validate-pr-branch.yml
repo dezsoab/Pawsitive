@@ -1,0 +1,25 @@
+name: Validate PR Source Branch
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  check-pr-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR source and target branches
+        run: |
+          echo "PR base branch: ${{ github.event.pull_request.base.ref }}"
+          echo "PR head branch: ${{ github.event.pull_request.head.ref }}"
+
+          BASE=${{ github.event.pull_request.base.ref }}
+          HEAD=${{ github.event.pull_request.head.ref }}
+
+          if [ "$BASE" == "test" ] && [ "$HEAD" != "main" ]; then
+            echo "PR to test must come from main branch only."
+            exit 1
+          elif [ "$BASE" == "prod" ] && [ "$HEAD" != "test" ]; then
+            echo "PR to prod must come from test branch only."
+            exit 1
+          fi
