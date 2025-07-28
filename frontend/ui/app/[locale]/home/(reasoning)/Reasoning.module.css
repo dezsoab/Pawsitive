@@ -33,4 +33,8 @@
   .reasoning div:not(:last-of-type) {
     margin-bottom: 3rem;
   }
+
+  .reasoning_title_secondary {
+    padding: 0 2rem;
+  }
 }
