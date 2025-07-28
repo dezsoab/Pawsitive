@@ -58,7 +58,7 @@ export default function AuthenticatePage() {
     }
   }, [isLoggedIn, router]);
 
-  const { scene } = useGLTF("/assets/printer.glb");
+  const { scene } = useGLTF("/assets/printer3.glb");
   const clonedModel = useMemo(() => {
     const clone = scene.clone();
     clone.scale.set(1.5, 1.5, 1.5);
@@ -123,9 +123,9 @@ export default function AuthenticatePage() {
           shadows
           camera={{ position: [0, 0, 5], fov: width < 1030 ? 50 : 35 }}
         >
-          <SoftShadows />
           <Environment
-            files="/assets/brown_photostudio_02_1k.hdr"
+            // files="/assets/brown_photostudio_02_1k.hdr"
+            preset="warehouse"
             background={false}
           />
           <Suspense fallback={<Cat />}>
@@ -142,14 +142,14 @@ export default function AuthenticatePage() {
                   position={[-0.1, 0.45, 0.75]}
                   rotation={[Math.PI / 2 - 0.4, Math.PI / 2 - 1.4, -0.6]}
                   onClick={handleLoginAnimation}
-                  pathToTagModel="/assets/Bone_login.glb"
+                  pathToTagModel="/assets/Bone_login2.glb"
                 />
                 <ClickableTag
                   randomOffset={registerTagOffset}
                   position={[0.09, 0.45, 0.75]}
                   rotation={[Math.PI / 2 - 0.4, -Math.PI / 2 + 1.4, 0.65]}
                   onClick={handleRegisterAnimation}
-                  pathToTagModel="/assets/Bone_signup.glb"
+                  pathToTagModel="/assets/Bone_signup2.glb"
                 />
               </>
             )}
@@ -176,6 +176,6 @@ export default function AuthenticatePage() {
   );
 }
 
-useGLTF.preload("/assets/printer.glb");
-useGLTF.preload("/assets/Bone_signup.glb");
-useGLTF.preload("/assets/Bone_login.glb");
+useGLTF.preload("/assets/printer3.glb");
+useGLTF.preload("/assets/Bone_signup2.glb");
+useGLTF.preload("/assets/Bone_login2.glb");

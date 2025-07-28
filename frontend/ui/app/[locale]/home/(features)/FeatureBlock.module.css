@@ -66,3 +66,13 @@
     font-size: var(--font-small);
   }
 }
+
+@media screen and (max-width: 625px) {
+  .block {
+    text-align: center;
+  }
+
+  .block p {
+    justify-content: center;
+  }
+}
