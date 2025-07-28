@@ -124,8 +124,8 @@ export default function AuthenticatePage() {
           camera={{ position: [0, 0, 5], fov: width < 1030 ? 50 : 35 }}
         >
           <Environment
-            // files="/assets/brown_photostudio_02_1k.hdr"
-            preset="warehouse"
+            files="/assets/brown_photostudio_02_1k.hdr"
+            // preset="warehouse"
             background={false}
           />
           <Suspense fallback={<Cat />}>
