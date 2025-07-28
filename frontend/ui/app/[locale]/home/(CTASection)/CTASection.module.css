@@ -22,4 +22,8 @@
   .cta p {
     max-width: 95%;
   }
+
+  .cta h4 {
+    padding: 0 2rem;
+  }
 }
