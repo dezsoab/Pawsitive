@@ -58,7 +58,7 @@ export default function AuthenticatePage() {
     }
   }, [isLoggedIn, router]);
 
-  const { scene } = useGLTF("/assets/printer3.glb");
+  const { scene } = useGLTF("/assets/printer4.glb");
   const clonedModel = useMemo(() => {
     const clone = scene.clone();
     clone.scale.set(1.5, 1.5, 1.5);
@@ -120,12 +120,12 @@ export default function AuthenticatePage() {
         }}
       >
         <Canvas
-          shadows
+          shadows={false}
           camera={{ position: [0, 0, 5], fov: width < 1030 ? 50 : 35 }}
         >
           <Environment
-            // files="/assets/brown_photostudio_02_1k.hdr"
-            preset="warehouse"
+            files="/assets/brown_photostudio_02_1k.hdr"
+            // preset="warehouse"
             background={false}
           />
           <Suspense fallback={<Cat />}>
@@ -176,6 +176,6 @@ export default function AuthenticatePage() {
   );
 }
 
-useGLTF.preload("/assets/printer3.glb");
+useGLTF.preload("/assets/printer4.glb");
 useGLTF.preload("/assets/Bone_signup2.glb");
 useGLTF.preload("/assets/Bone_login2.glb");

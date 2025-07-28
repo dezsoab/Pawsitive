@@ -29,7 +29,11 @@ export default function ClickableTag({
     return clone;
   }, [scene]);
 
+  let frameCount = 0;
   useFrame((state) => {
+    frameCount++;
+    if (frameCount % 2 !== 0) return; // Run every second frame (~30 FPS)
+
     const t = state.clock.getElapsedTime();
     if (modelRef.current) {
       modelRef.current.position.y =
