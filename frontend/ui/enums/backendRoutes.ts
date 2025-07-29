@@ -14,4 +14,6 @@ export enum backendRoutes {
   PETINFORMATION = PET + "/information",
   LOCATION = "location",
   SCANNEDLOCATION = LOCATION + "/scanned",
+  USER = "user",
+  FORGOT_PASSWORD = USER + "/forgot",
 }

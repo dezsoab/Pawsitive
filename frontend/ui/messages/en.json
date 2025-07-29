@@ -222,7 +222,9 @@
     "btn": {
       "login": "Login",
       "back": "Back",
-      "register": "Register"
+      "register": "Register",
+      "forgot": "Forgotten password?",
+      "reset": "Reset password"
     },
     "notification": {
       "phoneValidationFail": "Please enter a valid phone number starting with + and country code.",
@@ -231,7 +233,8 @@
       "registerSuccess": "Successful registration! 🎉",
       "registerError": "Something went wrong!",
       "loginFailed": "Login failed. Please check your credentials."
-    }
+    },
+    "pwdModal": "Pop your email in below and we’ll send you a magic link to reset your password safely and easily!🎉"
   },
   "ScannedPetDetail": {
     "thankYouMessage": "You're a hero! 🐾 Thanks for helping {petName} find their way home.",

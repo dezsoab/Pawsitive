@@ -44,7 +44,9 @@ public class SecurityConfig {
                                 PublicEndpoints.PETINFORMATION,
                                 PublicEndpoints.ISAUTHENTICATED,
                                 PublicEndpoints.CONTACT_US_EMAIL,
-                                PublicEndpoints.SCANNED_LOCATION)
+                                PublicEndpoints.SCANNED_LOCATION,
+                                PublicEndpoints.FORGOT_PASSWORD,
+                                PublicEndpoints.RESET_PASSWORD)
                         .permitAll()
                         .anyRequest()
                         .authenticated()

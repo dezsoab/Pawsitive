@@ -222,7 +222,9 @@
     "btn": {
       "login": "Bejelentkezés",
       "back": "Vissza",
-      "register": "Regisztráció"
+      "register": "Regisztráció",
+      "forgot": "Elfelejtett jelszó?",
+      "reset": "Jelszó visszaállítása"
     },
     "notification": {
       "phoneValidationFail": "Kérlek, adj meg egy érvényes telefonszámot + jellel és országhívószámmal.",
@@ -231,7 +233,8 @@
       "registerSuccess": "Sikeres regisztráció! 🎉",
       "registerError": "Valami hiba történt!",
       "loginFailed": "Sikertelen bejelentkezés. Kérlek, ellenőrizd a bejelentkezési adatokat."
-    }
+    },
+    "pwdModal": "Írd be az emailed, és küldünk egy varázs linket, amivel könnyedén és biztonságosan új jelszót állíthatsz be!🎉"
   },
   "ScannedPetDetail": {
     "thankYouMessage": "Hős vagy! 🐾 Köszönjük, hogy segítesz {petName}-nak hazatalálni.",

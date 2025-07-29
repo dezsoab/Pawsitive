@@ -1,8 +1,14 @@
 package com.pawsitive.pawsitive.user.service;
 
+import com.pawsitive.pawsitive.dto.ForgotPasswordRequestDTO;
 import com.pawsitive.pawsitive.exception.UserNotFoundException;
+import com.pawsitive.pawsitive.messaging.mailing.service.SendGridEmailService;
+import com.pawsitive.pawsitive.token.model.ForgotPasswordToken;
+import com.pawsitive.pawsitive.token.service.ForgotPasswordService;
+import com.pawsitive.pawsitive.token.service.ForgotPasswordURLService;
 import com.pawsitive.pawsitive.user.model.User;
 import com.pawsitive.pawsitive.user.repository.UserRepository;
+import com.pawsitive.pawsitive.util.generator.Generator;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +24,10 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final Generator<ForgotPasswordToken> tokenGenerator;
+    private final ForgotPasswordService forgotPasswordService;
+    private final ForgotPasswordURLService forgotPasswordURLService;
+    private final SendGridEmailService sendGridEmailService;
 
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
@@ -27,6 +37,22 @@ public class UserServiceImpl implements UserService {
     public User getUserByOwnerId(Long ownerId) {
         return userRepository.findByOwnerId(ownerId)
                 .orElseThrow(() -> new UserNotFoundException("User not found with connection to owner id {}" + ownerId));
+    }
+
+    @Override
+    public void handleForgotPassword(ForgotPasswordRequestDTO requestDTO) {
+        logger.info("Received request to handle forgotten password");
+        User user = getUserByEmail(requestDTO.email());
+        ForgotPasswordToken token = tokenGenerator.generate();
+        token.setUser(user);
+
+        logger.info("Generated forgotten password token; now saving to DB");
+        forgotPasswordService.save(token);
+
+        String resetURL = forgotPasswordURLService.generate(token);
+        logger.info("Generated reset password URL: {}", resetURL);
+
+        sendGridEmailService.sendForgotPassword(resetURL, user.getEmail(), requestDTO.language());
     }
 
     @Override

@@ -1,18 +1,30 @@
 import { apiMethod } from "@/enums/apiMethod";
-import React from "react";
+import React, { useRef } from "react";
 
 import styles from "./ForgotPassword.module.css";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { sendEmailAddress } from "@/api/post/sendEmailAddress";
+import { ForgotPasswordRequestDTO } from "@/types/ForgotPasswordRequestDTO";
 
 interface Props {
   setShowForgotPasswordModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ForgotPassword = ({ setShowForgotPasswordModal }: Props) => {
+  const emailRef = useRef<HTMLInputElement>(null);
   const t = useTranslations();
+  const locale = useLocale();
 
-  const submitForgotPassword = (event: React.FormEvent<HTMLFormElement>) => {
+  const submitForgotPassword = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
+    const requestDto: ForgotPasswordRequestDTO = {
+      email: emailRef.current!.value,
+      language: locale,
+    };
+    const res = await sendEmailAddress(requestDto);
+    console.log(res);
 
     setShowForgotPasswordModal(false);
   };
@@ -28,10 +40,7 @@ const ForgotPassword = ({ setShowForgotPasswordModal }: Props) => {
         method={apiMethod.POST}
         className={styles.forgot_form}
       >
-        <p>
-          Provide your email below and we will send you a password reset link to
-          securely reset your password!
-        </p>
+        <p>{t("Auth.pwdModal")}</p>
         <button
           onClick={() => setShowForgotPasswordModal(false)}
           className={styles.close}
@@ -39,13 +48,14 @@ const ForgotPassword = ({ setShowForgotPasswordModal }: Props) => {
           X
         </button>
         <input
+          ref={emailRef}
           name="email"
           type="email"
           placeholder={t("Auth.field.email")}
           required
         />
         <button type="submit" className={styles.submitBtn}>
-          Reset password
+          {t("Auth.btn.reset")}
         </button>
       </form>
     </>

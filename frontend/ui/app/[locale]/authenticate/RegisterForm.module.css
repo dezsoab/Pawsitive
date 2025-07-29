@@ -37,6 +37,15 @@
   padding: 0.2rem 0.5rem;
 }
 
+.form button {
+  border-radius: var(--rounding);
+  border: 1px solid black;
+  color: black;
+  background-color: var(--color-pink-light);
+  font-weight: 300;
+  padding: 0.5rem 0;
+}
+
 .animateForm {
   animation: animate 1.5s ease-in-out forwards;
 }

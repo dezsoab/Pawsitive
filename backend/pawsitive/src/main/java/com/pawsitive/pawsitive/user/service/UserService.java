@@ -1,5 +1,6 @@
 package com.pawsitive.pawsitive.user.service;
 
+import com.pawsitive.pawsitive.dto.ForgotPasswordRequestDTO;
 import com.pawsitive.pawsitive.user.model.User;
 
 public interface UserService {
@@ -14,4 +15,6 @@ public interface UserService {
     User getUserByEmail(String email);
 
     User getUserByOwnerId(Long ownerId);
+
+    void handleForgotPassword(ForgotPasswordRequestDTO requestDTO);
 }

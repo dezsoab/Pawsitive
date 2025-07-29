@@ -69,12 +69,12 @@ export default function LoginForm() {
             defaultChecked
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">{t("Auth.btn.login")}</button>
         <p
           onClick={() => setShowForgotPasswordModal(true)}
           className={styles.forgot_password}
         >
-          forgot password?
+          {t("Auth.btn.forgot")}
         </p>
       </form>
       {showForgotPasswordModal && (
