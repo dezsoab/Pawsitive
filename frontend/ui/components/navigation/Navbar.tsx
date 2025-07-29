@@ -12,6 +12,8 @@ import LanguagePicker from "../language/LanguagePicker";
 import { navigationRoutes } from "../../enums/navigationRoutes";
 import { useAuth } from "@/context/AuthContext";
 import { usePathname } from "next/navigation";
+import Cat from "../loader/Cat";
+import { isActivePath } from "@/util/isActivePath";
 
 type NabarProps = {
   style?: { [key: string]: string };
@@ -21,14 +23,7 @@ const Navbar = ({ style }: NabarProps) => {
   const { isLoggedIn } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const currentPath = usePathname();
-
-  const isActivePath = (path: navigationRoutes) => {
-    if (!currentPath) {
-      return false;
-    }
-    const lastPathSection = currentPath.lastIndexOf("/");
-    return path.includes(currentPath.substring(lastPathSection));
-  };
+  const [showLoadingScreen, setShowLoadingScreen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +46,11 @@ const Navbar = ({ style }: NabarProps) => {
       <Link
         href={navigationRoutes.LOGOUT}
         locale={locale}
-        className={isActivePath(navigationRoutes.LOGOUT) ? styles.active : ""}
+        className={
+          isActivePath(navigationRoutes.LOGOUT, currentPath)
+            ? styles.active
+            : ""
+        }
       >
         {t("Navigation.logout")}
       </Link>
@@ -61,12 +60,23 @@ const Navbar = ({ style }: NabarProps) => {
       <Link
         href={navigationRoutes.AUTH}
         locale={locale}
-        className={isActivePath(navigationRoutes.AUTH) ? styles.active : ""}
+        className={
+          isActivePath(navigationRoutes.AUTH, currentPath) ? styles.active : ""
+        }
+        onClick={() => renderLoadingScreen()}
       >
         {t("Navigation.login")}
       </Link>
     </li>
   );
+
+  const renderLoadingScreen = () => {
+    setShowLoadingScreen(true);
+  };
+
+  if (showLoadingScreen && !isActivePath(navigationRoutes.AUTH, currentPath)) {
+    return <Cat />;
+  }
 
   return (
     <nav
@@ -86,7 +96,11 @@ const Navbar = ({ style }: NabarProps) => {
           <Link
             href={navigationRoutes.HOME}
             locale={locale}
-            className={isActivePath(navigationRoutes.HOME) ? styles.active : ""}
+            className={
+              isActivePath(navigationRoutes.HOME, currentPath)
+                ? styles.active
+                : ""
+            }
           >
             {t("Navigation.home")}
           </Link>
@@ -96,7 +110,9 @@ const Navbar = ({ style }: NabarProps) => {
             href={navigationRoutes.ABOUT}
             locale={locale}
             className={
-              isActivePath(navigationRoutes.ABOUT) ? styles.active : ""
+              isActivePath(navigationRoutes.ABOUT, currentPath)
+                ? styles.active
+                : ""
             }
           >
             {t("Navigation.about")}
@@ -107,7 +123,9 @@ const Navbar = ({ style }: NabarProps) => {
             href={navigationRoutes.CONTACT}
             locale={locale}
             className={
-              isActivePath(navigationRoutes.CONTACT) ? styles.active : ""
+              isActivePath(navigationRoutes.CONTACT, currentPath)
+                ? styles.active
+                : ""
             }
           >
             {t("Navigation.contact")}
@@ -119,7 +137,9 @@ const Navbar = ({ style }: NabarProps) => {
               href={navigationRoutes.PROFILE}
               locale={locale}
               className={
-                isActivePath(navigationRoutes.PROFILE) ? styles.active : ""
+                isActivePath(navigationRoutes.PROFILE, currentPath)
+                  ? styles.active
+                  : ""
               }
             >
               {t("Navigation.profil")}
