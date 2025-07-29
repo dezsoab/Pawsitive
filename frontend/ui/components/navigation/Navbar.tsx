@@ -25,14 +25,6 @@ const Navbar = ({ style }: NabarProps) => {
   const currentPath = usePathname();
   const [showLoadingScreen, setShowLoadingScreen] = useState(false);
 
-  // const isActivePath = (path: navigationRoutes) => {
-  //   if (!currentPath) {
-  //     return false;
-  //   }
-  //   const lastPathSection = currentPath.lastIndexOf("/");
-  //   return path.includes(currentPath.substring(lastPathSection));
-  // };
-
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 50;
