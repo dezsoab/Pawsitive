@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { loginOwner } from "@/api/post/loginOwner";
 import { LoginOwnerDTO } from "@/types/LoginOwnerDTO";
 
@@ -8,10 +8,12 @@ import styles from "./LoginForm.module.css";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
+import ForgotPassword from "./ForgotPassword";
 
 export default function LoginForm() {
   const { setIsLoggedIn } = useAuth();
   const t = useTranslations();
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
 
   const loginSubmitHandler = async (
     event: React.FormEvent<HTMLFormElement>
@@ -68,7 +70,18 @@ export default function LoginForm() {
           />
         </div>
         <button type="submit">Login</button>
+        <p
+          onClick={() => setShowForgotPasswordModal(true)}
+          className={styles.forgot_password}
+        >
+          forgot password?
+        </p>
       </form>
+      {showForgotPasswordModal && (
+        <ForgotPassword
+          setShowForgotPasswordModal={setShowForgotPasswordModal}
+        />
+      )}
     </>
   );
 }
