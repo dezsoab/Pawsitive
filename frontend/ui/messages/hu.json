@@ -232,7 +232,10 @@
       "registerPending": "Fiók regisztrálása folyamatban...",
       "registerSuccess": "Sikeres regisztráció! 🎉",
       "registerError": "Valami hiba történt!",
-      "loginFailed": "Sikertelen bejelentkezés. Kérlek, ellenőrizd a bejelentkezési adatokat."
+      "loginFailed": "Sikertelen bejelentkezés. Kérlek, ellenőrizd a bejelentkezési adatokat.",
+      "forgot_pw_pending": "⏳ Jelszó-visszaállító link küldése folyamatban...",
+      "forgot_pw_success": "Siker! 🐶 Kérlek, ellenőrizd az e-mailjeidet! 📥",
+      "forgot_pw_error": "Nem sikerült elküldeni a jelszó-visszaállító linket! Kérjük, vedd fel velünk a kapcsolatot! ✏️"
     },
     "pwdModal": "Írd be az emailed, és küldünk egy varázs linket, amivel könnyedén és biztonságosan új jelszót állíthatsz be!🎉"
   },

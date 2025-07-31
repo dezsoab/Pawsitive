@@ -232,7 +232,10 @@
       "registerPending": "Konto wird registriert...",
       "registerSuccess": "Registrierung erfolgreich! 🎉",
       "registerError": "Etwas ist schiefgelaufen!",
-      "loginFailed": "Anmeldung fehlgeschlagen. Bitte überprüfe deine Zugangsdaten."
+      "loginFailed": "Anmeldung fehlgeschlagen. Bitte überprüfe deine Zugangsdaten.",
+      "forgot_pw_pending": "⏳ Passwort-Zurücksetzungslink wird per E-Mail gesendet...",
+      "forgot_pw_success": "Erfolg! 🐶 Bitte überprüfe deine E-Mails! 📥",
+      "forgot_pw_error": "Senden des Passwort-Zurücksetzungslinks fehlgeschlagen! Bitte kontaktiere uns! ✏️"
     },
     "pwdModal": "Gib einfach deine E-Mail ein und wir schicken dir einen magischen Link, um dein Passwort sicher und stressfrei zurückzusetzen!🎉"
   },

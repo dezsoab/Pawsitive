@@ -232,7 +232,10 @@
       "registerPending": "Registering account...",
       "registerSuccess": "Successful registration! 🎉",
       "registerError": "Something went wrong!",
-      "loginFailed": "Login failed. Please check your credentials."
+      "loginFailed": "Login failed. Please check your credentials.",
+      "forgot_pw_pending": "⏳ Sending password reset link via email...",
+      "forgot_pw_success": "Success! 🐶 Please check your email! 📥",
+      "forgot_pw_error": "Failed to send the password reset link! Please contact us! ✏️"
     },
     "pwdModal": "Pop your email in below and we’ll send you a magic link to reset your password safely and easily!🎉"
   },

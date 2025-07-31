@@ -5,6 +5,7 @@ import styles from "./ForgotPassword.module.css";
 import { useLocale, useTranslations } from "next-intl";
 import { sendEmailAddress } from "@/api/post/sendEmailAddress";
 import { ForgotPasswordRequestDTO } from "@/types/ForgotPasswordRequestDTO";
+import { toast, ToastContainer } from "react-toastify";
 
 interface Props {
   setShowForgotPasswordModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,14 +24,23 @@ const ForgotPassword = ({ setShowForgotPasswordModal }: Props) => {
       email: emailRef.current!.value,
       language: locale,
     };
-    const res = await sendEmailAddress(requestDto);
-    console.log(res);
+
+    await toast.promise(
+      sendEmailAddress(requestDto),
+      {
+        pending: t("Auth.notification.forgot_pw_pending"),
+        success: t("Auth.notification.forgot_pw_success"),
+        error: t("Auth.notification.forgot_pw_error"),
+      },
+      { position: "bottom-right", toastId: "reset_pw" }
+    );
 
     setShowForgotPasswordModal(false);
   };
 
   return (
     <>
+      <ToastContainer style={{ fontSize: "var(--font-small)" }} />
       <div
         className={styles.forgot_modal}
         onClick={() => setShowForgotPasswordModal(false)}
