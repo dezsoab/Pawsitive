@@ -89,4 +89,15 @@ public class SendGridEmailService {
         logger.info("Sending scanned pet email to: {}", owner.getUser().getEmail());
         templateEmailSender.sendEmail(senderDetail, owner.getUser().getEmail(), emailTemplateData);
     }
+
+    public void sendForgotPassword(String resetURL, String toEmail, String language) {
+        logger.info("Preparing reset password email...");
+        EmailTemplateData emailTemplateData = new EmailTemplateData(
+                EmailTemplateID.RESET_PASSWORD.getId(language)
+        );
+
+        emailTemplateData.addDynamicTemplateData("resetURL", resetURL);
+        logger.info("Sending reset password email to: {}", toEmail);
+        templateEmailSender.sendEmail(senderDetail, toEmail, emailTemplateData);
+    }
 }
