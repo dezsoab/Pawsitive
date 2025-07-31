@@ -22,7 +22,7 @@ public final class PublicEndpoints {
     public static final String CONTACT_US_EMAIL = "/api/v1/mail/emailContactUs";
     public static final String SCANNED_LOCATION = "/api/v1/location/scanned";
     public static final String FORGOT_PASSWORD = "/api/v1/user/forgot";
-    public static final String RESET_PASSWORD = "/api/v1/user/reset";
+    public static final String RESET_PASSWORD = "/api/v1/user/reset/password";
 
     private PublicEndpoints() {
     }

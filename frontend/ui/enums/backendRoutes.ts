@@ -16,4 +16,5 @@ export enum backendRoutes {
   SCANNEDLOCATION = LOCATION + "/scanned",
   USER = "user",
   FORGOT_PASSWORD = USER + "/forgot",
+  RESET_PASSWORD = USER + "/reset/password",
 }

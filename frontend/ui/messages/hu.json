@@ -242,5 +242,14 @@
   "ScannedPetDetail": {
     "thankYouMessage": "Hős vagy! 🐾 Köszönjük, hogy segítesz {petName}-nak hazatalálni.",
     "city": "Város"
+  },
+  "PasswordReset": {
+    "title": "Ideje az újrakezdésnek! ✨",
+    "info": "Add meg az e-mail címed és válassz egy vadiúj jelszót! Máris készen állsz!",
+    "notification": {
+      "pending": "Varázsoljuk az új jelszavad... 🔄",
+      "success": "Kész is van! Az új jelszavad beállítva. ✅",
+      "error": "Hoppá! Nem sikerült visszaállítani a jelszót. 😓"
+    }
   }
 }

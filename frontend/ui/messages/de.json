@@ -242,5 +242,14 @@
   "ScannedPetDetail": {
     "thankYouMessage": "Du bist ein Held! 🐾 Danke, dass du {petName} hilfst, wieder nach Hause zu finden.",
     "city": "Stadt"
+  },
+  "PasswordReset": {
+    "title": "Zeit für einen Neustart! 🔐",
+    "info": "Gib deine E-Mail-Adresse und ein brandneues Passwort ein – und los geht’s!",
+    "notification": {
+      "pending": "Zaubere dein neues Passwort... 🔄",
+      "success": "Zack! Dein Passwort wurde erfolgreich geändert. ✅",
+      "error": "Uuups! Passwort konnte nicht zurückgesetzt werden. 😓"
+    }
   }
 }

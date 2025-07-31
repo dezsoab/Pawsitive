@@ -2,8 +2,8 @@ package com.pawsitive.pawsitive.user.controller;
 
 import com.pawsitive.pawsitive.dto.ForgotPasswordRequestDTO;
 import com.pawsitive.pawsitive.dto.RESTResponse;
+import com.pawsitive.pawsitive.dto.ResetPasswordDTO;
 import com.pawsitive.pawsitive.user.service.UserService;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,5 +26,12 @@ public class UserController {
         logger.info("Received request to forgotten password: {}", requestDTO);
         userService.handleForgotPassword(requestDTO);
         return ResponseEntity.ok(new RESTResponse("Forgot Password"));
+    }
+
+    @PostMapping("/reset/password")
+    public ResponseEntity<RESTResponse> resetPassword(@RequestBody ResetPasswordDTO dto) {
+        logger.info("Received request to reset password");
+        userService.handleResetPassword(dto);
+        return ResponseEntity.ok(new RESTResponse("Password reset was successful"));
     }
 }
