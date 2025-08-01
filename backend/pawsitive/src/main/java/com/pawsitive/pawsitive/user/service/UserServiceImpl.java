@@ -68,6 +68,12 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(dto.password()));
         userRepository.save(user);
         logger.info("User password has been saved");
+        try {
+            sendGridEmailService.sendChangedPassword(dto);
+            logger.info("User {{}} has been notified about password change via email", dto.email());
+        } catch (Exception e) {
+            logger.warn("Failed to send changed password email: {}", e.getMessage());
+        }
     }
 
     @Override
@@ -80,9 +86,8 @@ public class UserServiceImpl implements UserService {
         logger.info("Generated forgotten password token; now saving to DB");
         forgotPasswordService.save(token);
 
-        String resetURL = forgotPasswordURLService.generate(token);
+        String resetURL = forgotPasswordURLService.generate(token, requestDTO);
         logger.info("Generated reset password URL: {}", resetURL);
-
         sendGridEmailService.sendForgotPassword(resetURL, user.getEmail(), requestDTO.language());
     }
 
