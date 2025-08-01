@@ -222,7 +222,9 @@
     "btn": {
       "login": "Login",
       "back": "Back",
-      "register": "Register"
+      "register": "Register",
+      "forgot": "Forgotten password?",
+      "reset": "Reset password"
     },
     "notification": {
       "phoneValidationFail": "Please enter a valid phone number starting with + and country code.",
@@ -230,11 +232,24 @@
       "registerPending": "Registering account...",
       "registerSuccess": "Successful registration! 🎉",
       "registerError": "Something went wrong!",
-      "loginFailed": "Login failed. Please check your credentials."
-    }
+      "loginFailed": "Login failed. Please check your credentials.",
+      "forgot_pw_pending": "⏳ Sending password reset link via email...",
+      "forgot_pw_success": "Success! 🐶 Please check your email! 📥",
+      "forgot_pw_error": "Failed to send the password reset link! Please contact us! ✏️"
+    },
+    "pwdModal": "Pop your email in below and we’ll send you a magic link to reset your password safely and easily!🎉"
   },
   "ScannedPetDetail": {
     "thankYouMessage": "You're a hero! 🐾 Thanks for helping {petName} find their way home.",
     "city": "City"
+  },
+  "PasswordReset": {
+    "title": "Time for a fresh start! 🎉",
+    "info": "Enter your email and choose a shiny new password. You’ve got this!",
+    "notification": {
+      "pending": "Working some password magic... 🔄",
+      "success": "Boom! Your password’s all set. ✅",
+      "error": "Oops! Couldn’t reset your password. 😓"
+    }
   }
 }

@@ -222,7 +222,9 @@
     "btn": {
       "login": "Bejelentkezés",
       "back": "Vissza",
-      "register": "Regisztráció"
+      "register": "Regisztráció",
+      "forgot": "Elfelejtett jelszó?",
+      "reset": "Jelszó visszaállítása"
     },
     "notification": {
       "phoneValidationFail": "Kérlek, adj meg egy érvényes telefonszámot + jellel és országhívószámmal.",
@@ -230,11 +232,24 @@
       "registerPending": "Fiók regisztrálása folyamatban...",
       "registerSuccess": "Sikeres regisztráció! 🎉",
       "registerError": "Valami hiba történt!",
-      "loginFailed": "Sikertelen bejelentkezés. Kérlek, ellenőrizd a bejelentkezési adatokat."
-    }
+      "loginFailed": "Sikertelen bejelentkezés. Kérlek, ellenőrizd a bejelentkezési adatokat.",
+      "forgot_pw_pending": "⏳ Jelszó-visszaállító link küldése folyamatban...",
+      "forgot_pw_success": "Siker! 🐶 Kérlek, ellenőrizd az e-mailjeidet! 📥",
+      "forgot_pw_error": "Nem sikerült elküldeni a jelszó-visszaállító linket! Kérjük, vedd fel velünk a kapcsolatot! ✏️"
+    },
+    "pwdModal": "Írd be az emailed, és küldünk egy varázs linket, amivel könnyedén és biztonságosan új jelszót állíthatsz be!🎉"
   },
   "ScannedPetDetail": {
     "thankYouMessage": "Hős vagy! 🐾 Köszönjük, hogy segítesz {petName}-nak hazatalálni.",
     "city": "Város"
+  },
+  "PasswordReset": {
+    "title": "Ideje az újrakezdésnek! ✨",
+    "info": "Add meg az e-mail címed és válassz egy vadiúj jelszót! Máris készen állsz!",
+    "notification": {
+      "pending": "Varázsoljuk az új jelszavad... 🔄",
+      "success": "Kész is van! Az új jelszavad beállítva. ✅",
+      "error": "Hoppá! Nem sikerült visszaállítani a jelszót. 😓"
+    }
   }
 }

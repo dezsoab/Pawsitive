@@ -1,6 +1,7 @@
 package com.pawsitive.pawsitive.messaging.mailing.service;
 
 import com.pawsitive.pawsitive.dto.ContactUsEmailRequestDTO;
+import com.pawsitive.pawsitive.dto.ResetPasswordDTO;
 import com.pawsitive.pawsitive.dto.ScannedLocationDTO;
 import com.pawsitive.pawsitive.geolocation.model.ScannedLocation;
 import com.pawsitive.pawsitive.messaging.mailing.model.EmailSenderDetail;
@@ -88,5 +89,26 @@ public class SendGridEmailService {
 
         logger.info("Sending scanned pet email to: {}", owner.getUser().getEmail());
         templateEmailSender.sendEmail(senderDetail, owner.getUser().getEmail(), emailTemplateData);
+    }
+
+    public void sendForgotPassword(String resetURL, String toEmail, String language) {
+        logger.info("Preparing reset password email...");
+        EmailTemplateData emailTemplateData = new EmailTemplateData(
+                EmailTemplateID.RESET_PASSWORD.getId(language)
+        );
+
+        emailTemplateData.addDynamicTemplateData("resetURL", resetURL);
+        logger.info("Sending reset password email to: {}", toEmail);
+        templateEmailSender.sendEmail(senderDetail, toEmail, emailTemplateData);
+    }
+
+    public void sendChangedPassword(ResetPasswordDTO dto) {
+        logger.info("Preparing password changed email...");
+        EmailTemplateData emailTemplateData = new EmailTemplateData(
+                EmailTemplateID.PASSWORD_CHANGED.getId(dto.preferredLanguage())
+        );
+
+        logger.info("Sending password changed email to: {}", dto.email());
+        templateEmailSender.sendEmail(senderDetail, dto.email(), emailTemplateData);
     }
 }
