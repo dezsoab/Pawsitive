@@ -1,0 +1,9 @@
+.wrap p:not(:last-of-type) {
+  border-bottom: 1px dashed black;
+  border-radius: 10px;
+}
+
+.wrap label,
+.wrap p {
+  padding: 0 1rem;
+}
