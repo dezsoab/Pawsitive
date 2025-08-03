@@ -34,6 +34,7 @@ interface PetCardsProps {
 const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
   const searchParams = useSearchParams();
   const tagIdInUrl = searchParams.get("tagId");
+  const sanitizedTagId = tagIdInUrl === "null" ? "" : tagIdInUrl ?? "";
 
   const [isEditMode, setIsEditMode] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -176,7 +177,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               id="nfcTagId"
               placeholder="NFC Tag ID"
               required
-              defaultValue={tagIdInUrl ?? ""}
+              defaultValue={sanitizedTagId}
             />
             <label htmlFor="petName">{t("Pet.name")}:</label>
             <input
@@ -202,7 +203,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               id="age"
               placeholder={t("Pet.age")}
               min={0}
-              max={20}
+              max={25}
               required
             />
             <label htmlFor="sex">{t("Pet.sex.name")}:</label>
