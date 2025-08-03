@@ -2,6 +2,8 @@ import { ProfileInformationDTO } from "@/types/ProfileInformationDTO";
 import { useTranslations } from "next-intl";
 import React from "react";
 
+import styles from "./IsNotEditingUserInformation.module.css";
+
 interface UserInformationProps {
   profile: ProfileInformationDTO;
 }
@@ -9,7 +11,7 @@ interface UserInformationProps {
 const IsNotEditingUserInformation = ({ profile }: UserInformationProps) => {
   const t = useTranslations();
   return (
-    <div>
+    <div className={styles.wrap}>
       <label htmlFor="email">{t("Dashboard.personal.email")}</label>
       <p>{profile.email}</p>
 
