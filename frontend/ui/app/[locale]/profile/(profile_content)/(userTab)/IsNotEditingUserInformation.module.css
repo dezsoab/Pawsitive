@@ -7,3 +7,7 @@
 .wrap p {
   padding: 0 1rem;
 }
+
+.wrap label {
+  color: grey;
+}
