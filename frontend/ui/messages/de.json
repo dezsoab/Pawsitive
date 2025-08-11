@@ -192,7 +192,7 @@
       "country": "Land",
       "zip": "PLZ",
       "city": "Stadt",
-      "street": "Straße",
+      "street": "Adresse",
       "addressVisible": "Meine Adresse im öffentlichen Profil meines Haustiers anzeigen 🐾",
       "addressConsentStatus": "Du {status} zugestimmt, deine Adresse anzuzeigen",
       "editHint": "Du kannst deine Einstellungen im Bearbeitungsmodus ändern",
