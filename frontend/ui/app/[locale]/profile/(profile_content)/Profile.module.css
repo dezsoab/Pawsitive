@@ -1,3 +1,5 @@
 .profileContainer {
   background-color: var(--color-pink-light);
+  /* profile nav height - footer height */
+  min-height: calc(100vh - 12rem - 30rem);
 }
