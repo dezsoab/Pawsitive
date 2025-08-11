@@ -192,7 +192,7 @@
       "country": "Country",
       "zip": "Zip",
       "city": "City",
-      "street": "Street",
+      "street": "Address",
       "addressVisible": "Show my address on pet’s public profile 🐾",
       "addressConsentStatus": "You {status} consent to show your address",
       "editHint": "You can change your settings in edit mode",
