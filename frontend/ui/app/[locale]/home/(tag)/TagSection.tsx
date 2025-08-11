@@ -128,11 +128,6 @@ const TagSection = () => {
           <Suspense fallback={<Cat />}>
             <RotatingTag model={clonedScene} triggerRef={triggerRef} />
           </Suspense>
-          <OrbitControls
-            enablePan={false}
-            enableRotate={false}
-            enableZoom={false}
-          />
         </Canvas>
       </div>
       <div className={styles.printerText}>

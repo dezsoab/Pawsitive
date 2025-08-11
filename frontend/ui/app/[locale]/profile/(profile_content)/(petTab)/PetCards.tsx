@@ -162,17 +162,6 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                         >
                           <path />
                         </svg>
-                        <Image
-                          className={styles.card__thumb}
-                          src={
-                            pet.photoUrl
-                              ? `${pet.photoUrl}?t=${new Date().getTime()}`
-                              : "/assets/missing-image.svg"
-                          }
-                          alt={pet.name}
-                          width={250}
-                          height={250}
-                        />
                         <div className={styles.card__header_text}>
                           <h3 className={styles.card__title}>{pet.name}</h3>
                           <span className={styles.card__status}>{pet.id}</span>
@@ -182,9 +171,14 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                           onClick={(e) => {
                             e.stopPropagation();
                             toggleEditMode(pet.id);
+                            handleCardClick(pet);
                           }}
                         >
-                          <button>
+                          <button
+                            className={`${"edit_btn"} ${
+                              activePet === pet ? styles.active : ""
+                            }`}
+                          >
                             {isEditMode ? <StopEditIcon /> : <EditIcon />}
                           </button>
                           <span>
@@ -200,6 +194,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                             onSubmit={(e) =>
                               updatePetInformationSubmitHandler(e, pet)
                             }
+                            onClick={(e) => e.stopPropagation()}
                           >
                             <label htmlFor={`name-${pet.id}`}>
                               {t("Pet.name")}:

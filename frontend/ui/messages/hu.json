@@ -192,7 +192,7 @@
       "country": "Ország",
       "zip": "Irányítószám",
       "city": "Város",
-      "street": "Utca",
+      "street": "Cím",
       "addressVisible": "Mutasd meg a lakcímemet a háziállat nyilvános profilján 🐾",
       "addressConsentStatus": "{status} ahhoz, hogy a lakcímed megjelenjen a kisállat profilján.",
       "editHint": "A beállításokat szerkesztési módban módosíthatod",
