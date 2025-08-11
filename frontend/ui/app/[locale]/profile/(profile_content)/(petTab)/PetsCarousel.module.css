@@ -34,7 +34,7 @@
   left: 0;
   right: 0;
   z-index: 1;
-  border-radius: calc(var(--curve) * 1px);
+  border-radius: 3rem 0 0 0;
   background-color: var(--surface-color);
   transform: translateY(100%);
   transition: 0.25s ease-in-out;
@@ -49,6 +49,7 @@
 .card.active .card__header {
   transform: translateY(0);
 }
+
 .active {
   /* no styles needed, it just toggles CSS selectors above */
 }
@@ -58,9 +59,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 2em;
-  padding: 2em;
-  border-radius: calc(var(--curve) * 1px) 0 0 0;
+  padding: 4rem;
+  border-radius: 3rem 0 0 0;
   background-color: var(--surface-color);
   transform: translateY(-100%);
   transition: 0.25s ease-in-out;
