@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { SetStateAction } from "react";
 
 import styles from "./RegisterForm.module.css";
 import { useAuth } from "@/context/AuthContext";
@@ -10,7 +10,11 @@ import { useLocale, useTranslations } from "next-intl";
 import { toast, ToastContainer } from "react-toastify";
 import { isInvalidPhoneNumber, isPasswordTheSame } from "@/util/validation";
 
-export default function RegisterForm() {
+interface Props {
+  setSwitchToRegisterForm: React.Dispatch<SetStateAction<boolean>>;
+}
+
+export default function RegisterForm({ setSwitchToRegisterForm }: Props) {
   const { setIsLoggedIn } = useAuth();
   const locale = useLocale() || "en";
   const t = useTranslations();
@@ -148,6 +152,10 @@ export default function RegisterForm() {
           />
         </div>
         <button type="submit">Register</button>
+
+        <button type="button" onClick={() => setSwitchToRegisterForm(false)}>
+          Log in
+        </button>
       </form>
     </>
   );
