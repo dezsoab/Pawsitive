@@ -49,7 +49,6 @@ const NavbarMobile = () => {
     setShowLoadingScreen(true);
     ref.current?.classList.remove(styles.active);
     document.body.classList.remove(styles.noscroll);
-    alert("login clicked");
   };
 
   // if not already on AUTH page -> render cat due to printer model takes long to load in
