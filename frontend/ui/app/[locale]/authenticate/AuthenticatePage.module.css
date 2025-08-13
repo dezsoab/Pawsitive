@@ -6,7 +6,6 @@
   height: 100vh;
   overflow: hidden;
   z-index: -1;
-  /* filter: grayscale(10%) brightness(80%); */
 }
 
 .video_wrapper video {
@@ -14,4 +13,5 @@
   height: 100%;
   object-fit: cover;
   filter: blur(4px);
+  scale: 1.05;
 }
