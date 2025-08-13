@@ -51,9 +51,11 @@ const NavbarMobile = () => {
     document.body.classList.remove(styles.noscroll);
   };
 
-  if (showLoadingScreen && !isActivePath(navigationRoutes.AUTH, currentPath)) {
-    return <Cat />;
-  }
+  // if not already on AUTH page -> render cat due to printer model takes long to load in
+  // if (showLoadingScreen && !isActivePath(navigationRoutes.AUTH, currentPath)) {
+  //   alert("rendering cat");
+  //   return <Cat />;
+  // }
 
   const authBtn = isLoggedIn ? (
     <li>

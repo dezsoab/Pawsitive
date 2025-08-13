@@ -1,47 +1,19 @@
 "use client";
 
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF, Html } from "@react-three/drei";
-import * as THREE from "three";
+import React, { useEffect, useState } from "react";
 import Navbar from "@/components/navigation/Navbar";
 
-import { useHelper } from "@react-three/drei";
-import { DirectionalLightHelper } from "three";
-import { SoftShadows, Environment } from "@react-three/drei";
-import PrinterModel from "./PrinterModel";
-import ClickableTag from "./ClickableTag";
 import LoginForm from "./LoginForm";
-import BackButton from "./BackButton";
-import { useWindowSize } from "./getWindowSize";
+
 import Cat from "@/components/loader/Cat";
-import RegisterForm from "./RegisterForm";
+
 import { useAuth } from "@/context/AuthContext";
 import { useRouter, useSearchParams } from "next/navigation";
 import { navigationRoutes } from "@/enums/navigationRoutes";
 import { queryParams } from "@/enums/queryParams";
 
-function DebugLight({
-  position,
-  color = "white",
-  intensity = 1.0,
-}: {
-  position: [number, number, number];
-  color?: string;
-  intensity?: number;
-}) {
-  const lightRef = useRef<THREE.DirectionalLight>(null!);
-  useHelper(lightRef, DirectionalLightHelper, 0.5, color);
-
-  return (
-    <directionalLight
-      ref={lightRef}
-      position={position}
-      intensity={intensity}
-      castShadow
-    />
-  );
-}
+import styles from "./AuthenticatePage.module.css";
+import RegisterForm from "./RegisterForm";
 
 export default function AuthenticatePage() {
   const searchParams = useSearchParams();
@@ -58,124 +30,27 @@ export default function AuthenticatePage() {
     }
   }, [isLoggedIn, router]);
 
-  const { scene } = useGLTF("/assets/printer4.glb");
-  const clonedModel = useMemo(() => {
-    const clone = scene.clone();
-    clone.scale.set(1.5, 1.5, 1.5);
-    clone.rotation.x = Math.PI / 2;
-
-    return clone;
-  }, [scene]);
-
-  const [action, setAction] = useState<"login" | "register" | null>(null);
-  const [formVisible, setFormVisible] = useState(false);
-  const [animationDirection, setAnimationDirection] = useState<
-    "forward" | "backward"
-  >("forward");
-  const [showTags, setShowTags] = useState(true);
-  const { width } = useWindowSize();
-
-  const loginTagOffset = useMemo(() => Math.random() * Math.PI * 2, []);
-  const registerTagOffset = useMemo(() => Math.random() * Math.PI * 2, []);
-
-  const handleBackWardsAnimation = () => {
-    setAnimationDirection("backward");
-    setFormVisible(false);
-
-    const timeout = setTimeout(() => {
-      setShowTags(true);
-    }, 2000); // Match animation duration
-    return () => clearTimeout(timeout);
-  };
-
-  const handleLoginAnimation = () => {
-    setAnimationDirection("forward");
-    setAction("login");
-    setShowTags(false);
-    setTimeout(() => {
-      setFormVisible(true);
-    }, 1000);
-  };
-
-  const handleRegisterAnimation = () => {
-    setAnimationDirection("forward");
-    setAction("register");
-    setShowTags(false);
-    const timeout = setTimeout(() => {
-      setFormVisible(true);
-    }, 1000);
-    return () => clearTimeout(timeout);
-  };
+  const [switchToRegisterForm, setSwitchToRegisterForm] = useState(false);
 
   return isLoggedIn ? (
     <Cat />
   ) : (
     <>
       <Navbar style={{ backgroundColor: "var(--color-green)" }} />
-      <div
-        style={{
-          height: "100vh",
-          background: "var(--color-pink-light)",
-          position: "relative",
-        }}
-      >
-        <Canvas
-          shadows={false}
-          camera={{ position: [0, 0, 5], fov: width < 1030 ? 50 : 35 }}
-        >
-          <Environment
-            files="/assets/brown_photostudio_02_1k.hdr"
-            // preset="warehouse"
-            background={false}
-          />
-          <Suspense fallback={<Cat />}>
-            <PrinterModel
-              model={clonedModel}
-              action={action}
-              animationDirection={animationDirection}
-            />
-
-            {showTags && (
-              <>
-                <ClickableTag
-                  randomOffset={loginTagOffset}
-                  position={[-0.1, 0.45, 0.75]}
-                  rotation={[Math.PI / 2 - 0.4, Math.PI / 2 - 1.4, -0.6]}
-                  onClick={handleLoginAnimation}
-                  pathToTagModel="/assets/Bone_login2.glb"
-                />
-                <ClickableTag
-                  randomOffset={registerTagOffset}
-                  position={[0.09, 0.45, 0.75]}
-                  rotation={[Math.PI / 2 - 0.4, -Math.PI / 2 + 1.4, 0.65]}
-                  onClick={handleRegisterAnimation}
-                  pathToTagModel="/assets/Bone_signup2.glb"
-                />
-              </>
-            )}
-          </Suspense>
-          <OrbitControls
-            enablePan={false}
-            enableRotate={false}
-            enableZoom={false}
-          />
-          {action != null && formVisible && (
-            <Html
-              position={width < 1030 ? [0.2, -0.28, 0.5] : [0.8, -1, 0.2]} // mobile vs desktop
-              center
-              zIndexRange={[3, 4]}
-            >
-              <BackButton onClick={handleBackWardsAnimation} />
-            </Html>
-          )}
-        </Canvas>
-        {action === "login" && formVisible && <LoginForm />}
-        {action === "register" && formVisible && <RegisterForm />}
+      <div>
+        {switchToRegisterForm && (
+          <RegisterForm setSwitchToRegisterForm={setSwitchToRegisterForm} />
+        )}
+        {!switchToRegisterForm && (
+          <LoginForm setSwitchToRegisterForm={setSwitchToRegisterForm} />
+        )}
+        <div className={styles.video_wrapper}>
+          <video muted autoPlay playsInline preload="none" loop>
+            <source src="/assets/cover_video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </>
   );
 }
-
-useGLTF.preload("/assets/printer4.glb");
-useGLTF.preload("/assets/Bone_signup2.glb");
-useGLTF.preload("/assets/Bone_login2.glb");
