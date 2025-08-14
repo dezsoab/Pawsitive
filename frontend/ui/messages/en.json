@@ -238,11 +238,19 @@
       "forgot_pw_error": "Failed to send the password reset link! Please contact us! ✏️"
     },
     "pwdModal": "Pop your email in below and we’ll send you a magic link to reset your password safely and easily!🎉",
-    "welcome1": "Welcome Back!",
-    "welcome2": "Keep your furry friends safe and connected 🐾",
-    "whatToDo": "Sign in to your account",
-    "detailedWhatTodo": "Just enter your email and password to manage your profile and pets",
-    "notRegisteredYet": "Don’t have an account yet? ",
+    "loginModal": {
+      "welcome1": "Welcome Back!",
+      "welcome2": "Keep your furry friends safe and connected 🐾",
+      "whatToDo": "Sign in to your account",
+      "detailedWhatTodo": "Just enter your email and password to manage your profile and pets",
+      "notRegisteredYet": "Don’t have an account yet? "
+    },
+    "registerModal": {
+      "welcome1": "Create Your Account",
+      "welcome2": "Give your pets the care they deserve 🐾",
+      "whatToDo": "Join our community to protect and connect your pets wherever they go.",
+      "loginInstead": "Already have an account? "
+    },
     "proof": "Trusted by thousands of happy pet owners"
   },
   "ScannedPetDetail": {

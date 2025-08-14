@@ -7,6 +7,7 @@ import "../styles/globals.css";
 import NavbarMobile from "../../components/navigation/NavbarMobile";
 import logger from "../../logging/logger";
 import { AuthProvider } from "@/context/AuthContext";
+import { MobileNavbarProvider } from "@/context/MobileNavbarContext";
 
 const roboto = Roboto_Flex({
   subsets: ["latin"],
@@ -33,10 +34,12 @@ const RootLayout = ({
       <body className={roboto.className}>
         <Analytics />
         <NextIntlClientProvider messages={messages}>
-          <AuthProvider>
-            <NavbarMobile />
-            {children}
-          </AuthProvider>
+          <MobileNavbarProvider>
+            <AuthProvider>
+              <NavbarMobile />
+              {children}
+            </AuthProvider>
+          </MobileNavbarProvider>
         </NextIntlClientProvider>
       </body>
     </html>
