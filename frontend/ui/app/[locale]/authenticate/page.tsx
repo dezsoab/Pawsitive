@@ -14,7 +14,6 @@ import { queryParams } from "@/enums/queryParams";
 
 import styles from "./AuthenticatePage.module.css";
 import RegisterForm from "./RegisterForm";
-import { useMobileNavbar } from "@/context/MobileNavbarContext";
 
 export default function AuthenticatePage() {
   const searchParams = useSearchParams();
@@ -22,7 +21,6 @@ export default function AuthenticatePage() {
   const tagId = searchParams.get(queryParams.TAGID);
   const { isLoggedIn } = useAuth();
   const router = useRouter();
-  const { setColor } = useMobileNavbar();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -39,12 +37,6 @@ export default function AuthenticatePage() {
       top: 0,
       behavior: "smooth",
     });
-
-    setColor("var(--color-green)");
-
-    return () => {
-      setColor("transparent");
-    };
   }, [switchToRegisterForm]);
 
   return isLoggedIn ? (

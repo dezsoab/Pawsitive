@@ -15,7 +15,6 @@ import { useAuth } from "@/context/AuthContext";
 import Cat from "../loader/Cat";
 import { usePathname } from "next/navigation";
 import { isActivePath } from "@/util/isActivePath";
-import { useMobileNavbar } from "@/context/MobileNavbarContext";
 
 const NavbarMobile = () => {
   const locale = useLocale();
@@ -26,8 +25,6 @@ const NavbarMobile = () => {
   const [scrolled, setScrolled] = useState(false);
   const currentPath = usePathname();
   const [showLoadingScreen, setShowLoadingScreen] = useState(false);
-
-  const { color } = useMobileNavbar();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,8 +82,6 @@ const NavbarMobile = () => {
   return (
     <header
       className={`${styles.navHeader} ${scrolled ? styles.scrolled : ""}`}
-      id="header"
-      style={{ backgroundColor: color }}
     >
       <Link
         href={navigationRoutes.HOME}
