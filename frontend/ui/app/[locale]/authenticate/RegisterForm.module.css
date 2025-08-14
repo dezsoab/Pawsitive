@@ -1,53 +1,157 @@
+.register_wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15rem;
+  box-sizing: border-box;
+}
+
+.register {
+  background-color: color-mix(
+    in srgb,
+    var(--color-pink-light) 40%,
+    transparent
+  );
+  padding: 2rem;
+  text-align: center;
+  border-radius: var(--rounding);
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.register h1 {
+  font-size: var(--font-big);
+  color: var(--color-pink-dark);
+}
+
+.register h2 {
+  font-size: var(--font-paragraph);
+  color: var(--color-grey-dark);
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.register h3 {
+  font-size: var(--font-paragraph);
+  color: var(--color-pink-mid);
+  margin-bottom: 2rem;
+}
+
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   background: var(--color-white);
-  padding: 2rem;
-  border-radius: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 350px;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: var(--rounding);
+  box-sizing: border-box;
 }
 
 .form input,
 .form button {
   font-size: var(--font-small);
+  border-color: var(--color-pink-dark);
 }
 
-.form label {
+.form input:focus {
+  outline: 3px solid var(--color-pink-dark);
+  border-color: var(--color-pink-dark);
+}
+
+.form input::placeholder {
   font-size: var(--font-mini);
+  font-weight: lighter;
+  color: rgba(153, 153, 153, 0.6);
+}
+
+.form .submitBtn {
+  border-radius: var(--rounding);
+  border: 1px solid rgb(165, 164, 164);
+  color: black;
+  background-color: var(--color-pink-light);
+  font-weight: 300;
+  padding: 1rem 0;
+  margin: 1rem 0 2rem 0;
+  width: 100%;
+  max-width: 20rem;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form .submitBtn:hover {
+  cursor: pointer;
+  background-color: var(--color-pink-mid);
+}
+
+.form .submitBtn svg {
   margin-right: 1rem;
 }
 
 .form div {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
-.form div,
-.form input {
-  margin-bottom: 1.4rem;
-}
-
-.form input {
-  padding: 0.2rem 0.5rem;
-}
-
-.form button {
+.form input[type="email"],
+.form input[type="tel"],
+.form input[type="text"],
+.form input[type="password"] {
+  padding: 1rem;
   border-radius: var(--rounding);
-  border: 1px solid black;
-  color: black;
-  background-color: var(--color-pink-light);
-  font-weight: 300;
-  padding: 0.5rem 0;
+  border: 1px solid #9f9f9f;
+  background-color: #ececec76;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+.form label {
+  font-size: var(--font-mini);
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-weight: 500;
 }
 
 .animateForm {
-  animation: animate 1.5s ease-in-out forwards;
+  /* animation: animate 1.5s ease-in-out forwards; */
+}
+
+.login {
+  font-size: var(--font-small);
+  padding: 1rem 0;
+}
+
+.login button {
+  background-color: transparent;
+  border: none;
+  color: var(--color-pink-dark);
+}
+
+.login button:hover {
+  color: var(--color-pink-mid);
+  cursor: pointer;
+}
+
+.persist label {
+  margin-right: 1.5rem;
+}
+
+.persist input {
+  width: 2rem;
+  height: 2rem;
+}
+
+.register .proof {
+  font-size: var(--font-mini);
+  color: var(--color-grey-dark);
 }
 
 @keyframes animate {
@@ -58,5 +162,11 @@
   to {
     opacity: 1;
     transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .register_wrapper {
+    padding-top: 5rem;
   }
 }

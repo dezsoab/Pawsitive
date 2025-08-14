@@ -48,14 +48,16 @@ export default function LoginForm({ setSwitchToRegisterForm }: Props) {
       <ToastContainer style={{ fontSize: "var(--font-small)" }} />
       <div className={styles.login_wrapper}>
         <div className={styles.login}>
-          <h1>{t("Auth.welcome1")}</h1>
-          <h2>{t("Auth.welcome2")}</h2>
+          <h1>{t("Auth.loginModal.welcome1")}</h1>
+          <h2>{t("Auth.loginModal.welcome2")}</h2>
           <form
             onSubmit={loginSubmitHandler}
             className={`${styles.form} ${styles.animateForm}`}
           >
-            <h3>{t("Auth.whatToDo")}</h3>
-            <p className={styles.info}>{t("Auth.detailedWhatTodo")}</p>
+            <h3>{t("Auth.loginModal.whatToDo")}</h3>
+            <p className={styles.info}>
+              {t("Auth.loginModal.detailedWhatTodo")}
+            </p>
 
             <label htmlFor="email">{t("Auth.field.email")}</label>
             <input
@@ -99,7 +101,7 @@ export default function LoginForm({ setSwitchToRegisterForm }: Props) {
             <hr />
             <br />
             <p className={styles.register}>
-              {t("Auth.notRegisteredYet")}
+              {t("Auth.loginModal.notRegisteredYet")}
               <button
                 type="button"
                 onClick={() => setSwitchToRegisterForm(true)}

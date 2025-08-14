@@ -30,7 +30,7 @@
 
 .login h2 {
   font-size: var(--font-paragraph);
-  color: #9f9f9f;
+  color: var(--color-grey-dark);
   font-weight: 300;
   margin-bottom: 2rem;
 }
@@ -42,7 +42,7 @@
 
 .info {
   font-size: var(--font-small);
-  color: #9f9f9f;
+  color: var(--color-grey-dark);
   margin-bottom: 3rem;
 }
 
@@ -84,6 +84,9 @@
   width: 100%;
   max-width: 20rem;
   align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form .submitBtn:hover {
@@ -118,7 +121,7 @@
 .form input[type="password"] {
   padding: 1rem;
   border-radius: var(--rounding);
-  border: 1px solid #9f9f9f;
+  border: 1px solid var(--color-grey-dark);
   background-color: #ececec76;
   width: 100%;
   box-sizing: border-box;
@@ -162,7 +165,7 @@
 
 .login .proof {
   font-size: var(--font-mini);
-  color: #9f9f9f;
+  color: var(--color-grey-dark);
 }
 
 @media screen and (max-width: 435px) {
