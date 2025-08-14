@@ -238,11 +238,19 @@
       "forgot_pw_error": "Nem sikerült elküldeni a jelszó-visszaállító linket! Kérjük, vedd fel velünk a kapcsolatot! ✏️"
     },
     "pwdModal": "Írd be az emailed, és küldünk egy varázs linket, amivel könnyedén és biztonságosan új jelszót állíthatsz be!🎉",
-    "welcome1": "Üdv újra!",
-    "welcome2": "Tartsd biztonságban szőrös barátaidat 🐾",
-    "whatToDo": "Jelentkezz be a fiókodba",
-    "detailedWhatTodo": "Add meg az emailed és a jelszavad, hogy szerkeszd a profilodat",
-    "notRegisteredYet": "Még nincs fiókod? ",
+    "loginModal": {
+      "welcome1": "Üdv újra!",
+      "welcome2": "Tartsd biztonságban szőrös barátaidat 🐾",
+      "whatToDo": "Jelentkezz be a fiókodba",
+      "detailedWhatTodo": "Add meg az emailed és a jelszavad, hogy szerkeszd a profilodat",
+      "notRegisteredYet": "Még nincs fiókod? "
+    },
+    "registerModal": {
+      "welcome1": "Hozd létre a fiókodat",
+      "welcome2": "Add meg kedvencednek a törődést, amit megérdemel 🐾",
+      "whatToDo": "Csatlakozz közösségünkhöz, hogy bárhol megtaláld kedvenceidet.",
+      "loginInstead": "Már van fiókod? "
+    },
     "proof": "Több ezer boldog állattartó megbízik bennünk"
   },
   "ScannedPetDetail": {
