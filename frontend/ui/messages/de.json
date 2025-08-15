@@ -182,8 +182,11 @@
     "title": "Persönliche Informationen",
     "updateAction": "Bild aktualisieren 📸",
     "uploadAction": "Bild hochladen",
+    "startEditAction": "Zum Bearbeiten klicken",
+    "stopEditAction": "Bearbeitung beenden",
     "cancel": "Abbrechen",
     "save": "Speichern",
+    "addPetLabel": "Haustier hinzufügen",
     "personal": {
       "email": "E-Mail",
       "firstName": "Vorname",

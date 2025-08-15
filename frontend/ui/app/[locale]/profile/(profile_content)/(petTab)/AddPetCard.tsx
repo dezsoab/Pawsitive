@@ -163,7 +163,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
             >
               <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
             </svg>
-            <p>ADD PET</p>
+            <p>{t("Dashboard.addPetLabel")}</p>
           </div>
         </li>
       )}
@@ -231,10 +231,34 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               }}
             />
             <div className={styles.buttonsContainer}>
-              <button type="reset" onClick={toggleEdit}>
+              <button
+                type="reset"
+                onClick={toggleEdit}
+                className={styles.cancelBtn}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z" />
+                </svg>
                 {t("Dashboard.cancel")}
               </button>
-              <button type="submit" disabled={isSubmitting}>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={styles.submitBtn}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z" />
+                </svg>
                 {t("Dashboard.save")}
               </button>
             </div>

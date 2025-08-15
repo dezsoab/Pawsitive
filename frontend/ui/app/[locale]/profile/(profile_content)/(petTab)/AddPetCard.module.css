@@ -63,23 +63,40 @@
   margin-top: 2rem;
 }
 
-.card button {
-  padding: 0.6rem 1.7rem;
-  width: fit-content;
-  font-size: var(--font-mini);
-  border: none;
-  border-radius: var(--rounding);
-  transition: all 0.1s linear;
-  background-color: var(--color-pink-light);
-  margin-top: 1rem;
-}
-
-.card button:hover {
-  cursor: pointer;
-  background-color: var(--color-pink-mid) !important;
-  color: var(--color-white);
-}
-
 .card select {
   width: max-content;
+}
+
+.submitBtn,
+.cancelBtn {
+  padding: 1rem 2rem;
+  border-radius: var(--rounding);
+  border: none;
+  background-color: var(--color-pink-light);
+  cursor: pointer;
+  transition: 0.1s all linear;
+  font-size: var(--font-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.submitBtn:hover,
+.cancelBtn:hover {
+  background-color: var(--color-pink-mid);
+  color: var(--color-white);
+  border: 1px solid var(--color-pink-light);
+}
+
+.submitBtn:hover svg,
+.cancelBtn:hover svg {
+  fill: var(--color-white);
+}
+
+.submitBtn svg,
+.cancelBtn svg {
+  width: 1.8rem;
+  margin-right: 1rem;
+  transition: 0.1s all linear;
 }
