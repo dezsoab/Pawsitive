@@ -87,6 +87,11 @@
 .form .submitBtn:hover {
   cursor: pointer;
   background-color: var(--color-pink-mid);
+  color: var(--color-white);
+}
+
+.form .submitBtn:hover svg {
+  fill: var(--color-white);
 }
 
 .form .submitBtn svg {
