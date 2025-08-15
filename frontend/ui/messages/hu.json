@@ -182,8 +182,11 @@
     "title": "Személyes adatok",
     "updateAction": "Kép frissítése 📸",
     "uploadAction": "Kép feltöltése",
+    "startEditAction": "Kattintson a szerkesztéshez",
+    "stopEditAction": "Szerkesztés befejezése",
     "cancel": "Mégse",
     "save": "Mentés",
+    "addPetLabel": "Háziállat hozzáadása",
     "personal": {
       "email": "Email",
       "firstName": "Keresztnév",

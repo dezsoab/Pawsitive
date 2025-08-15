@@ -182,7 +182,9 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                             {isEditMode ? <StopEditIcon /> : <EditIcon />}
                           </button>
                           <span>
-                            {isEditMode ? "stop editing" : "click to edit"}
+                            {isEditMode
+                              ? t("Dashboard.stopEditAction")
+                              : t("Dashboard.startEditAction")}
                           </span>
                         </div>
                       </div>
@@ -270,7 +272,17 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                                 }
                               }}
                             />
-                            <button type="submit">SAVE</button>
+                            <button type="submit" className={styles.submitBtn}>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z" />
+                              </svg>
+                              {t("Dashboard.save")}
+                            </button>
                           </form>
                         ) : (
                           <>
