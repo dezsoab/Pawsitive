@@ -34,7 +34,9 @@ interface PetCardsProps {
 const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
   const searchParams = useSearchParams();
   const tagIdInUrl = searchParams.get("tagId");
-  const sanitizedTagId = tagIdInUrl === "null" ? "" : tagIdInUrl ?? "";
+  const [tagConsumed, setTagConsumed] = useState(false);
+  const sanitizedTagId =
+    !tagConsumed && tagIdInUrl !== "null" ? tagIdInUrl ?? "" : "";
 
   const [isEditMode, setIsEditMode] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -63,13 +65,11 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
     const response = await toast.promise(
       addPetAPI(createdPetDetail),
       {
-        pending: "Updating pet...",
+        pending: "Adding pet...",
         success: {
           render({ data }: { data: PetDTO }) {
-            return (
-              "Tag has been successfully linked to " + data.name + " 🎉" ||
-              "Something went wrong!"
-            );
+            setTagConsumed(true);
+            return "Tag has been successfully linked to " + data.name + " 🎉";
           },
         },
         error: {
@@ -103,7 +103,6 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
       };
 
       const savedPet: PetDTO = await addPet(newPet);
-      console.log(savedPet);
 
       if (imageCropResult) {
         const { compressedFile, fileName } = imageCropResult;
