@@ -40,13 +40,15 @@ const PersonTag: React.FC<PersonTagProps> = ({
 
   return (
     <div className={styles.personTag} ref={tagRef}>
-      <Image
-        src={imgSrc}
-        alt={imgAlt}
-        width={300}
-        height={300}
-        className={styles.personImage}
-      />
+      <div className={styles.personImageWrapper}>
+        <Image
+          src={imgSrc}
+          alt={imgAlt}
+          width={300}
+          height={300}
+          className={styles.personImage}
+        />
+      </div>
       <h4>{name}</h4>
       {roles.map((role) => (
         <p key={role}>{role}</p>

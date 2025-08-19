@@ -1,19 +1,18 @@
-.personTag {
-  text-align: center;
-  transition: box-shadow 0.3s ease;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 8px;
+.personImageWrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
 }
 
 .personImage {
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
 .personTag:hover .personImage {
-  transform: scale(1.05);
+  transform: scale(1.5);
 }
