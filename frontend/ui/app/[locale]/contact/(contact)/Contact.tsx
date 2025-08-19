@@ -25,12 +25,12 @@ const Contact = () => {
             text={contacts.ADDRESS}
             label={t("Contact.contact.return")}
           />
-          <Listing
+          {/* <Listing
             href={`tel:${contacts.TEL}`}
             icon="☎️"
             text={contacts.TEL}
             label={t("Contact.contact.tel")}
-          />
+          /> */}
           <Listing
             href={`mailto:${contacts.EMAIL}`}
             icon="💌"
