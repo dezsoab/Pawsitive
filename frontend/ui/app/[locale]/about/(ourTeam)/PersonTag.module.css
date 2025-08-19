@@ -6,10 +6,6 @@
   border-radius: 8px;
 }
 
-.personTag:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
 .personImage {
   border-radius: 8px;
   transition: transform 0.3s ease;
