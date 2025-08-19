@@ -99,6 +99,7 @@ const IsEditingUserInformation = ({
           id="firstName"
           name="firstName"
           defaultValue={profile.owner.firstName}
+          placeholder={t("Dashboard.personal.firstName")}
         />
         <label htmlFor="lastName">{t("Dashboard.personal.lastName")}*</label>
         <input
@@ -107,6 +108,7 @@ const IsEditingUserInformation = ({
           id="lastName"
           name="lastName"
           defaultValue={profile.owner.lastName}
+          placeholder={t("Dashboard.personal.lastName")}
         />
         <label htmlFor="phone">{t("Dashboard.personal.phone")}*</label>
         <input
@@ -115,6 +117,7 @@ const IsEditingUserInformation = ({
           id="phone"
           name="phone"
           defaultValue={profile.owner.phone}
+          placeholder={t("Dashboard.personal.phone")}
         />
         <label htmlFor="country">{t("Dashboard.personal.country")}</label>
         <input
@@ -122,6 +125,7 @@ const IsEditingUserInformation = ({
           id="country"
           name="country"
           defaultValue={profile.owner?.address?.country || ""}
+          placeholder={t("Dashboard.personal.country")}
         />
         <label htmlFor="zip">{t("Dashboard.personal.zip")}</label>
         <input
@@ -129,6 +133,7 @@ const IsEditingUserInformation = ({
           id="zip"
           name="zip"
           defaultValue={profile.owner?.address?.zipCode || ""}
+          placeholder={t("Dashboard.personal.zip")}
         />
         <label htmlFor="city">{t("Dashboard.personal.city")}</label>
         <input
@@ -136,6 +141,7 @@ const IsEditingUserInformation = ({
           id="city"
           name="city"
           defaultValue={profile.owner?.address?.city || ""}
+          placeholder={t("Dashboard.personal.city")}
         />
         <label htmlFor="street">{t("Dashboard.personal.street")}</label>
         <input
@@ -143,6 +149,7 @@ const IsEditingUserInformation = ({
           id="street"
           name="street"
           defaultValue={profile.owner?.address?.street || ""}
+          placeholder={t("Dashboard.personal.street")}
         />
         <label className={styles.consent}>
           <input
