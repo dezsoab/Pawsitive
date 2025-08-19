@@ -1,11 +1,7 @@
 .hero {
-  background-image: url("../../../../public/assets/duett1-landscape.webp");
   width: 100%;
   height: 60vh;
-  background-position: center top;
-  background-size: cover;
   position: relative;
-  background-position-y: 12%;
 }
 
 .hero::after {

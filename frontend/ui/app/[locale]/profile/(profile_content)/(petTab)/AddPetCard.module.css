@@ -6,7 +6,6 @@
   flex-direction: column;
   max-height: 550px;
   min-height: 500px;
-  border-radius: calc(var(--curve) * 1px);
   overflow: hidden;
   text-decoration: none;
   border-radius: 15px;
@@ -37,11 +36,28 @@
 }
 
 .card input {
-  padding: 0.2rem 0.5rem;
-  width: fit-content;
   font-size: var(--font-small);
+  border: none;
+  border-radius: var(--rounding);
+  padding: 0.2rem 1rem;
+  margin-bottom: 1rem;
+  width: fit-content;
 }
 
+.card input:focus {
+  outline: 3px solid var(--color-pink-light);
+  border-color: var(--color-pink-light);
+}
+
+.card input::placeholder {
+  font-size: var(--font-mini);
+  font-weight: lighter;
+  color: rgba(153, 153, 153, 0.6);
+}
+
+.card input[type="number"] {
+  width: 60px;
+}
 .card input[type="file"] {
   width: 100%;
 }

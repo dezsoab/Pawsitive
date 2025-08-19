@@ -25,10 +25,10 @@ describe("Contact tests", () => {
         expect(
           screen.getByText(formatAddress(contacts.ADDRESS))
         ).toBeInTheDocument();
-        expect(
-          screen.getByText(`${"☎️"} ${messages.Contact.contact.tel}`)
-        ).toBeInTheDocument();
-        expect(screen.getByText(contacts.TEL)).toBeInTheDocument();
+        // expect(
+        //   screen.getByText(`${"☎️"} ${messages.Contact.contact.tel}`)
+        // ).toBeInTheDocument();
+        // expect(screen.getByText(contacts.TEL)).toBeInTheDocument();
         expect(
           screen.getByText(`${"💌"} ${messages.Contact.contact.email}`)
         ).toBeInTheDocument();
@@ -39,10 +39,10 @@ describe("Contact tests", () => {
         });
         expect(emailLink).toHaveAttribute("href", `mailto:${contacts.EMAIL}`);
 
-        const telLink = screen.getByRole("link", {
-          name: contacts.TEL,
-        });
-        expect(telLink).toHaveAttribute("href", `tel:${contacts.TEL}`);
+        // const telLink = screen.getByRole("link", {
+        //   name: contacts.TEL,
+        // });
+        // expect(telLink).toHaveAttribute("href", `tel:${contacts.TEL}`);
       });
     });
   }

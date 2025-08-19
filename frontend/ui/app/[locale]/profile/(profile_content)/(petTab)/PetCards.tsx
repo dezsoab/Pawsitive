@@ -199,7 +199,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                             onClick={(e) => e.stopPropagation()}
                           >
                             <label htmlFor={`name-${pet.id}`}>
-                              {t("Pet.name")}:
+                              {t("Pet.name")}:{" "}
                             </label>
                             <input
                               ref={nameRef}
@@ -210,7 +210,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                             />
                             <br />
                             <label htmlFor={`breed-${pet.id}`}>
-                              {t("Pet.breed")}:
+                              {t("Pet.breed")}:{" "}
                             </label>
                             <input
                               ref={breedRef}
@@ -220,7 +220,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                             />
                             <br />
                             <label htmlFor={`age-${pet.id}`}>
-                              {t("Pet.age")}:
+                              {t("Pet.age")}:{" "}
                             </label>
                             <input
                               ref={ageRef}
@@ -234,7 +234,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                             />
                             <br />
                             <label htmlFor={`sex-${pet.id}`}>
-                              {t("Pet.sex.name")}:
+                              {t("Pet.sex.name")}:{" "}
                             </label>
                             <select
                               ref={sexRef}
