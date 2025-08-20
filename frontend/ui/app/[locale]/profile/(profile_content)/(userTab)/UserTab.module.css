@@ -148,6 +148,7 @@
   transition: all 0.1s linear;
   background-color: var(--color-pink-mid);
   margin-top: 1rem;
+  color: black;
 }
 
 .save_edit:hover {
