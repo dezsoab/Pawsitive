@@ -181,6 +181,8 @@
   cursor: pointer;
   transition: 0.1s all linear;
   font-size: var(--font-small);
+  font-weight: 100;
+  color: black;
   display: block;
   float: right;
   margin: 2rem 1rem;
