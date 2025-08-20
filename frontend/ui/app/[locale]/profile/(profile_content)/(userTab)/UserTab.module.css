@@ -143,11 +143,13 @@
   padding: 0.6rem 1.7rem;
   width: fit-content;
   font-size: var(--font-paragraph);
+  font-weight: 300;
   border: none;
   border-radius: var(--rounding);
   transition: all 0.1s linear;
   background-color: var(--color-pink-mid);
   margin-top: 1rem;
+  color: black;
 }
 
 .save_edit:hover {
