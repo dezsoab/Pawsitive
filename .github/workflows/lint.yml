@@ -23,7 +23,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm ci || npm install --legacy-peer-deps
+        run: npm install
         working-directory: ./frontend/ui
 
       - name: Run ESLint
