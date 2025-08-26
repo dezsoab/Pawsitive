@@ -268,5 +268,65 @@
       "success": "Boom! Your password’s all set. ✅",
       "error": "Oops! Couldn’t reset your password. 😓"
     }
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions (FAQ)",
+    "product": {
+      "title": "Product & Usage",
+      "q1": "What is an NFC pet tag?",
+      "a1": "An NFC tag is a small pendant that your pet wears on its collar. If someone finds your pet, they can scan the tag with a smartphone and instantly see your contact details and important information about your pet.",
+      "q2": "Do I need an app to use the tag?",
+      "a2": "No. The finder only needs a smartphone with NFC functionality. A scan automatically opens the online page with your stored data.",
+      "q3": "Can I register multiple pets?",
+      "a3": "Yes. You can order as many tags as you like and register each pet individually.",
+      "q4": "Can I change my data later?",
+      "a4": "Yes. You can update your contact details and pet information at any time in your customer account. Changes take effect immediately.",
+      "q5": "What happens if someone finds my pet?",
+      "a5": "The finder scans the tag and instantly sees your shared contact details. At the same time, you automatically receive an email and SMS notification that your tag has been scanned. If the finder allows location sharing, you also receive the coordinates of the scan location – so you can react even faster.",
+      "q6": "How long does an NFC tag last?",
+      "a6": "The chip itself does not require a battery and is designed for lifelong functionality. To ensure it stays nice in your pet’s everyday life, our tags are made from robust materials. Like any everyday item, the surface may show slight wear over time – but functionality remains reliable.",
+      "q7": "Are the tags waterproof?",
+      "a7": "Yes, they are splash-proof and easily withstand your pet’s daily activities."
+    },
+    "order": {
+      "title": "Order & Delivery",
+      "q1": "How long does shipping take?",
+      "a1": "Since we manufacture each tag individually for you (e.g., printing with name or special colors), production takes a few days. Once your tag is ready, shipping within Austria/Germany usually takes 2–4 business days. For other EU countries, delivery may take a little longer.",
+      "q2": "Can I cancel or change my order?",
+      "a2": "As long as your order has not yet been produced or shipped, you can contact us by email and we will try to make the change possible.",
+      "q3": "Which payment methods are available?",
+      "a3": "You can pay by credit card, PayPal, Klarna, and other common payment methods (depending on the options offered in the shop)."
+    },
+    "return": {
+      "title": "Returns & Withdrawal",
+      "q1": "Can I return my product?",
+      "a1": "Yes, you have the legal right to withdraw from the purchase within 14 days without giving any reason.",
+      "q2": "Who covers the return shipping costs?",
+      "a2": "For a normal withdrawal, you bear the return shipping costs yourself. If the error is on our side (e.g., defective tag, wrong item), we of course cover the return costs.",
+      "q3": "Are there exceptions to the right of withdrawal?",
+      "a3_1": "Yes. The right of withdrawal does not apply to custom-made products that are clearly tailored to you.",
+      "a3_2": "For example, this includes:",
+      "a3_3": "NFC tags with name engraving or individual printing",
+      "a3_4": "Collars with name embroidery or custom sizing",
+      "a3_5": "Returns are still possible for:",
+      "a3_6": "Standard collars where only size/color was chosen from the shop",
+      "a3_7": "Preconfigured tags without personalization",
+      "q4": "How do I exercise my right of withdrawal?",
+      "a4": "Simply send us an email with your order number and your withdrawal request. You will then receive all return instructions."
+    },
+    "security": {
+      "title": "Security & Data Protection",
+      "q1": "Which data does the finder of my pet see?",
+      "a1": "The finder always sees your phone number and email address so they can reach you quickly and reliably. Whether your address is also displayed is up to you in the settings.",
+      "q2": "Where is my data stored?",
+      "a2": "Securely in our system, in accordance with GDPR requirements.",
+      "q3": "Can I have my data deleted?",
+      "a3": "Yes, you can request deletion of your data at any time. Just send us a message.",
+      "q4": "More questions?",
+      "a4": "Didn't find the answer you were looking for? Feel free to contact us at info@pawsitivecollar.com or via the contact form."
+    },
+    "form": {
+      "question": "Write your question here …"
+    }
   }
 }

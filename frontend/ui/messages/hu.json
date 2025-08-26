@@ -268,5 +268,65 @@
       "success": "Kész is van! Az új jelszavad beállítva. ✅",
       "error": "Hoppá! Nem sikerült visszaállítani a jelszót. 😓"
     }
+  },
+  "FAQ": {
+    "title": "Gyakran ismételt kérdések (GYIK)",
+    "product": {
+      "title": "Termék és használat",
+      "q1": "Mi az az NFC állatbiléta?",
+      "a1": "Az NFC biléta egy kis medál, amelyet a kedvenced a nyakörvén visel. Ha valaki megtalálja az állatodat, egyszerűen okostelefonnal leolvassa, és azonnal látja az elérhetőségeidet és a fontos információkat a kedvencedről.",
+      "q2": "Szükségem van alkalmazásra a használathoz?",
+      "a2": "Nem. A megtalálónak csak egy NFC-funkcióval rendelkező okostelefonra van szüksége. A leolvasás automatikusan megnyitja az online oldalt a tárolt adataiddal.",
+      "q3": "Regisztrálhatok több állatot is?",
+      "a3": "Igen. Annyi bilétát rendelhetsz, amennyit szeretnél, és mindegyik állatot külön regisztrálhatod.",
+      "q4": "Később módosíthatom az adataimat?",
+      "a4": "Igen. Az ügyfélfiókodban bármikor frissítheted az elérhetőségeidet és az állatod adatait. A változtatások azonnal érvénybe lépnek.",
+      "q5": "Mi történik, ha valaki megtalálja az állatomat?",
+      "a5": "A megtaláló leolvassa a bilétát, és azonnal látja a megosztott elérhetőségeidet. Ugyanakkor automatikusan kapsz egy e-mailt és SMS értesítést arról, hogy a bilétát leolvasták. Ha a megtaláló engedélyezi a helymegosztást, megkapod a leolvasás helyének koordinátáit is – így még gyorsabban reagálhatsz.",
+      "q6": "Meddig bírja egy NFC biléta?",
+      "a6": "A chip maga nem igényel elemet, és élethosszig tartó működésre készült. Hogy a mindennapi használatban is szép maradjon, bilétáink strapabíró anyagból készülnek. Idővel a felületen előfordulhat kisebb kopás – de a működés megbízható marad.",
+      "q7": "Vízállóak a biléták?",
+      "a7": "Igen, fröccsenésállók, és gond nélkül bírják kedvenced mindennapi tevékenységeit."
+    },
+    "order": {
+      "title": "Rendelés és szállítás",
+      "q1": "Mennyi ideig tart a szállítás?",
+      "a1": "Mivel minden bilétát egyedileg készítünk el (pl. névvel vagy egyedi színnel), a gyártás néhány napot vesz igénybe. Amint a bilétád elkészült, a szállítás Ausztrián/Germánián belül általában 2–4 munkanapot vesz igénybe. Más EU-országokba a szállítás valamivel tovább tarthat.",
+      "q2": "Lemondhatom vagy módosíthatom a rendelésemet?",
+      "a2": "Amíg a rendelésedet nem gyártottuk le és nem küldtük el, e-mailben felveheted velünk a kapcsolatot, és megpróbáljuk a módosítást lehetővé tenni.",
+      "q3": "Milyen fizetési módok állnak rendelkezésre?",
+      "a3": "Fizethetsz bankkártyával, PayPal-lal, Klarna-val és más elterjedt fizetési módokkal (az üzletben elérhető opcióktól függően)."
+    },
+    "return": {
+      "title": "Visszaküldés és elállás",
+      "q1": "Visszaküldhetem a terméket?",
+      "a1": "Igen, jogod van 14 napon belül indoklás nélkül elállni a vásárlástól.",
+      "q2": "Ki viseli a visszaküldés költségeit?",
+      "a2": "Normál elállás esetén a visszaküldés költségeit te viseled. Ha a hiba a mi oldalunkon van (pl. hibás biléta, rossz termék), természetesen mi álljuk a visszaküldés költségeit.",
+      "q3": "Vannak kivételek az elállási jog alól?",
+      "a3_1": "Igen. Az elállási jog nem vonatkozik az egyedileg készített, kifejezetten rád szabott termékekre.",
+      "a3_2": "Ide tartoznak például:",
+      "a3_3": "NFC biléták névgravírozással vagy egyedi nyomtatással",
+      "a3_4": "Nyakörvek névhímzéssel vagy méretre szabással",
+      "a3_5": "Visszaküldés lehetséges marad ennél:",
+      "a3_6": "Standard nyakörvek, ahol csak a méret/szín választható a boltból",
+      "a3_7": "Előre beállított biléták személyre szabás nélkül",
+      "q4": "Hogyan élhetek az elállási jogommal?",
+      "a4": "Egyszerűen küldj egy e-mailt a rendelési számoddal és az elállási szándékoddal. Ezután minden visszaküldési információt megkapsz."
+    },
+    "security": {
+      "title": "Biztonság és adatvédelem",
+      "q1": "Milyen adatokat lát a megtaláló?",
+      "a1": "A megtaláló mindig látja a telefonszámodat és az e-mail címedet, hogy gyorsan és megbízhatóan elérhessen. Hogy a címed is megjelenjen-e, azt te döntöd el a beállításokban.",
+      "q2": "Hol tároljuk az adataimat?",
+      "a2": "Biztonságosan a rendszerünkben, a GDPR előírásainak megfelelően.",
+      "q3": "Töröltethetem az adataimat?",
+      "a3": "Igen, bármikor kérheted az adataid törlését. Ehhez csak küldj nekünk egy üzenetet.",
+      "q4": "Van még kérdésed?",
+      "a4": "Nem találtad meg a választ a kérdésedre? Vedd fel velünk bátran a kapcsolatot: info@pawsitivecollar.com vagy a kapcsolatfelvételi űrlapon keresztül."
+    },
+    "form": {
+      "question": "Írd ide a kérdésed …"
+    }
   }
 }

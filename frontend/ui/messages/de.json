@@ -268,5 +268,65 @@
       "success": "Zack! Dein Passwort wurde erfolgreich geändert. ✅",
       "error": "Uuups! Passwort konnte nicht zurückgesetzt werden. 😓"
     }
+  },
+  "FAQ": {
+    "title": "Häufig gestellte Fragen (FAQ)",
+    "product": {
+      "title": "Produkt & Nutzung",
+      "q1": "Was ist ein NFC-Tier-Tag?",
+      "a1": "Ein NFC-Tag ist ein kleiner Anhänger, den dein Haustier am Halsband trägt. Wenn jemand dein Tier findet, kann er den Tag mit einem Smartphone scannen und sieht sofort deine Kontaktdaten und wichtige Infos über dein Tier.",
+      "q2": "Brauche ich eine App, um den Tag zu nutzen?",
+      "a2": "Nein. Der Finder benötigt nur ein Smartphone mit NFC-Funktion. Ein Scan öffnet automatisch die Online-Seite mit deinen hinterlegten Daten.",
+      "q3": "Kann ich mehrere Tiere registrieren?",
+      "a3": "Ja. Du kannst beliebig viele Tags bestellen und jedes Tier einzeln registrieren.",
+      "q4": "Kann ich meine Daten später ändern?",
+      "a4": "Ja. Du kannst deine Kontaktdaten und Tierinfos jederzeit in deinem Kundenkonto anpassen. Änderungen sind sofort aktiv.",
+      "q5": "Was passiert, wenn jemand mein Tier findet?",
+      "a5": "Der Finder scannt den Tag und sieht sofort deine freigegebenen Kontaktdaten. Gleichzeitig erhältst du automatisch eine E-Mail und SMS-Benachrichtigung, dass dein Tag gescannt wurde. Wenn der Finder die Standortfreigabe erlaubt, bekommst du zusätzlich die Koordinaten des Scan-Orts – so kannst du noch schneller reagieren.",
+      "q6": "Wie lange hält ein NFC-Tag?",
+      "a6": "Der Chip selbst benötigt keine Batterie und ist auf lebenslange Funktionalität ausgelegt. Damit er auch im Alltag deines Tieres lange schön bleibt, sind unsere Tags aus robusten Materialien gefertigt. Wie bei jedem Alltagsgegenstand kann die Oberfläche mit der Zeit leichte Abnutzungen zeigen – die Funktion bleibt jedoch zuverlässig erhalten.",
+      "q7": "Sind die Tags wasserdicht?",
+      "a7": "Ja, sie sind spritzwassergeschützt und halten den normalen Alltag deines Tieres problemlos aus."
+    },
+    "order": {
+      "title": "Bestellung & Lieferung",
+      "q1": "Wie lange dauert der Versand?",
+      "a1": "Da wir jeden Tag individuell für dich anfertigen (z. B. Druck mit Namen oder Sonderfarben), benötigen wir für die Produktion einige Tage. Sobald dein Tag fertiggestellt ist, dauert der Versand innerhalb Österreichs/Deutschlands in der Regel 2–4 Werktage. Für andere EU-Länder kann die Lieferung etwas länger dauern.",
+      "q2": "Kann ich meine Bestellung stornieren oder ändern?",
+      "a2": "Solange deine Bestellung noch nicht produziert oder versendet wurde, kannst du uns per E-Mail kontaktieren und wir versuchen, die Änderung zu ermöglichen.",
+      "q3": "Welche Zahlungsmöglichkeiten gibt es?",
+      "a3": "Du kannst mit Kreditkarte, PayPal, Klarna und weiteren gängigen Zahlungsmethoden bezahlen (abhängig von den im Shop angebotenen Optionen)."
+    },
+    "return": {
+      "title": "Rückgabe & Widerruf",
+      "q1": "Kann ich mein Produkt zurückgeben?",
+      "a1": "Ja, du hast das gesetzliche Recht, innerhalb von 14 Tagen ohne Angabe von Gründen vom Kauf zurückzutreten.",
+      "q2": "Wer trägt die Kosten für die Rücksendung?",
+      "a2": "Bei einem normalen Widerruf trägst du die Rücksendekosten selbst. Wenn ein Fehler von uns vorliegt (z. B. defekter Tag, falscher Artikel), übernehmen selbstverständlich wir die Rücksendekosten.",
+      "q3": "Gibt es Ausnahmen vom Widerrufsrecht?",
+      "a3_1": "Ja. Vom Widerruf ausgeschlossen sind individuell angefertigte Produkte, die eindeutig auf dich zugeschnitten sind.",
+      "a3_2": "Dazu gehören zum Beispiel:",
+      "a3_3": "NFC-Tags mit Namensgravur oder individueller Bedruckung",
+      "a3_4": "Halsbänder mit Namensstickerei oder Maßanfertigung",
+      "a3_5": "Rückgabe möglich bleibt bei:",
+      "a3_6": "Standard-Halsbändern, bei denen nur Größe/Farbe aus dem Shop gewählt wurde",
+      "a3_7": "Vorkonfigurierten Tags ohne Personalisierung",
+      "q4": "Wie übe ich mein Widerrufsrecht aus?",
+      "a4": "Schreibe uns einfach eine E-Mail mit deiner Bestellnummer und deinem Widerrufswunsch. Du erhältst dann alle Infos zur Rücksendung."
+    },
+    "security": {
+      "title": "Sicherheit & Datenschutz",
+      "q1": "Welche Daten sieht der Finder meines Tieres?",
+      "a1": "Der Finder sieht immer deine Telefonnummer und E-Mail-Adresse, damit er dich schnell und zuverlässig erreichen kann. Ob auch deine Adresse angezeigt wird, entscheidest du selbst in den Einstellungen.",
+      "q2": "Wo werden meine Daten gespeichert?",
+      "a2": "Sicher in unserem System, gemäß den Vorgaben der DSGVO.",
+      "q3": "Kann ich meine Daten löschen lassen?",
+      "a3": "Ja, du kannst jederzeit verlangen, dass wir deine Daten löschen. Schreib uns dazu einfach eine Nachricht.",
+      "q4": "Noch Fragen?",
+      "a4": "Nicht die passende Antwort gefunden? Melde dich gerne bei uns: info@pawsitivecollar.com oder über das Kontaktformular."
+    },
+    "form": {
+      "question": "Schreib uns hier deine Frage …"
+    }
   }
 }
