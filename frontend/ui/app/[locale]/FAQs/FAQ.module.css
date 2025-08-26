@@ -1,0 +1,41 @@
+.main {
+  background-color: var(--color-pink-light);
+}
+
+.accordion {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: 15rem;
+  padding-bottom: 3rem;
+}
+
+.accordion button {
+  display: flex;
+  gap: 0.8rem;
+  width: 100%;
+  justify-content: space-between;
+  align-content: center;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: var(--font-paragraph);
+  padding: 2rem 0;
+}
+
+.accordion section {
+  font-size: var(--font-small);
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    padding: 0 3rem;
+  }
+}
