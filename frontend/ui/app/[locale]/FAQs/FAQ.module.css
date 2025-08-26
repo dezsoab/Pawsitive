@@ -12,7 +12,7 @@
 .accordion button {
   display: flex;
   flex-direction: row-reverse;
-  gap: 0.8rem;
+  gap: 1rem;
   width: 100%;
   justify-content: flex-end;
   align-content: center;

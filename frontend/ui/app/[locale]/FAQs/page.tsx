@@ -241,9 +241,9 @@ const PetIcon = (props: any) => {
       aria-hidden="true"
       focusable="false"
       role="presentation"
-      width="22"
-      height="22"
-      viewBox="0 0 14 14"
+      width="24"
+      height="24"
+      viewBox="0 0 16 16"
       {...props}
     >
       <g
@@ -366,9 +366,9 @@ const CancelIcon = (props: any) => {
       aria-hidden="true"
       focusable="false"
       role="presentation"
-      width="30"
-      height="30"
-      viewBox="0 0 30 30"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
       {...props}
     >
       <path
@@ -415,8 +415,8 @@ const CostIcon = (props: any) => {
       aria-hidden="true"
       focusable="false"
       role="presentation"
-      width="30"
-      height="30"
+      width="24"
+      height="24"
       viewBox="0 0 64 64"
       {...props}
     >
@@ -434,9 +434,9 @@ const CashIcon = (props: any) => {
       aria-hidden="true"
       focusable="false"
       role="presentation"
-      width="30"
-      height="30"
-      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      viewBox="0 0 20 20"
       {...props}
     >
       <path
@@ -457,8 +457,8 @@ const ExceptionIcon = (props: any) => {
       aria-hidden="true"
       focusable="false"
       role="presentation"
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       {...props}
     >
