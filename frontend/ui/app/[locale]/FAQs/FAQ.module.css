@@ -10,6 +10,7 @@
 }
 
 .accordion button {
+  all: unset;
   display: flex;
   flex-direction: row-reverse;
   gap: 1rem;
@@ -19,10 +20,16 @@
   background-color: transparent;
   border: none;
   text-align: left;
-  color: black;
+  color: black !important;
   cursor: pointer;
   font-size: var(--font-paragraph);
   padding: 2rem 0;
+}
+
+.accordion button,
+.accordion a {
+  color: black;
+  text-decoration: none;
 }
 
 .accordion section {
