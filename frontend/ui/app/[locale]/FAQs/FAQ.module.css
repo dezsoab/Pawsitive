@@ -19,6 +19,7 @@
   background-color: transparent;
   border: none;
   text-align: left;
+  color: black;
   cursor: pointer;
   font-size: var(--font-paragraph);
   padding: 2rem 0;
