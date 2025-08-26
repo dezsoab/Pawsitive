@@ -23,6 +23,7 @@
   color: black !important;
   cursor: pointer;
   font-size: var(--font-paragraph);
+  font-weight: 300;
   padding: 2rem 0;
 }
 
