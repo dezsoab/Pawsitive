@@ -11,9 +11,10 @@
 
 .accordion button {
   display: flex;
+  flex-direction: row-reverse;
   gap: 0.8rem;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-content: center;
   background-color: transparent;
   border: none;
