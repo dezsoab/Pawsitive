@@ -166,6 +166,7 @@
   "Pet": {
     "name": "Name",
     "breed": "Breed",
+    "birthYear": "Year of birth",
     "age": "Age",
     "sex": {
       "name": "Sex",
@@ -210,7 +211,8 @@
     "editHint": {
       "start": "Click on the pen to edit the fields",
       "cancel": "Click on the pen to cancel editing"
-    }
+    },
+    "myPets": "My Pets"
   },
   "Auth": {
     "field": {

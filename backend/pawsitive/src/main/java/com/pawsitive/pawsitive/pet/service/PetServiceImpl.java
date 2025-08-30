@@ -6,11 +6,9 @@ import com.pawsitive.pawsitive.dto.PetInformationDTO;
 import com.pawsitive.pawsitive.exception.PetNotFoundException;
 import com.pawsitive.pawsitive.exception.TagInvalidException;
 import com.pawsitive.pawsitive.mapper.PetInformationMapper;
-import com.pawsitive.pawsitive.mapper.PetMapper;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.nfctag.model.TagStatus;
 import com.pawsitive.pawsitive.nfctag.service.NfcTagService;
-import com.pawsitive.pawsitive.owner.service.OwnerService;
 import com.pawsitive.pawsitive.pet.model.Pet;
 import com.pawsitive.pawsitive.pet.repository.PetRepository;
 import com.pawsitive.pawsitive.user.model.User;
@@ -74,7 +72,7 @@ public class PetServiceImpl implements PetService {
         logger.info("Updating pet information for petId: {}", id);
 
         existingPet.setName(petDTO.name());
-        existingPet.setAge(petDTO.age());
+        existingPet.setBirthYear(petDTO.birthYear());
         existingPet.setBreed(petDTO.breed());
         existingPet.setSex(petDTO.sex());
         existingPet.setPhotoUrl(petDTO.photoUrl());
@@ -102,24 +100,20 @@ public class PetServiceImpl implements PetService {
         }
 
         NfcTag nfcTagByTagId = nfcTagService.getNfcTagByTagId(createPetDTO.nfcTagId());
-//        1. check if NFC Tag is existing and unassigned
+
         if (!nfcTagService.tagIsUnclaimed(nfcTagByTagId)) {
             logger.error("NFC tag {} is not claimed", nfcTagByTagId);
             throw new TagInvalidException("Invalid NFC Tag or is already claimed");
         }
 
-//        2. set the tag as claimed
         nfcTagService.setTagStatus(nfcTagByTagId, TagStatus.CLAIMED);
-
-//        3. check if owner exists and all OK
 
         User userByEmail = userService.getUserByEmail(createPetDTO.ownerEmail());
 
-//        4. create pet
         logger.info("Constructing pet object...");
         Pet pet = new Pet();
         pet.setName(createPetDTO.name());
-        pet.setAge(createPetDTO.age());
+        pet.setBirthYear(createPetDTO.birthYear());
         pet.setBreed(createPetDTO.breed());
         pet.setSex(createPetDTO.sex());
         pet.setPhotoUrl(createPetDTO.photoUrl());

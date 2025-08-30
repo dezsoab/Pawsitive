@@ -107,25 +107,25 @@ public class DataLoader implements CommandLineRunner {
 
             // ----------------- Create Pets via DTO to CLAIM tags-----------------
             petService.createPet(new CreatePetDTO(
-                    "Molli", "Border Collie", 4, Gender.FEMALE, "ABC123", null, user1.getEmail()));
+                    "Molli", "Border Collie", 2001, Gender.FEMALE, "ABC123", null, user1.getEmail()));
 
             petService.createPet(new CreatePetDTO(
-                    "Pille", "Unknown", 6, Gender.FEMALE, "ABC1234", null, user2.getEmail()));
+                    "Pille", "Unknown", 2005, Gender.FEMALE, "ABC1234", null, user2.getEmail()));
 
             petService.createPet(new CreatePetDTO(
-                    "Cézár", "Belgian Shepherd Groenendael", 2, Gender.MALE, "ABC12345", null, user1.getEmail()));
+                    "Cézár", "Belgian Shepherd Groenendael", 2002, Gender.MALE, "ABC12345", null, user1.getEmail()));
 
             petService.createPet(new CreatePetDTO(
-                    "Dog4", "Border collie", 2, Gender.MALE, "ABC123456", null, user1.getEmail()));
+                    "Dog4", "Border collie", 2024, Gender.MALE, "ABC123456", null, user1.getEmail()));
 
             petService.createPet(new CreatePetDTO(
-                    "Dog5", "Belgian", 2, Gender.MALE, "ABC123467", null, user1.getEmail()));
+                    "Dog5", "Belgian", 2025, Gender.MALE, "ABC123467", null, user1.getEmail()));
 
             petService.createPet(new CreatePetDTO(
-                    "Dog6", "Golden retriever", 2, Gender.MALE, "ABC12345678", null, user1.getEmail()));
+                    "Dog6", "Golden retriever", 2020, Gender.MALE, "ABC12345678", null, user1.getEmail()));
 
             petService.createPet(new CreatePetDTO(
-                    "Dog7", "Terrier Mix", 2, Gender.MALE, "ABC123456789", null, user1.getEmail()));
+                    "Dog7", "Terrier Mix", 2023, Gender.MALE, "ABC123456789", null, user1.getEmail()));
 
             // ----------------- Unclaimed tag to test with -----------------
             nfcTagService.createNfcTag(NfcTag.builder()
