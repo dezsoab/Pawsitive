@@ -7,6 +7,9 @@
 .userPage h1 {
   font-size: var(--font-huge);
   padding-top: 5rem;
+  color: var(--color-pink-dark);
+  font-weight: 300;
+  letter-spacing: 0.5rem;
 }
 
 .userPage hr {

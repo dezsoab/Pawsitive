@@ -33,6 +33,9 @@ const ScannedPetDetail = () => {
   const [showLocationPrompt, setShowLocationPrompt] = useState<boolean>(true);
   const [petInformation, setPetInformation] = useState<PetInformationDTO>();
 
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - Number(petInformation?.petDTO.birthYear);
+
   const handleLocationPermission = (info: PetInformationDTO) => {
     if (petId == null) return;
     setShowLocationPrompt(false);
@@ -165,7 +168,7 @@ const ScannedPetDetail = () => {
                   <PawIcon />
                 </div>
                 <div>
-                  <p>{petInformation?.petDTO.age || "-"}</p>
+                  <p>{age || "-"}</p>
                   <span>{t("Pet.age")}</span>
                   <PawIcon />
                 </div>

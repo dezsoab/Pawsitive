@@ -24,7 +24,10 @@ public class Pet {
     @Column(nullable = false)
     private String name;
     private String breed;
-    private int age;
+
+    @Column(nullable = false)
+    private int birthYear;
+
     @Enumerated(EnumType.STRING)
     private Gender sex;
     private String photoUrl;

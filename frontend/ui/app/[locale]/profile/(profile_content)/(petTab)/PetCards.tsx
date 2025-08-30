@@ -55,7 +55,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
 
   const nameRef = useRef<HTMLInputElement>(null);
   const breedRef = useRef<HTMLInputElement>(null);
-  const ageRef = useRef<HTMLInputElement>(null);
+  const birthYearRef = useRef<HTMLInputElement>(null);
   const sexRef = useRef<HTMLSelectElement>(null);
 
   const t = useTranslations();
@@ -95,7 +95,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
     const updatedPet: PetDTO = {
       ...originalPet,
       name: nameRef.current!.value,
-      age: ageRef.current!.value,
+      birthYear: birthYearRef.current!.value,
       breed: breedRef.current!.value,
       sex: sexRef.current!.value as Gender,
       photoUrl,
@@ -130,10 +130,14 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
       )}
       <div className={styles.petContainer}>
         <ul className={styles.cards}>
+          <AddPetCard profile={profile} setProfile={setProfile} />
           {profile.pets
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((pet) => {
               const isEditMode = editPetId === pet.id;
+
+              const currentYear = new Date().getFullYear();
+              const age = currentYear - Number(pet.birthYear);
 
               return (
                 <li key={pet.id}>
@@ -164,7 +168,6 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                         </svg>
                         <div className={styles.card__header_text}>
                           <h3 className={styles.card__title}>{pet.name}</h3>
-                          <span className={styles.card__status}>{pet.id}</span>
                         </div>
                         <div
                           className={styles.editOption}
@@ -219,18 +222,18 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                               defaultValue={pet.breed}
                             />
                             <br />
-                            <label htmlFor={`age-${pet.id}`}>
-                              {t("Pet.age")}:{" "}
+                            <label htmlFor="birthYear">
+                              {t("Pet.birthYear")}:{" "}
                             </label>
                             <input
-                              ref={ageRef}
+                              ref={birthYearRef}
                               type="number"
-                              inputMode="decimal"
-                              pattern="[0-9]*"
-                              id={`age-${pet.id}`}
-                              defaultValue={pet.age}
-                              min={0}
-                              max={20}
+                              id="birthYear"
+                              placeholder={t("Pet.birthYear")}
+                              min={2000} // assuming a pet is no older 25yrs
+                              max={new Date().getFullYear()}
+                              defaultValue={pet.birthYear}
+                              required
                             />
                             <br />
                             <label htmlFor={`sex-${pet.id}`}>
@@ -293,7 +296,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                               {t("Pet.breed")}: {pet.breed}
                             </p>
                             <p>
-                              {t("Pet.age")}: {pet.age}
+                              {t("Pet.age")}: {age}
                             </p>
                             <p>
                               {t("Pet.sex.name")}:{" "}
@@ -309,7 +312,6 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                 </li>
               );
             })}
-          <AddPetCard profile={profile} setProfile={setProfile} />
         </ul>
       </div>
     </div>

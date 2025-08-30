@@ -15,7 +15,7 @@ public class PetMapper implements Mapper<Pet, PetDTO> {
         return new PetDTO(pet.getId(),
                 pet.getName(),
                 pet.getBreed(),
-                pet.getAge(),
+                pet.getBirthYear(),
                 pet.getSex(),
                 pet.getNfcTag().getTagId(),
                 pet.getPhotoUrl(),
@@ -28,7 +28,7 @@ public class PetMapper implements Mapper<Pet, PetDTO> {
         if (dto == null) throw new MapperException("PetDTO cannot be null");
         return Pet.builder()
                 .id(dto.id())
-                .age(dto.age())
+                .birthYear(dto.birthYear())
                 .breed(dto.breed())
                 .sex(dto.sex())
                 .name(dto.name())

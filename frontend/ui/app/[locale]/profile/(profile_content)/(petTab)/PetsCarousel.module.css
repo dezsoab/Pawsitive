@@ -1,3 +1,14 @@
+.title {
+  padding-top: 10rem;
+  padding-bottom: 5rem;
+  margin: 0 auto;
+  color: var(--color-pink-dark);
+  font-weight: 300;
+  font-size: var(--font-huge);
+  letter-spacing: 0.5rem;
+  max-width: var(--max-width);
+}
+
 .cards {
   --surface-color: var(--color-pink-dark);
   display: grid;
@@ -210,5 +221,10 @@
 @media screen and (max-width: 770px) {
   .cards {
     gap: 3rem;
+  }
+
+  .title {
+    padding: 6rem 2rem;
+    font-size: var(--font-big);
   }
 }

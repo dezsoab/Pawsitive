@@ -5,10 +5,10 @@ import com.pawsitive.pawsitive.pet.model.Gender;
 
 import java.time.LocalDateTime;
 
-public record PetDTO(Long id, String name, String breed, int age, Gender sex, String nfcTagId, String photoUrl,
+public record PetDTO(Long id, String name, String breed, int birthYear, Gender sex, String nfcTagId, String photoUrl,
                      LocalDateTime createdAt, LocalDateTime modifiedAt) {
 
-    public PetDTO(Long id, String name, String breed, int age, Gender sex, String nfcTagId, String photoUrl) {
-        this(id, name, breed, age, sex, nfcTagId, photoUrl, null, null);
+    public PetDTO(Long id, String name, String breed, int birthYear, Gender sex, String nfcTagId, String photoUrl) {
+        this(id, name, breed, birthYear, sex, nfcTagId, photoUrl, null, null);
     }
 }
