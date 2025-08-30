@@ -166,7 +166,7 @@
   "Pet": {
     "name": "Név",
     "breed": "Fajta",
-    "age": "Életkor",
+    "birthYear": "Születési év",
     "sex": {
       "name": "Nem",
       "male": "Kan",

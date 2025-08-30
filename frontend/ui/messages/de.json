@@ -166,7 +166,7 @@
   "Pet": {
     "name": "Name",
     "breed": "Rasse",
-    "age": "Alter",
+    "birthYear": "Geburtsjahr",
     "sex": {
       "name": "Geschlecht",
       "male": "Rüde",

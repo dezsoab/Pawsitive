@@ -3,7 +3,7 @@ import { Gender } from "@/enums/gender";
 export interface CreatePetDTO {
   name: string;
   breed: string;
-  age: string;
+  birthYear: string;
   sex: Gender;
   nfcTagId: string;
   photoUrl?: string;

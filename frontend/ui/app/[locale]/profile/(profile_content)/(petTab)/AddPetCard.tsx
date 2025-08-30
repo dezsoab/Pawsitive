@@ -53,7 +53,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
   const nfcTagIdRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const breedRef = useRef<HTMLInputElement>(null);
-  const ageRef = useRef<HTMLInputElement>(null);
+  const birthYearRef = useRef<HTMLInputElement>(null);
   const sexRef = useRef<HTMLSelectElement>(null);
   const t = useTranslations();
 
@@ -95,7 +95,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
       const newPet: CreatePetDTO = {
         nfcTagId: nfcTagIdRef.current!.value,
         name: nameRef.current!.value,
-        age: ageRef.current!.value,
+        birthYear: birthYearRef.current!.value,
         breed: breedRef.current!.value,
         sex: sexRef.current!.value as Gender,
         photoUrl: "",
@@ -193,16 +193,14 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               id="breed"
               placeholder={t("Pet.breed")}
             />
-            <label htmlFor="age">{t("Pet.age")}:</label>
+            <label htmlFor="birthYear">{t("Pet.birthYear")}:</label>
             <input
-              ref={ageRef}
+              ref={birthYearRef}
               type="number"
-              inputMode="decimal"
-              pattern="[0-9]*"
-              id="age"
-              placeholder={t("Pet.age")}
-              min={0}
-              max={25}
+              id="birthYear"
+              placeholder={t("Pet.birthYear")}
+              min={2000} // assuming a pet is no older 25yrs
+              max={new Date().getFullYear()}
               required
             />
             <label htmlFor="sex">{t("Pet.sex.name")}:</label>
