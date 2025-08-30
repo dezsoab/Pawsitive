@@ -167,6 +167,7 @@
     "name": "Name",
     "breed": "Rasse",
     "birthYear": "Geburtsjahr",
+    "age": "Alter",
     "sex": {
       "name": "Geschlecht",
       "male": "Rüde",

@@ -4,7 +4,7 @@ export interface PetDTO {
   id: number;
   name: string;
   breed: string;
-  age: string;
+  birthYear: string;
   sex: Gender;
   nfcTagId: string;
   photoUrl?: string;

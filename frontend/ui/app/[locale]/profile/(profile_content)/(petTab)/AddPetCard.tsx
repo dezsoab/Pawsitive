@@ -201,6 +201,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
               placeholder={t("Pet.birthYear")}
               min={2000} // assuming a pet is no older 25yrs
               max={new Date().getFullYear()}
+              defaultValue={new Date().getFullYear()}
               required
             />
             <label htmlFor="sex">{t("Pet.sex.name")}:</label>

@@ -167,6 +167,7 @@
     "name": "Név",
     "breed": "Fajta",
     "birthYear": "Születési év",
+    "age": "Kor",
     "sex": {
       "name": "Nem",
       "male": "Kan",

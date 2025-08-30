@@ -167,6 +167,7 @@
     "name": "Name",
     "breed": "Breed",
     "birthYear": "Year of birth",
+    "age": "Age",
     "sex": {
       "name": "Sex",
       "male": "Male",
