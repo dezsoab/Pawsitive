@@ -130,6 +130,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
       )}
       <div className={styles.petContainer}>
         <ul className={styles.cards}>
+          <AddPetCard profile={profile} setProfile={setProfile} />
           {profile.pets
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((pet) => {
@@ -312,7 +313,6 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                 </li>
               );
             })}
-          <AddPetCard profile={profile} setProfile={setProfile} />
         </ul>
       </div>
     </div>
