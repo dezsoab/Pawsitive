@@ -211,7 +211,8 @@
     "editHint": {
       "start": "Click on the pen to edit the fields",
       "cancel": "Click on the pen to cancel editing"
-    }
+    },
+    "myPets": "My Pets"
   },
   "Auth": {
     "field": {

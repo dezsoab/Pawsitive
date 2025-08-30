@@ -211,7 +211,8 @@
     "editHint": {
       "start": "Klicke auf den Stift, um die Felder zu bearbeiten",
       "cancel": "Klicke auf den Stift, um das Bearbeiten abzubrechen"
-    }
+    },
+    "myPets": "Meine Haustiere"
   },
   "Auth": {
     "field": {

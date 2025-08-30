@@ -211,7 +211,8 @@
     "editHint": {
       "start": "Kattints a ceruzára a mezők szerkesztéséhez",
       "cancel": "Kattints a ceruzára a szerkesztés megszakításához"
-    }
+    },
+    "myPets": "Kisállataim"
   },
   "Auth": {
     "field": {
