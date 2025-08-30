@@ -168,7 +168,6 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                         </svg>
                         <div className={styles.card__header_text}>
                           <h3 className={styles.card__title}>{pet.name}</h3>
-                          <span className={styles.card__status}>{pet.id}</span>
                         </div>
                         <div
                           className={styles.editOption}
