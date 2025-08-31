@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useLocale } from "next-intl";
@@ -7,8 +7,6 @@ import { useLocale } from "next-intl";
 import styles from "./ProductGrid.module.css";
 import { dummyProducts } from "./dummyProducts";
 import ProductCard from "./ProductCard";
-import LoadingProductCard from "./LoadingProduct";
-import { fetchData } from "../../../../util/fetchData";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,19 +14,6 @@ const ProductGrid: React.FC = () => {
   const locale = useLocale();
   const productRefs = useRef<(HTMLDivElement | null)[]>([]);
   const gridRef = useRef<HTMLDivElement | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    const loadData = async () => {
-      const data = await fetchData(
-        "https://jsonplaceholder.typicode.com/photos"
-      );
-      console.log(data);
-      setIsLoaded(true);
-    };
-
-    loadData();
-  }, []);
 
   useEffect(() => {
     if (gridRef.current) {
@@ -50,11 +35,9 @@ const ProductGrid: React.FC = () => {
         }
       );
     }
-  }, [isLoaded]);
+  }, []);
 
-  return !isLoaded ? (
-    <LoadingProductCard />
-  ) : (
+  return (
     <div ref={gridRef} className={styles.grid}>
       {dummyProducts.map((product, index) => {
         return (
