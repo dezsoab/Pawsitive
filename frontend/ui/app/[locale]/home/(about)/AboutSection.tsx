@@ -15,19 +15,19 @@ const AboutSection = () => {
   return (
     <section>
       <div className={styles.aboutContainer}>
-        <section>
-          <h1>{t("Index.about.about_heading")}</h1>
-          <p className={styles.textFormating}>
-            {t("Index.about.about_description")}
-          </p>
-        </section>
-        <section>
+        <section className={styles.imageSection}>
           <Image
             src={"/assets/showcase2.webp"}
             alt="Product showcase"
             width={500}
             height={500}
           />
+        </section>
+        <section className={styles.textContent}>
+          <h1>{t("Index.about.about_heading")}</h1>
+          <p className={styles.textFormating}>
+            {t("Index.about.about_description")}
+          </p>
         </section>
       </div>
       <div className={styles.featureContainer}>
