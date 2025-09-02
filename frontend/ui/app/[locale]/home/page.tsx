@@ -14,6 +14,7 @@ import showcase1 from "@/public/assets/showcase1.webp";
 import cezar2 from "@/public/assets/cezar2.webp";
 import TagSection from "./(tag)/TagSection";
 import Contact from "./(contact-form)/Contact";
+import ScanMockupSection from "./(scanMockup)/page";
 
 export default function Home() {
   logger.info("Rendering Home");
@@ -24,6 +25,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <TagSection />
+        <ScanMockupSection />
         <AboutSection />
         <Features
           bgc="var(--color-white)"

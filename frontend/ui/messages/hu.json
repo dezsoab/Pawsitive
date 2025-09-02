@@ -13,6 +13,11 @@
       "description1": "Minden Pawsitive bilétát szeretettel, itt a stúdiónkban nyomtatunk, prémium, környezetbarát anyagokból. Az eredmény? Hihetetlenül könnyű, mégis szuper tartós darabok, amik készen állnak kisállatod minden kalandjára – és garantáltan imádnivalóan fognak kinézni!",
       "description2": "Gyönyörű külseje mögött azonban erős, okos technológia rejtőzik. Egy beágyazott NFC chip azonnal átfogó digitális profilhoz csatlakozik, létfontosságú mentőövet nyújtva az elveszett háziállatoknak. Nincs app, nincs elem, nincs macera – csak egy egyszerű, azonnali érintés, és kisállatod információi elérhetővé válnak."
     },
+    "mockup": {
+      "title": "Egy koppintás, és újra együtt",
+      "p1": "Egy gyors szkennelés megmutatja kedvenced fotóját, nevét és az elérhetőségedet — mindezt a megtaláló telefonján. Egy koppintás, és azonnal hívhatnak. Egyszerű, gyors, stresszmentes!",
+      "p2": "És a legjobb rész? Amint valaki leszkenneli kedvenced bilétáját, azonnal SMS-t és e-mailt kapsz. Nincs várakozás, nincs találgatás — csak farokcsóválás és nyugalom."
+    },
     "products": {
       "title": "A Kiskedvencek Imádják. Az Emberek Bíznak Benne.",
       "title_secondary": "Fedezd fel kézműves nyakörveinket és okos NFC kisállat bilétáinkat — tartósak, szuperkönnyen használhatók, és készen állnak minden farokcsóválásra és kalandra."

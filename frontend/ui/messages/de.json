@@ -13,6 +13,11 @@
       "description1": "Jeder Pawsitive-Anhänger wird mit Liebe in unserem Studio aus hochwertigen, umweltfreundlichen Materialien gefertigt. Das Ergebnis? Unglaublich leichte und dennoch super robuste Stücke, die für jedes Abenteuer deines Haustieres bereit sind – und garantiert bezaubernd aussehen werden!",
       "description2": "Doch hinter der schönen Oberfläche verbirgt sich leistungsstarke, intelligente Technologie. Ein eingebetteter NFC-Chip verbindet sich sofort mit einem umfassenden digitalen Profil und bietet eine wichtige Lebensader für verlorene Haustiere. Keine App, keine Batterien, kein Ärger – nur ein einfaches Scannen, und die Informationen deines Haustieres sind verfügbar."
     },
+    "mockup": {
+      "title": "Scannen, Anrufen, Wiedervereinen",
+      "p1": "Ein schneller Scan zeigt das Foto deines Haustiers, seinen Namen und deine Kontaktdaten — direkt auf dem Handy des Finders. Ein Tippen, und sie können dich sofort anrufen. Einfach, schnell, stressfrei!",
+      "p2": "Und das Beste? Du bekommst sofort eine SMS und E-Mail, sobald dein Haustier gescannt wird. Kein Warten, kein Rätselraten — nur glückliche Schwänze und beruhigendes Gefühl."
+    },
     "products": {
       "title": "Haustiere Lieben Es. Menschen Vertrauen Darauf.",
       "title_secondary": "Entdecke unsere handgefertigten Halsbänder und intelligenten NFC-Tieranhänger – langlebig, super einfach zu bedienen und bereit für jedes Schwanzwedeln und Abenteuer."
@@ -45,9 +50,9 @@
     "services": {
       "title": "Was wir dir und deinem Haustier bieten",
       "title_secondary": "Von Benachrichtigungen bei Anhänger-Scan bis hin zur Premium-Produktanpassung – Du kannst dich immer auf uns verlassen",
-      "reason_1": "Individuelles Design, für Haustiere gemacht",
+      "reason_1": "Individuelles Design",
       "reason1_text": "Wähle aus einer Vielzahl von Stilen und passe deinen Anhänger perfekt an die Persönlichkeit deines Haustieres an.",
-      "reason_2": "Sofortige Benachrichtigungen bei verlorenem Haustier",
+      "reason_2": "Sofortige Benachrichtigungen",
       "reason2_text": "Du erhältst sofortige SMS- und E-Mail-Benachrichtigungen, sobald jemand den Anhänger deines verlorenen Haustieres scannt.",
       "reason_3": "Sorgfältige, handgefertigte Qualität",
       "reason3_text": "Jedes einzelne Stück wird mit Liebe und unübertroffener Liebe zum Detail gefertigt, wobei Komfort und Haltbarkeit im Vordergrund stehen."

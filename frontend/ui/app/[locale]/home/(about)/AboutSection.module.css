@@ -4,6 +4,15 @@
   margin: 0 auto;
   max-width: var(--max-width);
   padding: 10rem 0;
+  gap: 2rem;
+}
+
+.aboutContainer .imageSection {
+  flex: 1;
+}
+
+.aboutContainer .textContent {
+  flex: 1;
 }
 
 .aboutContainer h1 {
@@ -17,8 +26,9 @@
 
 .aboutContainer img {
   object-fit: cover;
-  width: 350px;
+  width: 500px;
   height: auto;
+  border-radius: var(--rounding);
 }
 
 .textFormating {
@@ -81,7 +91,7 @@
 
 @media screen and (max-width: 1000px) {
   .aboutContainer {
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
   }
 
