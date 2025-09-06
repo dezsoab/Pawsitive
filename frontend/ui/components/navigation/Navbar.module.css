@@ -53,7 +53,7 @@
 }
 
 .navBar img {
-  border-radius: 50%;
+  border-radius: var(--rounding);
 }
 
 .langPick {
