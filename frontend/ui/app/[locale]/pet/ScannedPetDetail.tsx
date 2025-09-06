@@ -54,7 +54,7 @@ const ScannedPetDetail = () => {
         await toast.promise(
           saveScannedLocation(scannedLocationDTO),
           {
-            pending: "Notifying the owner with GPS location...",
+            pending: t("ScannedPetDetail.notificationPending"),
             success: {
               render() {
                 confetti({
@@ -62,11 +62,10 @@ const ScannedPetDetail = () => {
                   spread: 80,
                   origin: { y: 0.6 },
                 });
-                return "Owner has been notified with GPS Coordinates! Call them ASAP too! 📞";
+                return t("ScannedPetDetail.notificationSuccess");
               },
             },
-            error:
-              "Failed to send GPS coordinates to owner.. Try calling them ASAP! 📞",
+            error: t("ScannedPetDetail.notificationError"),
           },
           { position: "bottom-right", toastId: `notify-owner-${petId}` }
         );
@@ -119,16 +118,15 @@ const ScannedPetDetail = () => {
         <div className={styles.consentShareCoordinates}>
           <div className={styles.consentBox}>
             <p>
-              📍🐾 We’d like to access your location to notify the pet{"'"}s
-              owner where their pet was found.
+              {t("ScannedPetDetail.consentLocation1")}
               <br />
-              This will only be used for this purpose.
+              {t("ScannedPetDetail.consentLocation2")}
             </p>
             <button onClick={() => setShowLocationPrompt(false)}>
-              Not Allow
+              {t("ScannedPetDetail.consentNotAllowLocation")}
             </button>
             <button onClick={() => handleLocationPermission(petInformation!!)}>
-              Allow Location Access
+              {t("ScannedPetDetail.consentAllowLocation")}
             </button>
           </div>
         </div>
