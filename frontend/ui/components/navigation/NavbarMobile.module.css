@@ -18,7 +18,7 @@
 .navHeader img {
   width: 6.5rem;
   height: 6.5rem;
-  border-radius: 50%;
+  border-radius: var(--rounding);
 }
 
 .logo {

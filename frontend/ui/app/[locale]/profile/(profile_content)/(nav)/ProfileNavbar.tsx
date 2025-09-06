@@ -7,6 +7,8 @@ import styles from "./ProfileNavbar.module.css";
 import Image from "next/image";
 import LanguagePicker from "@/components/language/LanguagePicker";
 
+import logo from "../../../../../public/assets/logo.png";
+
 interface ProfileNavbarProps {
   activeTab: profileTabs;
   setActiveTab: Dispatch<SetStateAction<profileTabs>>;
@@ -23,12 +25,7 @@ const ProfileNavbar = ({ activeTab, setActiveTab }: ProfileNavbarProps) => {
         locale={locale}
         className={styles.logoLink}
       >
-        <Image
-          src="/assets/logo.png"
-          width={100}
-          height={100}
-          alt="Pawsitivecollar logo"
-        />
+        <Image src={logo} width={100} height={100} alt="Pawsitivecollar logo" />
       </Link>
       <button>
         <Link href={navigationRoutes.HOME} locale={locale}>
