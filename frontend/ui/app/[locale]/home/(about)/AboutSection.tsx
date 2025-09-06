@@ -8,6 +8,8 @@ import SafetyIcon from "./SafetyIcon";
 import CalmIcon from "./CalmIcon";
 import logger from "@/logging/logger";
 
+import showcase2Img from "../../../../public/assets/showcase2.webp";
+
 const AboutSection = () => {
   const t = useTranslations();
   logger.info("Using Home -> about");
@@ -17,7 +19,7 @@ const AboutSection = () => {
       <div className={styles.aboutContainer}>
         <section className={styles.imageSection}>
           <Image
-            src={"/assets/showcase2.webp"}
+            src={showcase2Img}
             alt="Product showcase"
             width={500}
             height={500}
