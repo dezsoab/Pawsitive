@@ -39,6 +39,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           alt={product.title}
           width={300}
           height={300}
+          unoptimized
         />
         <h3>{product.title}</h3>
         <p>{product.description}</p>

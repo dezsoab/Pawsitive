@@ -7,6 +7,8 @@ import { contacts } from "@/enums/contact";
 import logger from "@/logging/logger";
 import Image from "next/image";
 
+import heroImg from "../../../../public/assets/duett1-landscape.webp";
+
 const Hero = () => {
   const t = useTranslations();
   logger.info("Using Contact -> hero");
@@ -14,7 +16,7 @@ const Hero = () => {
   return (
     <section className={styles.hero}>
       <Image
-        src="/assets/duett1-landscape.webp"
+        src={heroImg.src}
         alt="Hero image"
         fill
         style={{ objectFit: "cover", objectPosition: "center 12%" }}

@@ -7,6 +7,9 @@ import Paragraph from "../(components)/Paragraph";
 import PersonTag from "./PersonTag";
 import BrushStroke from "../(components)/BrushStroke";
 
+import dezsoImg from "../../../../public/assets/dezso.webp";
+import cintiImg from "../../../../public/assets/Cintia.webp";
+
 type OurTeamProps = {
   label: string;
   paragraph: string;
@@ -51,7 +54,7 @@ const OurTeam = ({
               t("About.team.person.founder"),
               t("About.team.person.lead_dev"),
             ]}
-            imgSrc="/assets/dezso.webp"
+            imgSrc={dezsoImg.src}
             imgAlt="Our founder, Dezso"
           />
           <PersonTag
@@ -60,7 +63,7 @@ const OurTeam = ({
               t("About.team.person.co-founder"),
               t("About.team.person.product_design"),
             ]}
-            imgSrc="/assets/Cintia.webp"
+            imgSrc={cintiImg.src}
             imgAlt="Our co-founder, Cintia"
           />
         </div>
