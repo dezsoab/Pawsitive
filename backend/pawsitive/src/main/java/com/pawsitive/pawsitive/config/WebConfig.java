@@ -10,23 +10,20 @@ import java.util.stream.Stream;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-
     @Value("${CORS_ALLOWED_ORIGINS_TEST}")
-    private String corsAllowedOriginsTest;
+    private String CORS_ALLOWED_ORIGINS_TEST;
 
     @Value("${CORS_ALLOWED_ORIGINS_PROD}")
-    private String corsAllowedOriginsProd;
+    private String CORS_ALLOWED_ORIGINS_PROD;
+
+    @Value("${CORS_ALLOWED_ORIGINS_PROD_WWW}")
+    private String CORS_ALLOWED_ORIGINS_PROD_WWW;
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        // Combine allowed origins into a single array
-        String[] allowedOrigins = Stream.of(corsAllowedOriginsTest, corsAllowedOriginsProd)
-                .flatMap(s -> Arrays.stream(s.split(",")))
-                .map(String::trim)
-                .toArray(String[]::new);
-
         registry.addMapping("/**")
-                .allowedOrigins(allowedOrigins)
+                .allowedOrigins("http://10.0.0.136:3000", "http://localhost:3000",
+                        CORS_ALLOWED_ORIGINS_PROD, CORS_ALLOWED_ORIGINS_TEST, CORS_ALLOWED_ORIGINS_PROD_WWW)
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
