@@ -15,11 +15,11 @@
 }
 
 .block h1 {
-  font-size: var(--font-big);
+  font-size: var(--font-mid);
 }
 
 .block h1 + p {
-  font-size: var(--font-mid);
+  font-size: var(--font-paragraph);
   margin-bottom: 5rem;
 }
 
@@ -36,7 +36,7 @@
 .block li p {
   font-weight: 600;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 0.5rem;
 }
 

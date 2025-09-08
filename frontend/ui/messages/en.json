@@ -2,74 +2,75 @@
   "Locale": "en",
   "Index": {
     "hero": {
-      "title": "Handcrafted Tags & Collars",
-      "title_extension": "Infused with Smart NFC for Peace of Mind",
+      "title": "Handcrafted Tags, Collars & Leashes",
+      "title_extension": "Infused with Smart Tech for Peace of Mind",
       "description": "Discover beautifully designed pet accessories that blend timeless style with cutting-edge safety."
     },
     "printerSection": {
       "title1": "Crafted with Care.",
       "title2": "Smart by Design.",
-      "title3": "Built for Adventures.",
-      "description1": "Every Pawsitive tag is lovingly 3D-printed right here in our studio, using premium, eco-friendly materials. The result? Incredibly lightweight yet remarkably durable designs, ready for all your pet's grand adventures – and guaranteed to look absolutely adorable!",
-      "description2": "Beyond its beautiful exterior lies powerful, smart technology. An embedded NFC chip instantly connects to a comprehensive digital profile, acting as a vital lifeline for lost pets. No app, no batteries, no fuss – just a simple, immediate tap and your pet's essential information is accessible."
+      "title3": "Built to Last.",
+      "description1": "Every Pawsitive tag is carefully 3D-printed in our studio with durable, eco-friendly materials. The result? Ultra-light, waterproof, and made to withstand muddy paws, rainy walks, and all the fun in between.",
+      "description2": "But beauty meets function: each tag combines two technologies in one — a tap-friendly NFC chip and a laser-engraved QR code. This way, any smartphone can read your pet’s profile instantly, no matter the situation."
     },
     "mockup": {
       "title": "Scan, Call, Reunite",
-      "p1": "One quick scan shows your pet’s photo, name, and your contact info — all on the finder’s phone. One tap, and they can call you right away. Easy, fast, stress-free!",
-      "p2": "And the best part? You get an instant SMS and email the moment your pet is scanned. No waiting, no guessing — just happy tails and peaceof mind."
+      "p1": "One quick scan or tap shows your pet’s photo, name, and your contact details — directly on the finder’s phone. With a single tap, they can call you right away. Simple, fast, stress-free.",
+      "p2": "And for you? Instant peace of mind. You’ll get an SMS and email alert the very moment your pet’s tag is scanned. No waiting, no guessing — just happy tails and faster reunions."
     },
     "products": {
       "title": "Loved by Paws. Trusted by Humans.",
-      "title_secondary": "Explore our handcrafted collars and smart NFC pet tags — built to last, super easy to use, and ready for every wag and adventure."
+      "title_secondary": "Explore our handcrafted collars and smart pet tags — built to last, super easy to use, and ready for every wag and adventure."
     },
     "testimonial": {
-      "title": "I was absolutely amazed when someone scanned my dog's tag and I got an SMS instantly! The quality is gorgeous, and the idea is just pure genius. Thank you, Pawsitive!",
+      "title": "I was amazed when someone scanned my dog’s tag and I instantly got an SMS! The collar is beautiful, the tag feels solid, and the idea is just pure genius. Thank you, Pawsitive!",
       "customer_adjective": "Grateful Pet Parent"
     },
     "about": {
       "title": "The Pawsitive Story: Crafted with Love",
-      "about_description": "We were tired of boring, scratched-up metal tags that faded way too fast.\nSo, we decided to create something truly special — handcrafted collars with clever NFC tags that actually work when it matters most.\n\nNo batteries. No charging.\nJust a simple tap, and your pet’s profile pops up instantly. Easy peasy!",
-      "first_title": "Crafted with Heart",
+      "about_description": "We were pet parents tired of dull, scratched-up tags that wore out too soon. So we decided to create something better — smart tags that always work, paired with collars and leashes that are truly special.",
+      "about_description2": "From bold paracord weaves to lightweight 3D-printed tags, every product is designed to be unique, functional, and made with love.",
+      "first_title": "Craft That Lasts",
       "second_title": "Smart, Simple & Safe",
       "third_title": "Peace of Mind, Delivered",
-      "block_1": "Our unique products are lovingly handmade using super durable materials like PETG and paracord — making each one as unique and wonderful as your own pet.",
-      "block_2": "Our secure NFC tag links directly to a personalized digital profile. You're completely in control of what info shows up when someone scans it.",
-      "block_3": "Get instant SMS and email alerts the very moment your pet's tag is scanned — no app to download, no complicated setup needed!",
-      "about_heading": "Why we pour our heart into Pawsitive"
+      "block_1": "Our paracord collars and leashes aren’t just strong — they’re comfortable, colorful, and handwoven with patterns that stand out.",
+      "block_2": "With both NFC and QR, your pet’s profile is always just one scan away. And you choose what information shows up — keeping you in control.",
+      "block_3": "The moment someone scans your tag, you’ll know. No apps, no setup headaches — just instant connection and reassurance.",
+      "about_heading": "Where It All Started"
     },
     "features": {
       "title": "What Makes Pawsitive So Special?",
-      "title_secondary": "We lovingly combine premium materials, smart technology, and thoughtful handmade design into one beautiful, dependable solution.",
-      "reason_1": "Handcrafted to Last a Lifetime",
-      "reason1_text": "Every collar and tag is carefully handmade with incredible attention to detail — strong, stylish, and truly one of a kind.",
-      "reason_2": "Tap & Go Smart Tech",
-      "reason2_text": "Our clever smart tags securely store a link to your pet’s unique profile.\nJust tap any smartphone — no special app needed, ever!",
-      "reason_3": "Adventure-Ready & Waterproof",
-      "reason3_text": "The NFC chip is completely sealed inside — making it totally weatherproof and always ready for puddles, playtime, and anything else!"
+      "title_secondary": "We bring together craftsmanship, technology, and design into one dependable solution for pets and their people.",
+      "reason_1": "Handcrafted to Last",
+      "reason1_text": "Collars, leashes, and tags made with meticulous attention to detail.",
+      "reason_2": "Tap & Scan Smart Tech",
+      "reason2_text": "Both NFC and QR for maximum accessibility on any device.",
+      "reason_3": "Adventure-Proof",
+      "reason3_text": "Waterproof, lightweight, and always ready for life outdoors."
     },
     "services": {
-      "title": "What We Offer (Just for You & Your Pet!)",
+      "title": "What We Offer",
       "title_secondary": "From lost pet assistance to beautiful product customization — we've got your precious pet covered, always.",
       "reason_1": "Custom Designs, Made for Them",
-      "reason1_text": "Choose from a delightful variety of styles and personalize your tag to perfectly match your pet’s unique personality.",
+      "reason1_text": "A wide choice of colors and patterns, tailored to your pet’s personality.",
       "reason_2": "Instant Lost Pet Alerts",
-      "reason2_text": "Get immediate SMS and email notifications the moment someone scans your lost pet’s tag – bringing them home faster.",
-      "reason_3": "Thoughtful, Hand-Made Quality",
-      "reason3_text": "Each and every item is lovingly handmade with unmatched attention to detail, ultimate comfort, and lasting durability."
+      "reason2_text": "SMS + email notifications the moment your tag is scanned.",
+      "reason_3": "Thoughtful Handmade Quality",
+      "reason3_text": "Collars, leashes, and tags crafted with comfort and durability in mind."
     },
     "reasoning": {
       "title": "Why Pet Parents Trust Pawsitive",
-      "title_secondary": "More than just a tag — Pawsitive means ultimate safety, irresistible style, and unwavering support, all in one happy package.",
-      "reason_1": "Unique Designs to Love",
-      "reason1_amount": "50+",
-      "reason_2": "Happy Pets Reunited",
+      "title_secondary": "From walks to adventures — safety and style you can count on.",
+      "reason_1": "Handcrafted Designs",
+      "reason1_amount": "85+",
+      "reason_2": "Adventures Tested",
       "reason2_amount": "1000+",
-      "reason_3": "Smiling Customers (and Wagging Tails!)",
+      "reason_3": "Real-Time Alerts Sent",
       "reason3_amount": "5000+"
     },
     "ctasection": {
       "title": "Give your pet more than just a collar.",
-      "title_secondary": "Explore our delightful handcrafted collection and discover how safety can look this utterly amazing."
+      "title_secondary": "Explore our delightful collection and discover how safety can look this utterly amazing."
     },
     "contact": {
       "name": "Your Name",

@@ -2,74 +2,75 @@
   "Locale": "de",
   "Index": {
     "hero": {
-      "title": "Handgefertigte Tieranhänger und Halsbänder",
-      "title_extension": "Mit Intelligenter NFC-Technologie für deine Seelenruhe",
+      "title": "Liebevoll gefertigte Tags, Halsbänder & Leinen",
+      "title_extension": "Mit cleverer Technik für entspannte Sorgenfreiheit",
       "description": "Entdecke wunderschön gestaltetes Tierzubehör, das zeitlosen Stil mit modernster Sicherheit verbindet."
     },
     "printerSection": {
       "title1": "Sorgfältige Handwerkskunst.",
       "title2": "Intelligente Lösungen.",
-      "title3": "Bereit für Abenteuer.",
-      "description1": "Jeder Pawsitive-Anhänger wird mit Liebe in unserem Studio aus hochwertigen, umweltfreundlichen Materialien gefertigt. Das Ergebnis? Unglaublich leichte und dennoch super robuste Stücke, die für jedes Abenteuer deines Haustieres bereit sind – und garantiert bezaubernd aussehen werden!",
-      "description2": "Doch hinter der schönen Oberfläche verbirgt sich leistungsstarke, intelligente Technologie. Ein eingebetteter NFC-Chip verbindet sich sofort mit einem umfassenden digitalen Profil und bietet eine wichtige Lebensader für verlorene Haustiere. Keine App, keine Batterien, kein Ärger – nur ein einfaches Scannen, und die Informationen deines Haustieres sind verfügbar."
+      "title3": "Robust und zuverlässig.",
+      "description1": "Jeder Pawsitive-Tag wird liebevoll in unserem Studio 3D-gedruckt – aus langlebigen, umweltfreundlichen Materialien. Das Ergebnis? Ultraleicht, wasserdicht und bereit für schlammige Pfoten, regnerische Spaziergänge und jede Menge Spaß zwischendurch.",
+      "description2": "Doch Schönheit trifft auf Funktion: Jeder Tag vereint zwei Technologien in einem – einen NFC-Chip, der einfach per Smartphone ausgelesen werden kann, und einen lasergravierten QR-Code. So kann jeder dein Haustierprofil im Handumdrehen sehen, egal wo ihr seid."
     },
     "mockup": {
       "title": "Scannen, Anrufen, Wiedervereinen",
-      "p1": "Ein schneller Scan zeigt das Foto deines Haustiers, seinen Namen und deine Kontaktdaten — direkt auf dem Handy des Finders. Ein Tippen, und sie können dich sofort anrufen. Einfach, schnell, stressfrei!",
-      "p2": "Und das Beste? Du bekommst sofort eine SMS und E-Mail, sobald dein Haustier gescannt wird. Kein Warten, kein Rätselraten — nur glückliche Schwänze und beruhigendes Gefühl."
+      "p1": "Ein kurzer Scan oder Tipp zeigt direkt auf dem Handy des Finders das Foto deines Haustiers, seinen Namen und deine Kontaktdaten. Mit nur einem Tipp können sie dich sofort anrufen. Einfach, schnell und stressfrei.",
+      "p2": "Und für dich? Sofortige Ruhe und Sicherheit. Du bekommst eine SMS und E-Mail-Benachrichtigung, sobald der Tag deines Haustiers gescannt wird. Kein Warten, kein Rätselraten – einfach glückliche Pfoten und schnellere Wiedersehen."
     },
     "products": {
       "title": "Haustiere Lieben Es. Menschen Vertrauen Darauf.",
-      "title_secondary": "Entdecke unsere handgefertigten Halsbänder und intelligenten NFC-Tieranhänger – langlebig, super einfach zu bedienen und bereit für jedes Schwanzwedeln und Abenteuer."
+      "title_secondary": "Entdecke unsere handgefertigten Halsbänder und smarten Haustier-Tags – robust, super einfach zu benutzen und bereit für jedes Schwanzwedeln und Abenteuer."
     },
     "testimonial": {
-      "title": "Ich war total begeistert, als jemand den Anhänger meines Hundes scannte und ich sofort eine SMS bekam! Die Qualität ist wunderschön und die Idee einfach genial. Danke, Pawsitive!",
-      "customer_adjective": "Dankbarer Tierelternteil"
+      "title": "Ich war begeistert, als jemand den Tag meines Hundes gescannt hat und ich sofort eine SMS bekam! Das Halsband ist wunderschön, der Tag wirkt robust, und die Idee ist einfach genial. Danke, Pawsitive!",
+      "customer_adjective": "Glückliche Tiereltern"
     },
     "about": {
       "title": "Die Pawsitive-Geschichte: Mit Liebe gemacht",
-      "about_description": "Wir hatten die Nase voll von langweiligen, zerkratzten Metallanhängern, die viel zu schnell abgenutzt waren.\nAlso haben wir etwas wirklich Besonderes geschaffen – handgefertigte Halsbänder mit intelligenten NFC-Anhängern, die im entscheidenden Moment wirklich funktionieren.\n\nKeine Batterien. Kein Aufladen.\nNur ein einfaches Scannen, und das Profil deines Haustieres wird sofort angezeigt. Kinderleicht!",
-      "first_title": "Mit Herz gemacht",
+      "about_description": "Wir waren Tiereltern, die genug von langweiligen, zerkratzten Tags hatten, die viel zu schnell abgenutzt waren. Also haben wir beschlossen, etwas Besseres zu schaffen – smarte Tags, die immer funktionieren, kombiniert mit Halsbändern und Leinen, die wirklich etwas Besonderes sind.",
+      "about_description2": "Von kräftigen Paracord-Geflechten bis zu leichten 3D-gedruckten Tags – jedes Produkt ist einzigartig, funktional und mit Liebe gemacht.",
+      "first_title": "Handwerk, das bleibt",
       "second_title": "Smart, einfach und sicher",
       "third_title": "Seelenruhe, geliefert",
-      "block_1": "Unsere einzigartigen Produkte werden mit Liebe von Hand aus super strapazierfähigem PETG und Paracord gefertigt – jedes so einzigartig und wunderbar wie dein eigenes Haustier.",
-      "block_2": "Unser sicherer NFC-Anhänger verlinkt direkt zu einem personalisierten digitalen Profil. Du entscheidest, welche Informationen beim Scannen angezeigt werden.",
-      "block_3": "Du erhältst sofortige SMS- und E-Mail-Benachrichtigungen, sobald jemand den Anhänger deines verlorenen Haustieres scannt – kein Herunterladen von Apps oder komplizierte Einstellungen erforderlich!",
-      "about_heading": "Warum wir Pawsitive gegründet haben"
+      "block_1": "Unsere Paracord-Halsbänder und -Leinen sind nicht nur robust – sie sind bequem, farbenfroh und handgewebt mit Mustern, die ins Auge fallen.",
+      "block_2": "Mit NFC und QR ist das Profil deines Haustiers immer nur einen Scan entfernt. Du entscheidest, welche Informationen angezeigt werden – so behältst du die Kontrolle.",
+      "block_3": "Sobald jemand den Tag deines Haustiers scannt, wirst du sofort benachrichtigt. Keine Apps, kein kompliziertes Setup – nur sofortige Verbindung und beruhigendes Wissen.",
+      "about_heading": "Wo alles begann"
     },
     "features": {
       "title": "Was macht Pawsitive so besonders?",
-      "title_secondary": "Wir verbinden Premium-Materialien, intelligente Technologie und sorgfältiges Design mit Liebe zu einer schönen, zuverlässigen Lösung.",
-      "reason_1": "Lebenslange Handwerkskunst",
-      "reason1_text": "Jedes Halsband und jeder Anhänger wird mit unglaublicher Liebe zum Detail gefertigt – robust, stilvoll und wirklich einzigartig.",
-      "reason_2": "Tap and Go NFC Tech",
-      "reason2_text": "Unsere intelligenten Anhänger speichern den Link zum einzigartigen Profil deines Haustieres sicher.\nEinfach an ein Telefon tippen – niemals ist eine separate App erforderlich!",
-      "reason_3": "Abenteuerbereit & Wasserdicht",
-      "reason3_text": "Der NFC-Chip ist vollständig versiegelt – wetterfest und immer bereit für Pfützen, Spiele und alles dazwischen!"
+      "title_secondary": "Wir vereinen Handwerk, Technik und Design zu einer zuverlässigen Lösung für Haustiere und ihre Menschen.",
+      "reason_1": "Liebevoll gefertigt",
+      "reason1_text": "Halsbänder, Leinen und Tags mit größter Sorgfalt hergestellt.",
+      "reason_2": "Smarte Technik zum Antippen & Scannen",
+      "reason2_text": "Sowohl NFC als auch QR für maximale Zugänglichkeit auf jedem Gerät.",
+      "reason_3": "Bereit für jedes Abenteuer",
+      "reason3_text": "Wasserdicht, leicht und immer bereit für das Leben draußen."
     },
     "services": {
-      "title": "Was wir dir und deinem Haustier bieten",
-      "title_secondary": "Von Benachrichtigungen bei Anhänger-Scan bis hin zur Premium-Produktanpassung – Du kannst dich immer auf uns verlassen",
+      "title": "Was wir bieten",
+      "title_secondary": "Von Benachrichtigungen bei Anhänger-Scan bis hin zur Premium-Produktanpassung",
       "reason_1": "Individuelles Design",
-      "reason1_text": "Wähle aus einer Vielzahl von Stilen und passe deinen Anhänger perfekt an die Persönlichkeit deines Haustieres an.",
-      "reason_2": "Sofortige Benachrichtigungen",
-      "reason2_text": "Du erhältst sofortige SMS- und E-Mail-Benachrichtigungen, sobald jemand den Anhänger deines verlorenen Haustieres scannt.",
-      "reason_3": "Sorgfältige, handgefertigte Qualität",
-      "reason3_text": "Jedes einzelne Stück wird mit Liebe und unübertroffener Liebe zum Detail gefertigt, wobei Komfort und Haltbarkeit im Vordergrund stehen."
+      "reason1_text": "Eine große Auswahl an Farben und Mustern, perfekt abgestimmt auf die Persönlichkeit deines Haustiers.",
+      "reason_2": "Sofortige Warnungen bei verlorenem Haustier",
+      "reason2_text": "SMS- und E-Mail-Benachrichtigungen, sobald der Tag deines Haustiers gescannt wird.",
+      "reason_3": "Liebevoll handgefertigte Qualität",
+      "reason3_text": "Halsbänder, Leinen und Tags, die für Komfort und Langlebigkeit gefertigt sind."
     },
     "reasoning": {
       "title": "Warum Tierhalter Pawsitive vertrauen?",
-      "title_secondary": "Pawsitive bedeutet Sicherheit, Stil und Unterstützung in einem glücklichen Paket.",
-      "reason_1": "Einzigartige Designs",
-      "reason1_amount": "50+",
-      "reason_2": "Glückliche Haustiere",
+      "title_secondary": "Vom Spaziergang bis zum Abenteuer – Sicherheit und Stil, auf die du dich verlassen kannst.",
+      "reason_1": "Handgefertigte Designs",
+      "reason1_amount": "85+",
+      "reason_2": "Abenteuer erprobt",
       "reason2_amount": "1000+",
-      "reason_3": "Zufriedene Kunden",
+      "reason_3": "Echtzeit-Benachrichtigungen gesendet",
       "reason3_amount": "5000+"
     },
     "ctasection": {
       "title": "Gib deinem Haustier mehr als nur ein Halsband.",
-      "title_secondary": "Entdecke unsere bezaubernde handgefertigte Kollektion und sieh, wie unglaublich gut Sicherheit aussehen kann."
+      "title_secondary": "Entdecke unsere wunderbare Kollektion und sieh, wie Sicherheit so unglaublich stylisch aussehen kann."
     },
     "contact": {
       "name": "Dein Name",
