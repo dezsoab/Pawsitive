@@ -37,7 +37,16 @@
   height: auto;
 }
 
+@media screen and (max-width: 1300px) {
+  .wrapper {
+    padding: 0 2rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
   .textContent {
     flex: 1;
     text-align: center;
@@ -51,5 +60,13 @@
   .imageWrapper {
     width: 100%;
     max-width: 100%;
+  }
+
+  .textContent h1 {
+    font-size: var(--font-mid);
+  }
+
+  .textContent p {
+    font-size: var(--font-small);
   }
 }

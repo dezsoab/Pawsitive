@@ -30,6 +30,10 @@ const AboutSection = () => {
           <p className={styles.textFormating}>
             {t("Index.about.about_description")}
           </p>
+          <br />
+          <p className={styles.textFormating}>
+            {t("Index.about.about_description2")}
+          </p>
         </section>
       </div>
       <div className={styles.featureContainer}>

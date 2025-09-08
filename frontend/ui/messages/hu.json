@@ -2,74 +2,75 @@
   "Locale": "hu",
   "Index": {
     "hero": {
-      "title": "Kézműves Kisállat Biléták és Nyakörvek",
-      "title_extension": "Okos NFC Technológiával a Nyugalmadért",
+      "title": "Kézzel Készített Biléták, Nyakörvek & Pórázok",
+      "title_extension": "Okos Technológiával a Nyugalomért",
       "description": "Fedezd fel a gyönyörűen megtervezett kisállat-kiegészítőket, amik időtlen stílust ötvöznek a legmodernebb biztonsággal."
     },
     "printerSection": {
       "title1": "Gondos Kézművesség.",
       "title2": "Okos Megoldások.",
-      "title3": "Kalandra Készülve.",
-      "description1": "Minden Pawsitive bilétát szeretettel, itt a stúdiónkban nyomtatunk, prémium, környezetbarát anyagokból. Az eredmény? Hihetetlenül könnyű, mégis szuper tartós darabok, amik készen állnak kisállatod minden kalandjára – és garantáltan imádnivalóan fognak kinézni!",
-      "description2": "Gyönyörű külseje mögött azonban erős, okos technológia rejtőzik. Egy beágyazott NFC chip azonnal átfogó digitális profilhoz csatlakozik, létfontosságú mentőövet nyújtva az elveszett háziállatoknak. Nincs app, nincs elem, nincs macera – csak egy egyszerű, azonnali érintés, és kisállatod információi elérhetővé válnak."
+      "title3": "Tartós.",
+      "description1": "A Pawsitive biléták stúdiónkban készülnek, 3D-nyomtatással, tartós és környezetbarát anyagokból. Az eredmény? Ultra könnyű, vízálló, és készen áll a sáros tappancsokra, esős sétákra és mindenféle játékos kalandra.",
+      "description2": "Minden bilétában két technológia egyesül — egy érintésbarát NFC chip és egy lézerrel gravírozott QR-kód. Így bármelyik okostelefon azonnal olvashatja kedvenced profilját, bármilyen helyzetben."
     },
     "mockup": {
       "title": "Egy koppintás, és újra együtt",
-      "p1": "Egy gyors szkennelés megmutatja kedvenced fotóját, nevét és az elérhetőségedet — mindezt a megtaláló telefonján. Egy koppintás, és azonnal hívhatnak. Egyszerű, gyors, stresszmentes!",
-      "p2": "És a legjobb rész? Amint valaki leszkenneli kedvenced bilétáját, azonnal SMS-t és e-mailt kapsz. Nincs várakozás, nincs találgatás — csak farokcsóválás és nyugalom."
+      "p1": "Egy gyors szkennelés vagy érintés, és a megtaláló azonnal látja kedvenced fényképét, nevét és az elérhetőségedet a telefonján. Egyetlen érintéssel rögtön fel is hívhatnak. Egyszerű, gyors, stresszmentes.",
+      "p2": "És neked? Azonnali nyugalom. Amint a biléta le van szkennelve, SMS-t és e-mailt kapsz riasztásként. Nincs várakozás, nincs találgatás — csak boldog farkincák és gyorsabb újratalálkozás."
     },
     "products": {
       "title": "A Kiskedvencek Imádják. Az Emberek Bíznak Benne.",
-      "title_secondary": "Fedezd fel kézműves nyakörveinket és okos NFC kisállat bilétáinkat — tartósak, szuperkönnyen használhatók, és készen állnak minden farokcsóválásra és kalandra."
+      "title_secondary": "Fedezd fel kézzel készített nyakörveinket és okos bilétáinkat — tartósak, szuper könnyen használhatók, és készen állnak minden farkcsóválásra és kalandra."
     },
     "testimonial": {
-      "title": "Teljesen el voltam ámulva, amikor valaki leolvasta a kutyám bilétáját, és azonnal kaptam egy SMS-t! A minőség gyönyörű, az ötlet pedig egyszerűen zseniális. Köszi, Pawsitive!",
+      "title": "Hihetetlen volt, hogy valaki leolvasta a kutyám bilétáját, és rögtön kaptam egy SMS-t! A nyakörv gyönyörű, a biléta strapabíró, és az ötlet egyszerűen zseniális. Köszönöm, Pawsitive!",
       "customer_adjective": "Hálás Kisállat Szülő"
     },
     "about": {
       "title": "A Pawsitive Története: Szerelemmel Készítve",
-      "about_description": "Elegünk lett az unalmas, karcos fém bilétákból, amik túl gyorsan megkoptak.\nÍgy aztán valami igazán különlegeset alkottunk — kézműves nyakörveket okos NFC-bilétákkal, amik a legfontosabb pillanatban tényleg működnek.\n\nNincs elem. Nincs töltés.\nCsak egy egyszerű érintés, és kisállatod profilja azonnal megjelenik. Pofonegyszerű!",
-      "first_title": "Szívvel Készítve",
-      "second_title": "Okos, Egyszerű és Biztonságos",
-      "third_title": "Nyugalom, Kézbesítve",
-      "block_1": "Egyedi termékeinket szeretettel, kézzel készítjük szuper tartós PETG és paracord anyagokból — mindegyik olyan egyedi és csodálatos, mint a saját kisállatod.",
-      "block_2": "Biztonságos NFC bilétánk közvetlenül egy személyre szabott digitális profilhoz kapcsolódik. Te döntöd el, milyen információk jelenjenek meg, ha valaki leolvassa.",
-      "block_3": "Azonnali SMS és e-mail értesítéseket kapsz, abban a pillanatban, amikor valaki leolvassa elveszett kisállatod bilétáját — nincs szükség alkalmazás letöltésére, bonyolult beállításokra!",
-      "about_heading": "Miért hoztuk létre a Pawsitive-ot"
+      "about_description": "Mi is gazdik voltunk, akik belefáradtak a gyorsan elkopó, karcos bilétákba. Így hát úgy döntöttünk, létrehozunk valami jobbat — okos bilétákat, amelyek mindig működnek, nyakörveket és pórázokat, amelyek valóban különlegesek.",
+      "about_description2": "A merész paracord fonásoktól az ultrakönnyű 3D-nyomtatott bilétákig minden termék egyedi, funkcionális és szeretettel készült.",
+      "first_title": "Tartós Kézművesség",
+      "second_title": "Okos, Egyszerű & Biztonságos",
+      "third_title": "Nyugalom, Amit Érezhetsz",
+      "block_1": "Paracord nyakörveink és pórázaink nemcsak erősek — kényelmesek, színesek és kézzel fonott mintáikkal igazán kiemelkednek.",
+      "block_2": "NFC-vel és QR-kóddal kedvenced profilja mindig egy szkennelésre van. Te döntöd el, milyen információ jelenik meg.",
+      "block_3": "Amint valaki leolvassa a bilétát, azonnal értesülsz. Nincs szükség alkalmazásokra vagy bonyolult beállításokra.",
+      "about_heading": "Honnan Indult Minden"
     },
     "features": {
       "title": "Mitől olyan különleges a Pawsitive?",
-      "title_secondary": "Szeretettel ötvözzük a prémium anyagokat, az okos technológiát és a gondos kézműves tervezést egy gyönyörű, megbízható megoldásba.",
-      "reason_1": "Élethosszig Tartó Kézművesség",
-      "reason1_text": "Minden nyakörv és biléta gondosan, hihetetlen figyelemmel készül — erős, stílusos és igazán egyedi.",
-      "reason_2": "Tap and Go NFC Tech",
-      "reason2_text": "Okos bilétáink biztonságosan tárolják kisállatod egyedi profiljának linkjét.\nCsak érintsd hozzá egy telefonhoz — soha nincs szükség külön alkalmazásra!",
-      "reason_3": "Kalandra Kész & Vízálló",
-      "reason3_text": "Az NFC chip teljesen le van zárva — időjárásálló, és mindig készen áll tócsákra, játékra és minden másra!"
+      "title_secondary": "Összekapcsoljuk a kézművességet, a technológiát és a dizájnt egy megbízható megoldásban kedvenceidnek és gazdáiknak.",
+      "reason_1": "Kézzel Készített, Tartós",
+      "reason1_text": "Nyakörvek, pórázok és biléták, aprólékos odafigyeléssel elkészítve.",
+      "reason_2": "Érintés & Szkennelés Okos Technológia",
+      "reason2_text": "NFC és QR, hogy bármilyen eszközön könnyen hozzáférhető legyen.",
+      "reason_3": "Kalandálló",
+      "reason3_text": "Vízhatlan, könnyű, és mindig készen áll a szabadban töltött órákra."
     },
     "services": {
-      "title": "Amit Neked és Kisállatodnak kínálunk",
-      "title_secondary": "A biléta-scan értesítéstől a prémium termék testreszabásáig - mindig számíthatsz ránk",
-      "reason_1": "Egyedi Tervezés, Kedvenceknek Készült",
-      "reason1_text": "Válassz a stílusok széles választékából, és szabd személyre bilétádat, hogy tökéletesen illeszkedjen kisállatod személyiségéhez.",
-      "reason_2": "Azonnali Elveszett Kisállat Riasztások",
-      "reason2_text": "Azonnali SMS és e-mail értesítéseket kapsz, abban a pillanatban, amikor valaki leolvassa elveszett kisállatod bilétáját.",
-      "reason_3": "Gondos, Kézműves Minőség",
-      "reason3_text": "Minden egyes darabot szeretettel és páratlan odafigyeléssel készítünk, szem előtt tartva a kényelmet és a tartósságot."
+      "title": "Amit Kínálunk",
+      "title_secondary": "Az elveszett kedvenc segítésétől a gyönyörű, személyre szabott termékekig — mindig gondoskodunk a háziállatodról.",
+      "reason_1": "Egyedi Tervezés",
+      "reason1_text": "Széles szín- és mintaválaszték, kedvenced személyiségéhez igazítva.",
+      "reason_2": "Azonnali \"Megtalált\" Értesítések",
+      "reason2_text": "SMS és e-mail értesítések abban a pillanatban, amikor a biléta leolvasásra kerül.",
+      "reason_3": "Gondos, Kézzel Készített Minőség",
+      "reason3_text": "Nyakörvek, pórázok és biléták, a kényelem és tartósság szem előtt tartásával készítve."
     },
     "reasoning": {
       "title": "Miért Bíznak a Gazdik a Pawsitive-ban?",
-      "title_secondary": "A Pawsitive a biztonságot, a stílust és a támogatást jelenti egy boldog csomagban.",
-      "reason_1": "Egyedi Dizájn",
-      "reason1_amount": "50+",
-      "reason_2": "Boldog Kisállat",
+      "title_secondary": "Sétáktól a kalandokig — biztonság és stílus, amire számíthatsz.",
+      "reason_1": "Kézzel Készített Dizájn",
+      "reason1_amount": "85+",
+      "reason_2": "Kalandon Tesztelve",
       "reason2_amount": "1000+",
-      "reason_3": "Mosolygó Vásárló",
+      "reason_3": "Valós Idejű Értesítés Kiküldve",
       "reason3_amount": "5000+"
     },
     "ctasection": {
       "title": "Adj kedvencednek többet egy nyakörvnél.",
-      "title_secondary": "Fedezd fel elbűvölő kézműves kollekciónkat, és nézd meg, milyen elképesztően jól nézhet ki a biztonság."
+      "title_secondary": "Fedezd fel csodás kollekciónkat, és nézd meg, hogyan lehet a biztonság ilyen lenyűgözően stílusos."
     },
     "contact": {
       "name": "A Neved",

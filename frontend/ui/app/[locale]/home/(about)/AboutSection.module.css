@@ -20,7 +20,7 @@
   margin-bottom: 2rem;
 }
 
-.aboutContainer h1 + p {
+.aboutContainer p {
   font-size: var(--font-paragraph);
 }
 

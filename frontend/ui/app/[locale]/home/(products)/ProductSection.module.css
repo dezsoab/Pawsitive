@@ -7,7 +7,7 @@
 }
 
 .products > h2 {
-  font-size: var(--font-big);
+  font-size: var(--font-mid);
   margin-bottom: 1rem;
 }
 
