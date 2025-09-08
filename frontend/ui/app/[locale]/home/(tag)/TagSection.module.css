@@ -36,6 +36,7 @@
 .printerText h1 {
   font-size: var(--font-big);
   margin-bottom: 5rem;
+  line-height: 5rem;
 }
 
 .printerText p {
@@ -62,5 +63,19 @@
     text-align: center;
     order: 1;
     padding: 2rem;
+  }
+
+  .printerText h1 {
+    font-size: var(--font-mid);
+  }
+
+  .printerText p {
+    font-size: var(--font-small);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .printerText h1 {
+    font-size: var(--font-mid);
   }
 }
