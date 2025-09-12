@@ -21,6 +21,7 @@
   min-height: 300px;
   max-height: 600px;
   position: relative;
+  cursor: grab;
 }
 
 .canvasWrapper canvas {
@@ -55,8 +56,6 @@
     max-height: none;
     order: 2;
     margin-bottom: 5rem;
-    border-top: 1px solid rgba(128, 128, 128, 0.141);
-    border-bottom: 1px solid rgba(128, 128, 128, 0.141);
   }
 
   .printerText {
@@ -74,8 +73,8 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .printerText h1 {
-    font-size: var(--font-mid);
+@media screen and (max-width: 800px) {
+  .canvasWrapper {
+    background-color: #f2f2f2a2;
   }
 }
