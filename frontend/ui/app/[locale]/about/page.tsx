@@ -25,7 +25,7 @@ export default function AboutPage() {
           paragraph2={t("About.about.paragraph2")}
           paragraph3={t("About.about.paragraph3")}
           paragraph4={t("About.about.paragraph4")}
-          imageSrc={molli1Img.src}
+          imageSrc={molli1Img}
           imageAlt="some Alt"
           slideFrom={-150}
         />
@@ -36,7 +36,7 @@ export default function AboutPage() {
           paragraph3={t("About.history.paragraph3")}
           paragraph4={t("About.history.paragraph4")}
           paragraph5={t("About.history.paragraph5")}
-          imageSrc={cezar1Img.src}
+          imageSrc={cezar1Img}
           imageAlt="some Alt"
           contentStyle={{ flexDirection: "row-reverse" }}
           containerStyle={{ backgroundColor: "var(--color-white)" }}
@@ -49,7 +49,7 @@ export default function AboutPage() {
           paragraph3={t("About.sustainability.paragraph3")}
           paragraph4={t("About.sustainability.paragraph4")}
           paragraph5={t("About.sustainability.paragraph5")}
-          imageSrc={cezar2Img.src}
+          imageSrc={cezar2Img}
           imageAlt="some Alt"
           slideFrom={150}
         />

@@ -16,8 +16,8 @@ const Hero = () => {
   return (
     <section className={styles.hero}>
       <Image
-        src={heroImg.src}
-        alt="Hero image"
+        src={heroImg}
+        alt="Nari and Molli relaxing in the nature"
         fill
         style={{ objectFit: "cover", objectPosition: "center 35%" }}
         priority

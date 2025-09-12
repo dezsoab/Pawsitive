@@ -1,11 +1,11 @@
 "use client";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import styles from "./PersonTag.module.css";
 
 type PersonTagProps = {
-  imgSrc: string;
+  imgSrc: StaticImageData;
   imgAlt: string;
   name: string;
   roles: string[];
