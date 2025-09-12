@@ -71,7 +71,7 @@ const ForceResize = () => {
 
 const TagSection = () => {
   const t = useTranslations();
-  const { scene } = useGLTF("/assets/Bone_bella.glb");
+  const { scene } = useGLTF("/assets/Bone_tag.glb");
   const triggerRef = useRef<HTMLDivElement>(null);
 
   const clonedScene = useMemo(() => {
@@ -79,7 +79,7 @@ const TagSection = () => {
     const scale = 12;
     clone.scale.set(scale, scale, scale);
     clone.rotation.x = 1.2;
-    clone.position.y = 0.05;
+    clone.position.y = 0.01;
     return clone;
   }, [scene]);
 
@@ -128,6 +128,13 @@ const TagSection = () => {
           <Suspense fallback={<Cat />}>
             <RotatingTag model={clonedScene} triggerRef={triggerRef} />
           </Suspense>
+          <OrbitControls
+            enablePan={false}
+            enableZoom={true}
+            enableRotate={true}
+            minDistance={0.5} // how close you can zoom
+            maxDistance={1} // how far you can zoom
+          />
         </Canvas>
       </div>
       <div className={styles.printerText}>
@@ -149,4 +156,4 @@ const TagSection = () => {
 
 export default TagSection;
 
-useGLTF.preload("/assets/Bone_bella.glb");
+useGLTF.preload("/assets/Bone_tag.glb");
