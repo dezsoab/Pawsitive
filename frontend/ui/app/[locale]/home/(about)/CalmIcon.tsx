@@ -9,6 +9,7 @@ const CalmIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
+        fill="#e27d6e"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
