@@ -52,8 +52,8 @@ const FeatureBlock = ({ flexDir, imgPath, isServices }: FeatureBlockProps) => {
       <Image
         src={imgPath}
         alt="Pawsitive Collar Model"
-        width={300}
-        height={300}
+        width={2000}
+        height={5000}
         data-testid="block-image"
       />
     </div>

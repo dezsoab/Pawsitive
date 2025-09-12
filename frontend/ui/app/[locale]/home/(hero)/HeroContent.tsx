@@ -21,17 +21,19 @@ const HeroContent = () => {
         </h1>
         <p>{t("Index.hero.title_extension")}</p>
       </div>
-      <p>{t("Index.hero.description")}</p>
-      <CTAButton
-        toPath={navigationRoutes.SHOP}
-        title={t("Navigation.shop")}
-        style={{
-          backgroundColor: "var(--color-pink-mid)",
-          color: "var(--color-white)",
-        }}
-        locale={locale}
-        classList={styles.jelly}
-      />
+      <div>
+        <p>{t("Index.hero.description")}</p>
+        <CTAButton
+          toPath={navigationRoutes.SHOP}
+          title={t("Navigation.shop")}
+          style={{
+            backgroundColor: "var(--color-pink-mid)",
+            color: "var(--color-white)",
+          }}
+          locale={locale}
+          classList={styles.jelly}
+        />
+      </div>
     </div>
   );
 };
