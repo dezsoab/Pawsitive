@@ -11,8 +11,8 @@ type ParagraphProps = {
   slideFrom?: number;
 };
 
-const Paragraph = ({ title, slideFrom }: ParagraphProps) => {
-  const paragraphRef = useRef<HTMLDivElement>(null);
+const Paragraph = ({ title, slideFrom = 100 }: ParagraphProps) => {
+  const paragraphRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -34,7 +34,24 @@ const Paragraph = ({ title, slideFrom }: ParagraphProps) => {
       );
     }, paragraphRef);
 
-    return () => ctx.revert(); // clean up on unmount
+    // Refresh ScrollTrigger when any image finishes loading
+    const handleImgLoad = () => ScrollTrigger.refresh();
+    const imgs = document.querySelectorAll("img");
+    imgs.forEach((img) => {
+      if (!img.complete) {
+        img.addEventListener("load", handleImgLoad);
+        img.addEventListener("error", handleImgLoad);
+      }
+    });
+
+    // Cleanup on unmount
+    return () => {
+      ctx.revert();
+      imgs.forEach((img) => {
+        img.removeEventListener("load", handleImgLoad);
+        img.removeEventListener("error", handleImgLoad);
+      });
+    };
   }, [slideFrom]);
 
   return (
