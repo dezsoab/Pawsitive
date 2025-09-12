@@ -25,9 +25,10 @@ const Paragraph = ({ title, slideFrom }: ParagraphProps) => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: paragraphRef.current,
-            start: "top 95%",
+            start: "top 80%",
             end: "top 50%",
             scrub: true,
+            // markers: true,
           },
         }
       );
