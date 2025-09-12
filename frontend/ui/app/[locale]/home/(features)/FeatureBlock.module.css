@@ -6,12 +6,11 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  padding: 10rem 0;
+  padding: 10rem 2rem;
 }
 
 .block div {
-  flex: 2;
-  padding: 0 2rem;
+  flex: 1;
 }
 
 .block h1 {
@@ -50,13 +49,26 @@
 }
 
 .block img {
-  max-width: 400px;
+  width: 100%;
+  max-width: 600px;
   height: auto;
-  flex: 1;
+  flex: 2;
   border-radius: var(--rounding);
 }
 
 @media screen and (max-width: 1000px) {
+  .block {
+    flex-direction: column;
+  }
+
+  .block div {
+    text-align: center;
+  }
+
+  .block ul li p {
+    justify-content: center;
+  }
+
   .block h1 {
     font-size: var(--font-mobile-header);
   }

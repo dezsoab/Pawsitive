@@ -41,6 +41,16 @@
   .wrapper {
     padding: 0 2rem;
   }
+  .textContent {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -49,7 +59,6 @@
   }
   .textContent {
     flex: 1;
-    text-align: center;
   }
 
   .wrapper {

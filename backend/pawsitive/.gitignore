@@ -35,3 +35,7 @@ build/
 
 ### Generated Tag UUIDs
 database/
+
+### Docker compose
+docker-compose.prod.yml
+docker-compose.test.yml

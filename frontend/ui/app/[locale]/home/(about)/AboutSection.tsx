@@ -8,7 +8,7 @@ import SafetyIcon from "./SafetyIcon";
 import CalmIcon from "./CalmIcon";
 import logger from "@/logging/logger";
 
-import showcase2Img from "../../../../public/assets/showcase2.webp";
+import showcase2Img from "../../../../public/assets/ph53.JPG";
 
 const AboutSection = () => {
   const t = useTranslations();
