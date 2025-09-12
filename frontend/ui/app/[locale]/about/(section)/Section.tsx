@@ -39,8 +39,8 @@ const Section = ({
           <Image
             src={imageSrc}
             alt={imageAlt}
-            width={200}
-            height={500}
+            width={5200}
+            height={2400}
             className={styles.about_img}
           />
         </div>

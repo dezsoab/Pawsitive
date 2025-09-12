@@ -8,9 +8,9 @@ import styles from "./Page.module.css";
 import Navbar from "../../../components/navigation/Navbar";
 import Footer from "../../../components/footer/Footer";
 
-import molli1Img from "../../../public/assets/molli1.webp";
-import cezar1Img from "../../../public/assets/cezar1.webp";
-import cezar2Img from "../../../public/assets/cezar2.webp";
+import molli1Img from "../../../public/assets/ph17.JPG";
+import cezar1Img from "../../../public/assets/ph34.JPG";
+import cezar2Img from "../../../public/assets/ph4.JPG";
 
 export default function AboutPage() {
   const t = useTranslations();

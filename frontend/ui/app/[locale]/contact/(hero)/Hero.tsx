@@ -7,7 +7,7 @@ import { contacts } from "@/enums/contact";
 import logger from "@/logging/logger";
 import Image from "next/image";
 
-import heroImg from "../../../../public/assets/duett1-landscape.webp";
+import heroImg from "../../../../public/assets/ph1.JPG";
 
 const Hero = () => {
   const t = useTranslations();
@@ -19,7 +19,7 @@ const Hero = () => {
         src={heroImg.src}
         alt="Hero image"
         fill
-        style={{ objectFit: "cover", objectPosition: "center 12%" }}
+        style={{ objectFit: "cover", objectPosition: "center 35%" }}
         priority
       />
       <div>
