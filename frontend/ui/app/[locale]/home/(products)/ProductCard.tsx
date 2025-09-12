@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import styles from "./ProductGrid.module.css";
 
 interface Product {
   id: number;
   title: string;
-  image: string;
+  img: StaticImageData;
   description: string;
 }
 
@@ -34,13 +34,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         }}
         className={`${styles.product_card} ${styles.hidden}`}
       >
-        <Image
-          src={product.image}
-          alt={product.title}
-          width={300}
-          height={300}
-          unoptimized
-        />
+        <Image src={product.img} alt={product.title} width={300} height={300} />
         <h3>{product.title}</h3>
         <p>{product.description}</p>
       </div>
