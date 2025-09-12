@@ -31,11 +31,12 @@
 
   .products > h2 {
     font-size: var(--font-mobile-header);
+    padding: 0 2rem;
   }
 
   .products > h3 {
     font-size: var(--font-small);
-    padding: 0 1rem;
+    padding: 0 2rem;
     margin-top: 2rem;
   }
 }
@@ -47,10 +48,6 @@
 }
 
 @media screen and (max-width: 410px) {
-  .products > h2 {
-    padding: 1rem;
-  }
-
   .products > h3 {
     padding: 0 2rem;
   }
