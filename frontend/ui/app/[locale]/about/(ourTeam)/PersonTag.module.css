@@ -12,7 +12,3 @@
   object-fit: cover;
   transition: transform 0.4s ease;
 }
-
-.personTag:hover .personImage {
-  transform: scale(1.5);
-}
