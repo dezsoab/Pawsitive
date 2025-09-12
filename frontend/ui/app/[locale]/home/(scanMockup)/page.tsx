@@ -1,13 +1,28 @@
 import React from "react";
 
-import mockupImage from "../../../../public/assets/scanmockup.png";
-import Image from "next/image";
+import mockupImageHU from "../../../../public/assets/mockup_hu.png";
+import mockupImageDE from "../../../../public/assets/mockup_de.png";
+import mockupImageEN from "../../../../public/assets/mockup_en.png";
+
+import Image, { StaticImageData } from "next/image";
 
 import styles from "./ScanMockup.module.css";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const ScanMockupSection = () => {
   const t = useTranslations("Index.mockup");
+  const locale = useLocale();
+
+  type SupportedLocale = "hu" | "de" | "en";
+
+  const mockupImages: Record<SupportedLocale, StaticImageData> = {
+    hu: mockupImageHU,
+    de: mockupImageDE,
+    en: mockupImageEN,
+  };
+
+  const mockupImage = mockupImages[locale as SupportedLocale] || mockupImageEN;
+
   return (
     <section className={styles.mockupSection}>
       <div className={styles.wrapper}>
