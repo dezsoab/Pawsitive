@@ -270,7 +270,7 @@
     "notificationPending": "Notifying the owner with GPS location...",
     "notificationSuccess": "Owner has been notified with GPS Coordinates! Call them ASAP too! 📞",
     "notificationError": "Failed to send GPS coordinates to owner.. Try calling them ASAP! 📞",
-    "consentLocation1": "📍🐾 We’d like to access your location to notify the pet{\"'\"}s owner where their pet was found.",
+    "consentLocation1": "📍🐾 We’d like to access your location to notify the pet's owner where their pet was found.",
     "consentLocation2": "This will only be used for this purpose.",
     "consentAllowLocation": "Allow location access",
     "consentNotAllowLocation": "Not allow"
