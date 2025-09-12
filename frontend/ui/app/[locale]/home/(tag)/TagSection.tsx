@@ -34,7 +34,7 @@ const RotatingTag = ({
     const ctx = gsap.context(() => {
       gsap.to(groupRef.current!.rotation, {
         y: Math.PI * 2,
-        duration: 2.5,
+        duration: 3.5,
         ease: "power2.out",
         scrollTrigger: {
           trigger: triggerRef.current,
