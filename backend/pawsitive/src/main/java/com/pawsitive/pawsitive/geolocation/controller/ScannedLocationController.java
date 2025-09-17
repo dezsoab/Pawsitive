@@ -2,11 +2,13 @@ package com.pawsitive.pawsitive.geolocation.controller;
 
 import com.pawsitive.pawsitive.dto.RESTResponse;
 import com.pawsitive.pawsitive.dto.ScannedLocationDTO;
+import com.pawsitive.pawsitive.exception.NotificationFailedException;
 import com.pawsitive.pawsitive.geolocation.model.ScannedLocation;
 import com.pawsitive.pawsitive.geolocation.service.LocationService;
 import com.pawsitive.pawsitive.geolocation.service.ScannedLocationServiceImpl;
 import com.pawsitive.pawsitive.messaging.mailing.service.SendGridEmailService;
 import com.pawsitive.pawsitive.mapper.ScannedLocationMapper;
+import com.pawsitive.pawsitive.messaging.notification.NotificationResult;
 import com.pawsitive.pawsitive.messaging.sms.twillio.service.TwilioSmsService;
 import com.pawsitive.pawsitive.util.date.TimeConstants;
 import com.pawsitive.pawsitive.util.time.ElapsedTimeChecker;
@@ -32,8 +34,12 @@ public class ScannedLocationController {
 
     @PostMapping
     public ResponseEntity<RESTResponse> save(@RequestBody ScannedLocationDTO dto) {
-        logger.info("Received scanned location for pet: {}", dto.pet().id());
-        scannedLocationServiceImpl.handleScannedLocation(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(new RESTResponse("Scanned location saved"));
+        logger.info("Received scanned location request");
+        NotificationResult notificationResult = scannedLocationServiceImpl.handleScannedLocation(dto);
+        if (notificationResult.getResults().containsValue(Boolean.TRUE)) {
+            logger.info("At least one notification result was successful");
+            return ResponseEntity.status(HttpStatus.CREATED).body(new RESTResponse("Owner is notified"));
+        }
+        throw new NotificationFailedException("Owner could not be notified");
     }
 }

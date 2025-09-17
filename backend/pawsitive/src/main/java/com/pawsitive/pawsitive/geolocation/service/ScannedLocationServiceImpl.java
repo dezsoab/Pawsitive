@@ -4,8 +4,13 @@ import com.pawsitive.pawsitive.dto.ScannedLocationDTO;
 import com.pawsitive.pawsitive.geolocation.model.ScannedLocation;
 import com.pawsitive.pawsitive.geolocation.repository.ScannedLocationRepository;
 import com.pawsitive.pawsitive.messaging.mailing.service.SendGridEmailService;
-import com.pawsitive.pawsitive.mapper.ScannedLocationMapper;
+import com.pawsitive.pawsitive.messaging.notification.NotificationResult;
+import com.pawsitive.pawsitive.messaging.notification.NotificationType;
 import com.pawsitive.pawsitive.messaging.sms.twillio.service.TwilioSmsService;
+import com.pawsitive.pawsitive.pet.model.Pet;
+import com.pawsitive.pawsitive.pet.service.PetService;
+import com.pawsitive.pawsitive.scan.model.ScanEvent;
+import com.pawsitive.pawsitive.scan.repository.ScanEventRepository;
 import com.pawsitive.pawsitive.util.date.TimeConstants;
 import com.pawsitive.pawsitive.util.time.ElapsedTimeChecker;
 import lombok.AllArgsConstructor;
@@ -22,28 +27,19 @@ public class ScannedLocationServiceImpl implements LocationService<ScannedLocati
     private static final Logger logger = LoggerFactory.getLogger(ScannedLocationServiceImpl.class);
 
     private final ScannedLocationRepository scannedLocationRepository;
+    private final ScanEventRepository scanEventRepository;
     private final SendGridEmailService sendGridEmailService;
-    private final ScannedLocationMapper scannedLocationMapper;
+    private final PetService petService;
     private final TwilioSmsService twilioSmsService;
 
-
-    @Override
-    public ScannedLocation saveLocation(ScannedLocation location) {
-        logger.info("Saving location scan for pet: {}", location.getPet().getId());
-        return scannedLocationRepository.save(location);
-    }
-
-    public void handleScannedLocation(ScannedLocationDTO dto) {
+    public NotificationResult handleScannedLocation(ScannedLocationDTO dto) {
         logger.info("Handling scanned location for pet: {}", dto.pet().id());
-
-        ScannedLocation currentLocation = scannedLocationMapper.toEntity(dto);
-
-        Optional<ScannedLocation> lastLocationOpt = scannedLocationRepository.findFirstByPetIdOrderByScannedAtDesc(dto.pet().id());
-
+        Optional<ScanEvent> lastScanOpt = scanEventRepository
+                .findFirstByPetIdOrderByScannedAtDesc(dto.pet().id());
         boolean shouldNotifyOwner = true;
 
-        if (lastLocationOpt.isPresent()) {
-            ScannedLocation lastScan = lastLocationOpt.get();
+        if (lastScanOpt.isPresent()) {
+            ScanEvent lastScan = lastScanOpt.get();
             long elapsedMillis = ElapsedTimeChecker.checkElapsedTimeMillis(lastScan.getScannedAt(), LocalDateTime.now());
 
             if (elapsedMillis < TimeConstants.ONE_MINUTE * 5) {
@@ -52,13 +48,48 @@ public class ScannedLocationServiceImpl implements LocationService<ScannedLocati
             }
         }
 
-        ScannedLocation savedRecentLocation = saveLocation(currentLocation);
+
+        logger.info("Creating ScanEvent object");
+        ScanEvent scanEvent = new ScanEvent();
+        Pet pet = petService.getPetById(dto.pet().id());
+        scanEvent.setPet(pet);
+        scanEvent.setConsentGiven(dto.latitude() != null && dto.longitude() != null);
+        scanEvent.setLocale(dto.locale());
+
+        scanEvent = scanEventRepository.save(scanEvent);
+        logger.info("Saved ScanEvent object in relation to pet: {}", dto.pet().id());
+
+        ScannedLocation savedLocation = null;
+        if (scanEvent.isConsentGiven()) {
+            ScannedLocation location = new ScannedLocation(dto.latitude(), dto.longitude(), scanEvent);
+            savedLocation = scannedLocationRepository.save(location);
+            scanEvent.setScannedLocation(savedLocation);
+        }
+
+        NotificationResult notificationResult = new NotificationResult();
+        notificationResult.getResults().put(NotificationType.EMAIL, Boolean.FALSE);
+        notificationResult.getResults().put(NotificationType.SMS, Boolean.FALSE);
 
         if (shouldNotifyOwner) {
-            logger.info("Last owner notification happened more than 5 minutes ago -> notifying owner of pet: {}", dto.pet().id());
-            sendGridEmailService.sendScannedPet(savedRecentLocation, dto);
-            twilioSmsService.sendSmsToOwnerOnScannedLocation(dto, savedRecentLocation);
+            logger.info("Notifying owner of pet: {}", dto.pet().id());
+
+            try {
+                sendGridEmailService.sendScannedPet(savedLocation, pet, scanEvent, dto.locale());
+                notificationResult.getResults().put(NotificationType.EMAIL, Boolean.TRUE);
+            } catch (Exception e) {
+                logger.error("Failed to send email notification for pet {}", pet.getId(), e);
+            }
+
+            try {
+                twilioSmsService.sendSmsToOwnerOnScannedLocation(dto, scanEvent);
+                notificationResult.getResults().put(NotificationType.SMS, Boolean.TRUE);
+            } catch (Exception e) {
+                logger.error("Failed to send SMS notification for pet {}", pet.getId(), e);
+            }
+
+            // TODO: refactor to use observer or event-driven notification system
         }
+        return notificationResult;
     }
 
 }
