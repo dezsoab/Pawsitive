@@ -42,7 +42,6 @@ const ScannedPetDetail = () => {
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
-        console.log("Got position:", position);
         const { latitude, longitude } = position.coords;
         const scannedLocationDTO: ScannedLocationDTO = {
           latitude,
@@ -71,7 +70,7 @@ const ScannedPetDetail = () => {
         );
       },
       (error) => {
-        console.warn("Standort konnte nicht ermittelt werden:", error);
+        console.warn("Standort konnte nicht ermittelt werden: ", error);
       },
       {
         enableHighAccuracy: true,
@@ -107,6 +106,33 @@ const ScannedPetDetail = () => {
       });
   }, [petInformation]);
 
+  const handleNoConsent = async () => {
+    if (!petInformation) return;
+    setShowLocationPrompt(false);
+
+    await toast.promise(
+      saveScannedLocation({
+        pet: petInformation.petDTO,
+        locale,
+      }),
+      {
+        pending: t("ScannedPetDetail.notificationPending"),
+        success: {
+          render() {
+            confetti({
+              particleCount: 150,
+              spread: 80,
+              origin: { y: 0.6 },
+            });
+            return t("ScannedPetDetail.notificationSuccess");
+          },
+        },
+        error: t("ScannedPetDetail.notificationError"),
+      },
+      { position: "bottom-right", toastId: `notify-owner-${petId}` }
+    );
+  };
+
   if (petInformation === null) {
     return <Cat />;
   }
@@ -122,7 +148,7 @@ const ScannedPetDetail = () => {
               <br />
               {t("ScannedPetDetail.consentLocation2")}
             </p>
-            <button onClick={() => setShowLocationPrompt(false)}>
+            <button onClick={() => handleNoConsent()}>
               {t("ScannedPetDetail.consentNotAllowLocation")}
             </button>
             <button onClick={() => handleLocationPermission(petInformation!!)}>

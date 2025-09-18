@@ -13,10 +13,15 @@ public enum EmailTemplateID {
             "hu", "d-490d66751aae49848a5133c361c2dac0",
             "de", "d-50b5a07db4744b57900ae858ecdea68b"
     )),
-    SCANNED_PET(Map.of(
+    SCANNED_PET_WITH_LOCATION(Map.of(
             "en", "d-f74e842bbeee4eeb84ea8001ab925b5f",
             "hu", "d-1d33ba194631424a8066a71aca98cc85",
             "de", "d-bb92eed1689c410da16e89dca441211c"
+    )),
+    SCANNED_PET_NO_LOCATION(Map.of(
+            "en", "d-cb0377555ad14c44bc413e6762e39322",
+            "hu", "d-2641a8b2dc3049348892f1c14e8c756a",
+            "de", "d-cd28a8fac8954eb5a3e7e4e59a4ed941"
     )),
     RESET_PASSWORD(Map.of(
             "en", "d-f8d2aeb202e34ad4981fd417a5b22cab",

@@ -1,6 +1,6 @@
 package com.pawsitive.pawsitive.geolocation.model;
 
-import com.pawsitive.pawsitive.pet.model.Pet;
+import com.pawsitive.pawsitive.scan.model.ScanEvent;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,17 +13,22 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ScannedLocation extends Location {
+    @OneToOne
+    @JoinColumn(name = "scan_event_id", nullable = false)
+    private ScanEvent scanEvent;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "pet_id", nullable = false)
-    private Pet pet;
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
 
     @Builder
-    public ScannedLocation(Long id, double latitude, double longitude, LocalDateTime scannedAt, Pet pet) {
-        super.setId(id);
-        super.setLatitude(latitude);
-        super.setLongitude(longitude);
-        super.setScannedAt(scannedAt);
-        this.pet = pet;
+    public ScannedLocation(Double latitude, Double longitude, ScanEvent scanEvent) {
+        this.setLatitude(latitude);
+        this.setLongitude(longitude);
+        this.scanEvent = scanEvent;
     }
 }

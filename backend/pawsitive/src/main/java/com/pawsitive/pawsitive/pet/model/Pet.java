@@ -39,9 +39,6 @@ public class Pet {
     @OneToOne(mappedBy = "pet", cascade = CascadeType.ALL)
     private NfcTag nfcTag;
 
-    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ScannedLocation> scannedLocations = new ArrayList<>();
-
     @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
