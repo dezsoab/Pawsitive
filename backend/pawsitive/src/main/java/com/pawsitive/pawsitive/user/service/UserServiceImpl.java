@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Optional;
@@ -42,6 +43,13 @@ public class UserServiceImpl implements UserService {
     public User getUserByOwnerId(Long ownerId) {
         return userRepository.findByOwnerId(ownerId)
                 .orElseThrow(() -> new UserNotFoundException("User not found with connection to owner id {}" + ownerId));
+    }
+
+    @Override
+    public long countUsersByRegistrationDate(LocalDate date) {
+        LocalDateTime startOfDay = date.atStartOfDay();
+        LocalDateTime endOfDay = date.plusDays(1).atStartOfDay();
+        return userRepository.countByCreatedAtBetween(startOfDay, endOfDay);
     }
 
     @Override
