@@ -40,7 +40,6 @@ const ForgotPassword = ({ setShowForgotPasswordModal }: Props) => {
 
   return (
     <>
-      <ToastContainer style={{ fontSize: "var(--font-small)" }} />
       <div
         className={styles.forgot_modal}
         onClick={() => setShowForgotPasswordModal(false)}
