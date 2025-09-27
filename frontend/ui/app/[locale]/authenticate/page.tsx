@@ -14,6 +14,7 @@ import { queryParams } from "@/enums/queryParams";
 
 import styles from "./AuthenticatePage.module.css";
 import RegisterForm from "./RegisterForm";
+import { ToastContainer } from "react-toastify";
 
 export default function AuthenticatePage() {
   const searchParams = useSearchParams();
@@ -43,6 +44,7 @@ export default function AuthenticatePage() {
     <Cat />
   ) : (
     <>
+      <ToastContainer style={{ fontSize: "var(--font-small)" }} />
       <Navbar style={{ backgroundColor: "var(--color-green)" }} />
       <div>
         {switchToRegisterForm && (

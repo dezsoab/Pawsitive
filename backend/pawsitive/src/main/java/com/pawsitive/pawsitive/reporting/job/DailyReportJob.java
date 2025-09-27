@@ -22,7 +22,7 @@ public class DailyReportJob {
         this.reports = reports;
     }
 
-    // Runs every 5 minutes
+    // Runs every day at 6pm
     @Scheduled(cron = "0 0 18 * * ?", zone = "Europe/Vienna")
     public void run() {
         logger.info("Running scheduled report job with {} reports", reports.size());
