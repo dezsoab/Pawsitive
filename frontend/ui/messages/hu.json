@@ -155,7 +155,8 @@
     "logout": "Kijelentkezés",
     "profil": "Profil",
     "pets": "Állataim",
-    "personal": "Személyes"
+    "personal": "Személyes",
+    "impressum": "Impresszum"
   },
   "NotFound": {
     "title": "Hoppá, ez az oldal nem található.",

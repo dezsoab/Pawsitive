@@ -155,7 +155,8 @@
     "logout": "Abmelden",
     "profil": "Profil",
     "pets": "Haustiere",
-    "personal": "Persönliche"
+    "personal": "Persönliche",
+    "impressum": "Impressum"
   },
   "NotFound": {
     "title": "Hoppla, diese Seite hat sich verirrt.",

@@ -3,8 +3,8 @@ export enum navigationRoutes {
   HOME = "/home",
   CONTACT = "/contact",
   SHOP = "https://shop.pawsitivecollar.com",
-  PRIVACY = "/privacy-policy",
-  TERMS = "/terms-and-conditions",
+  PRIVACY = "https://shop.pawsitivecollar.com/policies/privacy-policy",
+  TERMS = "https://shop.pawsitivecollar.com/policies/terms-of-service",
   FAQs = "/FAQs",
   INSTA = "https://www.instagram.com/pawsitivecollar_/",
   FACEBOOK = "https://www.facebook.com/profile.php?id=61579176221351",
@@ -13,4 +13,5 @@ export enum navigationRoutes {
   AUTH = "/authenticate",
   PET = "/pet",
   NOTFOUND = "/404",
+  IMPRESSUM = "https://shop.pawsitivecollar.com/policies/legal-notice",
 }

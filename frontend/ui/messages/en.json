@@ -155,7 +155,8 @@
     "logout": "Logout",
     "profil": "Profile",
     "pets": "Pets",
-    "personal": "Personal"
+    "personal": "Personal",
+    "impressum": " Legal Notice"
   },
   "NotFound": {
     "title": "Uh-oh, this page took a wrong turn.",
