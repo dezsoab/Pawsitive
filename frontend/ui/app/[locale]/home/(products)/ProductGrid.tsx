@@ -7,63 +7,71 @@ import { useLocale } from "next-intl";
 import styles from "./ProductGrid.module.css";
 import ProductCard from "./ProductCard";
 
-import prod1 from "../../../../public/assets/prod1.webp";
-import prod2 from "../../../../public/assets/prod2.webp";
-import prod3 from "../../../../public/assets/prod3.webp";
-import prod4 from "../../../../public/assets/prod4.webp";
-import prod5 from "../../../../public/assets/prod5.webp";
-import prod6 from "../../../../public/assets/prod6.webp";
-import prod7 from "../../../../public/assets/prod7.webp";
-import prod8 from "../../../../public/assets/prod8.webp";
+import prod1 from "../../../../public/assets/prod1.JPEG";
+import prod2 from "../../../../public/assets/prod2.JPEG";
+import prod3 from "../../../../public/assets/prod3.jpg";
+import prod4 from "../../../../public/assets/prod4.JPEG";
+import prod5 from "../../../../public/assets/prod5.jpg";
+import prod6 from "../../../../public/assets/prod6.JPEG";
+import prod7 from "../../../../public/assets/prod7.JPEG";
+import prod8 from "../../../../public/assets/prod8.JPEG";
 
 const products = [
   {
     id: 1,
-    title: "Ember Trail",
+    title: "Solin",
     img: prod1,
-    description: "Description for Product 1",
+    description: "Meet Solin - The Play Leash",
+    href: "https://shop.pawsitivecollar.com/products/solin",
   },
   {
     id: 2,
-    title: "Mystic Melody",
+    title: "Pyrris",
     img: prod2,
-    description: "Description for Product 2",
+    description: "Meet Pyrris – The Flame Reborn Collar",
+    href: "https://shop.pawsitivecollar.com/products/pyrris",
   },
   {
     id: 3,
-    title: "Aqua Aura",
+    title: "Accira",
     img: prod3,
-    description: "Description for Product 3",
+    description: "Meet Accira – The Summoner’s Collar",
+    href: "https://shop.pawsitivecollar.com/products/accira",
   },
   {
     id: 4,
-    title: "Rainbow Realm",
+    title: "Nexis",
     img: prod4,
-    description: "Description for Product 4",
+    description: "Meet Nexis – The Triple Flow Leash",
+    href: "https://shop.pawsitivecollar.com/products/nexis",
   },
   {
     id: 5,
-    title: "Whispering Woods",
+    title: "Protegon",
     img: prod5,
-    description: "Description for Product 5",
+    description: "Meet Protegon – The Guardian Spirit’s Collar",
+    href: "https://shop.pawsitivecollar.com/products/protegon",
   },
   {
     id: 6,
-    title: "Cosmic Comfort",
+    title: "Veyra",
     img: prod6,
-    description: "Description for Product 6",
+    description: "Meet Veyra – The Twin Currents Collar",
+    href: "https://shop.pawsitivecollar.com/products/veyra",
   },
   {
     id: 7,
-    title: "Phoenix Flame",
+    title: "Lumora",
     img: prod7,
-    description: "Description for Product 7",
+    description: "Meet Lumora – The Light Bringer`s Collar",
+    href: "https://shop.pawsitivecollar.com/products/lumora",
   },
   {
     id: 8,
-    title: "Mossheart",
+    title: "Pixa",
     img: prod8,
-    description: "Description for Product 8",
+    description: "Meet Pixa – The Little Wonder Collar",
+    href: "https://shop.pawsitivecollar.com/products/pixa",
   },
 ];
 

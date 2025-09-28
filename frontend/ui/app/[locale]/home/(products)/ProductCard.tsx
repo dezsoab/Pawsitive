@@ -8,6 +8,7 @@ interface Product {
   title: string;
   img: StaticImageData;
   description: string;
+  href: string;
 }
 
 interface ProductCardProps {
@@ -19,27 +20,32 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({
   product,
-  locale,
   index,
   productRefs,
 }) => {
   return (
-    // <Link key={product.id} href={`/product/${product.id}`} locale={locale}> // leave for later reference when the products will
-    // get linked to Shopify
-    // for now it is enough to make it not clickable so using a single DIV
-    <div key={product.id}>
+    <a
+      key={product.id}
+      href={product.href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <div
         ref={(el) => {
           productRefs.current[index] = el;
         }}
         className={`${styles.product_card} ${styles.hidden}`}
       >
-        <Image src={product.img} alt={product.title} width={300} height={300} />
+        <Image
+          src={product.img}
+          alt={product.description}
+          width={300}
+          height={300}
+        />
         <h3>{product.title}</h3>
         <p>{product.description}</p>
       </div>
-    </div>
-    // </Link>
+    </a>
   );
 };
 
