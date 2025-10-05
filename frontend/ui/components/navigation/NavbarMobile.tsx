@@ -21,6 +21,9 @@ import { isActivePath } from "@/util/isActivePath";
 const NavbarMobile = () => {
   const locale = useLocale();
   const t = useTranslations();
+
+  const local = locale === "hu" || locale === "de" ? locale : ""; //shop defaults to english without locale
+
   const ref = useRef<HTMLDivElement>(null);
   const { isLoggedIn } = useAuth();
 
@@ -143,7 +146,7 @@ const NavbarMobile = () => {
         </ul>
         <CTAButton
           title={t("Navigation.shop")}
-          toPath={navigationRoutes.SHOP}
+          toPath={navigationRoutes.SHOP + `/${local}`}
           style={{
             backgroundColor: "var(--color-pink-mid)",
             color: "var(--color-white)",
