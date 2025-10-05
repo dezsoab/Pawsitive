@@ -4,4 +4,5 @@ type HUMessages = typeof import("./messages/hu.json");
 
 declare interface IntlMessages extends HUMessages, ENMessages, DEMessages {}
 
+declare module "*.JPEG";
 declare module "*.JPG";
