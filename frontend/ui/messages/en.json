@@ -155,7 +155,8 @@
     "logout": "Logout",
     "profil": "Profile",
     "pets": "Pets",
-    "personal": "Personal"
+    "personal": "Personal",
+    "impressum": "Legal Notice"
   },
   "NotFound": {
     "title": "Uh-oh, this page took a wrong turn.",
@@ -262,7 +263,7 @@
       "whatToDo": "Join our community to protect and connect your pets wherever they go.",
       "loginInstead": "Already have an account? "
     },
-    "proof": "Trusted by thousands of happy pet owners"
+    "proof": "More and more pet owners trust us"
   },
   "ScannedPetDetail": {
     "thankYouMessage": "You're a hero! 🐾 Thanks for helping {petName} find their way home.",

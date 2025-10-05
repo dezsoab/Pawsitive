@@ -11,6 +11,7 @@ const CTASection = () => {
   const locale = useLocale();
 
   logger.info("Using Home -> CTA");
+  const local = locale === "hu" || locale === "de" ? locale : ""; //shop defaults to english without locale
 
   return (
     <section className={styles.cta}>
@@ -19,7 +20,7 @@ const CTASection = () => {
       <div>
         <CTAButton
           locale={locale}
-          toPath={navigationRoutes.SHOP}
+          toPath={navigationRoutes.SHOP + `/${local}`}
           style={{
             backgroundColor: "var(--color-pink-mid)",
             color: "var(--color-white)",
