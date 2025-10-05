@@ -3,6 +3,7 @@ package com.pawsitive.pawsitive.user.repository;
 import com.pawsitive.pawsitive.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
@@ -11,4 +12,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByOwnerId(Long ownerId);
 
     boolean existsByEmail(String email);
+
+    long countByCreatedAtBetween(LocalDateTime start, LocalDateTime end);
 }

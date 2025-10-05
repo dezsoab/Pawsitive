@@ -17,20 +17,31 @@ const Footer = () => {
         <p>{t("Index.footer.paragraph")}</p>
         <ul>
           <li>
-            <Link href={navigationRoutes.ABOUT}>{t("Navigation.about")}</Link>
+            <a
+              href={navigationRoutes.IMPRESSUM}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("Navigation.impressum")}
+            </a>
           </li>
           <li>
-            <Link href={navigationRoutes.CONTACT}>
-              {t("Navigation.contact")}
-            </Link>
-          </li>
-          <li>
-            <Link href={navigationRoutes.PRIVACY}>
+            <a
+              href={navigationRoutes.PRIVACY}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {t("Navigation.privacy")}
-            </Link>
+            </a>
           </li>
           <li>
-            <Link href={navigationRoutes.TERMS}>{t("Navigation.terms")}</Link>
+            <a
+              href={navigationRoutes.TERMS}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("Navigation.terms")}
+            </a>
           </li>
           <li>
             <Link href={navigationRoutes.FAQs}>{t("Navigation.faqs")}</Link>

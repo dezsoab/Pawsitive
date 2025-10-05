@@ -11,6 +11,8 @@ const HeroContent = () => {
   const locale = useLocale();
   const t = useTranslations();
 
+  const local = locale === "hu" || locale === "de" ? locale : ""; //shop defaults to english without locale
+
   logger.info("Using Home -> hero");
 
   return (
@@ -24,7 +26,7 @@ const HeroContent = () => {
       <div>
         <p>{t("Index.hero.description")}</p>
         <CTAButton
-          toPath={navigationRoutes.SHOP}
+          toPath={navigationRoutes.SHOP + `/${local}`}
           title={t("Navigation.shop")}
           style={{
             backgroundColor: "var(--color-pink-mid)",

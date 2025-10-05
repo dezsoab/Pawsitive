@@ -43,6 +43,8 @@ const Navbar = ({ style }: NabarProps) => {
   const locale = useLocale();
   const t = useTranslations();
 
+  const local = locale === "hu" || locale === "de" ? locale : ""; //shop defaults to english without locale
+
   const authBtn = isLoggedIn ? (
     <li>
       <Link
@@ -152,7 +154,7 @@ const Navbar = ({ style }: NabarProps) => {
       </ul>
       <CTAButton
         title={t("Navigation.shop")}
-        toPath={navigationRoutes.SHOP}
+        toPath={navigationRoutes.SHOP + `/${local}`}
         style={{
           backgroundColor: "var(--color-pink-mid)",
           color: "var(--color-white)",

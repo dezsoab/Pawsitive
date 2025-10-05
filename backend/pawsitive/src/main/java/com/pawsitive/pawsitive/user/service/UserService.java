@@ -4,6 +4,9 @@ import com.pawsitive.pawsitive.dto.ForgotPasswordRequestDTO;
 import com.pawsitive.pawsitive.dto.ResetPasswordDTO;
 import com.pawsitive.pawsitive.user.model.User;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public interface UserService {
     User registerUser(User user);
 
@@ -20,4 +23,6 @@ public interface UserService {
     void handleForgotPassword(ForgotPasswordRequestDTO requestDTO);
 
     void handleResetPassword(ResetPasswordDTO dto);
+
+    long countUsersByRegistrationDate(LocalDate today);
 }
