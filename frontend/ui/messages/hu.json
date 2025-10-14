@@ -219,7 +219,8 @@
       "start": "Kattints a ceruzára a mezők szerkesztéséhez",
       "cancel": "Kattints a ceruzára a szerkesztés megszakításához"
     },
-    "myPets": "Kisállataim"
+    "myPets": "Kisállataim",
+    "tagLinkSuccess": "A biléta sikeresen összekapcsolva vele: {name} 🎉"
   },
   "Auth": {
     "field": {

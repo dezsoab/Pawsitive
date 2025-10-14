@@ -219,7 +219,8 @@
       "start": "Click on the pen to edit the fields",
       "cancel": "Click on the pen to cancel editing"
     },
-    "myPets": "My Pets"
+    "myPets": "My Pets",
+    "tagLinkSuccess": "Tag has been successfully linked to {name} 🎉"
   },
   "Auth": {
     "field": {

@@ -22,7 +22,7 @@ const NotFoundPage = () => {
           <p>{t("NotFound.title_secondary")}</p>
           <CTAButton
             title={t("Navigation.home")}
-            toPath={navigationRoutes.HOME}
+            toPath={navigationRoutes.AUTH}
             style={{
               backgroundColor: "var(--color-pink-mid)",
               color: "var(--color-white)",
