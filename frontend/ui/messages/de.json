@@ -219,7 +219,8 @@
       "start": "Klicke auf den Stift, um die Felder zu bearbeiten",
       "cancel": "Klicke auf den Stift, um das Bearbeiten abzubrechen"
     },
-    "myPets": "Meine Haustiere"
+    "myPets": "Meine Haustiere",
+    "tagLinkSuccess": "Das Tag wurde erfolgreich mit {name} verknüpft 🎉"
   },
   "Auth": {
     "field": {

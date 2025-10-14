@@ -20,18 +20,9 @@ const ProfileNavbar = ({ activeTab, setActiveTab }: ProfileNavbarProps) => {
 
   return (
     <div className={styles.nav}>
-      <Link
-        href={navigationRoutes.HOME}
-        locale={locale}
-        className={styles.logoLink}
-      >
+      <Link href={""} locale={locale} className={styles.logoLink}>
         <Image src={logo} width={100} height={100} alt="Pawsitivecollar logo" />
       </Link>
-      <button>
-        <Link href={navigationRoutes.HOME} locale={locale}>
-          {t("home")}
-        </Link>
-      </button>
       <button onClick={() => setActiveTab(profileTabs.PERSONAL)}>
         <Link
           href="#"

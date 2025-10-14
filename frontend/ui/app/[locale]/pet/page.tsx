@@ -28,7 +28,7 @@ const ScannedPetProfile: React.FC = () => {
         setPet(petData);
       } catch (error) {
         console.error("Error fetching pet data", error);
-        router.push(navigationRoutes.HOME);
+        router.push(navigationRoutes.NOTFOUND);
       } finally {
         setLoading(false);
       }

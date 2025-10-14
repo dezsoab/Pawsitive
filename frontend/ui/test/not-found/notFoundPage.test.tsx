@@ -44,7 +44,7 @@ describe("NotFoundPage Component Tests", () => {
     const ctaButton = screen.getByText(locales.en.messages.Navigation.home);
     expect(ctaButton.closest("a")).toHaveAttribute(
       "href",
-      navigationRoutes.HOME
+      navigationRoutes.AUTH
     );
   });
 

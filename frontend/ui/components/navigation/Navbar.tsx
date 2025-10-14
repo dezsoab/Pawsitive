@@ -87,7 +87,7 @@ const Navbar = ({ style }: NabarProps) => {
       className={`${styles.navBar} ${scrolled ? styles.scrolled : ""}`}
       style={style}
     >
-      <Link href={navigationRoutes.HOME} locale={locale}>
+      <Link href={""} locale={locale}>
         <Image
           src={logoImg}
           width={100}
@@ -96,45 +96,6 @@ const Navbar = ({ style }: NabarProps) => {
         />
       </Link>
       <ul>
-        <li>
-          <Link
-            href={navigationRoutes.HOME}
-            locale={locale}
-            className={
-              isActivePath(navigationRoutes.HOME, currentPath)
-                ? styles.active
-                : ""
-            }
-          >
-            {t("Navigation.home")}
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={navigationRoutes.ABOUT}
-            locale={locale}
-            className={
-              isActivePath(navigationRoutes.ABOUT, currentPath)
-                ? styles.active
-                : ""
-            }
-          >
-            {t("Navigation.about")}
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={navigationRoutes.CONTACT}
-            locale={locale}
-            className={
-              isActivePath(navigationRoutes.CONTACT, currentPath)
-                ? styles.active
-                : ""
-            }
-          >
-            {t("Navigation.contact")}
-          </Link>
-        </li>
         {isLoggedIn && (
           <li>
             <Link
