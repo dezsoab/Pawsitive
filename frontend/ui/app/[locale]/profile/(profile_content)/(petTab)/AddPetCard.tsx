@@ -69,7 +69,7 @@ const AddPetCard = ({ profile, setProfile }: PetCardsProps) => {
         success: {
           render({ data }: { data: PetDTO }) {
             setTagConsumed(true);
-            return "Tag has been successfully linked to " + data.name + " 🎉";
+            return `${t("Dashboard.tagLinkSuccess", { name: data.name })}`;
           },
         },
         error: {

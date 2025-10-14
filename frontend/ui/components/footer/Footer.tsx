@@ -43,9 +43,6 @@ const Footer = () => {
               {t("Navigation.terms")}
             </a>
           </li>
-          <li>
-            <Link href={navigationRoutes.FAQs}>{t("Navigation.faqs")}</Link>
-          </li>
         </ul>
         <hr />
         <div className={styles.footer_end}>

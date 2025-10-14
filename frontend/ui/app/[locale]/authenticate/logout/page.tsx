@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import React, { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { navigationRoutes } from "@/enums/navigationRoutes";
 
 const Logout = () => {
   const { setIsLoggedIn } = useAuth();
@@ -12,26 +13,25 @@ const Logout = () => {
   useEffect(() => {
     const performLogout = async () => {
       try {
-        await toast
-          .promise(
-            logoutUser(),
-            {
-              pending: "Logging out...",
-              success: "Successfully logged out!",
-            },
-            { position: "bottom-right" }
-          )
-          .then(() => {
-            setIsLoggedIn(false);
-          })
-          .then(() => router.push("/home")); // Redirect immediately after logout
+        await toast.promise(
+          logoutUser(),
+          {
+            pending: "Logging out...",
+            success: "Successfully logged out!",
+            error: "Error during logout", // Optional
+          },
+          { position: "bottom-right" }
+        );
       } catch (e) {
         console.error("Logout error:", e);
+      } finally {
+        setIsLoggedIn(false);
+        router.push(navigationRoutes.AUTH);
       }
     };
 
     performLogout();
-  });
+  }, []);
 
   return (
     <div>

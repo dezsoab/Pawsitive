@@ -14,9 +14,6 @@ import CTAButton from "../cta/CTAButton";
 import LanguagePicker from "../language/LanguagePicker";
 import Hamburger from "./Hamburger";
 import { useAuth } from "@/context/AuthContext";
-import Cat from "../loader/Cat";
-import { usePathname } from "next/navigation";
-import { isActivePath } from "@/util/isActivePath";
 
 const NavbarMobile = () => {
   const locale = useLocale();
@@ -28,8 +25,6 @@ const NavbarMobile = () => {
   const { isLoggedIn } = useAuth();
 
   const [scrolled, setScrolled] = useState(false);
-  const currentPath = usePathname();
-  const [showLoadingScreen, setShowLoadingScreen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,20 +42,12 @@ const NavbarMobile = () => {
   const toggleNavigation = () => {
     ref.current!.classList.toggle(styles.active);
     document.body.classList.toggle(styles.noscroll); // to disable scroll underneath when menu is active
-    setShowLoadingScreen(false);
   };
 
   const renderLoadingScreen = () => {
-    setShowLoadingScreen(true);
     ref.current?.classList.remove(styles.active);
     document.body.classList.remove(styles.noscroll);
   };
-
-  // if not already on AUTH page -> render cat due to printer model takes long to load in
-  // if (showLoadingScreen && !isActivePath(navigationRoutes.AUTH, currentPath)) {
-  //   alert("rendering cat");
-  //   return <Cat />;
-  // }
 
   const authBtn = isLoggedIn ? (
     <li>
@@ -88,12 +75,7 @@ const NavbarMobile = () => {
     <header
       className={`${styles.navHeader} ${scrolled ? styles.scrolled : ""}`}
     >
-      <Link
-        href={navigationRoutes.HOME}
-        locale={locale}
-        className={styles.logo}
-        onClick={() => setShowLoadingScreen(false)}
-      >
+      <Link href={""} locale={locale} className={styles.logo}>
         <Image
           src={logoImg}
           width={100}
@@ -104,33 +86,6 @@ const NavbarMobile = () => {
       <Hamburger ref={ref} onClick={toggleNavigation} />
       <nav className={styles.navBarMobile}>
         <ul>
-          <li>
-            <Link
-              href={navigationRoutes.HOME}
-              locale={locale}
-              onClick={toggleNavigation}
-            >
-              {t("Navigation.home")}
-            </Link>
-          </li>
-          <li>
-            <Link
-              href={navigationRoutes.ABOUT}
-              locale={locale}
-              onClick={toggleNavigation}
-            >
-              {t("Navigation.about")}
-            </Link>
-          </li>
-          <li>
-            <Link
-              href={navigationRoutes.CONTACT}
-              locale={locale}
-              onClick={toggleNavigation}
-            >
-              {t("Navigation.contact")}
-            </Link>
-          </li>
           {isLoggedIn && (
             <li>
               <Link
