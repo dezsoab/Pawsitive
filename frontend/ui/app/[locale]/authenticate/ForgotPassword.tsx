@@ -5,7 +5,7 @@ import styles from "./ForgotPassword.module.css";
 import { useLocale, useTranslations } from "next-intl";
 import { sendEmailAddress } from "@/api/post/sendEmailAddress";
 import { ForgotPasswordRequestDTO } from "@/types/ForgotPasswordRequestDTO";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 interface Props {
   setShowForgotPasswordModal: React.Dispatch<React.SetStateAction<boolean>>;
