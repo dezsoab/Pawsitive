@@ -38,6 +38,7 @@ const ScannedPetDetail = () => {
 
   const handleLocationPermission = (info: PetInformationDTO) => {
     if (petId == null) return;
+    if (petInformation == null) return;
     setShowLocationPrompt(false);
 
     navigator.geolocation.getCurrentPosition(
@@ -71,6 +72,10 @@ const ScannedPetDetail = () => {
       },
       (error) => {
         console.warn("Standort konnte nicht ermittelt werden: ", error);
+        saveScannedLocation({
+          pet: petInformation.petDTO,
+          locale,
+        });
       },
       {
         enableHighAccuracy: true,
