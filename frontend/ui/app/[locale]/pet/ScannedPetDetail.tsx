@@ -72,10 +72,7 @@ const ScannedPetDetail = () => {
       },
       (error) => {
         console.warn("Standort konnte nicht ermittelt werden: ", error);
-        saveScannedLocation({
-          pet: petInformation.petDTO,
-          locale,
-        });
+        handleNoConsent();
       },
       {
         enableHighAccuracy: true,
