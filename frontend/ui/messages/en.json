@@ -194,6 +194,7 @@
     "stopEditAction": "stop editing",
     "cancel": "Cancel",
     "save": "Save",
+    "delete": "Delete",
     "addPetLabel": "Add pet",
     "personal": {
       "email": "Email",
