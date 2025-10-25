@@ -136,7 +136,7 @@ public class AuthServiceImpl implements AuthService {
         setCookieHeader(response, cookie);
 
         try {
-            sendGridEmailService.sendWelcomeEmail(owner.getLastName(), user.getEmail(), dto.preferredLanguage());
+            sendGridEmailService.sendWelcomeEmail(owner.getFirstName(), user.getEmail(), dto.preferredLanguage());
         } catch (Exception e) {
             logger.error("Failed to send welcome email to {}: {}", user.getEmail(), e.getMessage(), e);
         }

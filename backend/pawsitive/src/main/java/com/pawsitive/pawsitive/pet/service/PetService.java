@@ -8,17 +8,16 @@ import com.pawsitive.pawsitive.pet.model.Pet;
 import java.util.List;
 
 public interface PetService {
-    List<Pet> getAllPets();
 
     Pet getPetById(Long id);
 
     Pet createPet(CreatePetDTO createPetDTO);
-
-    void deletePet(Long id);
 
     List<Pet> getByOwnerId(Long id);
 
     void updatePet(String id, PetDTO petDTO);
 
     PetInformationDTO getPetInformation(Long petId);
+
+    void deletePet(PetDTO petDTO);
 }
