@@ -196,6 +196,8 @@
     "save": "Speichern",
     "delete": "Löschen",
     "addPetLabel": "Haustier hinzufügen",
+    "editDifferentPetWithoutSave": "Änderungen verwerfen und ein anderes Haustier bearbeiten?",
+    "finishEditingCurrentPet": "Beende die Bearbeitung des aktuellen Haustiers, bevor du ein anderes auswählst.",
     "personal": {
       "email": "E-Mail",
       "firstName": "Vorname",

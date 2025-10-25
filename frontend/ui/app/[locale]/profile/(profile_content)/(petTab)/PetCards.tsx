@@ -62,17 +62,29 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
 
   const t = useTranslations();
 
-  const toggleEditMode = (petId: number) => {
-    if (editPetId !== null && editPetId !== petId) {
+  const toggleEditMode = (pet: PetDTO) => {
+    if (editPetId !== null && editPetId !== pet.id) {
       const confirmSwitch = window.confirm(
-        "Discard changes and edit another pet?"
+        t("Dashboard.editDifferentPetWithoutSave")
       );
       if (!confirmSwitch) return;
+
+      setActivePet(pet);
+    } else {
+      setActivePet((prev) => (prev?.id === pet.id ? undefined : pet));
     }
-    setEditPetId((prevId) => (prevId === petId ? null : petId));
+
+    setEditPetId((prevId) => (prevId === pet.id ? null : pet.id));
   };
 
   const handleCardClick = (pet: PetDTO) => {
+    if (editPetId !== null && editPetId !== pet.id) {
+      toast.info(t("Dashboard.finishEditingCurrentPet"), {
+        position: "bottom-right",
+      });
+      return;
+    }
+
     setActivePet((prevPet) => (prevPet === pet ? undefined : pet));
   };
 
@@ -185,8 +197,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                           className={styles.editOption}
                           onClick={(e) => {
                             e.stopPropagation();
-                            toggleEditMode(pet.id);
-                            handleCardClick(pet);
+                            toggleEditMode(pet);
                           }}
                         >
                           <button

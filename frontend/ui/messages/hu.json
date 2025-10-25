@@ -196,6 +196,8 @@
     "save": "Mentés",
     "delete": "Törlés",
     "addPetLabel": "Háziállat hozzáadása",
+    "editDifferentPetWithoutSave": "Elveted a módosításokat és másik háziállatot szerkesztesz?",
+    "finishEditingCurrentPet": "Fejezd be az aktuális háziállat szerkesztését, mielőtt másikat választasz.",
     "personal": {
       "email": "Email",
       "firstName": "Keresztnév",

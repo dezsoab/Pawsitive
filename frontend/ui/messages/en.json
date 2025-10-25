@@ -196,6 +196,8 @@
     "save": "Save",
     "delete": "Delete",
     "addPetLabel": "Add pet",
+    "editDifferentPetWithoutSave": "Discard changes and edit another pet?",
+    "finishEditingCurrentPet": "Finish editing the current pet before selecting another one.",
     "personal": {
       "email": "Email",
       "firstName": "First Name",
