@@ -129,7 +129,7 @@
 }
 
 .card__infos {
-  padding: 0 2rem 2rem 2rem;
+  padding: 0 2rem 0 2rem;
 }
 
 .card__infos input {
@@ -184,51 +184,69 @@
   text-align: right;
 }
 
+.actionBtns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
 .submitBtn,
 .deleteBtn {
-  padding: 1rem 2rem;
+  flex: 1;
+  min-width: 120px;
+  padding: 1rem 2vw;
   border-radius: var(--rounding);
-  border: 3px solid transparent;
-  background-color: var(--color-pink-light);
+  border: none;
   cursor: pointer;
-  transition: 0.1s all linear;
+  transition: all 0.2s ease;
   font-size: var(--font-small);
   font-weight: 300;
-  color: black;
-  display: block;
-  float: right;
-  margin: 2rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.8rem;
 }
 
+.submitBtn,
 .deleteBtn {
-  float: left;
-  background-color: rgb(255, 0, 0);
-  color: white;
+  float: none;
+  margin-bottom: 1rem;
+}
+
+.submitBtn {
+  background-color: var(--color-pink-light);
+  color: var(--color-dark);
 }
 
 .submitBtn:hover {
   background-color: var(--color-pink-mid);
   color: var(--color-white);
-  border: 3px solid var(--color-pink-light);
-}
-
-.deleteBtn:hover {
-  background-color: var(--color-white);
-  color: red;
-  border: 3px solid red;
 }
 
 .submitBtn:hover svg {
   fill: var(--color-white);
 }
 
+.deleteBtn {
+  background: linear-gradient(to right, red 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  color: white;
+  background-color: rgb(211, 66, 66);
+  transition: background-position 0.2s ease-out, color 0.2s ease-out;
+}
+
+.deleteBtn:hover {
+  background-position: left bottom;
+}
+
 .submitBtn svg,
 .deleteBtn svg {
   width: 1.8rem;
-  margin-right: 1rem;
   transition: 0.1s all linear;
 }
 
@@ -236,8 +254,16 @@
   fill: white;
 }
 
-.deleteBtn:hover svg {
-  fill: red;
+@media (max-width: 480px) {
+  .actionBtns {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .submitBtn,
+  .deleteBtn {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 770px) {
