@@ -40,7 +40,7 @@ const DeleteModal = ({
         });
       })
       .catch((error) => {
-        toast.error(t("Dashboard.deletePetNotOK") + '"' + error.message + '"', {
+        toast.error(`${t("Dashboard.deletePetNotOK")} "${error.message}"`, {
           position: "bottom-right",
         });
       });
