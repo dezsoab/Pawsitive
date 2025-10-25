@@ -1,14 +1,11 @@
 package com.pawsitive.pawsitive.pet.model;
 
-import com.pawsitive.pawsitive.geolocation.model.ScannedLocation;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "pet")
@@ -36,7 +33,8 @@ public class Pet {
     @JoinColumn(name = "ownerId", nullable = false)
     private Owner owner;
 
-    @OneToOne(mappedBy = "pet", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @OneToOne(mappedBy = "pet")
     private NfcTag nfcTag;
 
     @Column(updatable = false)

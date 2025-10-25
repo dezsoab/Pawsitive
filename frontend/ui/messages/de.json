@@ -196,6 +196,10 @@
     "save": "Speichern",
     "delete": "Löschen",
     "addPetLabel": "Haustier hinzufügen",
+    "deletePetModalTitle": "Bist du sicher, dass du <petname></petname> entfernen möchtest?",
+    "deletePetModalDescription": "Diese Aktion kann nicht rückgängig gemacht werden. Das Profil deines Haustiers wird sicher entfernt, und die Hundemarke wird für die zukünftige Nutzung zurückgesetzt.",
+    "deletePetOK": "Das Profil deines Haustiers wurde erfolgreich entfernt. 🐾",
+    "deletePetNotOK": "Beim Entfernen des Haustierprofils ist ein Fehler aufgetreten: ",
     "editDifferentPetWithoutSave": "Änderungen verwerfen und ein anderes Haustier bearbeiten?",
     "finishEditingCurrentPet": "Beende die Bearbeitung des aktuellen Haustiers, bevor du ein anderes auswählst.",
     "personal": {

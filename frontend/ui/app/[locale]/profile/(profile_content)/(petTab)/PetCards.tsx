@@ -36,7 +36,7 @@ const updatePetInfo = async (updatedPet: PetDTO): Promise<void> => {
   await toast.promise(
     updatePet(updatedPet),
     {
-      pending: "Updating pet...",
+      pending: "Updating pet...", // TODO: Localize
       success: "Pet updated successfully!",
       error: "Failed to update pet.",
     },
@@ -125,8 +125,16 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
     setEditPetId(null);
   };
 
-  const onDeleteHandler = () => {
+  const onDeleteHandler = (pet: PetDTO) => {
+    setActivePet(pet);
     setShowDeletePetModal(true);
+  };
+
+  const handleOnDeletedPet = (deletedPetId: number) => {
+    const updatedPets = profile.pets.filter((pet) => pet.id !== deletedPetId);
+    setProfile({ ...profile, pets: updatedPets });
+    setActivePet(undefined);
+    setEditPetId(null);
   };
 
   return (
@@ -135,6 +143,7 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
         <DeleteModal
           chosenPet={activePet}
           closeHandler={setShowDeletePetModal}
+          handleOnDeletedPet={handleOnDeletedPet}
         />
       )}
       {cropModal && (
@@ -303,7 +312,10 @@ const PetCards = ({ profile, setProfile }: PetCardsProps) => {
                               <button
                                 type="button"
                                 className={styles.deleteBtn}
-                                onClick={onDeleteHandler}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  onDeleteHandler(pet);
+                                }}
                               >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"

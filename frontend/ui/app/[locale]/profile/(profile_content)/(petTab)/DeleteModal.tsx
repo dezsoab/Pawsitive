@@ -2,13 +2,23 @@ import React, { Dispatch, SetStateAction, useEffect } from "react";
 
 import styles from "./DeleteModal.module.css";
 import { PetDTO } from "@/types/PetDTO";
+import { useTranslations } from "next-intl";
+import { deletePet } from "@/api/delete/deletePet";
+import { toast } from "react-toastify";
 
 interface Props {
   chosenPet: PetDTO | undefined;
   closeHandler: Dispatch<SetStateAction<boolean>>;
+  handleOnDeletedPet: (deletedPetId: number) => void;
 }
 
-const DeleteModal = ({ chosenPet, closeHandler }: Props) => {
+const DeleteModal = ({
+  chosenPet,
+  closeHandler,
+  handleOnDeletedPet,
+}: Props) => {
+  const t = useTranslations();
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
@@ -17,26 +27,42 @@ const DeleteModal = ({ chosenPet, closeHandler }: Props) => {
     };
   }, []);
 
-  const handleClose = () => {
+  const handleClosingModal = () => {
     closeHandler(false);
+  };
+
+  const handleDeletingPet = () => {
+    deletePet(chosenPet!)
+      .then(() => {
+        handleOnDeletedPet(chosenPet!.id);
+        toast.success(t("Dashboard.deletePetOK"), {
+          position: "bottom-right",
+        });
+      })
+      .catch((error) => {
+        toast.error(t("Dashboard.deletePetNotOK") + '"' + error.message + '"', {
+          position: "bottom-right",
+        });
+      });
+
+    handleClosingModal();
   };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.modal}>
         <h2 className={styles.title}>
-          Are your sure you want to remove <span>{chosenPet?.name}</span> ?
+          {t.rich("Dashboard.deletePetModalTitle", {
+            petname: () => <span>{chosenPet?.name}</span>,
+          })}
         </h2>
-        <p>
-          This action cannot be undone. The tag will be factory reset and the
-          pet will get removed from the managed pet list.
-        </p>
+        <p>{t("Dashboard.deletePetModalDescription")}</p>
         <div className={styles.buttons}>
-          <button className={styles.cancelButton} onClick={handleClose}>
-            Cancel
+          <button className={styles.cancelButton} onClick={handleClosingModal}>
+            {t("Dashboard.cancel")}
           </button>
-          <button className={styles.deleteButton} onClick={handleClose}>
-            Delete
+          <button className={styles.deleteButton} onClick={handleDeletingPet}>
+            {t("Dashboard.delete")}
           </button>
         </div>
       </div>

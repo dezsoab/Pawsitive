@@ -196,6 +196,10 @@
     "save": "Save",
     "delete": "Delete",
     "addPetLabel": "Add pet",
+    "deletePetModalTitle": "Are you sure you want to remove <petname></petname> ?",
+    "deletePetModalDescription": "This action can’t be undone. Your pet’s profile will be safely removed, and the tag will be reset for future use.",
+    "deletePetOK": "Your pet’s profile was successfully removed. 🐾",
+    "deletePetNotOK": "An error occurred while removing your pet’s profile: ",
     "editDifferentPetWithoutSave": "Discard changes and edit another pet?",
     "finishEditingCurrentPet": "Finish editing the current pet before selecting another one.",
     "personal": {

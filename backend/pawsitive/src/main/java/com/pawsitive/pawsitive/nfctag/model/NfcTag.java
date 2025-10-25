@@ -2,10 +2,7 @@ package com.pawsitive.pawsitive.nfctag.model;
 
 import com.pawsitive.pawsitive.pet.model.Pet;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -23,6 +20,7 @@ public class NfcTag {
     @Column(unique = true, nullable = false)
     private String tagId;
 
+    @ToString.Exclude
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "petId")
     private Pet pet;
