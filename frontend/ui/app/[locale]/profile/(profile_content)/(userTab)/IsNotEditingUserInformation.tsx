@@ -24,6 +24,11 @@ const IsNotEditingUserInformation = ({ profile }: UserInformationProps) => {
       <label htmlFor="phone">{t("Dashboard.personal.phone")}</label>
       <p>{profile.owner.phone}</p>
 
+      <label htmlFor="phoneSecondary">
+        {t("Dashboard.personal.secondaryPhone")}
+      </label>
+      <p>{profile.owner.secondaryPhone}</p>
+
       <label htmlFor="country">{t("Dashboard.personal.country")}</label>
       <p>{profile.owner?.address?.country}</p>
 
