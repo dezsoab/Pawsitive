@@ -90,14 +90,10 @@ public class UserProfileServiceImpl implements UserProfileService {
         owner.setLastName(dto.owner().lastName());
         owner.setPhone(dto.owner().phone());
         owner.setAddressVisible(dto.owner().isAddressVisible());
-
-        if (dto.owner().address() != null) {
-            logger.info("Updating address for owner ID {}", owner.getId());
-            Address updatedAddress = addressMapper.toEntity(dto.owner().address());
-            owner.setAddress(updatedAddress);
-        } else {
-            logger.info("No valid address provided — skipping address update");
-        }
+        owner.setSecondaryPhone(dto.owner().secondaryPhone());
+        logger.info("Updating address for owner ID {}", owner.getId());
+        Address updatedAddress = addressMapper.toEntity(dto.owner().address());
+        owner.setAddress(updatedAddress);
     }
 
 

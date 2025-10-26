@@ -207,6 +207,7 @@
       "firstName": "First Name",
       "lastName": "Last Name",
       "phone": "Phone number",
+      "secondaryPhone": "Alternative phone number",
       "country": "Country",
       "zip": "Zip",
       "city": "City",

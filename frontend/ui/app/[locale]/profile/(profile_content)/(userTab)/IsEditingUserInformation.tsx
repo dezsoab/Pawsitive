@@ -22,6 +22,7 @@ const IsEditingUserInformation = ({
   const firstNameRef = useRef<HTMLInputElement>(null);
   const lastNameRef = useRef<HTMLInputElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
+  const secondaryPhoneRef = useRef<HTMLInputElement>(null);
   const countryRef = useRef<HTMLInputElement>(null);
   const zipRef = useRef<HTMLInputElement>(null);
   const cityRef = useRef<HTMLInputElement>(null);
@@ -47,7 +48,14 @@ const IsEditingUserInformation = ({
       return;
     }
 
-    const updatedProfile = {
+    if (
+      secondaryPhoneRef.current?.value &&
+      !validatePhoneNumber(secondaryPhoneRef.current?.value || "")
+    ) {
+      return;
+    }
+
+    const updatedProfile: ProfileInformationDTO = {
       ...profile,
       email: profile.email,
       owner: {
@@ -55,6 +63,7 @@ const IsEditingUserInformation = ({
         firstName: firstNameRef.current?.value || "",
         lastName: lastNameRef.current?.value || "",
         phone: phoneRef.current?.value.trim() || "",
+        secondaryPhone: secondaryPhoneRef.current?.value.trim() || null,
         address: {
           ...profile.owner.address,
           country: countryRef.current?.value || null,
@@ -65,6 +74,8 @@ const IsEditingUserInformation = ({
         isAddressVisible: consentRef.current?.checked || false,
       },
     };
+
+    console.log("Updated Profile:", updatedProfile);
 
     toast
       .promise(
@@ -118,6 +129,16 @@ const IsEditingUserInformation = ({
           name="phone"
           defaultValue={profile.owner.phone}
           placeholder={t("Dashboard.personal.phone")}
+        />
+        <label htmlFor="secondaryPhone">
+          {t("Dashboard.personal.secondaryPhone")}
+        </label>
+        <input
+          ref={secondaryPhoneRef}
+          id="secondaryPhone"
+          name="secondaryPhone"
+          defaultValue={profile.owner.secondaryPhone || ""}
+          placeholder={t("Dashboard.personal.secondaryPhone")}
         />
         <label htmlFor="country">{t("Dashboard.personal.country")}</label>
         <input

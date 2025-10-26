@@ -207,6 +207,7 @@
       "firstName": "Keresztnév",
       "lastName": "Vezetéknév",
       "phone": "Telefonszám",
+      "secondaryPhone": "Másodlagos telefonszám",
       "country": "Ország",
       "zip": "Irányítószám",
       "city": "Város",

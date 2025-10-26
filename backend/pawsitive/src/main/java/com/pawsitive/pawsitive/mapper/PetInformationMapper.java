@@ -30,7 +30,7 @@ public class PetInformationMapper implements Mapper<Pet, PetInformationDTO> {
 
         // Remove address if there is no consent from owner to show
         OwnerDTO ownerDTO = originalOwnerDTO.isAddressVisible() ? originalOwnerDTO : new OwnerDTO(originalOwnerDTO.id(),
-                originalOwnerDTO.firstName(), originalOwnerDTO.lastName(), originalOwnerDTO.phone(),
+                originalOwnerDTO.firstName(), originalOwnerDTO.lastName(), originalOwnerDTO.phone(), originalOwnerDTO.secondaryPhone(),
                 null, originalOwnerDTO.isAddressVisible(), null, null);
 
         User userByOwnerId = userService.getUserByOwnerId(ownerDTO.id());
