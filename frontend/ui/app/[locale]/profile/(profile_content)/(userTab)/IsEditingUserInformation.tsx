@@ -75,8 +75,6 @@ const IsEditingUserInformation = ({
       },
     };
 
-    console.log("Updated Profile:", updatedProfile);
-
     toast
       .promise(
         updateUserInformation(updatedProfile),
