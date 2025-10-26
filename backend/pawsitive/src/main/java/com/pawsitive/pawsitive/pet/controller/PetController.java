@@ -3,6 +3,7 @@ package com.pawsitive.pawsitive.pet.controller;
 import com.pawsitive.pawsitive.dto.CreatePetDTO;
 import com.pawsitive.pawsitive.dto.PetDTO;
 import com.pawsitive.pawsitive.dto.PetInformationDTO;
+import com.pawsitive.pawsitive.dto.RESTResponse;
 import com.pawsitive.pawsitive.owner.model.Owner;
 import com.pawsitive.pawsitive.owner.service.OwnerService;
 import com.pawsitive.pawsitive.pet.model.Pet;
@@ -33,7 +34,6 @@ public class PetController {
     @PutMapping("/{id}")
     public ResponseEntity<PetDTO> updatePet(@PathVariable String id, @RequestBody PetDTO petDTO) {
         logger.info("Received request to update pet with ID: {}", id);
-        logger.info("Received request to update petID: {}, as DTO: {}", id, petDTO);
         petService.updatePet(id, petDTO);
         return new ResponseEntity<>(petDTO, HttpStatus.OK);
     }
@@ -63,5 +63,13 @@ public class PetController {
         ResponseEntity<PetInformationDTO> body = ResponseEntity.status(HttpStatus.OK).body(petService.getPetInformation(id));
         logger.info("Returning PetInformationDTO for petId: {}", id);
         return body;
+    }
+
+
+    @DeleteMapping
+    public ResponseEntity<RESTResponse> deletePet(@RequestBody PetDTO petDTO) {
+        logger.info("Received request to delete pet: {}", petDTO);
+        petService.deletePet(petDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(new RESTResponse("Succesfully deleted pet: " + petDTO.name()));
     }
 }

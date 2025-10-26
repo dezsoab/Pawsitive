@@ -27,6 +27,8 @@ public class Owner {
     @Column(nullable = false)
     private String phone;
 
+    private String secondaryPhone;
+
     @OneToOne
     @JoinColumn(name = "userId", nullable = false)
     @ToString.Exclude

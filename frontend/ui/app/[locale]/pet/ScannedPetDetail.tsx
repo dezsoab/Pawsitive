@@ -201,7 +201,7 @@ const ScannedPetDetail = () => {
                 <div>
                   <p>
                     {petInformation?.ownerDTO.isAddressVisible
-                      ? petInformation.ownerDTO?.address?.city
+                      ? petInformation.ownerDTO?.address?.city || "-"
                       : "-"}
                   </p>
                   <span>{t("ScannedPetDetail.city")}</span>
@@ -212,8 +212,10 @@ const ScannedPetDetail = () => {
                 <DogHouseIcon />
                 <p>
                   {petInformation?.ownerDTO.isAddressVisible
-                    ? `${petInformation.ownerDTO?.address?.country}, ${petInformation.ownerDTO?.address?.city} ${petInformation.ownerDTO?.address?.zipCode}, 
-            ${petInformation.ownerDTO?.address?.street}`
+                    ? `${petInformation.ownerDTO?.address?.country || "-"}, ${
+                        petInformation.ownerDTO?.address?.city || "-"
+                      }, ${petInformation.ownerDTO?.address?.zipCode || "-"}, 
+            ${petInformation.ownerDTO?.address?.street || "-"}`
                     : "-"}
                 </p>
               </div>
@@ -236,6 +238,26 @@ const ScannedPetDetail = () => {
                   </a>
                 </div>
               </div>
+              {petInformation?.ownerDTO.secondaryPhone && (
+                <div className={styles.petContact}>
+                  <div className={styles.petContactPicture}>
+                    <p>
+                      {t("Dashboard.personal.secondaryPhone")
+                        .charAt(0)
+                        .toUpperCase()}
+                    </p>
+                  </div>
+                  <div className={styles.petContactPersonal}>
+                    <p>{t("Dashboard.personal.secondaryPhone")}</p>
+                    <p>{petInformation?.ownerDTO.secondaryPhone}</p>
+                  </div>
+                  <div className={styles.petContactCTA}>
+                    <a href={`tel:${petInformation?.ownerDTO.secondaryPhone}`}>
+                      <PhoneIcon />
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

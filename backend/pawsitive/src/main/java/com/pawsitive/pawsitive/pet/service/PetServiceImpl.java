@@ -8,6 +8,7 @@ import com.pawsitive.pawsitive.exception.TagInvalidException;
 import com.pawsitive.pawsitive.mapper.PetInformationMapper;
 import com.pawsitive.pawsitive.nfctag.model.NfcTag;
 import com.pawsitive.pawsitive.nfctag.model.TagStatus;
+import com.pawsitive.pawsitive.nfctag.repository.NfcTagRepository;
 import com.pawsitive.pawsitive.nfctag.service.NfcTagService;
 import com.pawsitive.pawsitive.pet.model.Pet;
 import com.pawsitive.pawsitive.pet.repository.PetRepository;
@@ -29,22 +30,40 @@ public class PetServiceImpl implements PetService {
     private final NfcTagService nfcTagService;
     private final UserService userService;
     private final PetInformationMapper petInformationMapper;
+    private final NfcTagRepository nfcTagRepository;
 
-    public PetServiceImpl(PetRepository petRepository, NfcTagService nfcTagService, UserService userService, PetInformationMapper petInformationMapper) {
+    public PetServiceImpl(PetRepository petRepository, NfcTagService nfcTagService, UserService userService, PetInformationMapper petInformationMapper, NfcTagRepository nfcTagRepository) {
         this.petRepository = petRepository;
         this.nfcTagService = nfcTagService;
         this.userService = userService;
         this.petInformationMapper = petInformationMapper;
-    }
-
-    @Override
-    public List<Pet> getAllPets() {
-        return petRepository.findAll();
+        this.nfcTagRepository = nfcTagRepository;
     }
 
     @Override
     public List<Pet> getByOwnerId(Long id) {
         return petRepository.findByOwnerId(id);
+    }
+
+    @Override
+    public void deletePet(PetDTO petDTO) {
+        logger.info("Deleting pet from database: {}", petDTO.id() + " : " + petDTO.name());
+        Pet pet = petRepository.findById(petDTO.id())
+                .orElseThrow(() -> new PetNotFoundException("Pet not found"));
+
+
+        NfcTag nfcTag = pet.getNfcTag();
+        if (Objects.nonNull(nfcTag)) {
+            logger.info("Unlinking nfc tag {} from pet {}", nfcTag.getTagId(), petDTO.id());
+            nfcTag.setPet(null);
+            nfcTag.setStatus(TagStatus.UNCLAIMED);
+            nfcTagRepository.save(nfcTag);
+        }
+
+        petRepository.delete(pet);
+
+        logger.info("Deleted pet: {} and reset tag: {}", petDTO.id(),
+                nfcTag != null ? nfcTag.getTagId() : "N/A");
     }
 
     @Override
@@ -127,14 +146,6 @@ public class PetServiceImpl implements PetService {
         logger.info("Pet with id {} created successfully, and attached to NFC Tag: {}", savedPet.getId(), nfcTagByTagId.getId());
 
         return savedPet;
-    }
-
-    @Override
-    public void deletePet(Long id) {
-        if (id == null) {
-            throw new IllegalArgumentException("Pet ID cannot be null");
-        }
-        petRepository.deleteById(id);
     }
 }
 
